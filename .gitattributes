@@ -1,0 +1,15 @@
+# Varsayılan: metin dosyalarını otomatik algıla
+* text=auto
+
+# Kod ve XML dosyaları her yerde LF kalsın
+*.py   text eol=lf
+*.sh   text eol=lf
+*.xml  text eol=lf
+
+# Windows scriptleri CRLF kalsın (istersen)
+*.bat  text eol=crlf
+*.ps1  text eol=crlf
+
+# Binary dosyalar
+*.png  binary
+*.jpg  binary
