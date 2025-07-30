@@ -1,0 +1,21 @@
+/* src/components/Dashboard/Dashboard.css */
+.dashboard-container {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 30px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.dashboard-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.dashboard-container p {
+  color: #666;
+  line-height: 1.6;
+}

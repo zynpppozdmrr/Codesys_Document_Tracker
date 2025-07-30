@@ -1,96 +1,57 @@
-import os
-from flask import Blueprint, request, jsonify, send_file
-from sqlalchemy import desc
+# api/diffs.py
 
-from codesys_doc_tracker import db
-from codesys_doc_tracker.models.xmlfile_model import XMLFile
-from codesys_doc_tracker.models.diff_model import Diff
-from services.diff_service import generate_and_save_diff
-
-apiDiff = Blueprint("apiDiff", __name__, url_prefix="/api/diffs")
+from flask import Blueprint, jsonify, request, send_from_directory
+from flask_jwt_extended import jwt_required, get_jwt_identity
+from services.diff_service import generate_and_save_diff, get_diff_report_html_content, DIFF_REPORTS_DIR
+from flask_cors import CORS
 
 
-def _get_payload():
-    """
-    Hem JSON hem x-www-form-urlencoded destekleyelim.
-    """
-    data = request.get_json(silent=True) or request.form
-    return data
+apiDiff = Blueprint('apiDiff', __name__, url_prefix='/api/diffs')
+CORS(apiDiff)
 
 
-@apiDiff.route("/compare", methods=["POST"])
-def compare():
-    """
-    Body:
-      - old_id (int)
-      - new_id (int)
-    Response:
-      - diff_id, diff_filename, line_count, old_file_path, new_file_path
-    """
+@apiDiff.route('/compare', methods=['POST'])
+@jwt_required()
+def compare_xml_files():
+    data = request.get_json()
+    file1_id = data.get('file1_id')
+    file2_id = data.get('file2_id')
+
+    if not file1_id or not file2_id:
+        return jsonify({"success": False, "message": "Her iki dosya ID'si de gerekli."}), 400
+
     try:
-        data = _get_payload()
-        old_id = int(data.get("old_id", 0))
-        new_id = int(data.get("new_id", 0))
+        diff_filename, diff_summary = generate_and_save_diff(file1_id, file2_id)
+        
+        return jsonify({
+            "success": True,
+            "message": "Fark karşılaştırma başarılı. Rapor oluşturuldu.",
+            "data": {
+                "diff_filename": diff_filename,
+                "summary": diff_summary
+            }
+        }), 200
 
-        if not old_id or not new_id:
-            return jsonify({"success": False, "message": "old_id ve new_id zorunludur."}), 400
-
-        result = generate_and_save_diff(old_id, new_id)
-        return jsonify({"success": True, "data": result})
-
-    except ValueError as ve:
-        return jsonify({"success": False, "message": str(ve)}), 400
-    except FileNotFoundError as fe:
-        return jsonify({"success": False, "message": str(fe)}), 404
+    except FileNotFoundError as e:
+        return jsonify({"success": False, "message": f"Dosya bulunamadı hatası: {str(e)}"}), 404
     except Exception as e:
-        # Geliştirme için:
-        # import traceback; traceback.print_exc()
-        return jsonify({"success": False, "message": f"Beklenmeyen hata: {str(e)}"}), 500
+        print(f"Hata oluştu: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"success": False, "message": f"Bir hata oluştu: {str(e)}"}), 500
 
 
-@apiDiff.route("/", methods=["GET"])
-def list_diffs():
-    """
-    Diff kayıtlarını listeler (en yeni ilk).
-    """
-    rows = Diff.query.order_by(desc(Diff.generated_at)).all()
-    data = []
-    for r in rows:
-        old_file = XMLFile.query.get(r.xmlfile_old_id)
-        new_file = XMLFile.query.get(r.xmlfile_new_id)
-        data.append({
-            "id": r.id,
-            "generated_at": r.generated_at.isoformat(),
-            "old_id": r.xmlfile_old_id,
-            "new_id": r.xmlfile_new_id,
-            "old_file_path": old_file.file_path if old_file else None,
-            "new_file_path": new_file.file_path if new_file else None,
-        })
-    return jsonify({"success": True, "data": data})
-
-
-@apiDiff.route("/<int:diff_id>", methods=["GET"])
-def get_diff(diff_id: int):
-    """
-    Tek bir diff kaydının meta bilgisini getirir (dosya içeriği değil).
-    """
-    r = Diff.query.get(diff_id)
-    if not r:
-        return jsonify({"success": False, "message": "Diff bulunamadı"}), 404
-
-    old_file = XMLFile.query.get(r.xmlfile_old_id)
-    new_file = XMLFile.query.get(r.xmlfile_new_id)
-
-    return jsonify({
-        "success": True,
-        "data": {
-            "id": r.id,
-            "generated_at": r.generated_at.isoformat(),
-            "old_id": r.xmlfile_old_id,
-            "new_id": r.xmlfile_new_id,
-            "old_file_path": old_file.file_path if old_file else None,
-            "new_file_path": new_file.file_path if new_file else None,
-        }
-    })
-
-
+@apiDiff.route('/report/<path:filename>', methods=['GET'])
+@jwt_required()
+def get_diff_report(filename):
+    try:
+        html_content = get_diff_report_html_content(filename)
+        # Content-Type'ı metin olarak değiştirdik
+        return html_content, 200, {'Content-Type': 'text/plain; charset=utf-8'} # <-- Content-Type güncellendi
+    except FileNotFoundError:
+        return jsonify({"success": False, "message": "Fark raporu bulunamadı."}), 404
+    except Exception as e:
+        print(f"Hata oluştu: {str(e)}")
+        import traceback
+        traceback.print_exc()
+        return jsonify({"success": False, "message": f"Rapor çekilirken bir hata oluştu: {str(e)}"}), 500

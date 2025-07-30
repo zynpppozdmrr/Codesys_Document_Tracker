@@ -1,0 +1,23 @@
+/* src/App.css */
+/* Bu dosya artık çoğunlukla global stilleri veya App bileşeninin kendisi için özel stilleri içerecek */
+/* Body stili index.css'e taşınabilir ama şimdilik burada kalsın */
+
+.placeholder-page {
+    padding: 30px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    text-align: center;
+    max-width: 600px;
+    margin: 20px auto;
+}
+
+.placeholder-page h2 {
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.placeholder-page p {
+    color: #666;
+    line-height: 1.6;
+}

@@ -1,0 +1,37 @@
+/* src/components/Layout/Sidebar.css */
+.sidebar {
+  width: 220px;
+  background-color: #2c3e50; /* Koyu arka plan */
+  color: white;
+  padding-top: 20px;
+  height: 100vh; /* Tam ekran yüksekliği */
+  position: fixed; /* Ekranı kaydırdığınızda sabit kalır */
+  top: 0;
+  left: 0;
+  box-shadow: 2px 0 5px rgba(0,0,0,0.1);
+}
+
+.sidebar-nav {
+  list-style: none; /* Liste işaretlerini kaldır */
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-nav li {
+  margin-bottom: 5px;
+}
+
+.sidebar-nav .nav-item {
+  display: block; /* Tüm alanı tıklanabilir yap */
+  padding: 12px 20px;
+  color: white;
+  text-decoration: none; /* Alt çizgiyi kaldır */
+  font-size: 1.1em;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.sidebar-nav .nav-item:hover,
+.sidebar-nav .nav-item.active { /* Aktif menü öğesi için stil */
+  background-color: #34495e;
+  color: #ecf0f1;
+}

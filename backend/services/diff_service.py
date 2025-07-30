@@ -1,109 +1,81 @@
 # services/diff_service.py
-import os
-from datetime import datetime
-from difflib import unified_diff
 
+import os
+import difflib # difflib import edilmiş
+import uuid
+import datetime
 from codesys_doc_tracker import db
 from codesys_doc_tracker.models.xmlfile_model import XMLFile
-from codesys_doc_tracker.models.diff_model import Diff
 
-# İstersen burada klasör adını özelleştirebilirsin
-XML_EXPORT_DIR = os.environ.get("CODESYS_XML_EXPORT_DIR", "CodesysXML_Export")
+# Configurable directory for saving diff reports
 DIFF_REPORTS_DIR = os.environ.get("DIFF_REPORTS_DIR", "DiffReports")
 
+# Ensure the diff reports directory exists
+if not os.path.exists(DIFF_REPORTS_DIR):
+    os.makedirs(DIFF_REPORTS_DIR)
 
-def _ensure_dirs():
-    os.makedirs(XML_EXPORT_DIR, exist_ok=True)
-    os.makedirs(DIFF_REPORTS_DIR, exist_ok=True)
-
-
-def _read_lines(path: str):
-    with open(path, "r", encoding="utf-8") as f:
-        return f.read().splitlines()
-
-
-def generate_and_save_diff(old_id: int, new_id: int):
+def generate_and_save_diff(file1_id: int, file2_id: int) -> tuple[str, str]:
     """
-    1) DB'den eski/yeni XMLFile kayıtlarını bulur
-    2) Dosyaları okur ve unified diff üretir
-    3) DiffReports klasörüne rapor olarak kaydeder
-    4) Diff tablosuna (old_id, new_id, generated_at) kaydeder
-    5) Özet bilgiyi döner
+    Veritabanından iki XML dosyasını çeker, aralarındaki farkları metin tabanlı olarak oluşturur,
+    kaydeder ve kaydedilen dosya adını ile bir özeti döndürür.
     """
-    _ensure_dirs()
+    file1 = XMLFile.query.get(file1_id)
+    file2 = XMLFile.query.get(file2_id)
 
-    if old_id == new_id:
-        raise ValueError("Karşılaştırma için iki farklı XML seçmelisiniz.")
+    if not file1 or not file2:
+        raise ValueError("Belirtilen dosyalardan biri veya ikisi bulunamadı.")
 
-    old_file = XMLFile.query.get(old_id)
-    new_file = XMLFile.query.get(new_id)
+    try:
+        with open(file1.file_path, 'r', encoding='utf-8') as f:
+            text1 = f.read()
+        with open(file2.file_path, 'r', encoding='utf-8') as f:
+            text2 = f.read()
+    except FileNotFoundError as e:
+        raise FileNotFoundError(f"Dosya okuma hatası: {e}. Dosya yollarının doğru olduğundan ve erişilebilir olduğundan emin olun.")
+    except Exception as e:
+        raise Exception(f"Dosya içeriği okunurken bir hata oluştu: {e}")
 
-    if not old_file:
-        raise FileNotFoundError(f"XMLFile(id={old_id}) bulunamadı.")
-    if not new_file:
-        raise FileNotFoundError(f"XMLFile(id={new_id}) bulunamadı.")
+    # Dosya adlarını file_path'ten çıkaralım
+    file1_name = os.path.basename(file1.file_path)
+    file2_name = os.path.basename(file2.file_path)
 
-    old_path = os.path.normpath(old_file.file_path)
-    new_path = os.path.normpath(new_file.file_path)
-
-    if not os.path.exists(old_path):
-        raise FileNotFoundError(f"Eski dosya bulunamadı: {old_path}")
-    if not os.path.exists(new_path):
-        raise FileNotFoundError(f"Yeni dosya bulunamadı: {new_path}")
-
-    old_lines = _read_lines(old_path)
-    new_lines = _read_lines(new_path)
-
-    diff_lines = list(unified_diff(
-        old_lines,
-        new_lines,
-        fromfile=f"OLD: {os.path.basename(old_path)}",
-        tofile=f"NEW: {os.path.basename(new_path)}",
-        lineterm=""
-    ))
-
-    # Diff rapor dosya adı (ör: diff_12_15_20250730_131530.txt)
-    ts = datetime.utcnow().strftime("%Y%m%d_%H%M%S")
-    diff_filename = f"diff_{old_id}_{new_id}_{ts}.txt"
-    diff_file_path = os.path.join(DIFF_REPORTS_DIR, diff_filename)
-
-    # Raporu yaz
-    with open(diff_file_path, "w", encoding="utf-8") as f:
-        if diff_lines:
-            f.write("\n".join(diff_lines))
-        else:
-            f.write("No changes.\n")
-
-    # Diff kaydını DB'ye yaz
-    diff_row = Diff(
-        xmlfile_old_id=old_id,
-        xmlfile_new_id=new_id,
-        generated_at=datetime.utcnow()
+    # difflib.unified_diff kullanarak metin tabanlı farkı oluştur
+    # fromfile ve tofile parametreleri diff çıktısının başlığında kullanılır
+    diff_lines = difflib.unified_diff(
+        text1.splitlines(keepends=True), # Satır sonlarını koru
+        text2.splitlines(keepends=True), # Satır sonlarını koru
+        fromfile=f"OLD: {file1_name}",
+        tofile=f"NEW: {file2_name}",
+        lineterm='' # unify_diff varsayılan olarak newline ekler, burada istemediğimiz için boş bıraktık
     )
-    db.session.add(diff_row)
-    db.session.commit()
+    
+    # Diff satırlarını tek bir string'e birleştir
+    text_diff = "".join(diff_lines)
 
-    return {
-        "diff_id": diff_row.id,
-        "diff_filename": diff_filename,
-        "diff_file_path": diff_file_path,
-        "line_count": len(diff_lines),
-        "old_file_path": old_path,
-        "new_file_path": new_path
-    }
+    # Benzersiz dosya adı oluşturma (.txt uzantılı)
+    timestamp = datetime.datetime.now().strftime("%Y%m%d%H%M%S")
+    unique_id = str(uuid.uuid4())[:8]
+    diff_filename = f"diff_report_{timestamp}_{unique_id}.txt" # <-- .txt uzantısı
+    file_path = os.path.join(DIFF_REPORTS_DIR, diff_filename)
+
+    with open(file_path, "w", encoding="utf-8") as f:
+        f.write(text_diff) # HTML yerine metin farkını yaz
+
+    # Basit bir özet oluşturma
+    diff_summary = f"{file1_name} ile {file2_name} arasındaki metin farkı başarıyla oluşturuldu."
+    
+    return diff_filename, diff_summary
 
 
-def resolve_diff_path_by_id(diff_id: int) -> str:
+def get_diff_report_html_content(filename: str) -> str:
     """
-    Diff id'sinden rapor dosyasının adını ve yolunu çözer.
-    Diff kaydında dosya adı saklamıyoruz; dosyayı isme göre değil,
-    rapor klasöründe desenle aramak da mümkün. En kolayı:
-    diff_id biliniyor → en yakın eşleşen dosya adını bul.
+    Belirtilen diff rapor dosyasının HTML içeriğini (şimdi metin içeriği) okur ve döndürür.
+    Fonksiyon adı 'html_content' olarak kalabilir, ancak artık metin döndürüyor.
     """
-    _ensure_dirs()
-    # Basit yaklaşım: diff_OLD_NEW_*.txt şeklinde yazdığımız için
-    # ID'den değil, dosya listesinden döndürmek daha güvenli olur.
-    # Alternatif olarak Diff tablosuna 'report_filename' alanı ekleyebilirsin.
-    # Şimdilik klasörde tarayıp geri döndürelim (opsiyonel).
-    # Burayı istersen boş bırakabilir veya ileride geliştirebilirsin.
-    raise NotImplementedError("Dosya adını DB'de saklamak istersen Diff'e 'report_filename' sütunu ekle.")
+    file_path = os.path.join(DIFF_REPORTS_DIR, filename)
+    if not os.path.exists(file_path):
+        raise FileNotFoundError(f"Diff rapor dosyası bulunamadı: {file_path}")
+
+    with open(file_path, "r", encoding="utf-8") as f:
+        content = f.read()
+    return content

@@ -1,0 +1,285 @@
+/* src/components/CompareDiffs/CompareDiffs.css */
+
+.compare-diffs-container {
+  padding: 20px;
+  max-width: 1400px;
+  margin: 20px auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-family: Arial, sans-serif;
+}
+
+h2 {
+  color: #333;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.selection-area {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  align-items: flex-end;
+  margin-bottom: 30px;
+  padding: 15px;
+  background-color: #eef;
+  border-radius: 6px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.form-group label {
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.form-group select {
+  padding: 8px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 250px;
+  background-color: white;
+  font-size: 1rem;
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+button:disabled {
+  background-color: #cccccc;
+  cursor: not-allowed;
+}
+
+.loading-message,
+.error-message {
+  text-align: center;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.loading-message {
+  background-color: #e0f7fa;
+  color: #007bff;
+}
+
+.error-message {
+  background-color: #ffebee;
+  color: #d32f2f;
+  border: 1px solid #d32f2f;
+}
+
+.diff-result-area {
+  margin-top: 20px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.diff-summary {
+  margin-bottom: 20px;
+  padding: 10px;
+  background-color: #e9f5e9;
+  border-left: 5px solid #4caf50;
+  border-radius: 4px;
+}
+
+.diff-summary h4 {
+  margin-top: 0;
+  color: #388e3c;
+}
+
+.diff-display {
+  display: flex;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.diff-column {
+  flex: 1;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  background-color: #fcfcfc;
+  overflow-x: auto; /* Yatay kaydırma çubuğu */
+  max-height: 700px; /* Belirli bir yükseklik */
+  overflow-y: auto; /* Dikey kaydırma çubuğu */
+}
+
+.diff-column h4 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 15px;
+  color: #333;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 10px;
+}
+
+.diff-code {
+  margin: 0;
+  padding: 0;
+  font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  white-space: pre-wrap; /* Satır sonlarını koru */
+  word-break: break-all; /* Uzun kelimeleri kır */
+}
+
+.diff-line {
+  display: flex;
+  line-height: 1.4;
+  /* padding: 0 5px; */ /* Yatay padding'i kaldırdık, satır numarası için ayrı span var */
+  min-height: 1.4em; /* Boş satırlar için minimum yükseklik */
+}
+
+.diff-line .line-num {
+    display: inline-block;
+    width: 40px; /* Satır numarası için sabit genişlik */
+    text-align: right;
+    padding-right: 10px;
+    color: #888;
+    background-color: #f0f0f0;
+    user-select: none; /* Numaraları seçilemez yap */
+}
+
+.diff-line .line-content {
+    flex-grow: 1;
+    padding-left: 5px;
+    white-space: pre; /* İçerik için pre-wrap yerine pre kullanabiliriz */
+}
+
+
+.diff-line-unchanged {
+  background-color: #f7f7f7;
+  color: #333;
+}
+
+.diff-line-added {
+  background-color: #e6ffed; /* Açık yeşil */
+  color: #22863a; /* Koyu yeşil */
+}
+.diff-line-added .line-content::before {
+    content: '+';
+    color: #22863a;
+    margin-right: 5px;
+}
+
+
+.diff-line-removed {
+  background-color: #ffeef0; /* Açık kırmızı */
+  color: #cb2431; /* Koyu kırmızı */
+}
+.diff-line-removed .line-content::before {
+    content: '-';
+    color: #cb2431;
+    margin-right: 5px;
+}
+
+.diff-line-header {
+  background-color: #eaf2f8; /* Mavi tonu */
+  color: #0366d6;
+  font-weight: bold;
+}
+
+/* Not ekleme alanı stilleri */
+.note-section {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px solid #eee;
+}
+
+.add-note-btn {
+  background-color: #28a745;
+  margin-bottom: 15px;
+}
+
+.add-note-btn:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.note-input-area {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.note-input-area textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  resize: vertical; /* Dikey yeniden boyutlandırmaya izin ver */
+}
+
+.note-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.save-note-btn {
+  background-color: #007bff;
+}
+.save-note-btn:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.cancel-note-btn {
+  background-color: #6c757d;
+}
+.cancel-note-btn:hover:not(:disabled) {
+  background-color: #5a6268;
+}
+
+.saved-notes {
+    margin-top: 20px;
+    padding: 15px;
+    background-color: #f0f8ff;
+    border: 1px dashed #a7d9ed;
+    border-radius: 5px;
+}
+
+.saved-notes h4 {
+    margin-top: 0;
+    color: #007bff;
+    font-size: 1rem;
+    border-bottom: 1px solid #d9edf7;
+    padding-bottom: 8px;
+    margin-bottom: 10px;
+}
+
+.single-note {
+    background-color: #eaf6ff;
+    padding: 10px;
+    border-radius: 4px;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    color: #333;
+}
+.single-note:last-child {
+    margin-bottom: 0;
+}
