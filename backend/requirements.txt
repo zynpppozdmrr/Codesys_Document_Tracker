@@ -1,0 +1,5 @@
+Flask==3.1.1                        # Web framework
+Flask-SQLAlchemy==3.1.1            # ORM
+psycopg2-binary==2.9.10            # PostgreSQL bağlantısı
+flask-cors==6.0.0                  # Frontend ile CORS
+Werkzeug==3.1.3   

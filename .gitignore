@@ -1,0 +1,71 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+*.log
+.env
+.venv/
+venv/
+instance/
+*.sqlite3
+*.db
+
+# Flask specific
+*.pyc
+*.pyo
+*.pyd
+*.coverage
+.coverage.*
+.cache
+.DS_Store
+
+# Nuxt.js / Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.nuxt/
+dist/
+*.local
+*.env.local
+*.env.*.local
+
+# OS specific
+Thumbs.db
+.DS_Store
+.idea/
+.vscode/
+*.swp
+*~
+
+# PostgreSQL (if local data is dumped)
+*.sql
+*.dump
+
+# Test reports
+htmlcov/
+coverage.xml
+*.cover
+.hypothesis/
+
+# Pytest cache
+.pytest_cache/
+
+# Docker
+**/Dockerfile
+**/docker-compose.yml
+.docker/
+
+# Local data & backup
+*.bak
+*.tmp
+*.old
+*.orig
+*.tar.gz
+*.zip
+__pypackages__/
+
+# VS Code workspace settings
+.vscode/
