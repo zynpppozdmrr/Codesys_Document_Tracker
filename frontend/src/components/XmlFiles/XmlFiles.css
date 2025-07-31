@@ -1,120 +1,59 @@
-/* src/components/XmlFiles/XmlFiles.css */
-
-.xml-files-container {
+.xmlfiles-container {
   padding: 20px;
-  background-color: #fff;
+  background: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  max-width: 1200px;
-  margin: 20px auto;
-  font-family: Arial, sans-serif;
 }
 
-.xml-files-container h2 {
+.dropzone {
+  border: 2px dashed #9eb6ff;
+  background: #f7faff;
+  border-radius: 10px;
+  padding: 18px;
   text-align: center;
-  color: #333;
-  margin-bottom: 25px;
 }
 
-.rescan-button {
-  display: block;
-  margin: 0 auto 20px auto;
-  padding: 10px 20px;
-  background-color: #28a745; /* Yeşil tonu */
-  color: white;
+.dropzone.drag-over {
+  background: #eef4ff;
+  border-color: #6b8cff;
+}
+
+.xmlfiles-container .btn {
+  display: inline-block;
+  padding: 8px 14px;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  font-size: 1em;
-  transition: background-color 0.3s ease;
+  font-size: 0.95rem;
 }
 
-.rescan-button:hover:not(:disabled) {
-  background-color: #218838;
+.xmlfiles-container .btn-upload {
+  background: #ffc107;
+  color: #212529;
 }
 
-.rescan-button:disabled {
-  background-color: #cccccc;
-  cursor: not-allowed;
+.xmlfiles-container .btn-sync {
+  background: #0d6efd;
+  color: #fff;
 }
 
-.xml-files-table {
+.xmlfiles-container .btn-delete {
+  background: #dc3545;
+  color: #fff;
+}
+
+.xmlfiles-table {
   width: 100%;
-  border-collapse: collapse; /* Hücre kenarlıklarını birleştir */
-  margin-top: 20px;
+  border-collapse: collapse;
+  background: #fafafa;
 }
 
-.xml-files-table th,
-.xml-files-table td {
-  border: 1px solid #ddd; /* Hücre kenarlıkları */
-  padding: 10px;
+.xmlfiles-table th, .xmlfiles-table td {
+  border: 1px solid #e4e4e4;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+.xmlfiles-table th {
+  background: #f2f6ff;
   text-align: left;
-  vertical-align: top; /* İçeriği üste hizala */
-}
-
-.xml-files-table th {
-  background-color: #f2f2f2; /* Başlık arka plan rengi */
-  font-weight: bold;
-  color: #333;
-  white-space: nowrap; /* Başlıkların tek satırda kalmasını sağla */
-}
-
-.xml-files-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9; /* Tek satırlar için hafif gri arka plan */
-}
-
-.xml-files-table tbody tr:hover {
-  background-color: #f1f1f1; /* Fare üzerine gelince arka plan rengi */
-}
-
-/* Aksiyon butonları kaldırıldığı için bu stiller artık kullanılmayacak ama bırakabiliriz */
-.action-button {
-    padding: 5px 10px;
-    margin-right: 5px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.85em;
-    transition: background-color 0.3s ease;
-    white-space: nowrap;
-}
-
-.action-button.view {
-    background-color: #007bff;
-    color: white;
-}
-.action-button.view:hover {
-    background-color: #0056b3;
-}
-
-.action-button.compare {
-    background-color: #ffc107;
-    color: #333;
-}
-.action-button.compare:hover {
-    background-color: #e0a800;
-}
-
-.loading-message, .error-message {
-    text-align: center;
-    padding: 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    font-size: 1.1em;
-    font-weight: bold;
-}
-
-.loading-message {
-    background-color: #e0f7fa;
-    color: #007bb6;
-}
-
-.error-message {
-    background-color: #ffe0e6;
-    color: #dc3545;
-    border: 1px solid #dc3545;
-}
-
-.table-responsive {
-    overflow-x: auto;
 }

@@ -1,11 +1,17 @@
+# api/xmlfiles.py
+
 import os
-from flask import Blueprint, jsonify, request, send_file
+from flask import Blueprint, jsonify, request
 from flask_jwt_extended import jwt_required
 from flask_cors import CORS
-from codesys_doc_tracker.models.xmlfile_model import XMLFile
-from services.xmlfile_service import scan_and_sync_xml_files  # <-- GÜNCELLENDİ
-from codesys_doc_tracker import db
 
+from codesys_doc_tracker.models.xmlfile_model import XMLFile
+from codesys_doc_tracker import db
+from services.xmlfile_service import (
+    scan_and_sync_xml_files,
+    save_uploaded_xmls,
+    delete_xml_file,
+)
 
 apiXMLFiles = Blueprint("apiXMLFiles", __name__, url_prefix="/api/xmlfiles")
 CORS(apiXMLFiles)
@@ -14,75 +20,59 @@ CORS(apiXMLFiles)
 @apiXMLFiles.route("/", methods=["GET"])
 @jwt_required()
 def list_xml_files():
-    """
-    Veritabanındaki XMLFile kayıtlarını listeler.
-    """
-    try:
-        rows = XMLFile.query.order_by(XMLFile.timestamp.desc()).all()
-        data = []
-        for r in rows:
-            data.append({
-                "id": r.id, 
-                "file_path": r.file_path,
-                "file_name": os.path.basename(r.file_path),
-                "upload_date": r.upload_date.isoformat() if r.upload_date else None,
-                "timestamp": r.timestamp.isoformat() if r.timestamp else None,
-            })
-        return jsonify({"success": True, "files": data}), 200
-    except Exception as e:
-        print(f"XML dosyaları çekilirken hata oluştu: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return jsonify({"success": False, "message": f"XML dosyaları çekilirken bir hata oluştu: {str(e)}"}), 500
+    rows = XMLFile.query.order_by(XMLFile.timestamp.desc()).all()
+    data = []
+    for r in rows:
+        data.append({
+            "id": r.id,
+            "file_path": r.file_path,
+            "file_name": os.path.basename(r.file_path),
+            "upload_date": r.upload_date.isoformat() if r.upload_date else None,
+            "timestamp": r.timestamp.isoformat() if r.timestamp else None,
+        })
+    return jsonify({"success": True, "files": data}), 200
 
 
 @apiXMLFiles.route("/rescan", methods=["POST"])
 @jwt_required()
 def rescan_xml_files_route():
-    """
-    Export klasörünü yeniden tarar:
-      - yeni .xml dosyalarını DB'ye ekler,
-      - export klasöründen silinen .xml dosyalarını DB'den kaldırır.
-    """
     try:
         result = scan_and_sync_xml_files()
-        added = result.get("added", 0)
-        removed = result.get("removed", 0)
         return jsonify({
             "success": True,
-            "message": f"{added} yeni dosya eklendi, {removed} dosya silindi.",
+            "message": f"{result.get('added',0)} eklendi, {result.get('removed',0)} silindi.",
             "data": result
         }), 200
     except Exception as e:
-        print(f"Yeniden tarama sırasında hata oluştu: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return jsonify({"success": False, "message": f"Yeniden tarama sırasında bir hata oluştu: {str(e)}"}), 500
+        return jsonify({"success": False, "message": f"Yeniden tarama hatası: {e}"}), 500
 
 
-@apiXMLFiles.route("/<int:file_id>", methods=["GET"])
+# ---------- YENİ: Sürükle-bırak yükleme ----------
+@apiXMLFiles.route("/upload", methods=["POST"])
 @jwt_required()
-def get_xml_file(file_id: int):
+def upload_xml_files():
     """
-    Tek bir XML dosyası kaydının meta bilgisini döner.
+    multipart/form-data, field adı 'files' (çoklu destekli)
     """
     try:
-        row = XMLFile.query.get(file_id)
-        if not row:
-            return jsonify({"success": False, "message": "XML file not found"}), 404
+        files = request.files.getlist("files")
+        if not files:
+            return jsonify({"success": False, "message": "Dosya bulunamadı."}), 400
 
-        return jsonify({
-            "success": True,
-            "data": {
-                "id": row.id,
-                "file_path": row.file_path,
-                "file_name": os.path.basename(row.file_path),
-                "upload_date": row.upload_date.isoformat() if row.upload_date else None,
-                "timestamp": row.timestamp.isoformat() if row.timestamp else None,
-            }
-        })
+        result = save_uploaded_xmls(files)
+        return jsonify({"success": True, "data": result}), 200
     except Exception as e:
-        print(f"XML dosyası çekilirken hata oluştu: {str(e)}")
-        import traceback
-        traceback.print_exc()
-        return jsonify({"success": False, "message": f"XML dosyası çekilirken bir hata oluştu: {str(e)}"}), 500
+        return jsonify({"success": False, "message": f"Yükleme hatası: {e}"}), 500
+
+
+# ---------- YENİ: Silme (DB + Disk + bağlı diffs) ----------
+@apiXMLFiles.route("/<int:file_id>", methods=["DELETE"])
+@jwt_required()
+def delete_xml_file_route(file_id: int):
+    try:
+        ok = delete_xml_file(file_id)
+        if ok:
+            return jsonify({"success": True}), 200
+        return jsonify({"success": False, "message": "Kayıt bulunamadı."}), 404
+    except Exception as e:
+        return jsonify({"success": False, "message": f"Silme hatası: {e}"}), 500

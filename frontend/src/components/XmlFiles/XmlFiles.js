@@ -1,124 +1,168 @@
 // src/components/XmlFiles/XmlFiles.js
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useEffect, useState, useCallback, useRef } from 'react';
 import axios from 'axios';
-import './XmlFiles.css';
+import './XmlFiles.css'; // varsa kullan; yoksa bu import sorun çıkarmaz
 
 function XmlFiles() {
-  const [xmlFiles, setXmlFiles] = useState([]);
+  const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [busy, setBusy] = useState(false);
   const [error, setError] = useState('');
+  const dropRef = useRef(null);
 
-  const getAuthHeaders = () => {
+  const getAuth = useCallback(() => {
     const token = localStorage.getItem('jwt_token');
-    return {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    };
-  };
-
-  const fetchXmlFiles = useCallback(async () => {
-    setLoading(true);
-    setError('');
-    try {
-      const response = await axios.get('http://localhost:5000/api/xmlfiles/', getAuthHeaders());
-      if (response.data.success) {
-        setXmlFiles(response.data.files);
-      } else {
-        setError(response.data.message || 'XML dosyaları çekilirken bir hata oluştu.');
-      }
-    } catch (err) {
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
-      } else if (err.response && err.response.status === 401) {
-        setError('Yetkisiz erişim. Lütfen tekrar giriş yapın.');
-      } else {
-        setError('Sunucuya bağlanılamadı veya bilinmeyen bir hata oluştu.');
-      }
-      console.error('XML Files Fetch Error:', err);
-    } finally {
-      setLoading(false);
-    }
+    return { headers: { Authorization: `Bearer ${token}` } };
   }, []);
 
-  useEffect(() => {
-    fetchXmlFiles();
-  }, [fetchXmlFiles]);
-
-  const handleRescan = async () => {
+  const fetchList = useCallback(async () => {
     setLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:5000/api/xmlfiles/rescan', {}, getAuthHeaders());
-      if (response.data.success) {
-        alert(response.data.message || 'XML dosyaları başarıyla tarandı!');
-        fetchXmlFiles();
+      const res = await axios.get('http://localhost:5000/api/xmlfiles/', getAuth());
+      if (res.data.success) {
+        setRows(res.data.files);
       } else {
-        setError(response.data.message || 'Yeniden tarama sırasında bir hata oluştu.');
+        setError(res.data.message || 'XML dosyaları listelenirken hata.');
       }
-    } catch (err) {
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
-      } else if (err.response && err.response.status === 401) {
-        setError('Yetkisiz erişim. Lütfen tekrar giriş yapın.');
-      } else {
-        setError('Sunucuya bağlanılamadı veya bilinmeyen bir hata oluştu.');
-      }
-      console.error('Rescan Error:', err);
+    } catch (e) {
+      setError(e.response?.data?.message || e.message);
     } finally {
       setLoading(false);
     }
+  }, [getAuth]);
+
+  useEffect(() => { fetchList(); }, [fetchList]);
+
+  const rescan = async () => {
+    setBusy(true);
+    setError('');
+    try {
+      await axios.post('http://localhost:5000/api/xmlfiles/rescan', {}, getAuth());
+      await fetchList();
+    } catch (e) {
+      setError(e.response?.data?.message || e.message);
+    } finally {
+      setBusy(false);
+    }
   };
 
-  if (loading) {
-    return <div className="loading-message">Dosyalar yükleniyor...</div>;
-  }
+  // ---------- Sürükle-bırak ----------
+  const onDragOver = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dropRef.current) dropRef.current.classList.add('drag-over');
+  };
+  const onDragLeave = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dropRef.current) dropRef.current.classList.remove('drag-over');
+  };
+  const onDrop = async (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    if (dropRef.current) dropRef.current.classList.remove('drag-over');
 
-  if (error) {
-    return <div className="error-message">{error}</div>;
-  }
+    const files = Array.from(e.dataTransfer.files || []).filter(f => f.name.toLowerCase().endsWith('.xml'));
+    if (files.length === 0) {
+      alert('Lütfen .xml dosyaları sürükleyin.');
+      return;
+    }
+    await uploadFiles(files);
+  };
+
+  const onFileInputChange = async (e) => {
+    const files = Array.from(e.target.files || []).filter(f => f.name.toLowerCase().endsWith('.xml'));
+    if (files.length === 0) {
+      alert('Lütfen .xml dosyaları seçin.');
+      return;
+    }
+    await uploadFiles(files);
+    e.target.value = '';
+  };
+
+  const uploadFiles = async (files) => {
+    setBusy(true);
+    setError('');
+    try {
+      const fd = new FormData();
+      files.forEach((f) => fd.append('files', f, f.name));
+      await axios.post('http://localhost:5000/api/xmlfiles/upload', fd, {
+        ...getAuth(),
+        headers: { Authorization: getAuth().headers.Authorization, 'Content-Type': 'multipart/form-data' }
+      });
+      await fetchList();
+    } catch (e) {
+      setError(e.response?.data?.message || e.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  const deleteRow = async (id) => {
+    if (!window.confirm('Bu XML dosyasını silmek istiyor musunuz? (Disk + DB + bağlı raporlar)')) return;
+    setBusy(true);
+    setError('');
+    try {
+      await axios.delete(`http://localhost:5000/api/xmlfiles/${id}`, getAuth());
+      await fetchList();
+    } catch (e) {
+      setError(e.response?.data?.message || e.message);
+    } finally {
+      setBusy(false);
+    }
+  };
+
+  if (loading) return <div className="loading-message">XML dosyaları yükleniyor…</div>;
 
   return (
-    <div className="xml-files-container">
+    <div className="xmlfiles-container">
       <h2>XML Dosyaları Yönetimi</h2>
-      <button onClick={handleRescan} className="rescan-button" disabled={loading}>
-        {loading ? 'Taranıyor...' : 'Dosyaları Yeniden Tara'}
-      </button>
-      {xmlFiles.length === 0 ? (
-        <p>Henüz hiç XML dosyası bulunamadı. Lütfen "Dosyaları Yeniden Tara" butonuna basın.</p>
-      ) : (
-        <div className="table-responsive">
-            <table className="xml-files-table">
-            <thead>
-                <tr>
-                {/* <th>ID</th>            <-- Kaldırıldı */}
-                <th>Dosya Adı</th>
-                {/* <th>Versiyon</th>      <-- Kaldırıldı */}
-                <th>Yükleme Tarihi</th>
-                <th>Dosya Yolu</th>
-                {/* <th>Mevcut Mu?</th>    <-- Kaldırıldı */}
-                {/* <th>Aksiyonlar</th>    <-- Kaldırıldı */}
-                </tr>
-            </thead>
-            <tbody>
-                {xmlFiles.map((file, index) => (
-                <tr key={index}> {/* ID olmadığı için index kullanıyoruz, ancak dosya yolu unique ise daha iyi olur */}
-                    {/* <td>{file.id}</td> <-- Kaldırıldı */}
-                    <td>{file.file_name}</td>
-                    {/* <td>{file.version}</td> <-- Kaldırıldı */}
-                    <td>{new Date(file.upload_date).toLocaleDateString()}</td>
-                    <td>{file.file_path}</td>
-                    {/* <td>{file.exists ? 'Evet' : 'Hayır'}</td> <-- Kaldırıldı */}
-                    {/* <td>
-                        <button className="action-button view">Görüntüle</button>
-                        <button className="action-button compare">Karşılaştır</button>
-                    </td> <-- Kaldırıldı */}
-                </tr>
-                ))}
-            </tbody>
-            </table>
-        </div>
-      )}
+
+      <div
+        ref={dropRef}
+        className="dropzone"
+        onDragOver={onDragOver}
+        onDragLeave={onDragLeave}
+        onDrop={onDrop}
+      >
+        <p><strong>Sürükle‑Bırak:</strong> XML dosyalarını buraya bırakın</p>
+        <p>veya</p>
+        <label className="btn btn-upload">
+          Dosya Seç
+          <input type="file" accept=".xml" multiple onChange={onFileInputChange} style={{ display: 'none' }} />
+        </label>
+        <button className="btn btn-sync" onClick={rescan} disabled={busy} style={{ marginLeft: 10 }}>
+          Local ile Sync et
+        </button>
+      </div>
+
+      {error && <div className="error-message" style={{ marginTop: 12 }}>{error}</div>}
+
+      <table className="xmlfiles-table" style={{ marginTop: 16 }}>
+        <thead>
+          <tr>
+            <th>Dosya Adı</th>
+            <th>Yükleme Tarihi</th>
+            <th>Dosya Yolu</th>
+            <th style={{ width: 120 }}>Aksiyon</th>
+          </tr>
+        </thead>
+        <tbody>
+          {rows.length === 0 ? (
+            <tr><td colSpan={4} style={{ textAlign: 'center' }}>Kayıt bulunamadı.</td></tr>
+          ) : rows.map((r) => (
+            <tr key={r.id}>
+              <td>{r.file_name}</td>
+              <td>{r.upload_date ? new Date(r.upload_date).toLocaleDateString() : '-'}</td>
+              <td>{r.file_path}</td>
+              <td>
+                <button className="btn btn-delete" onClick={() => deleteRow(r.id)} disabled={busy}>Sil</button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 }
