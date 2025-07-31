@@ -4,7 +4,7 @@ import uuid
 import datetime
 from codesys_doc_tracker import db
 from codesys_doc_tracker.models.xmlfile_model import XMLFile
-from codesys_doc_tracker.models.diff_model import Diff  # EKLENDİ
+from codesys_doc_tracker.models.diff_model import Diff  
 
 # Configurable directory for saving diff reports
 DIFF_REPORTS_DIR = os.environ.get("DIFF_REPORTS_DIR", "DiffReports")
@@ -43,7 +43,7 @@ def generate_and_save_filtered_diff(file1_id: int, file2_id: int) -> tuple[str, 
         lineterm=''
     )
 
-    # Gereksiz satırları filtrele
+ 
     filtered_lines = []
     for line in diff_lines:
         if line.startswith('--- OLD') or line.startswith('+++ NEW'):

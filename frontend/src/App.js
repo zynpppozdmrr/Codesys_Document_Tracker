@@ -3,43 +3,28 @@ import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
-// Bileşenleri import ediyoruz
 import Login from './components/Auth/Login';
 import Dashboard from './components/Dashboard/Dashboard';
 import Layout from './components/Layout/Layout';
 import XmlFiles from './components/XmlFiles/XmlFiles';
-import CompareDiffs from './components/CompareDiffs/CompareDiffs'; // CompareDiffs bileşenini import ediyoruz
+import CompareDiffs from './components/CompareDiffs/CompareDiffs';
+import DiffReportsList from './components/DiffReports/DiffReportsList/DiffReportsList';  // <-- YENİ
 
-// Diğer yer tutucu bileşenler (henüz değişmedi)
 const NotesRelations = () => <div className="placeholder-page"><h2>Notlar ve İlişkiler Sayfası</h2><p>Burada notlar ve ilişkiler yönetilecek.</p></div>;
 const Users = () => <div className="placeholder-page"><h2>Kullanıcı Yönetimi Sayfası</h2><p>Burada kullanıcılar yönetilecek (Admin yetkisi gerektirecek).</p></div>;
 
-
-const isAuthenticated = () => {
-  const token = localStorage.getItem('jwt_token');
-  return !!token;
-};
-
-const PrivateRoute = ({ children }) => {
-  return isAuthenticated() ? children : <Navigate to="/login" />;
-};
+const isAuthenticated = () => !!localStorage.getItem('jwt_token');
+const PrivateRoute = ({ children }) => (isAuthenticated() ? children : <Navigate to="/login" />);
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(isAuthenticated());
 
-  const handleLoginSuccess = () => {
-    setLoggedIn(true);
-  };
-
-  const handleLogout = () => {
-    localStorage.removeItem('jwt_token');
-    setLoggedIn(false);
-  };
+  const handleLoginSuccess = () => setLoggedIn(true);
+  const handleLogout = () => { localStorage.removeItem('jwt_token'); setLoggedIn(false); };
 
   useEffect(() => {
-    console.log("Kullanıcı giriş durumu değişti:", loggedIn ? "Giriş Yapıldı" : "Çıkış Yapıldı");
+    console.log("Kullanıcı giriş durumu:", loggedIn ? "Giriş Yapıldı" : "Çıkış Yapıldı");
   }, [loggedIn]);
-
 
   return (
     <Router>
@@ -48,7 +33,6 @@ function App() {
           path="/login"
           element={loggedIn ? <Navigate to="/dashboard" /> : <Login onLoginSuccess={handleLoginSuccess} />}
         />
-
         <Route
           path="*"
           element={
@@ -57,7 +41,8 @@ function App() {
                 <Routes>
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/xml-files" element={<XmlFiles />} />
-                  <Route path="/compare-diffs" element={<CompareDiffs />} /> {/* CompareDiffs bileşenini rota ile ilişkilendiriyoruz */}
+                  <Route path="/compare-diffs" element={<CompareDiffs />} />
+                  <Route path="/diff-reports" element={<DiffReportsList />} />  {/* <-- YENİ */}
                   <Route path="/notes-relations" element={<NotesRelations />} />
                   <Route path="/users" element={<Users />} />
                   <Route path="/" element={<Navigate to="/dashboard" />} />

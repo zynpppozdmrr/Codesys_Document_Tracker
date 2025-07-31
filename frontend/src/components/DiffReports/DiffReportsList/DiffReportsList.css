@@ -1,0 +1,113 @@
+/* Sayfa kabı */
+.diffreports-container {
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+/* Üst araç çubuğu */
+.toolbar {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+/* Genel buton stili (bu component içinde) */
+.diffreports-container .btn {
+  display: inline-block;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  transition: filter 0.2s ease;
+}
+
+.diffreports-container .btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.diffreports-container .btn:hover:not(:disabled) {
+  filter: brightness(0.95);
+}
+
+/* Sync: mavi */
+.diffreports-container .btn-sync {
+  background-color: #0d6efd;
+  color: #fff;
+}
+
+/* Görüntüle: sarı */
+.diffreports-container .btn-view {
+  background-color: #ffc107;
+  color: #212529;
+}
+
+/* Sil: kırmızı */
+.diffreports-container .btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+}
+
+/* Tablo */
+.diffreports-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fafafa;
+}
+
+.diffreports-table th, .diffreports-table td {
+  border: 1px solid #e4e4e4;
+  padding: 8px 10px;
+  font-size: 0.95rem;
+}
+
+.diffreports-table th {
+  background: #f2f6ff;
+  text-align: left;
+}
+
+.actions .btn {
+  margin-right: 8px;
+}
+
+/* Modal */
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  width: min(1000px, 90vw);
+  max-height: 80vh;
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #f7f9fc;
+  border-bottom: 1px solid #e6e9ef;
+  padding: 10px 14px;
+}
+
+.modal-content {
+  padding: 14px;
+  margin: 0;
+  white-space: pre;
+  overflow: auto; /* hem yatay hem dikey scroll */
+  font-family: Consolas, Monaco, 'Lucida Console', monospace;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
