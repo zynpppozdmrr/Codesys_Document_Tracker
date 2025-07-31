@@ -1,5 +1,3 @@
-# codesys_doc_tracker/models/xmlfile_model.py
-
 from datetime import datetime
 import os
 from codesys_doc_tracker import db
@@ -10,7 +8,6 @@ class XMLFile(db.Model):
 
     id = db.Column(db.Integer, primary_key=True)
     file_path = db.Column(db.String(500), unique=True, nullable=False)
-    # version = db.Column(db.String(50)) # <-- BU SATIRI SİLİNDİ!
     upload_date = db.Column(db.DateTime, default=datetime.utcnow)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -18,8 +15,8 @@ class XMLFile(db.Model):
         return f'<XMLFile {os.path.basename(self.file_path)}>'
 
     @classmethod
-    def create(cls, file_path: str): # version parametresi kaldırıldı
-        new_file = cls(file_path=file_path) # version ataması kaldırıldı
+    def create(cls, file_path: str): 
+        new_file = cls(file_path=file_path)
         db.session.add(new_file)
         db.session.commit()
         return new_file
@@ -31,18 +28,6 @@ class XMLFile(db.Model):
     @classmethod
     def list_all(cls):
         return cls.query.order_by(cls.upload_date.desc()).all()
-
-    @classmethod
-    def update_file(cls, file_id: int, new_path: str = None): # new_version parametresi kaldırıldı
-        file = cls.query.get(file_id)
-        if not file:
-            return None
-        if new_path:
-            file.file_path = new_path
-        # if new_version: # <-- BU KISIM SİLİNDİ
-        #     file.version = new_version
-        db.session.commit()
-        return file
 
     @classmethod
     def delete_file(cls, file_id: int):

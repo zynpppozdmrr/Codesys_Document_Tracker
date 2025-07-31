@@ -1,21 +1,18 @@
-# codesys_doc_tracker/models/diff_model.py
-
 from datetime import datetime
-from codesys_doc_tracker import db # db nesnesini doğru import ettiğinizden emin olun
-from codesys_doc_tracker.models.xmlfile_model import XMLFile # XMLFile modelini import edin
+from codesys_doc_tracker import db 
+from codesys_doc_tracker.models.xmlfile_model import XMLFile 
 
 
 class Diff(db.Model):
-    __tablename__ = 'diffs' # Tablo adı
-
+    __tablename__ = 'diffs'
     id = db.Column(db.Integer, primary_key=True)
     xmlfile_old_id = db.Column(db.Integer, db.ForeignKey('xmlfiles.id'), nullable=False)
     xmlfile_new_id = db.Column(db.Integer, db.ForeignKey('xmlfiles.id'), nullable=False)
-    diffReport_name = db.Column(db.String(255), nullable=False) # Raporun adı (örn: oldname_newname_diff.txt)
-    diffReport_path = db.Column(db.String(500), nullable=False) # Raporun dosya yolu
+    diffReport_name = db.Column(db.String(255), nullable=False) 
+    diffReport_path = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # XMLFile modelleri ile ilişkiler
+
     old_file = db.relationship('XMLFile', foreign_keys=[xmlfile_old_id], backref='old_diffs', lazy=True)
     new_file = db.relationship('XMLFile', foreign_keys=[xmlfile_new_id], backref='new_diffs', lazy=True)
 

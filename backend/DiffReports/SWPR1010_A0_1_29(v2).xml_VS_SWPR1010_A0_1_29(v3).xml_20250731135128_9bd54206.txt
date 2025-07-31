@@ -1,0 +1,15 @@
+ ﻿<?xml version="1.0" encoding="utf-8"?>
+-  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-31T11:27:26.9256514" />
+-  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-31T11:26:20.2586546">
++  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-31T13:49:39.2764666" />
++  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-31T13:49:19.2723169">
+ GVL.IOVD.S_PDU_Cvr_Op.x						:=  NOT GVL.IIRE.S_PDU_Cvr_Cl.pin_value;
+ GVL.IOVD.S_PDU_Cvr_Op.e						:= FALSE;
+ GVL.IOVD.S_PDU_Cvr_Op.na					:= FALSE;			   
+-//-------SIGNAL -&gt; S_ER_HVAC_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+-GVL.IOVD.S_ER_HVAC_Amb.v					:= GVL.SY.S_ECU_Rdy;
+-GVL.IOVD.S_ER_HVAC_Amb.x					:= FALSE;
++
+ //-------SIGNAL -&gt; S_ER_HVAC_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+ GVL.IOVD.S_ER_HVAC_Red.v					:= GVL.SY.S_ECU_Rdy;
+ GVL.IOVD.S_ER_HVAC_Red.x					:= FALSE;

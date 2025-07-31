@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <project xmlns="http://www.plcopen.org/xml/tc6_0200">
-  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-24T16:12:19.1798246" />
-  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-24T16:11:52.1627449">
+  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-31T13:49:39.2764666" />
+  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-31T13:49:19.2723169">
     <coordinateInfo>
       <fbd>
         <scaling x="1" y="1" />
@@ -26681,7 +26681,7 @@ Version Description:
 - initial version
 *********************************************************************
 *)
-
+heyyyyyyoooooo
 {region " SIGNAL AREA : NAME-&gt;S_ER_Com_ECU LENGTH-&gt;2 STARTBIT :0"}
 GVL.IIVD.S_ER_Com_ECU.v					:= NOT GVL.IIVD.S_TmOut_Haberlesme_Durumlari_0X200 AND NOT _FB_CanRx_Message_Unpack_200.S_Bit_1;
 GVL.IIVD.S_ER_Com_ECU.x					:= GVL.IIVD.S_ER_Com_ECU.v AND _FB_CanRx_Message_Unpack_200.S_Bit_0;
@@ -30322,9 +30322,7 @@ GVL.IOVD.S_PDU_Cvr_Op.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_PDU_Cvr_Op.e
 GVL.IOVD.S_PDU_Cvr_Op.x						:=  NOT GVL.IIRE.S_PDU_Cvr_Cl.pin_value;
 GVL.IOVD.S_PDU_Cvr_Op.e						:= FALSE;
 GVL.IOVD.S_PDU_Cvr_Op.na					:= FALSE;			   
-//-------SIGNAL -&gt; S_ER_HVAC_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
-GVL.IOVD.S_ER_HVAC_Amb.v					:= GVL.SY.S_ECU_Rdy;
-GVL.IOVD.S_ER_HVAC_Amb.x					:= FALSE;
+
 //-------SIGNAL -&gt; S_ER_HVAC_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
 GVL.IOVD.S_ER_HVAC_Red.v					:= GVL.SY.S_ECU_Rdy;
 GVL.IOVD.S_ER_HVAC_Red.x					:= FALSE;
