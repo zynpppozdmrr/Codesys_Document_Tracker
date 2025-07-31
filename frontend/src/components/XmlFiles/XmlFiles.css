@@ -1,4 +1,5 @@
 /* src/components/XmlFiles/XmlFiles.css */
+
 .xml-files-container {
   padding: 20px;
   background-color: #fff;
@@ -6,6 +7,7 @@
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   max-width: 1200px;
   margin: 20px auto;
+  font-family: Arial, sans-serif;
 }
 
 .xml-files-container h2 {
@@ -18,7 +20,7 @@
   display: block;
   margin: 0 auto 20px auto;
   padding: 10px 20px;
-  background-color: #28a745;
+  background-color: #28a745; /* Yeşil tonu */
   color: white;
   border: none;
   border-radius: 5px;
@@ -38,31 +40,34 @@
 
 .xml-files-table {
   width: 100%;
-  border-collapse: collapse;
+  border-collapse: collapse; /* Hücre kenarlıklarını birleştir */
   margin-top: 20px;
 }
 
 .xml-files-table th,
 .xml-files-table td {
-  border: 1px solid #ddd;
+  border: 1px solid #ddd; /* Hücre kenarlıkları */
   padding: 10px;
   text-align: left;
+  vertical-align: top; /* İçeriği üste hizala */
 }
 
 .xml-files-table th {
-  background-color: #f2f2f2;
+  background-color: #f2f2f2; /* Başlık arka plan rengi */
   font-weight: bold;
   color: #333;
+  white-space: nowrap; /* Başlıkların tek satırda kalmasını sağla */
 }
 
 .xml-files-table tbody tr:nth-child(even) {
-  background-color: #f9f9f9;
+  background-color: #f9f9f9; /* Tek satırlar için hafif gri arka plan */
 }
 
 .xml-files-table tbody tr:hover {
-  background-color: #f1f1f1;
+  background-color: #f1f1f1; /* Fare üzerine gelince arka plan rengi */
 }
 
+/* Aksiyon butonları kaldırıldığı için bu stiller artık kullanılmayacak ama bırakabiliriz */
 .action-button {
     padding: 5px 10px;
     margin-right: 5px;
@@ -71,6 +76,7 @@
     cursor: pointer;
     font-size: 0.85em;
     transition: background-color 0.3s ease;
+    white-space: nowrap;
 }
 
 .action-button.view {
@@ -95,6 +101,7 @@
     margin-top: 20px;
     border-radius: 5px;
     font-size: 1.1em;
+    font-weight: bold;
 }
 
 .loading-message {
@@ -109,5 +116,5 @@
 }
 
 .table-responsive {
-    overflow-x: auto; /* Küçük ekranlarda tablo için yatay kaydırma */
+    overflow-x: auto;
 }

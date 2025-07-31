@@ -1,16 +1,13 @@
 // src/components/XmlFiles/XmlFiles.js
-import React, { useState, useEffect, useCallback } from 'react'; // useCallback'i ekledik
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import './XmlFiles.css'; // Stil dosyası
+import './XmlFiles.css';
 
 function XmlFiles() {
-  const [xmlFiles, setXmlFiles] = useState([]); // XML dosyalarını tutacak state
-  const [loading, setLoading] = useState(true); // Yükleme durumu
-  const [error, setError] = useState(''); // Hata mesajları
+  const [xmlFiles, setXmlFiles] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState('');
 
-  // Helper function to get JWT token
-  // Bu fonksiyon her render'da yeniden oluşturulacağı için useCallback içine almayacağız.
-  // Ancak fetchXmlFiles'ın bağımlılığı olduğu için o fonksiyonda kullanılacak.
   const getAuthHeaders = () => {
     const token = localStorage.getItem('jwt_token');
     return {
@@ -20,7 +17,6 @@ function XmlFiles() {
     };
   };
 
-  // XML dosyalarını backend'den çeken fonksiyonu useCallback ile sarmaladık
   const fetchXmlFiles = useCallback(async () => {
     setLoading(true);
     setError('');
@@ -36,9 +32,6 @@ function XmlFiles() {
         setError(err.response.data.message);
       } else if (err.response && err.response.status === 401) {
         setError('Yetkisiz erişim. Lütfen tekrar giriş yapın.');
-        // Opsiyonel: Token süresi dolduysa otomatik çıkış yapma
-        // localStorage.removeItem('jwt_token');
-        // window.location.href = '/login';
       } else {
         setError('Sunucuya bağlanılamadı veya bilinmeyen bir hata oluştu.');
       }
@@ -46,26 +39,20 @@ function XmlFiles() {
     } finally {
       setLoading(false);
     }
-  }, []); // getAuthHeaders fonksiyonu içerisinde state/prop kullanmadığı için
-          // ve her zaman aynı değeri döndüreceği için (token her değiştiğinde)
-          // buraya getAuthHeaders'ı eklemek yerine boş bağımlılık bırakmak daha uygun.
-          // Çünkü getAuthHeaders'ın kendisi de aslında bir bağımlılıktır ve onu useCallback içine almak
-          // daha karmaşık bir döngüye yol açabilir. Bu senaryoda empty array safest.
+  }, []);
 
-  // Bileşen yüklendiğinde ve fetchXmlFiles değiştiğinde dosyaları çek
   useEffect(() => {
     fetchXmlFiles();
-  }, [fetchXmlFiles]); // fetchXmlFiles fonksiyonuna bağımlı
+  }, [fetchXmlFiles]);
 
-  // Dosyaları yeniden tarama fonksiyonu
   const handleRescan = async () => {
     setLoading(true);
     setError('');
     try {
       const response = await axios.post('http://localhost:5000/api/xmlfiles/rescan', {}, getAuthHeaders());
       if (response.data.success) {
-        alert('XML dosyaları başarıyla tarandı!');
-        fetchXmlFiles(); // Yeniden taramadan sonra listeyi güncelle
+        alert(response.data.message || 'XML dosyaları başarıyla tarandı!');
+        fetchXmlFiles();
       } else {
         setError(response.data.message || 'Yeniden tarama sırasında bir hata oluştu.');
       }
@@ -104,29 +91,28 @@ function XmlFiles() {
             <table className="xml-files-table">
             <thead>
                 <tr>
-                <th>ID</th>
+                {/* <th>ID</th>            <-- Kaldırıldı */}
                 <th>Dosya Adı</th>
-                <th>Dosya Yolu</th>
+                {/* <th>Versiyon</th>      <-- Kaldırıldı */}
                 <th>Yükleme Tarihi</th>
-                <th>Versiyon</th>
-                <th>Mevcut Mu?</th>
-                <th>Aksiyonlar</th>
+                <th>Dosya Yolu</th>
+                {/* <th>Mevcut Mu?</th>    <-- Kaldırıldı */}
+                {/* <th>Aksiyonlar</th>    <-- Kaldırıldı */}
                 </tr>
             </thead>
             <tbody>
-                {xmlFiles.map((file) => (
-                <tr key={file.id}>
-                    <td>{file.id}</td>
+                {xmlFiles.map((file, index) => (
+                <tr key={index}> {/* ID olmadığı için index kullanıyoruz, ancak dosya yolu unique ise daha iyi olur */}
+                    {/* <td>{file.id}</td> <-- Kaldırıldı */}
                     <td>{file.file_name}</td>
+                    {/* <td>{file.version}</td> <-- Kaldırıldı */}
+                    <td>{new Date(file.upload_date).toLocaleDateString()}</td>
                     <td>{file.file_path}</td>
-                    <td>{new Date(file.upload_date).toLocaleDateString()}</td> {/* Tarih formatı */}
-                    <td>{file.version}</td>
-                    <td>{file.exists ? 'Evet' : 'Hayır'}</td>
-                    <td>
-                    {/* Gelecekte eklenecek aksiyon butonları */}
-                    <button className="action-button view">Görüntüle</button>
-                    <button className="action-button compare">Karşılaştır</button>
-                    </td>
+                    {/* <td>{file.exists ? 'Evet' : 'Hayır'}</td> <-- Kaldırıldı */}
+                    {/* <td>
+                        <button className="action-button view">Görüntüle</button>
+                        <button className="action-button compare">Karşılaştır</button>
+                    </td> <-- Kaldırıldı */}
                 </tr>
                 ))}
             </tbody>

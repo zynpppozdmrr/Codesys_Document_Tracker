@@ -1,9 +1,7 @@
-// src/components/CompareDiffs/CompareDiffs.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
-import './CompareDiffs.css'; // Stil dosyası
+import './CompareDiffs.css';
 
-// Yardımcı fonksiyon: Unified Diff çıktısını ayrıştırır
 const parseUnifiedDiff = (diffText) => {
   const lines = diffText.split('\n');
   const parsedDiff = [];
@@ -12,104 +10,110 @@ const parseUnifiedDiff = (diffText) => {
 
   for (let i = 0; i < lines.length; i++) {
     const line = lines[i];
-    let type = 'context'; // unchanged, added, removed, header
+    let type = 'context';
 
     if (line.startsWith('---') || line.startsWith('+++')) {
-      type = 'header';
-      parsedDiff.push({ type, oldLine: null, newLine: null, content: line });
       continue;
     }
     if (line.startsWith('@@')) {
-      type = 'header';
-      // Satır numaralarını @@ -old_start,old_count +new_start,new_count @@ formatından çekebiliriz
       const match = line.match(/@@ -(\d+)(,\d+)? \+(\d+)(,\d+)? @@/);
       if (match) {
         currentOldLine = parseInt(match[1], 10);
         currentNewLine = parseInt(match[3], 10);
       }
-      parsedDiff.push({ type, oldLine: null, newLine: null, content: line });
       continue;
     }
 
-    // Gerçek diff satırları
-    const content = line.substring(1); // İşareti (-, +, boşluk) kaldır
-    if (line.startsWith('-')) {
+    if (line.trim() === '') {
+      parsedDiff.push({ type: 'empty', oldLine: null, newLine: null, content: '' });
+      continue;
+    }
+
+    const firstChar = line.charAt(0);
+    const content = line.substring(1);
+
+    if (firstChar === '-') {
       type = 'removed';
-      parsedDiff.push({ type, oldLine: currentOldLine++, newLine: null, content: content });
-    } else if (line.startsWith('+')) {
+      parsedDiff.push({ type, oldLine: currentOldLine++, newLine: null, content });
+    } else if (firstChar === '+') {
       type = 'added';
-      parsedDiff.push({ type, oldLine: null, newLine: currentNewLine++, content: content });
+      parsedDiff.push({ type, oldLine: null, newLine: currentNewLine++, content });
     } else {
       type = 'unchanged';
-      parsedDiff.push({ type, oldLine: currentOldLine++, newLine: currentNewLine++, content: content });
+      parsedDiff.push({ type, oldLine: currentOldLine++, newLine: currentNewLine++, content });
     }
   }
+
   return parsedDiff;
 };
-
 
 function CompareDiffs() {
   const [xmlFiles, setXmlFiles] = useState([]);
   const [selectedFile1, setSelectedFile1] = useState('');
   const [selectedFile2, setSelectedFile2] = useState('');
-  const [diffResult, setDiffResult] = useState(null); // Ayrıştırılmış diff verisi
+  const [diffResult, setDiffResult] = useState(null);
   const [loading, setLoading] = useState(true);
   const [comparing, setComparing] = useState(false);
   const [error, setError] = useState('');
-  // Not ekleme için state'ler
   const [showNoteInput, setShowNoteInput] = useState(false);
   const [currentNote, setCurrentNote] = useState('');
-  const [notes, setNotes] = useState({}); // { 'diff_filename': [{ line_number: X, text: 'Not' }] }
+  const [notes, setNotes] = useState([]);
 
-
-  const getAuthHeaders = () => {
+  const getAuthHeaders = useCallback(() => {
     const token = localStorage.getItem('jwt_token');
-    return {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
-    };
-  };
-
-  useEffect(() => {
-    const fetchXmlFilesForDropdown = async () => {
-      setLoading(true);
-      setError('');
-      try {
-        const response = await axios.get('http://localhost:5000/api/xmlfiles/', getAuthHeaders());
-        if (response.data.success) {
-          setXmlFiles(response.data.files);
-          if (response.data.files.length >= 2) {
-            setSelectedFile1(response.data.files[0].id);
-            setSelectedFile2(response.data.files[1].id);
-          } else if (response.data.files.length === 1) {
-            setSelectedFile1(response.data.files[0].id);
-          }
-        } else {
-          setError(response.data.message || 'XML dosyaları çekilirken bir hata oluştu.');
-        }
-      } catch (err) {
-        if (err.response && err.response.data && err.response.data.message) {
-          setError(err.response.data.message);
-        } else if (err.response && err.response.status === 401) {
-          setError('Yetkisiz erişim. Lütfen tekrar giriş yapın.');
-        } else {
-          setError('Sunucuya bağlanılamadı veya bilinmeyen bir hata oluştu.');
-        }
-        console.error('XML Files Fetch Error:', err);
-      } finally {
-        setLoading(false);
-      }
-    };
-    fetchXmlFilesForDropdown();
+    return { headers: { Authorization: `Bearer ${token}` } };
   }, []);
 
-  const handleCompare = async () => {
-    if (!selectedFile1 || !selectedFile2) {
-      setError('Lütfen karşılaştırmak için iki dosya seçin.');
-      return;
+  const fetchXmlFilesForDropdown = useCallback(async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const response = await axios.get('http://localhost:5000/api/xmlfiles/', getAuthHeaders());
+      if (response.data.success) {
+        setXmlFiles(response.data.files);
+        if (response.data.files.length >= 2) {
+          setSelectedFile1(response.data.files[0].id);
+          setSelectedFile2(response.data.files[1].id);
+        } else if (response.data.files.length === 1) {
+          setSelectedFile1(response.data.files[0].id);
+        }
+      } else {
+        setError('XML dosyaları çekilirken hata.');
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'XML dosyaları çekilirken hata oluştu.');
+    } finally {
+      setLoading(false);
     }
-    if (selectedFile1 === selectedFile2) {
+  }, [getAuthHeaders]);
+
+  useEffect(() => {
+    fetchXmlFilesForDropdown();
+  }, [fetchXmlFilesForDropdown]);
+
+  const fetchNotes = useCallback(async () => {
+    if (diffResult?.diff_filename) {
+      try {
+        const response = await axios.get(
+          `http://localhost:5000/api/notes/${diffResult.diff_filename}`,
+          getAuthHeaders()
+        );
+        if (response.data.success) setNotes(response.data.notes);
+        else setNotes([]);
+      } catch {
+        setNotes([]);
+      }
+    } else {
+      setNotes([]);
+    }
+  }, [diffResult, getAuthHeaders]);
+
+  useEffect(() => {
+    fetchNotes();
+  }, [fetchNotes]);
+
+  const handleCompare = async () => {
+    if (!selectedFile1 || !selectedFile2 || selectedFile1 === selectedFile2) {
       setError('Lütfen farklı iki dosya seçin.');
       return;
     }
@@ -117,8 +121,9 @@ function CompareDiffs() {
     setComparing(true);
     setDiffResult(null);
     setError('');
-    setShowNoteInput(false); // Not girişini gizle
-    setCurrentNote(''); // Not alanını temizle
+    setShowNoteInput(false);
+    setCurrentNote('');
+    setNotes([]);
 
     try {
       const createDiffResponse = await axios.post(
@@ -128,108 +133,72 @@ function CompareDiffs() {
       );
 
       if (createDiffResponse.data.success) {
-        const { diff_filename, summary } = createDiffResponse.data.data;
-
+        const { diff_id, diff_filename, summary, old_file, new_file } = createDiffResponse.data.data;
         const getDiffReportResponse = await axios.get(
           `http://localhost:5000/api/diffs/report/${diff_filename}`,
           { ...getAuthHeaders(), responseType: 'text' }
         );
 
-        // Metin diff'ini ayrıştır ve state'e kaydet
         const parsed = parseUnifiedDiff(getDiffReportResponse.data);
         setDiffResult({
-          diff_filename: diff_filename, // Notlar için dosya adını tutalım
-          summary: summary,
-          parsed_content: parsed // Ayrıştırılmış içerik
+          diff_id,
+          diff_filename,
+          summary,
+          parsed_content: parsed,
+          old_file_name: old_file,
+          new_file_name: new_file
         });
-
       } else {
-        setError(createDiffResponse.data.message || 'Fark karşılaştırma sırasında bir hata oluştu.');
+        setError('Fark karşılaştırma sırasında hata oluştu.');
       }
     } catch (err) {
-      if (err.response && err.response.data && err.response.data.message) {
-        setError(err.response.data.message);
-      } else if (err.response && err.response.status === 401) {
-        setError('Yetkisiz erişim. Lütfen tekrar giriş yapın.');
-      } else if (err.message === "Network Error") {
-        setError('Sunucuya bağlanılamadı. Backend çalışıyor mu?');
-      } else {
-        setError(`Bir hata oluştu: ${err.message}`);
-      }
-      console.error('Compare Diffs Error:', err);
+      setError(err.response?.data?.message || 'Fark karşılaştırma hatası.');
     } finally {
       setComparing(false);
     }
   };
 
-  const handleSaveNote = () => {
-    if (!currentNote.trim()) {
-      alert('Lütfen boş not kaydetmeyin.');
-      return;
+  const handleSaveNote = async () => {
+    if (!currentNote.trim() || !diffResult?.diff_filename) return;
+    try {
+      const response = await axios.post(
+        'http://localhost:5000/api/notes/',
+        { diff_filename: diffResult.diff_filename, text: currentNote },
+        getAuthHeaders()
+      );
+      if (response.data.success) {
+        fetchNotes();
+        setShowNoteInput(false);
+        setCurrentNote('');
+      } else {
+        setError('Not kaydedilirken hata.');
+      }
+    } catch {
+      setError('Not kaydedilirken sistem hatası.');
     }
-    if (!diffResult || !diffResult.diff_filename) {
-      alert('Diff raporu mevcut değil.');
-      return;
-    }
-
-    // Şimdilik notları sadece frontend state'inde tutuyoruz.
-    // Gelecekte buraya backend API çağrısı eklenecek.
-    const newNotes = { ...notes };
-    if (!newNotes[diffResult.diff_filename]) {
-      newNotes[diffResult.diff_filename] = [];
-    }
-    // Notu hangi satıra eklediğimizi belirtmek için basit bir yaklaştım.
-    // Gerçek bir uygulamada, hangi satırdaki değişikliğe not eklendiği daha spesifik olurdu.
-    // Şimdilik sadece tüm diff raporu için bir not olarak kaydedelim.
-    newNotes[diffResult.diff_filename].push({
-      timestamp: new Date().toISOString(),
-      text: currentNote,
-      // line_number: /* İsterseniz buraya ilgili satır numarasını ekleyebilirsiniz */
-    });
-    setNotes(newNotes);
-    
-    alert('Not başarıyla kaydedildi! (Şimdilik sadece tarayıcınızda)'); // Kullanıcıya bilgi ver
-    setShowNoteInput(false);
-    setCurrentNote('');
   };
 
-  if (loading) {
-    return <div className="loading-message">XML dosyaları yükleniyor...</div>;
-  }
+  if (loading) return <div className="loading-message">Yükleniyor...</div>;
 
   return (
     <div className="compare-diffs-container">
       <h2>Farkları Karşılaştır</h2>
       <div className="selection-area">
         <div className="form-group">
-          <label htmlFor="file1">İlk Dosya:</label>
-          <select
-            id="file1"
-            value={selectedFile1}
-            onChange={(e) => { setSelectedFile1(e.target.value); setDiffResult(null); setError(''); }}
-            disabled={comparing}
-          >
+          <label>İlk Dosya:</label>
+          <select value={selectedFile1} onChange={(e) => setSelectedFile1(e.target.value)} disabled={comparing}>
             <option value="">Dosya Seçin</option>
             {xmlFiles.map((file) => (
-              <option key={file.id} value={file.id}>
-                {file.file_name} (ID: {file.id})
-              </option>
+              <option key={file.id} value={file.id}>{file.file_name}</option>
             ))}
           </select>
         </div>
         <div className="form-group">
-          <label htmlFor="file2">İkinci Dosya:</label>
-          <select
-            id="file2"
-            value={selectedFile2}
-            onChange={(e) => { setSelectedFile2(e.target.value); setDiffResult(null); setError(''); }}
-            disabled={comparing}
-          >
+          <label>İkinci Dosya:</label>
+          <select value={selectedFile2} onChange={(e) => setSelectedFile2(e.target.value)} disabled={comparing}>
             <option value="">Dosya Seçin</option>
             {xmlFiles.map((file) => (
-              <option key={file.id} value={file.id}>
-                {file.file_name} (ID: {file.id})
-              </option>
+              <option key={file.id} value={file.id}>{file.file_name}</option>
             ))}
           </select>
         </div>
@@ -238,69 +207,71 @@ function CompareDiffs() {
         </button>
       </div>
 
-      {error && <p className="error-message">{error}</p>}
+      {error && <div className="error-message">{error}</div>}
 
       {diffResult && (
         <div className="diff-result-area">
-          <h3>Karşılaştırma Sonucu:</h3>
-          {diffResult.summary && (
-            <div className="diff-summary">
-                <h4>Özet:</h4>
-                <p>{diffResult.summary}</p>
-            </div>
-          )}
-          
+          <h3>Karşılaştırma Sonucu</h3>
+          <div className="diff-summary"><p>{diffResult.summary}</p></div>
           <div className="diff-display">
             <div className="diff-column old-version">
-              <h4>Eski Versiyon</h4>
+              <h4>Eski Versiyon: {diffResult.old_file_name}</h4>
               <pre className="diff-code">
                 {diffResult.parsed_content.map((lineData, index) => (
                   <div key={`old-${index}`} className={`diff-line diff-line-${lineData.type}`}>
-                    <span className="line-num">{lineData.oldLine !== null ? lineData.oldLine : ''}</span>
-                    <span className="line-content">{lineData.type !== 'added' ? lineData.content : ''}</span>
+                    <span className="line-num">
+                      {lineData.oldLine !== null && lineData.oldLine !== undefined ? lineData.oldLine : ''}
+                    </span>
+                    <span className="line-content">
+                      {lineData.type !== 'added' ? lineData.content : ''}
+                    </span>
                   </div>
                 ))}
               </pre>
             </div>
 
             <div className="diff-column new-version">
-              <h4>Yeni Versiyon</h4>
+              <h4>Yeni Versiyon: {diffResult.new_file_name}</h4>
               <pre className="diff-code">
                 {diffResult.parsed_content.map((lineData, index) => (
                   <div key={`new-${index}`} className={`diff-line diff-line-${lineData.type}`}>
-                    <span className="line-num">{lineData.newLine !== null ? lineData.newLine : ''}</span>
-                    <span className="line-content">{lineData.type !== 'removed' ? lineData.content : ''}</span>
+                    <span className="line-num">
+                      {lineData.newLine !== null && lineData.newLine !== undefined ? lineData.newLine : ''}
+                    </span>
+                    <span className="line-content">
+                      {lineData.type !== 'removed' ? lineData.content : ''}
+                    </span>
                   </div>
                 ))}
               </pre>
-              {/* Not ekleme arayüzü */}
+
+              {/* Not alanı */}
               <div className="note-section">
                 {!showNoteInput ? (
-                  <button onClick={() => setShowNoteInput(true)} className="add-note-btn">Not Yaz</button>
+                  <button className="add-note-btn" onClick={() => setShowNoteInput(true)}>Not Yaz</button>
                 ) : (
                   <div className="note-input-area">
                     <textarea
-                      placeholder="Buraya notunuzu yazın..."
                       value={currentNote}
                       onChange={(e) => setCurrentNote(e.target.value)}
-                      rows="4"
-                    ></textarea>
+                    />
                     <div className="note-actions">
-                      <button onClick={handleSaveNote} className="save-note-btn">Kaydet</button>
-                      <button onClick={() => setShowNoteInput(false)} className="cancel-note-btn">İptal</button>
+                      <button className="save-note-btn" onClick={handleSaveNote}>Kaydet</button>
+                      <button className="cancel-note-btn" onClick={() => setShowNoteInput(false)}>İptal</button>
                     </div>
                   </div>
                 )}
-                {/* Kaydedilmiş notları göster */}
-                {diffResult.diff_filename && notes[diffResult.diff_filename] && (
-                    <div className="saved-notes">
-                        <h4>Kaydedilen Notlar:</h4>
-                        {notes[diffResult.diff_filename].map((note, idx) => (
-                            <p key={idx} className="single-note">
-                                <strong>{new Date(note.timestamp).toLocaleString()}:</strong> {note.text}
-                            </p>
-                        ))}
-                    </div>
+
+                {notes.length > 0 && (
+                  <div className="saved-notes">
+                    <h4>Kaydedilen Notlar</h4>
+                    {notes.map((note) => (
+                      <div key={note.id} className="single-note">
+                        <strong>{note.username} ({new Date(note.created_at).toLocaleString()}):</strong><br />
+                        {note.text}
+                      </div>
+                    ))}
+                  </div>
                 )}
               </div>
             </div>

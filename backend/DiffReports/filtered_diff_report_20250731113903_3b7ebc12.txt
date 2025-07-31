@@ -1,0 +1,24 @@
+ ﻿<?xml version="1.0" encoding="utf-8"?>
+-  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-31T11:26:05.3431088" />
+-  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-24T17:23:28.8000703">
++  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-31T11:27:26.9256514" />
++  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-31T11:26:20.2586546">
+     <coordinateInfo>
+       <fbd>
+         <scaling x="1" y="1" />
+ - initial version
+ *********************************************************************
+ *)
+-{region " MESSAGE AREA :Haberlesme_Durumlari- ID:200"}
+-
+-_FB_CanRx_Message_Unpack_200 (	C_Enable	:= GVL.IIVD.S_CAN_Init,
+-     							Obj_CAN		:= ADR(GVL.IC.Obj_CAN0),
+-     							X_MsgID		:= 16#200,
+-     							Tm_MsgTmOut	:= TIME#500MS,
+-     							S_Extended	:= 0,
+-     							S_ER_TmOut	=&gt; GVL.IIVD.S_TmOut_Haberlesme_Durumlari_0X200);
+-
++heyyyyyyoooooo
+ {region " SIGNAL AREA : NAME-&gt;S_ER_Com_ECU LENGTH-&gt;2 STARTBIT :0"}
+ GVL.IIVD.S_ER_Com_ECU.v					:= NOT GVL.IIVD.S_TmOut_Haberlesme_Durumlari_0X200 AND NOT _FB_CanRx_Message_Unpack_200.S_Bit_1;
+ GVL.IIVD.S_ER_Com_ECU.x					:= GVL.IIVD.S_ER_Com_ECU.v AND _FB_CanRx_Message_Unpack_200.S_Bit_0;

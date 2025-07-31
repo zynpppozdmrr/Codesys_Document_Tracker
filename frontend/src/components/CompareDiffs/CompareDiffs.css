@@ -1,5 +1,6 @@
 /* src/components/CompareDiffs/CompareDiffs.css */
 
+/* ---------------- Base Layout ---------------- */
 .compare-diffs-container {
   padding: 20px;
   max-width: 1400px;
@@ -90,6 +91,7 @@ button:disabled {
   border: 1px solid #d32f2f;
 }
 
+/* ---------------- Diff Result Area ---------------- */
 .diff-result-area {
   margin-top: 20px;
   padding: 20px;
@@ -111,6 +113,7 @@ button:disabled {
   color: #388e3c;
 }
 
+/* ---------------- Columns ---------------- */
 .diff-display {
   display: flex;
   gap: 20px;
@@ -118,14 +121,16 @@ button:disabled {
 }
 
 .diff-column {
-  flex: 1;
+  flex: 1 1 0;
+  min-width: 0;           /* Flex içinde yatay taşmayı doğru hesapla */
   border: 1px solid #ddd;
   border-radius: 5px;
   padding: 10px;
   background-color: #fcfcfc;
-  overflow-x: auto; /* Yatay kaydırma çubuğu */
-  max-height: 700px; /* Belirli bir yükseklik */
-  overflow-y: auto; /* Dikey kaydırma çubuğu */
+
+  /* SCROLL kolon seviyesinde: hem yatay hem dikey */
+  overflow: auto;
+  max-height: 700px;      /* sağ scroll için dikey sınır */
 }
 
 .diff-column h4 {
@@ -137,73 +142,101 @@ button:disabled {
   padding-bottom: 10px;
 }
 
+/* ---------------- Code & Lines ---------------- */
+/* İçeriğin genişliği satırlara göre büyüsün ki alt scroll çıksın. */
 .diff-code {
   margin: 0;
   padding: 0;
   font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
   font-size: 0.85rem;
   line-height: 1.4;
-  white-space: pre-wrap; /* Satır sonlarını koru */
-  word-break: break-all; /* Uzun kelimeleri kır */
+
+  white-space: pre;           /* kırılma yok */
+  word-break: normal;         /* kelime kırma yok */
+
+  display: inline-block;      /* içerik genişliğini koru */
+  min-width: max-content;     /* en geniş satır kadar genişlik al */
 }
 
 .diff-line {
   display: flex;
+  align-items: flex-start;
   line-height: 1.4;
-  /* padding: 0 5px; */ /* Yatay padding'i kaldırdık, satır numarası için ayrı span var */
-  min-height: 1.4em; /* Boş satırlar için minimum yükseklik */
+  min-height: 1.4em;
+  box-sizing: border-box;
+  transition: background-color 0.12s ease;
 }
 
+.diff-line:hover {
+  outline: 1px dashed rgba(0,0,0,0.08);
+}
+
+/* --------- SATIR NUMARASI (SABİT SÜTUN) --------- */
 .diff-line .line-num {
-    display: inline-block;
-    width: 40px; /* Satır numarası için sabit genişlik */
-    text-align: right;
-    padding-right: 10px;
-    color: #888;
-    background-color: #f0f0f0;
-    user-select: none; /* Numaraları seçilemez yap */
+  flex: 0 0 56px;       /* sabit sütun: taşma/üst üste binmeyi engeller */
+  width: 56px;
+  text-align: right;
+  padding-right: 10px;
+  color: #888;
+  background-color: #f0f0f0;
+  border-right: 1px solid #e2e2e2;
+  user-select: none;
+
+  white-space: nowrap;             /* "10" => "1\n0" olmasın */
+  word-break: normal !important;
+  overflow: hidden;
+  text-overflow: clip;
+
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: "tnum";
+  font-family: 'Consolas', 'Monaco', 'Lucida Console', monospace;
 }
 
+/* --------- İÇERİK (ESNEK ALAN) --------- */
 .diff-line .line-content {
-    flex-grow: 1;
-    padding-left: 5px;
-    white-space: pre; /* İçerik için pre-wrap yerine pre kullanabiliriz */
+  flex: 1 1 auto;
+  min-width: 0;         /* flex içinde yatay taşmayı düzgün hesapla */
+  padding-left: 8px;
+
+  white-space: pre;     /* kırılma yok; kolon taşarsa alt scrollbar çıkar */
+  overflow: hidden;
+  text-overflow: clip;
+  box-sizing: border-box;
 }
 
-
+/* ---------------- Line Types ---------------- */
 .diff-line-unchanged {
-  background-color: #f7f7f7;
+  background-color: #f8f8f8;
   color: #333;
 }
 
 .diff-line-added {
-  background-color: #e6ffed; /* Açık yeşil */
-  color: #22863a; /* Koyu yeşil */
+  background-color: #e6ffed;
+  color: #22863a;
 }
 .diff-line-added .line-content::before {
-    content: '+';
-    color: #22863a;
-    margin-right: 5px;
+  content: '+';
+  color: #22863a;
+  margin-right: 5px;
 }
-
 
 .diff-line-removed {
-  background-color: #ffeef0; /* Açık kırmızı */
-  color: #cb2431; /* Koyu kırmızı */
+  background-color: #ffeef0;
+  color: #cb2431;
 }
 .diff-line-removed .line-content::before {
-    content: '-';
-    color: #cb2431;
-    margin-right: 5px;
+  content: '-';
+  color: #cb2431;
+  margin-right: 5px;
 }
 
 .diff-line-header {
-  background-color: #eaf2f8; /* Mavi tonu */
+  background-color: #eaf2f8;
   color: #0366d6;
   font-weight: bold;
 }
 
-/* Not ekleme alanı stilleri */
+/* ---------------- Notes ---------------- */
 .note-section {
   margin-top: 20px;
   padding-top: 15px;
@@ -232,7 +265,7 @@ button:disabled {
   border: 1px solid #ccc;
   border-radius: 4px;
   font-size: 0.9rem;
-  resize: vertical; /* Dikey yeniden boyutlandırmaya izin ver */
+  resize: vertical;
 }
 
 .note-actions {
@@ -256,30 +289,30 @@ button:disabled {
 }
 
 .saved-notes {
-    margin-top: 20px;
-    padding: 15px;
-    background-color: #f0f8ff;
-    border: 1px dashed #a7d9ed;
-    border-radius: 5px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f0f8ff;
+  border: 1px dashed #a7d9ed;
+  border-radius: 5px;
 }
 
 .saved-notes h4 {
-    margin-top: 0;
-    color: #007bff;
-    font-size: 1rem;
-    border-bottom: 1px solid #d9edf7;
-    padding-bottom: 8px;
-    margin-bottom: 10px;
+  margin-top: 0;
+  color: #007bff;
+  font-size: 1rem;
+  border-bottom: 1px solid #d9edf7;
+  padding-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .single-note {
-    background-color: #eaf6ff;
-    padding: 10px;
-    border-radius: 4px;
-    margin-bottom: 8px;
-    font-size: 0.9rem;
-    color: #333;
+  background-color: #eaf6ff;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: #333;
 }
 .single-note:last-child {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
