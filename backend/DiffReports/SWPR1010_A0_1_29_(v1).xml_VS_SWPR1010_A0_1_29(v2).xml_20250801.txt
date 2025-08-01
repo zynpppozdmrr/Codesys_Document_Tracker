@@ -1,8 +1,3 @@
- ﻿<?xml version="1.0" encoding="utf-8"?>
--  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-24T16:11:44.1613865" />
--  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-24T16:11:09.0950298">
-+  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-07-24T16:12:19.1798246" />
-+  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-07-24T16:11:52.1627449">
  - initial version
  *********************************************************************
  *)

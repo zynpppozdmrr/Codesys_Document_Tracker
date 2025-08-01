@@ -89,7 +89,7 @@ function DiffReportsList() {
       <h2>Karşılaştırma Raporları</h2>
 
       <div className="toolbar">
-        <button className="btn btn-sync" disabled={busy} onClick={handleResync}>Sync</button>
+        <button className="btn btn-sync" disabled={busy} onClick={handleResync}>Resync</button>
         {/* Yenile butonu kaldırıldı */}
       </div>
 

@@ -9,7 +9,6 @@ from services.diff_service import (
     DIFF_REPORTS_DIR
 )
 from codesys_doc_tracker.models.diff_model import Diff
-from codesys_doc_tracker import db
 
 apiDiff = Blueprint('apiDiff', __name__, url_prefix='/api/diffs')
 CORS(apiDiff)
@@ -87,13 +86,7 @@ def list_diff_reports():
 @apiDiff.route('/resync', methods=['POST'])
 @jwt_required()
 def resync_diff_reports():
-    removed = 0
-    for d in Diff.query.all():
-        if not os.path.exists(d.diffReport_path):
-            db.session.delete(d)
-            removed += 1
-    if removed:
-        db.session.commit()
+    removed = Diff.resync_reports()
     return jsonify({"success": True, "data": {"removed": removed}}), 200
 
 
@@ -101,19 +94,7 @@ def resync_diff_reports():
 @apiDiff.route('/<int:diff_id>', methods=['DELETE'])
 @jwt_required()
 def delete_diff(diff_id):
-    diff = Diff.query.get(diff_id)
-    if not diff:
-        return jsonify({"success": False, "message": "Kayıt bulunamadı."}), 404
-
-    # Dosyayı sil
-    try:
-        if os.path.exists(diff.diffReport_path):
-            os.remove(diff.diffReport_path)
-    except Exception as e:
-        print("Dosya silinemedi:", e)
-
-    # DB kaydını sil
-    db.session.delete(diff)
-    db.session.commit()
-
+    success, error = Diff.delete_by_id(diff_id)
+    if not success:
+        return jsonify({"success": False, "message": error}), 404
     return jsonify({"success": True}), 200
