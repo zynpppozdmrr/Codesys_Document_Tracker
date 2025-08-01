@@ -66,6 +66,8 @@ coverage.xml
 *.tar.gz
 *.zip
 __pypackages__/
+docs
+
 
 # VS Code workspace settings
 .vscode/
