@@ -17,12 +17,12 @@ function Sidebar() {
         </li>
         <li>
           <Link to="/xml-files" className={`nav-item ${isActive('/xml-files') ? 'active' : ''}`}>
-            XML Dosyaları
+            Proje(XML) Dosyaları
           </Link>
         </li>
         <li>
           <Link to="/compare-diffs" className={`nav-item ${isActive('/compare-diffs') ? 'active' : ''}`}>
-            Farkları Karşılaştır
+            Projeleri Karşılaştır
           </Link>
         </li>
         {/* YENİ MENÜ */}

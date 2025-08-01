@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import axios from 'axios';
 import './CompareDiffs.css';
+import NoteSection from '../Notes/NoteSection'; // NOT: yeni klasörde oluşturulacak
 
 const parseUnifiedDiff = (diffText) => {
   const lines = diffText.split('\n');
@@ -12,9 +13,7 @@ const parseUnifiedDiff = (diffText) => {
     const line = lines[i];
     let type = 'context';
 
-    if (line.startsWith('---') || line.startsWith('+++')) {
-      continue;
-    }
+    if (line.startsWith('---') || line.startsWith('+++')) continue;
     if (line.startsWith('@@')) {
       const match = line.match(/@@ -(\d+)(,\d+)? \+(\d+)(,\d+)? @@/);
       if (match) {
@@ -55,9 +54,6 @@ function CompareDiffs() {
   const [loading, setLoading] = useState(true);
   const [comparing, setComparing] = useState(false);
   const [error, setError] = useState('');
-  const [showNoteInput, setShowNoteInput] = useState(false);
-  const [currentNote, setCurrentNote] = useState('');
-  const [notes, setNotes] = useState([]);
 
   const getAuthHeaders = useCallback(() => {
     const token = localStorage.getItem('jwt_token');
@@ -91,27 +87,6 @@ function CompareDiffs() {
     fetchXmlFilesForDropdown();
   }, [fetchXmlFilesForDropdown]);
 
-  const fetchNotes = useCallback(async () => {
-    if (diffResult?.diff_filename) {
-      try {
-        const response = await axios.get(
-          `http://localhost:5000/api/notes/${diffResult.diff_filename}`,
-          getAuthHeaders()
-        );
-        if (response.data.success) setNotes(response.data.notes);
-        else setNotes([]);
-      } catch {
-        setNotes([]);
-      }
-    } else {
-      setNotes([]);
-    }
-  }, [diffResult, getAuthHeaders]);
-
-  useEffect(() => {
-    fetchNotes();
-  }, [fetchNotes]);
-
   const handleCompare = async () => {
     if (!selectedFile1 || !selectedFile2 || selectedFile1 === selectedFile2) {
       setError('Lütfen farklı iki dosya seçin.');
@@ -121,9 +96,6 @@ function CompareDiffs() {
     setComparing(true);
     setDiffResult(null);
     setError('');
-    setShowNoteInput(false);
-    setCurrentNote('');
-    setNotes([]);
 
     try {
       const createDiffResponse = await axios.post(
@@ -155,26 +127,6 @@ function CompareDiffs() {
       setError(err.response?.data?.message || 'Fark karşılaştırma hatası.');
     } finally {
       setComparing(false);
-    }
-  };
-
-  const handleSaveNote = async () => {
-    if (!currentNote.trim() || !diffResult?.diff_filename) return;
-    try {
-      const response = await axios.post(
-        'http://localhost:5000/api/notes/',
-        { diff_filename: diffResult.diff_filename, text: currentNote },
-        getAuthHeaders()
-      );
-      if (response.data.success) {
-        fetchNotes();
-        setShowNoteInput(false);
-        setCurrentNote('');
-      } else {
-        setError('Not kaydedilirken hata.');
-      }
-    } catch {
-      setError('Not kaydedilirken sistem hatası.');
     }
   };
 
@@ -220,7 +172,7 @@ function CompareDiffs() {
                 {diffResult.parsed_content.map((lineData, index) => (
                   <div key={`old-${index}`} className={`diff-line diff-line-${lineData.type}`}>
                     <span className="line-num">
-                      {lineData.oldLine !== null && lineData.oldLine !== undefined ? lineData.oldLine : ''}
+                      {lineData.oldLine !== null ? lineData.oldLine : ''}
                     </span>
                     <span className="line-content">
                       {lineData.type !== 'added' ? lineData.content : ''}
@@ -236,7 +188,7 @@ function CompareDiffs() {
                 {diffResult.parsed_content.map((lineData, index) => (
                   <div key={`new-${index}`} className={`diff-line diff-line-${lineData.type}`}>
                     <span className="line-num">
-                      {lineData.newLine !== null && lineData.newLine !== undefined ? lineData.newLine : ''}
+                      {lineData.newLine !== null ? lineData.newLine : ''}
                     </span>
                     <span className="line-content">
                       {lineData.type !== 'removed' ? lineData.content : ''}
@@ -245,35 +197,8 @@ function CompareDiffs() {
                 ))}
               </pre>
 
-              {/* Not alanı */}
-              <div className="note-section">
-                {!showNoteInput ? (
-                  <button className="add-note-btn" onClick={() => setShowNoteInput(true)}>Not Yaz</button>
-                ) : (
-                  <div className="note-input-area">
-                    <textarea
-                      value={currentNote}
-                      onChange={(e) => setCurrentNote(e.target.value)}
-                    />
-                    <div className="note-actions">
-                      <button className="save-note-btn" onClick={handleSaveNote}>Kaydet</button>
-                      <button className="cancel-note-btn" onClick={() => setShowNoteInput(false)}>İptal</button>
-                    </div>
-                  </div>
-                )}
-
-                {notes.length > 0 && (
-                  <div className="saved-notes">
-                    <h4>Kaydedilen Notlar</h4>
-                    {notes.map((note) => (
-                      <div key={note.id} className="single-note">
-                        <strong>{note.username} ({new Date(note.created_at).toLocaleString()}):</strong><br />
-                        {note.text}
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
+              {/* ✨ Yeni: Notlar ayrı bir bileşene aktarıldı */}
+              <NoteSection diffId={diffResult.diff_id} />
             </div>
           </div>
         </div>

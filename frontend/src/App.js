@@ -8,9 +8,11 @@ import Dashboard from './components/Dashboard/Dashboard';
 import Layout from './components/Layout/Layout';
 import XmlFiles from './components/XmlFiles/XmlFiles';
 import CompareDiffs from './components/CompareDiffs/CompareDiffs';
-import DiffReportsList from './components/DiffReports/DiffReportsList/DiffReportsList';  // <-- YENİ
+import DiffReportsList from './components/DiffReports/DiffReportsList/DiffReportsList';
+import AllNotesTable from './components/Notes/AllNotesTable';
 
-const NotesRelations = () => <div className="placeholder-page"><h2>Notlar ve İlişkiler Sayfası</h2><p>Burada notlar ve ilişkiler yönetilecek.</p></div>;
+// Remove this line if NotesRelations is not used elsewhere as a separate component definition
+// const NotesRelations = () => <div className="placeholder-page"><h2>Notlar ve İlişkiler Sayfası</h2><p>Burada notlar ve ilişkiler yönetilecek.</p></div>;
 const Users = () => <div className="placeholder-page"><h2>Kullanıcı Yönetimi Sayfası</h2><p>Burada kullanıcılar yönetilecek (Admin yetkisi gerektirecek).</p></div>;
 
 const isAuthenticated = () => !!localStorage.getItem('jwt_token');
@@ -42,8 +44,8 @@ function App() {
                   <Route path="/dashboard" element={<Dashboard />} />
                   <Route path="/xml-files" element={<XmlFiles />} />
                   <Route path="/compare-diffs" element={<CompareDiffs />} />
-                  <Route path="/diff-reports" element={<DiffReportsList />} />  {/* <-- YENİ */}
-                  <Route path="/notes-relations" element={<NotesRelations />} />
+                  <Route path="/diff-reports" element={<DiffReportsList />} />
+                  <Route path="/notes-relations" element={<AllNotesTable />} /> {/* This is correctly pointing to AllNotesTable */}
                   <Route path="/users" element={<Users />} />
                   <Route path="/" element={<Navigate to="/dashboard" />} />
                 </Routes>

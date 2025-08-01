@@ -1,0 +1,59 @@
+.notes-table-container {
+  padding: 1rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
+}
+
+.notes-table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.notes-table-container th,
+.notes-table-container td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.notes-table-container th {
+  background-color: #f5f5f5;
+  font-weight: 600;
+}
+
+.notes-table-container .error {
+  color: red;
+  font-weight: bold;
+}
+
+/* Yeni buton stilleri */
+.edit-button, .delete-button, .save-button, .cancel-button {
+  padding: 5px 10px;
+  margin-right: 5px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.edit-button {
+  background-color: #2196f3; /* Mavi */
+  color: white;
+}
+
+.delete-button {
+  background-color: #f44336; /* Kırmızı */
+  color: white;
+}
+
+.save-button {
+  background-color: #4CAF50; /* Yeşil */
+  color: white;
+}
+
+.cancel-button {
+  background-color: #ff9800; /* Turuncu */
+  color: white;
+}

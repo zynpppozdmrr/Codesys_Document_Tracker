@@ -10,25 +10,29 @@ class Note(db.Model):
     id: int
     user_id: int
     diff_id: int
+    xmlfile_id: int
     content: str
     timestamp: datetime
 
     id = db.Column(db.Integer, primary_key=True)
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False, index=True)
     diff_id = db.Column(db.Integer, db.ForeignKey("diffs.id"), nullable=False, index=True)
+    xmlfile_id = db.Column(db.Integer, db.ForeignKey("xmlfiles.id"), nullable=False, index=True)
     content = db.Column(db.Text, nullable=False)
     timestamp = db.Column(db.DateTime, default=datetime.utcnow)
 
-    # İsteğe bağlı ilişkiler (kolay sorgu için)
     user = db.relationship("User", backref="notes", lazy=True)
     diff = db.relationship("Diff", backref="notes", lazy=True)
+    xmlfile = db.relationship("XMLFile", backref="notes", lazy=True)
 
-    # ----------------------
-    # Class methods (CRUD)
-    # ----------------------
     @classmethod
-    def create(cls, user_id: int, diff_id: int, content: str) -> "Note":
-        note = cls(user_id=user_id, diff_id=diff_id, content=content.strip())
+    def create(cls, user_id: int, diff_id: int, xmlfile_id: int, content: str) -> "Note":
+        note = cls(
+            user_id=user_id,
+            diff_id=diff_id,
+            xmlfile_id=xmlfile_id,
+            content=content.strip()
+        )
         db.session.add(note)
         db.session.commit()
         return note
