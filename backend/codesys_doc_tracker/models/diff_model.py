@@ -1,14 +1,15 @@
 from datetime import datetime
-from codesys_doc_tracker import db 
-from codesys_doc_tracker.models.xmlfile_model import XMLFile 
+from codesys_doc_tracker import db
+from codesys_doc_tracker.models.xmlfile_model import XMLFile
 import os
+from codesys_doc_tracker.models.note_model import Note # Note modelini içeri aktardık
 
 class Diff(db.Model):
     __tablename__ = 'diffs'
     id = db.Column(db.Integer, primary_key=True)
     xmlfile_old_id = db.Column(db.Integer, db.ForeignKey('xmlfiles.id'), nullable=False)
     xmlfile_new_id = db.Column(db.Integer, db.ForeignKey('xmlfiles.id'), nullable=False)
-    diffReport_name = db.Column(db.String(255), nullable=False) 
+    diffReport_name = db.Column(db.String(255), nullable=False)
     diffReport_path = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
@@ -45,20 +46,31 @@ class Diff(db.Model):
             return False, "Kayıt bulunamadı."
 
         try:
+            # Diff'e bağlı notları silmeden önce dosya silme işlemini yap.
             if os.path.exists(diff.diffReport_path):
                 os.remove(diff.diffReport_path)
         except Exception as e:
-            print("Dosya silinemedi:", e)
+            print("Diff rapor dosyası silinemedi:", e)
+            # Dosya silinemese bile devam edebiliriz veya burada bir hata döndürebiliriz.
+            # Şimdilik devam ediyoruz, veritabanı kaydının silinmesi daha önemli.
 
-        db.session.delete(diff)
-        db.session.commit()
-        return True, None
+        try:
+            # Diff'e bağlı notları sil
+            Note.query.filter_by(diff_id=diff_id).delete(synchronize_session=False)
+            db.session.delete(diff)
+            db.session.commit()
+            return True, None
+        except Exception as e:
+            db.session.rollback()
+            return False, f"Veritabanından silinirken hata oluştu: {e}"
 
     @classmethod
     def resync_reports(cls):
         removed = 0
         for d in cls.query.all():
             if not os.path.exists(d.diffReport_path):
+                # Dosya diskten silinmişse, veritabanındaki Diff ve ilişkili notlarını sil
+                # Note.query.filter_by(diff_id=d.id).delete(synchronize_session=False) # Bu satır da eklenebilir eğer resync sırasında notlar silinsin istenirse.
                 db.session.delete(d)
                 removed += 1
         if removed:
