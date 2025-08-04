@@ -1,16 +1,15 @@
 // src/components/Auth/Login.js
 import React, { useState } from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom'; // useNavigate hook'unu import ediyoruz
+import { useNavigate } from 'react-router-dom';
 import './Auth.css';
 
-// onLoginSuccess prop'unu alacak şekilde güncelledik
 function Login({ onLoginSuccess }) {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const navigate = useNavigate(); // Yönlendirme için hook
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,13 +18,10 @@ function Login({ onLoginSuccess }) {
     setLoading(true);
 
     try {
-      // Backend'iniz application/x-www-form-urlencoded beklediği için bu formatta gönderiyoruz
       const formData = new URLSearchParams();
       formData.append('username', username);
       formData.append('password', password);
 
-      // Backend'deki /api/auth/login endpoint'ine POST isteği gönder
-      // `http://localhost:5000` sizin Flask backend'inizin çalıştığı adres olmalı
       const response = await axios.post('http://localhost:5000/api/auth/login', formData.toString(), {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded'
@@ -34,9 +30,10 @@ function Login({ onLoginSuccess }) {
 
       if (response.data.success) {
         localStorage.setItem('jwt_token', response.data.token);
+        localStorage.setItem('user_role', response.data.role); // Kullanıcı rolünü kaydet
         alert('Giriş başarılı!');
-        onLoginSuccess(); // App.js'teki setLoggedIn(true) fonksiyonunu çağır
-        navigate('/dashboard'); // Dashboard sayfasına yönlendir
+        onLoginSuccess();
+        navigate('/dashboard');
       } else {
         setError(response.data.message || 'Giriş başarısız oldu.');
       }

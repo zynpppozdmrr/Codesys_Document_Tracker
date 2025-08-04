@@ -4,7 +4,6 @@ from sqlalchemy import or_
 from codesys_doc_tracker import db
 
 
-
 class XMLFile(db.Model):
     __tablename__ = 'xmlfiles'
 
@@ -34,11 +33,26 @@ class XMLFile(db.Model):
     @classmethod
     def delete_by_id_with_diffs(cls, file_id: int) -> bool:
         from codesys_doc_tracker.models.diff_model import Diff
+        from codesys_doc_tracker.models.note_model import Note # Import Note model
 
         row = cls.query.get(file_id)
         if not row:
             return False
 
+        # Find all diffs related to this xmlfile
+        diffs_to_delete = Diff.query.filter(or_(
+            Diff.xmlfile_old_id == row.id,
+            Diff.xmlfile_new_id == row.id
+        )).all()
+
+        # Delete associated notes first
+        for diff_to_delete in diffs_to_delete:
+            Note.query.filter_by(diff_id=diff_to_delete.id).delete(synchronize_session=False)
+
+        # Then delete the diff records
+        for diff_to_delete in diffs_to_delete:
+            db.session.delete(diff_to_delete)
+        
         # Dosyayı diskte sil
         try:
             abs_path = os.path.normpath(row.file_path)
@@ -47,12 +61,6 @@ class XMLFile(db.Model):
         except Exception as e:
             print(f"XML dosyası silinemedi: {row.file_path} - {e}")
 
-        # Bağlı diff kayıtlarını sil
-        Diff.query.filter(or_(
-            Diff.xmlfile_old_id == row.id,
-            Diff.xmlfile_new_id == row.id
-        )).delete(synchronize_session=False)
-
         db.session.delete(row)
         db.session.commit()
         return True
@@ -60,6 +68,7 @@ class XMLFile(db.Model):
     @classmethod
     def delete_missing_files(cls, valid_paths: set, base_name: str) -> int:
         from codesys_doc_tracker.models.diff_model import Diff
+        from codesys_doc_tracker.models.note_model import Note # Import Note model
         
         removed = 0
         for row in cls.query.all():
@@ -67,10 +76,21 @@ class XMLFile(db.Model):
             if not row_path.startswith(base_name + "/"):
                 continue
             if row_path not in valid_paths:
-                Diff.query.filter(or_(
+                # Find all diffs related to this xmlfile
+                diffs_to_delete = Diff.query.filter(or_(
                     Diff.xmlfile_old_id == row.id,
                     Diff.xmlfile_new_id == row.id
-                )).delete(synchronize_session=False)
+                )).all()
+
+                # Delete associated notes first
+                for diff_to_delete in diffs_to_delete:
+                    Note.query.filter_by(diff_id=diff_to_delete.id).delete(synchronize_session=False)
+
+                # Then delete the diff records
+                for diff_to_delete in diffs_to_delete:
+                    db.session.delete(diff_to_delete)
+
                 db.session.delete(row)
                 removed += 1
+        db.session.commit() # Commit once after all deletions
         return removed

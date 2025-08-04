@@ -1,0 +1,163 @@
+/* src/components/UserManagement.css */
+.user-management-container {
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.user-management-container h2,
+.user-management-container h3 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.error-message {
+  color: #dc3545;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  padding: 10px;
+  border-radius: 4px;
+  margin-bottom: 15px;
+  text-align: center;
+}
+
+/* Form stilleri */
+.user-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 15px;
+  margin-bottom: 30px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.user-form .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+  color: #555;
+}
+
+.user-form input[type="text"],
+.user-form input[type="password"],
+.user-form select {
+  width: calc(100% - 20px); /* Padding'i hesaba kat */
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.user-form button {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.user-form button:hover {
+  background-color: #0056b3;
+}
+
+/* Kullanıcı Listesi Tablosu */
+.user-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.user-table th,
+.user-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: left;
+}
+
+.user-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+  color: #333;
+}
+
+.user-table tr:nth-child(even) {
+  background-color: #f8f8f8;
+}
+
+.user-table tr:hover {
+  background-color: #f1f1f1;
+}
+
+.user-table td button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-right: 5px;
+  font-size: 0.9em;
+}
+
+.user-table td .edit-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.user-table td .edit-button:hover {
+  background-color: #218838;
+}
+
+.user-table td .delete-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.user-table td .delete-button:hover {
+  background-color: #c82333;
+}
+
+.user-table td .delete-password-input {
+    width: 120px;
+    padding: 6px;
+    margin-left: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+/* Düzenleme Bölümü */
+.edit-user-section {
+  margin-top: 40px;
+  padding: 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+}
+
+.edit-user-section h3 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.edit-user-section .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.edit-user-section .cancel-button {
+  background-color: #6c757d;
+}
+
+.edit-user-section .cancel-button:hover {
+  background-color: #5a6268;
+}

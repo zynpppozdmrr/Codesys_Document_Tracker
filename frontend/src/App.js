@@ -10,23 +10,41 @@ import XmlFiles from './components/XmlFiles/XmlFiles';
 import CompareDiffs from './components/CompareDiffs/CompareDiffs';
 import DiffReportsList from './components/DiffReports/DiffReportsList/DiffReportsList';
 import AllNotesTable from './components/Notes/AllNotesTable';
-
-// Remove this line if NotesRelations is not used elsewhere as a separate component definition
-// const NotesRelations = () => <div className="placeholder-page"><h2>Notlar ve İlişkiler Sayfası</h2><p>Burada notlar ve ilişkiler yönetilecek.</p></div>;
-const Users = () => <div className="placeholder-page"><h2>Kullanıcı Yönetimi Sayfası</h2><p>Burada kullanıcılar yönetilecek (Admin yetkisi gerektirecek).</p></div>;
+import UserManagement from './components/UserManagement/UserManagement'; // UserManagement bileşenini import edin
 
 const isAuthenticated = () => !!localStorage.getItem('jwt_token');
-const PrivateRoute = ({ children }) => (isAuthenticated() ? children : <Navigate to="/login" />);
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(isAuthenticated());
+  const [userRole, setUserRole] = useState(localStorage.getItem('user_role')); // userRole state'ini ekle
 
-  const handleLoginSuccess = () => setLoggedIn(true);
-  const handleLogout = () => { localStorage.removeItem('jwt_token'); setLoggedIn(false); };
+  const handleLoginSuccess = () => {
+    setLoggedIn(true);
+    setUserRole(localStorage.getItem('user_role'));
+  };
+
+  const handleLogout = () => {
+    localStorage.removeItem('jwt_token');
+    localStorage.removeItem('user_role');
+    setLoggedIn(false);
+    setUserRole(null);
+  };
 
   useEffect(() => {
-    console.log("Kullanıcı giriş durumu:", loggedIn ? "Giriş Yapıldı" : "Çıkış Yapıldı");
+    // Sayfa yüklendiğinde ve loggedIn değiştiğinde rolü güncelle
+    setUserRole(localStorage.getItem('user_role'));
   }, [loggedIn]);
+
+  const PrivateRoute = ({ children, requiredRole = null }) => {
+    if (!isAuthenticated()) {
+      return <Navigate to="/login" />;
+    }
+    // Eğer bir rol gereksinimi varsa ve kullanıcı bu role sahip değilse, dashboard'a yönlendir
+    if (requiredRole && userRole !== requiredRole) {
+      return <Navigate to="/dashboard" />;
+    }
+    return children;
+  };
 
   return (
     <Router>
@@ -38,19 +56,18 @@ function App() {
         <Route
           path="*"
           element={
-            <PrivateRoute>
-              <Layout onLogout={handleLogout}>
-                <Routes>
-                  <Route path="/dashboard" element={<Dashboard />} />
-                  <Route path="/xml-files" element={<XmlFiles />} />
-                  <Route path="/compare-diffs" element={<CompareDiffs />} />
-                  <Route path="/diff-reports" element={<DiffReportsList />} />
-                  <Route path="/notes-relations" element={<AllNotesTable />} /> {/* This is correctly pointing to AllNotesTable */}
-                  <Route path="/users" element={<Users />} />
-                  <Route path="/" element={<Navigate to="/dashboard" />} />
-                </Routes>
-              </Layout>
-            </PrivateRoute>
+            <Layout onLogout={handleLogout} userRole={userRole}>
+              <Routes>
+                <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
+                <Route path="/xml-files" element={<PrivateRoute><XmlFiles /></PrivateRoute>} />
+                <Route path="/compare-diffs" element={<PrivateRoute><CompareDiffs /></PrivateRoute>} />
+                <Route path="/diff-reports" element={<PrivateRoute><DiffReportsList /></PrivateRoute>} />
+                <Route path="/notes-relations" element={<PrivateRoute><AllNotesTable /></PrivateRoute>} />
+                {/* UserManagement sayfası sadece adminler için */}
+                <Route path="/users" element={<PrivateRoute requiredRole="admin"><UserManagement /></PrivateRoute>} />
+                <Route path="/" element={<Navigate to="/dashboard" />} />
+              </Routes>
+            </Layout>
           }
         />
       </Routes>

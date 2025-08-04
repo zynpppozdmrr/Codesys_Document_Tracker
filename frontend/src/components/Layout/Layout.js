@@ -1,23 +1,23 @@
 // src/components/Layout/Layout.js
 import React from 'react';
-import Sidebar from './Sidebar'; // Sidebar bileşenini import ediyoruz
-import './Layout.css'; // Stil dosyası
+import Sidebar from './Sidebar';
+import './Layout.css';
 
-function Layout({ children, onLogout }) {
+function Layout({ children, onLogout, userRole }) { // userRole prop'unu alıyoruz
   return (
     <div className="layout-container">
-      <Sidebar /> {/* Yan menü */}
+      <Sidebar userRole={userRole} /> {/* userRole prop'unu Sidebar'a geçiyoruz */}
       <div className="main-content-wrapper">
-        <header className="app-header"> {/* Uygulama başlığı */}
+        <header className="app-header">
           <h1>CODESYS Dokümantasyon Takip Sistemi</h1>
-          {onLogout && ( // Logout butonu prop olarak gelirse göster
+          {onLogout && (
             <button onClick={onLogout} className="logout-button">
               Çıkış Yap
             </button>
           )}
         </header>
         <main className="app-main-content">
-          {children} {/* Rotalara göre değişecek içerik */}
+          {children}
         </main>
       </div>
     </div>

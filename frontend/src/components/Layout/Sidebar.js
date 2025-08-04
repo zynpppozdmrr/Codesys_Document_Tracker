@@ -3,7 +3,7 @@ import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
-function Sidebar() {
+function Sidebar({ userRole }) { // userRole prop'unu alıyoruz
   const { pathname } = useLocation();
   const isActive = (p) => pathname.startsWith(p);
 
@@ -37,11 +37,13 @@ function Sidebar() {
             Notlar & İlişkiler
           </Link>
         </li>
-        <li>
-          <Link to="/users" className={`nav-item ${isActive('/users') ? 'active' : ''}`}>
-            Kullanıcı Yönetimi
-          </Link>
-        </li>
+        {userRole === 'admin' && ( // Sadece admin ise göster
+          <li>
+            <Link to="/users" className={`nav-item ${isActive('/users') ? 'active' : ''}`}>
+              Kullanıcı Yönetimi
+            </Link>
+          </li>
+        )}
       </ul>
     </div>
   );
