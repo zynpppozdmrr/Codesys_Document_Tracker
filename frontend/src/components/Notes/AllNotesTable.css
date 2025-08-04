@@ -16,6 +16,7 @@
   padding: 0.75rem;
   border: 1px solid #ddd;
   text-align: left;
+  vertical-align: top; /* Align content to the top */
 }
 
 .notes-table-container th {
@@ -28,14 +29,15 @@
   font-weight: bold;
 }
 
-/* Yeni buton stilleri */
-.edit-button, .delete-button, .save-button, .cancel-button {
+/* Buton stilleri */
+.edit-button, .delete-button, .save-button, .cancel-button, .add-relation-toggle-button { /* add-relation-toggle-button eklendi */
   padding: 5px 10px;
   margin-right: 5px;
   border: none;
   border-radius: 4px;
   cursor: pointer;
   font-size: 0.85rem;
+  white-space: nowrap; /* Prevent buttons from wrapping */
 }
 
 .edit-button {
@@ -57,3 +59,71 @@
   background-color: #ff9800; /* Turuncu */
   color: white;
 }
+
+/* Yeni ilişki ekleme ve silme butonları için stiller */
+.add-relation-form {
+    display: flex;
+    flex-wrap: wrap; /* Küçük ekranlarda alta geçmesini sağlar */
+    gap: 5px;
+    margin-top: 10px;
+}
+
+.add-relation-form input {
+    flex: 1;
+    min-width: 100px; /* Inputların çok küçülmemesini sağlar */
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.add-relation-form button {
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.add-relation-form .cancel-button { /* İlişki ekleme formundaki iptal butonu */
+    background-color: #6c757d; /* Gri */
+}
+
+
+.relation-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f8ff;
+    border: 1px solid #e0f0ff;
+    border-radius: 4px;
+    padding: 5px;
+    margin-bottom: 5px;
+}
+
+.delete-relation-button {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+    line-height: 1;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 5px; /* İlişki değerinden ayırmak için */
+    flex-shrink: 0; /* Küçülmesini engelle */
+}
+
+.add-relation-toggle-button {
+    background-color: #17a2b8; /* Turkuaz */
+    color: white;
+    margin-top: 10px;
+}
+.add-relation-toggle-button:hover {
+    background-color: #138496;
+}
+

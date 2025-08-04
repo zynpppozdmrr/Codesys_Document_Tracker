@@ -35,7 +35,6 @@ def add_note():
     if not diff:
         return jsonify({"success": False, "message": "Diff bulunamadı."}), 404
 
-    # yeni eklediğimiz alan: xmlfile_id = ikinci dosya
     xmlfile_id = diff.xmlfile_new_id
 
     username = get_jwt_identity()
@@ -43,7 +42,6 @@ def add_note():
     if not user:
         return jsonify({"success": False, "message": "Kullanıcı bulunamadı."}), 404
 
-    # artık 4 parametre göndermeliyiz
     note = Note.create(
         user_id=user.id,
         diff_id=diff.id,
@@ -53,52 +51,24 @@ def add_note():
 
     return jsonify({
         "success": True,
-        "data": {
-            "id": note.id,
-            "diff_id": note.diff_id,
-            "xmlfile_id": note.xmlfile_id,
-            "user_id": note.user_id,
-            "username": user.username,
-            "content": note.content,
-            "timestamp": note.timestamp.isoformat()
-        }
+        "data": note.to_dict()  # to_dict sayesinde relations da döner
     })
 
 @apiNotes.route("/<int:diff_id>", methods=["GET"])
 @jwt_required()
 def get_notes_by_diff(diff_id):
     notes = Note.query.filter_by(diff_id=diff_id).all()
-    notes_data = []
-    for note in notes:
-        notes_data.append({
-            "id": note.id,
-            "content": note.content,
-            "timestamp": note.timestamp,
-            "user_id": note.user_id,
-            "username": note.user.username if note.user else "Unknown"
-        })
+    notes_data = [note.to_dict() for note in notes]  # relations dahil
     return jsonify({"success": True, "notes": notes_data}), 200
 
 @apiNotes.route("/", methods=["GET"])
 @jwt_required()
 def get_all_notes():
     notes = Note.query.all()
-    notes_data = []
-    for note in notes:
-        xmlfile_name = None
-        if note.xmlfile:
-            xmlfile_name = os.path.basename(note.xmlfile.file_path)
-        notes_data.append({
-            "id": note.id,
-            "content": note.content,
-            "timestamp": note.timestamp.isoformat(),
-            "user_id": note.user_id,
-            "username": note.user.username if note.user else "Unknown",
-            "xmlfile_name": xmlfile_name
-        })
+    notes_data = [note.to_dict() for note in notes]  # relations dahil
     return jsonify({"success": True, "notes": notes_data}), 200
 
-@apiNotes.route("/<int:note_id>", methods=["DELETE"]) # Yeni DELETE endpoint'i
+@apiNotes.route("/<int:note_id>", methods=["DELETE"])
 @jwt_required()
 def delete_note(note_id):
     success = Note.delete_note(note_id)
@@ -106,7 +76,7 @@ def delete_note(note_id):
         return jsonify({"success": True, "message": "Not başarıyla silindi."}), 200
     return jsonify({"success": False, "message": "Not bulunamadı veya silinemedi."}), 404
 
-@apiNotes.route("/<int:note_id>", methods=["PUT"]) # Yeni PUT endpoint'i
+@apiNotes.route("/<int:note_id>", methods=["PUT"])
 @jwt_required()
 def update_note(note_id):
     data = _payload()
@@ -120,13 +90,6 @@ def update_note(note_id):
         return jsonify({
             "success": True,
             "message": "Not başarıyla güncellendi.",
-            "data": {
-                "id": note.id,
-                "content": note.content,
-                "timestamp": note.timestamp.isoformat(),
-                "user_id": note.user_id,
-                "username": note.user.username if note.user else "Unknown",
-                "xmlfile_id": note.xmlfile_id # xmlfile_id'yi de döndürebiliriz
-            }
+            "data": note.to_dict()  # güncel to_dict çağrısı
         }), 200
     return jsonify({"success": False, "message": "Not bulunamadı veya güncellenemedi."}), 404

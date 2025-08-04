@@ -58,7 +58,19 @@ function NoteSection({ diffId }) {
       <h4>Notlar</h4>
       <ul className="note-list">
         {notes.map((note) => (
-          <li key={note.id}>{note.content}</li>
+          <li key={note.id}>
+            {note.content}
+            {/* Display relations */}
+            {note.relations && note.relations.length > 0 && (
+              <div className="note-relations">
+                {note.relations.map(rel => (
+                  <span key={rel.id} className="note-relation">
+                    <strong>{rel.relation_type}:</strong> {rel.relation_value}
+                  </span>
+                ))}
+              </div>
+            )}
+          </li>
         ))}
       </ul>
 

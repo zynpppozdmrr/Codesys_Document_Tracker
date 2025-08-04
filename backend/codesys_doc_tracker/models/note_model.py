@@ -2,6 +2,7 @@
 from datetime import datetime
 from dataclasses import dataclass
 from codesys_doc_tracker import db
+from codesys_doc_tracker.models.relation_model import Relation
 
 @dataclass
 class Note(db.Model):
@@ -24,6 +25,21 @@ class Note(db.Model):
     user = db.relationship("User", backref="notes", lazy=True)
     diff = db.relationship("Diff", backref="notes", lazy=True)
     xmlfile = db.relationship("XMLFile", backref="notes", lazy=True)
+
+    # ✅ EKLENDİ: Notun ilişkileri
+    relations = db.relationship("Relation", backref="note", lazy=True, cascade="all, delete-orphan")
+
+    # ✅ EKLENDİ: JSON'a dönüştürmek için
+    def to_dict(self):
+        import os
+        return {
+            "id": self.id,
+            "content": self.content,
+            "timestamp": self.timestamp.isoformat(),
+            "username": self.user.username if self.user else None,
+            "xmlfile_name": os.path.basename(self.xmlfile.file_path) if self.xmlfile and self.xmlfile.file_path else None,
+            "relations": [r.to_dict() for r in self.relations]
+        }
 
     @classmethod
     def create(cls, user_id: int, diff_id: int, xmlfile_id: int, content: str) -> "Note":

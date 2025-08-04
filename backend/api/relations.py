@@ -1,95 +1,91 @@
+# codesys_doc_tracker/api/relations.py
 from flask import Blueprint, request, jsonify
 from flask_jwt_extended import jwt_required
+from flask_cors import CORS
 
-from codesys_doc_tracker.models.diff_model import Diff
+from codesys_doc_tracker.models.note_model import Note
 from codesys_doc_tracker.models.relation_model import Relation
 
 apiRelations = Blueprint("apiRelations", __name__, url_prefix="/api/relations")
+CORS(apiRelations)
 
 def _payload():
-    return request.get_json(silent=True) or request.form
-
+    if request.is_json:
+        return request.get_json()
+    return request.form
 
 @apiRelations.route("/", methods=["POST"])
-@jwt_required()   # istersen optional yapabiliriz
+@jwt_required()
 def add_relation():
-    """
-    Body: diff_id (int, zorunlu), relation_type (str), relation_value (str)
-    """
     data = _payload()
-    diff_id = data.get("diff_id", None)
-    rtype = (data.get("relation_type") or "").strip()
-    rvalue = (data.get("relation_value") or "").strip()
+    note_id = data.get("note_id")
+    relation_type = (data.get("relation_type") or "").strip()
+    relation_value = (data.get("relation_value") or "").strip()
 
-    if not diff_id or not rtype or not rvalue:
-        return jsonify({"success": False, "message": "diff_id, relation_type, relation_value zorunludur."}), 400
+    if not all([note_id, relation_type, relation_value]):
+        return jsonify({"success": False, "message": "note_id, relation_type ve relation_value zorunludur."}), 400
 
-    diff = Diff.query.get(int(diff_id))
-    if not diff:
-        return jsonify({"success": False, "message": "Diff bulunamadı."}), 404
+    note = Note.get_by_id(int(note_id))
+    if not note:
+        return jsonify({"success": False, "message": "Not bulunamadı."}), 404
 
-    rel = Relation.create(diff_id=diff.id, relation_type=rtype, relation_value=rvalue)
-    return jsonify({
-        "success": True,
-        "data": {
-            "id": rel.id,
-            "diff_id": rel.diff_id,
-            "relation_type": rel.relation_type,
-            "relation_value": rel.relation_value,
-            "created_at": rel.created_at.isoformat()
-        }
-    })
+    try:
+        new_relation = Relation.create(
+            note_id=int(note_id),
+            relation_type=relation_type,
+            relation_value=relation_value
+        )
+        return jsonify({
+            "success": True,
+            "message": "İlişki başarıyla eklendi.",
+            "data": {
+                "id": new_relation.id,
+                "note_id": new_relation.note_id,
+                "relation_type": new_relation.relation_type,
+                "relation_value": new_relation.relation_value,
+                "created_at": new_relation.created_at.isoformat()
+            }
+        }), 201
+    except Exception as e:
+        return jsonify({"success": False, "message": f"İlişki eklenirken hata: {e}"}), 500
 
-
-@apiRelations.route("/", methods=["GET"])
-@jwt_required(optional=True)
-def list_relations():
-    """
-    Query: diff_id (opsiyonel)
-    """
-    diff_id = request.args.get("diff_id", type=int)
-    rows = Relation.list_all(diff_id=diff_id)
-    data = [{
+@apiRelations.route("/<int:note_id>", methods=["GET"])
+@jwt_required()
+def get_relations_by_note_id(note_id: int):
+    relations = Relation.list_by_note_id(note_id)
+    relations_data = [{
         "id": r.id,
-        "diff_id": r.diff_id,
         "relation_type": r.relation_type,
         "relation_value": r.relation_value,
-        "created_at": r.created_at.isoformat(),
-    } for r in rows]
-    return jsonify({"success": True, "data": data})
+        "created_at": r.created_at.isoformat()
+    } for r in relations]
 
+    return jsonify({"success": True, "relations": relations_data}), 200
 
-@apiRelations.route("/<int:rel_id>", methods=["PUT"])
+@apiRelations.route("/<int:relation_id>", methods=["DELETE"])
 @jwt_required()
-def update_relation(rel_id: int):
-    """
-    Body: relation_type (ops.), relation_value (ops.)
-    """
+def delete_relation(relation_id: int):
+    success = Relation.delete_by_id(relation_id)
+    if success:
+        return jsonify({"success": True, "message": "İlişki başarıyla silindi."}), 200
+    return jsonify({"success": False, "message": "İlişki bulunamadı veya silinemedi."}), 404
+
+@apiRelations.route("/<int:relation_id>", methods=["PUT"])
+@jwt_required()
+def update_relation(relation_id: int):
     data = _payload()
-    rtype = data.get("relation_type")
-    rvalue = data.get("relation_value")
+    relation_type = (data.get("relation_type") or "").strip()
+    relation_value = (data.get("relation_value") or "").strip()
 
-    rel = Relation.update_relation(rel_id, relation_type=rtype, relation_value=rvalue)
-    if not rel:
-        return jsonify({"success": False, "message": "Relation bulunamadı."}), 404
+    if not all([relation_type, relation_value]):
+        return jsonify({"success": False, "message": "relation_type ve relation_value zorunludur."}), 400
 
-    return jsonify({
-        "success": True,
-        "message": "Relation güncellendi.",
-        "data": {
-            "id": rel.id,
-            "diff_id": rel.diff_id,
-            "relation_type": rel.relation_type,
-            "relation_value": rel.relation_value,
-            "created_at": rel.created_at.isoformat()
-        }
-    })
+    relation = Relation.query.get(relation_id)
+    if not relation:
+        return jsonify({"success": False, "message": "İlişki bulunamadı."}), 404
 
+    relation.relation_type = relation_type
+    relation.relation_value = relation_value
+    db.session.commit()
 
-@apiRelations.route("/<int:rel_id>", methods=["DELETE"])
-@jwt_required()
-def delete_relation(rel_id: int):
-    ok = Relation.delete_relation(rel_id)
-    if not ok:
-        return jsonify({"success": False, "message": "Relation bulunamadı."}), 404
-    return jsonify({"success": True, "message": "Relation silindi."})
+    return jsonify({"success": True, "message": "İlişki başarıyla güncellendi."})
