@@ -33,7 +33,7 @@ class XMLFile(db.Model):
     @classmethod
     def delete_by_id_with_diffs(cls, file_id: int) -> bool:
         from codesys_doc_tracker.models.diff_model import Diff
-        from codesys_doc_tracker.models.note_model import Note # Import Note model
+        from codesys_doc_tracker.models.note_model import Note 
 
         row = cls.query.get(file_id)
         if not row:

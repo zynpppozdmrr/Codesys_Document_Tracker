@@ -6,7 +6,7 @@ from flask_jwt_extended import jwt_required, get_jwt_identity
 from codesys_doc_tracker.models.user_model import User
 from codesys_doc_tracker.models.diff_model import Diff
 from codesys_doc_tracker.models.note_model import Note
-from codesys_doc_tracker.models.xmlfile_model import XMLFile
+
 
 apiNotes = Blueprint("apiNotes", __name__, url_prefix="/api/notes")
 CORS(apiNotes)

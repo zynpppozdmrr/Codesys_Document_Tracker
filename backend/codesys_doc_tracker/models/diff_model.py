@@ -1,8 +1,7 @@
 from datetime import datetime
 from codesys_doc_tracker import db
-from codesys_doc_tracker.models.xmlfile_model import XMLFile
 import os
-from codesys_doc_tracker.models.note_model import Note # Note modelini içeri aktardık
+from codesys_doc_tracker.models.note_model import Note 
 
 class Diff(db.Model):
     __tablename__ = 'diffs'

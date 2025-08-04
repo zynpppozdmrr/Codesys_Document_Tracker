@@ -80,12 +80,8 @@ def update_relation(relation_id: int):
     if not all([relation_type, relation_value]):
         return jsonify({"success": False, "message": "relation_type ve relation_value zorunludur."}), 400
 
-    relation = Relation.query.get(relation_id)
-    if not relation:
+    success = Relation.update_by_id(relation_id, relation_type, relation_value)
+    if not success:
         return jsonify({"success": False, "message": "İlişki bulunamadı."}), 404
-
-    relation.relation_type = relation_type
-    relation.relation_value = relation_value
-    db.session.commit()
 
     return jsonify({"success": True, "message": "İlişki başarıyla güncellendi."})

@@ -10,13 +10,14 @@ import XmlFiles from './components/XmlFiles/XmlFiles';
 import CompareDiffs from './components/CompareDiffs/CompareDiffs';
 import DiffReportsList from './components/DiffReports/DiffReportsList/DiffReportsList';
 import AllNotesTable from './components/Notes/AllNotesTable';
-import UserManagement from './components/UserManagement/UserManagement'; // UserManagement bileşenini import edin
+import UserManagement from './components/UserManagement/UserManagement';
+import XmlFileDetails from './components/XmlFiles/XmlFileDetails'; // Yeni bileşeni import edin
 
 const isAuthenticated = () => !!localStorage.getItem('jwt_token');
 
 function App() {
   const [loggedIn, setLoggedIn] = useState(isAuthenticated());
-  const [userRole, setUserRole] = useState(localStorage.getItem('user_role')); // userRole state'ini ekle
+  const [userRole, setUserRole] = useState(localStorage.getItem('user_role'));
 
   const handleLoginSuccess = () => {
     setLoggedIn(true);
@@ -31,7 +32,6 @@ function App() {
   };
 
   useEffect(() => {
-    // Sayfa yüklendiğinde ve loggedIn değiştiğinde rolü güncelle
     setUserRole(localStorage.getItem('user_role'));
   }, [loggedIn]);
 
@@ -39,7 +39,6 @@ function App() {
     if (!isAuthenticated()) {
       return <Navigate to="/login" />;
     }
-    // Eğer bir rol gereksinimi varsa ve kullanıcı bu role sahip değilse, dashboard'a yönlendir
     if (requiredRole && userRole !== requiredRole) {
       return <Navigate to="/dashboard" />;
     }
@@ -60,10 +59,10 @@ function App() {
               <Routes>
                 <Route path="/dashboard" element={<PrivateRoute><Dashboard /></PrivateRoute>} />
                 <Route path="/xml-files" element={<PrivateRoute><XmlFiles /></PrivateRoute>} />
+                <Route path="/xml-files/:fileId" element={<PrivateRoute><XmlFileDetails /></PrivateRoute>} /> {/* Yeni rota eklendi */}
                 <Route path="/compare-diffs" element={<PrivateRoute><CompareDiffs /></PrivateRoute>} />
                 <Route path="/diff-reports" element={<PrivateRoute><DiffReportsList /></PrivateRoute>} />
                 <Route path="/notes-relations" element={<PrivateRoute><AllNotesTable /></PrivateRoute>} />
-                {/* UserManagement sayfası sadece adminler için */}
                 <Route path="/users" element={<PrivateRoute requiredRole="admin"><UserManagement /></PrivateRoute>} />
                 <Route path="/" element={<Navigate to="/dashboard" />} />
               </Routes>

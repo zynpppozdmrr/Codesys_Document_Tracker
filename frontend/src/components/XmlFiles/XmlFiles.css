@@ -24,6 +24,7 @@
   border-radius: 6px;
   cursor: pointer;
   font-size: 0.95rem;
+  white-space: nowrap;
 }
 
 .xmlfiles-container .btn-upload {
@@ -56,4 +57,11 @@
 .xmlfiles-table th {
   background: #f2f6ff;
   text-align: left;
+}
+
+/* Yeni eklenen detay butonu için stil */
+.xmlfiles-container .btn-details {
+    background-color: #17a2b8; /* Turkuaz */
+    color: white;
+    margin-right: 5px;
 }

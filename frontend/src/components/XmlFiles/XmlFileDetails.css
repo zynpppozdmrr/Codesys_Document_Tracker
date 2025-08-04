@@ -1,0 +1,130 @@
+/* src/components/XmlFiles/XmlFileDetails.css */
+.xml-file-details-container {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+.xml-file-details-container h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.xml-file-details-container .error {
+    color: #dc3545;
+    font-weight: bold;
+    text-align: center;
+}
+
+.file-info {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+}
+
+.file-info p {
+    margin: 5px 0;
+}
+
+.related-diffs {
+    margin-top: 30px;
+}
+
+.related-diffs h3 {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.diff-item {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    margin-bottom: 15px;
+}
+
+.diff-item h4 {
+    color: #007bff;
+    margin-top: 0;
+}
+
+.diff-item pre {
+    background-color: #f4f4f4;
+    border: 1px solid #e1e1e1;
+    padding: 10px;
+    border-radius: 4px;
+    overflow-x: auto;
+}
+
+.diff-notes {
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #fafafa;
+    border: 1px solid #f0f0f0;
+    border-radius: 4px;
+}
+
+.diff-notes h5 {
+    color: #555;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.diff-notes ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.diff-notes li {
+    background-color: #eaf6ff;
+    border: 1px solid #cce5ff;
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.note-meta {
+    font-size: 0.85em;
+    color: #777;
+    margin-top: 5px;
+}
+
+.note-relations {
+    margin-top: 10px;
+    padding-left: 15px;
+    border-left: 2px solid #ddd;
+}
+
+.note-relations h6 {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+.note-relations ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.relation-item-details {
+    padding: 2px 0;
+    background-color: transparent;
+    border: none;
+}
+
+/* XmlFiles.js'deki yeni buton stili */
+.details-button {
+    padding: 5px 10px;
+    margin-right: 5px;
+    background-color: #17a2b8; /* Turkuaz */
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85rem;
+}

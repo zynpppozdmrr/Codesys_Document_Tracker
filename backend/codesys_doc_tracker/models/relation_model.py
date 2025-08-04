@@ -18,6 +18,17 @@ class Relation(db.Model):
     relation_value = db.Column(db.String(500), nullable=False)
     created_at = db.Column(db.DateTime, default=datetime.utcnow)
 
+
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "relation_type": self.relation_type,
+            "relation_value": self.relation_value,
+            "created_at": self.created_at.isoformat()
+        }
+    
+    
     @classmethod
     def create(cls, note_id: int, relation_type: str, relation_value: str) -> "Relation":
         new_relation = cls(
@@ -42,10 +53,13 @@ class Relation(db.Model):
         db.session.commit()
         return True
 
-    def to_dict(self):
-        return {
-            "id": self.id,
-            "relation_type": self.relation_type,
-            "relation_value": self.relation_value,
-            "created_at": self.created_at.isoformat()
-        }
+
+    @classmethod
+    def update_by_id(cls, relation_id: int, relation_type: str, relation_value: str) -> bool:
+        relation = cls.query.get(relation_id)
+        if not relation:
+            return False
+        relation.relation_type = relation_type.strip()
+        relation.relation_value = relation_value.strip()
+        db.session.commit()
+        return True
