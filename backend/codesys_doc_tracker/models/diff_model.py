@@ -45,21 +45,24 @@ class Diff(db.Model):
         if not diff:
             return False, "Kayıt bulunamadı."
 
+        # 1. Diff'e bağlı notlar var mı?
+        notes = Note.query.filter_by(diff_id=diff_id).all()
+        if notes:
+            return False, "Bu Diff raporuna bağlı notlar ve ilişkiler mevcut, silinemez."
+
         try:
-            # Diff'e bağlı notları silmeden önce dosya silme işlemini yap.
+            # 2. Diff raporu dosyasını sil (eğer varsa)
             if os.path.exists(diff.diffReport_path):
                 os.remove(diff.diffReport_path)
         except Exception as e:
             print("Diff rapor dosyası silinemedi:", e)
-            # Dosya silinemese bile devam edebiliriz veya burada bir hata döndürebiliriz.
-            # Şimdilik devam ediyoruz, veritabanı kaydının silinmesi daha önemli.
 
         try:
-            # Diff'e bağlı notları sil
-            Note.query.filter_by(diff_id=diff_id).delete(synchronize_session=False)
+            # 3. Diff kaydını veritabanından sil
             db.session.delete(diff)
             db.session.commit()
             return True, None
+
         except Exception as e:
             db.session.rollback()
             return False, f"Veritabanından silinirken hata oluştu: {e}"
