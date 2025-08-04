@@ -56,9 +56,6 @@ class User(db.Model):
             db.session.commit()
             return True
         return False
-   
-
-
 
     @classmethod
     def get_user_by_username(cls, username):

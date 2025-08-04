@@ -34,19 +34,6 @@ function DiffReportsList() {
 
   useEffect(() => { fetchList(); }, [fetchList]);
 
-  const handleResync = async () => {
-    setBusy(true);
-    setError('');
-    try {
-      await axios.post('http://localhost:5000/api/diffs/resync', {}, getAuth());
-      await fetchList();
-    } catch (e) {
-      setError(e.response?.data?.message || e.message);
-    } finally {
-      setBusy(false);
-    }
-  };
-
   const handleDelete = async (id) => {
     if (!window.confirm('Bu raporu silmek istediğine emin misin? (DB + Disk)')) return;
     setBusy(true);
@@ -88,10 +75,7 @@ function DiffReportsList() {
     <div className="diffreports-container">
       <h2>Karşılaştırma Raporları</h2>
 
-      <div className="toolbar">
-        <button className="btn btn-sync" disabled={busy} onClick={handleResync}>Resync</button>
-        {/* Yenile butonu kaldırıldı */}
-      </div>
+  
 
       {error && <div className="error-message">{error}</div>}
 

@@ -14,15 +14,24 @@ ALLOWED_EXTS = {".xml"}
 # ---------- Yardımcılar ----------
 
 def _export_base_dir(base_dir: Optional[str] = None) -> str:
+    """
+    Export dizininin temel yolunu döndürür. Ortam değişkeni veya varsayılan dizin kullanılır.
+    """
     base = base_dir or os.environ.get("CODESYS_XML_EXPORT_DIR", DEFAULT_EXPORT_DIR)
     return os.path.normpath(base)
 
 
 def _ensure_dir(path: str) -> None:
+    """
+    Belirtilen dizinin var olmasını sağlar. Eğer yoksa oluşturur.
+    """
     os.makedirs(path, exist_ok=True)
 
 
 def _iter_xml_files(base_dir: str, recursive: bool = True):
+    """
+    Belirtilen dizindeki tüm XML dosyalarını (opsiyonel olarak alt dizinlerde) listeler.
+    """
     if recursive:
         for root, _dirs, files in os.walk(base_dir):
             for name in files:
@@ -36,11 +45,16 @@ def _iter_xml_files(base_dir: str, recursive: bool = True):
 
 
 def _canonize_slashes(p: str) -> str:
+    """
+    Yol ayracını sistemden bağımsız hale getirir.
+    """
     return os.path.normpath(p).replace("\\", "/")
 
 
 def _path_for_db(abs_path: str, base_dir: str) -> str:
-    """DB'de tutulan yol formatı: <base_name>/<relative_inside_base>"""
+    """
+    Veritabanında saklamak için göreli bir dosya yolu oluşturur.
+    """
     base_name = os.path.basename(base_dir.rstrip("\\/"))
     rel_inside = os.path.relpath(abs_path, start=base_dir)
     raw = os.path.join(base_name, rel_inside)
@@ -48,6 +62,9 @@ def _path_for_db(abs_path: str, base_dir: str) -> str:
 
 
 def _unique_target_path(dir_path: str, file_name: str) -> Tuple[str, str]:
+    """
+    Dosya adının benzersiz olmasını sağlar, eğer aynı isimde dosya varsa sonuna sayı ekler.
+    """
     base, ext = os.path.splitext(file_name)
     final = file_name
     abs_path = os.path.join(dir_path, final)
@@ -62,6 +79,9 @@ def _unique_target_path(dir_path: str, file_name: str) -> Tuple[str, str]:
 # ---------- Tarama & Temizleme ----------
 
 def scan_and_sync_xml_files(base_dir: Optional[str] = None, recursive: bool = True) -> Dict[str, int]:
+    """
+    Yerel dosya sistemindeki XML dosyalarını tarar ve veritabanı ile senkronize eder.
+    """
     export_dir = _export_base_dir(base_dir)
     _ensure_dir(export_dir)
     base_name = os.path.basename(export_dir.rstrip("\\/"))
@@ -84,6 +104,9 @@ def scan_and_sync_xml_files(base_dir: Optional[str] = None, recursive: bool = Tr
 
 
 def scan_and_register_xml_files(base_dir: Optional[str] = None, recursive: bool = True) -> int:
+    """
+    scan_and_sync_xml_files fonksiyonunu çağırır ve eklenen dosya sayısını döndürür.
+    """
     result = scan_and_sync_xml_files(base_dir=base_dir, recursive=recursive)
     return result.get("added", 0)
 
@@ -91,6 +114,9 @@ def scan_and_register_xml_files(base_dir: Optional[str] = None, recursive: bool 
 # ---------- Upload & Silme ----------
 
 def save_uploaded_xmls(file_storages: List) -> Dict[str, List[Dict]]:
+    """
+    Yüklenen XML dosyalarını kaydeder ve veritabanını otomatik olarak senkronize eder.
+    """
     export_dir = _export_base_dir()
     _ensure_dir(export_dir)
 
@@ -119,17 +145,29 @@ def save_uploaded_xmls(file_storages: List) -> Dict[str, List[Dict]]:
             skipped.append({"filename": fn, "reason": f"Kaydedilemedi: {e}"})
             continue
 
-        db_path = _path_for_db(target_abs, export_dir)
-        exists = XMLFile.get_by_path(db_path)
+    # Dosya kaydetme işlemi tamamlandıktan sonra, veritabanını tarayıp senkronize et
+    rescan_result = scan_and_sync_xml_files()
+    
+    # Yeni eklenen ve silinen dosyalar hakkında bilgi veren bir mesaj oluştur
+    message = f"{rescan_result.get('added', 0)} yeni dosya eklendi, {rescan_result.get('removed', 0)} dosya silindi."
 
-        if not exists:
-            new = XMLFile.create(file_path=db_path)
-            saved.append({"id": new.id, "file_name": final_name, "file_path": db_path})
-        else:
-            saved.append({"id": exists.id, "file_name": final_name, "file_path": db_path})
-
-    return {"saved": saved, "skipped": skipped}
+    # Güncel dosya listesini veritabanından al
+    new_files = XMLFile.list_all()
+    
+    saved_files = []
+    for f in new_files:
+        saved_files.append({
+            "id": f.id, 
+            "file_name": os.path.basename(f.file_path),
+            "file_path": f.file_path
+        })
+    
+    # Güncellenmiş sonuçları döndür
+    return {"saved": saved_files, "skipped": skipped, "message": message}
 
 
 def delete_xml_file(file_id: int) -> bool:
+    """
+    Belirtilen ID'ye sahip XML dosyasını diskten ve veritabanından siler.
+    """
     return XMLFile.delete_by_id_with_diffs(file_id)

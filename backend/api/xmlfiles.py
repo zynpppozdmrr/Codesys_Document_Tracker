@@ -5,7 +5,6 @@ from flask_cors import CORS
 
 from codesys_doc_tracker.models.xmlfile_model import XMLFile
 from services.xmlfile_service import (
-    scan_and_sync_xml_files,
     save_uploaded_xmls,
     delete_xml_file,
 )
@@ -19,7 +18,7 @@ CORS(apiXMLFiles)
 @jwt_required()
 def list_xml_files():
     try:
-        rows = XMLFile.list_all()  # ✅ Artık model method'u
+        rows = XMLFile.list_all()
         data = []
         for r in rows:
             data.append({
@@ -34,19 +33,9 @@ def list_xml_files():
         return jsonify({"success": False, "message": f"Listeleme hatası: {e}"}), 500
 
 
-# ---------- RESCAN ----------
-@apiXMLFiles.route("/rescan", methods=["POST"])
-@jwt_required()
-def rescan_xml_files_route():
-    try:
-        result = scan_and_sync_xml_files()
-        return jsonify({
-            "success": True,
-            "message": f"{result.get('added',0)} eklendi, {result.get('removed',0)} silindi.",
-            "data": result
-        }), 200
-    except Exception as e:
-        return jsonify({"success": False, "message": f"Yeniden tarama hatası: {e}"}), 500
+# ---------- RESCAN (KALDIRILDI) ----------
+# Bu route ve fonksiyon, artık dosya yükleme işlemi içinde otomatik olarak
+# çağrıldığı için kaldırılmıştır.
 
 
 # ---------- YÜKLEME (Sürükle bırak) ----------
@@ -62,6 +51,7 @@ def upload_xml_files():
             return jsonify({"success": False, "message": "Dosya bulunamadı."}), 400
 
         result = save_uploaded_xmls(files)
+        # Yeni dönüş formatı ile başarılı yanıt döndür
         return jsonify({"success": True, "data": result}), 200
     except Exception as e:
         return jsonify({"success": False, "message": f"Yükleme hatası: {e}"}), 500

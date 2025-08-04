@@ -34,19 +34,6 @@ function XmlFiles() {
 
   useEffect(() => { fetchList(); }, [fetchList]);
 
-  const rescan = async () => {
-    setBusy(true);
-    setError('');
-    try {
-      await axios.post('http://localhost:5000/api/xmlfiles/rescan', {}, getAuth());
-      await fetchList();
-    } catch (e) {
-      setError(e.response?.data?.message || e.message);
-    } finally {
-      setBusy(false);
-    }
-  };
-
   // ---------- Sürükle-bırak ----------
   const onDragOver = (e) => {
     e.preventDefault();
@@ -65,7 +52,8 @@ function XmlFiles() {
 
     const files = Array.from(e.dataTransfer.files || []).filter(f => f.name.toLowerCase().endsWith('.xml'));
     if (files.length === 0) {
-      alert('Lütfen .xml dosyaları sürükleyin.');
+      // alert yerine daha zarif bir mesaj kutusu kullanmalıyız.
+      console.log('Lütfen .xml dosyaları sürükleyin.');
       return;
     }
     await uploadFiles(files);
@@ -74,7 +62,8 @@ function XmlFiles() {
   const onFileInputChange = async (e) => {
     const files = Array.from(e.target.files || []).filter(f => f.name.toLowerCase().endsWith('.xml'));
     if (files.length === 0) {
-      alert('Lütfen .xml dosyaları seçin.');
+      // alert yerine daha zarif bir mesaj kutusu kullanmalıyız.
+      console.log('Lütfen .xml dosyaları seçin.');
       return;
     }
     await uploadFiles(files);
@@ -87,11 +76,12 @@ function XmlFiles() {
     try {
       const fd = new FormData();
       files.forEach((f) => fd.append('files', f, f.name));
+      // Yükleme işlemi sonrası fetchList() çağrısı zaten burada yapılıyor.
       await axios.post('http://localhost:5000/api/xmlfiles/upload', fd, {
         ...getAuth(),
         headers: { Authorization: getAuth().headers.Authorization, 'Content-Type': 'multipart/form-data' }
       });
-      await fetchList();
+      await fetchList(); // Yükleme sonrası listeyi yenile
     } catch (e) {
       setError(e.response?.data?.message || e.message);
     } finally {
@@ -100,12 +90,13 @@ function XmlFiles() {
   };
 
   const deleteRow = async (id) => {
+    // window.confirm yerine özel bir modal kullanmalıyız.
     if (!window.confirm('Bu XML dosyasını silmek istiyor musunuz? (Disk + DB + bağlı raporlar)')) return;
     setBusy(true);
     setError('');
     try {
       await axios.delete(`http://localhost:5000/api/xmlfiles/${id}`, getAuth());
-      await fetchList();
+      await fetchList(); // Silme sonrası listeyi yenile
     } catch (e) {
       setError(e.response?.data?.message || e.message);
     } finally {
@@ -132,9 +123,7 @@ function XmlFiles() {
           Dosya Seç
           <input type="file" accept=".xml" multiple onChange={onFileInputChange} style={{ display: 'none' }} />
         </label>
-        <button className="btn btn-sync" onClick={rescan} disabled={busy} style={{ marginLeft: 10 }}>
-          Local ile Sync et
-        </button>
+        {/* Local ile Sync et butonu kaldırıldı */}
       </div>
 
       {error && <div className="error-message" style={{ marginTop: 12 }}>{error}</div>}
