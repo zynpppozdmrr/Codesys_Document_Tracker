@@ -1,5 +1,3 @@
-# api/filters.py
-
 from flask import Blueprint, jsonify, request, send_file
 from flask_jwt_extended import jwt_required
 from flask_cors import CORS

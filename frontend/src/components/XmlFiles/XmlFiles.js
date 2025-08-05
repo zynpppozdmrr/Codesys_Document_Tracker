@@ -130,7 +130,7 @@ function XmlFiles() {
 
       </div>
 
-      {error && <div className="error-message" style={{ marginTop: 12 }}>Oturum süreniz dolmuştur lütfen giriş yapın.</div>}
+      {error && <div className="error-message" style={{ marginTop: 12 }}>{error}</div>}
 
       <table className="xmlfiles-table" style={{ marginTop: 16 }}>
         <thead>
