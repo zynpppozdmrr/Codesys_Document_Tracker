@@ -15,6 +15,7 @@ CORS(apiXMLFiles)
 
 # ---------- LİSTELEME ----------
 @apiXMLFiles.route("/", methods=["GET"])
+@apiXMLFiles.route("", methods=["GET"])
 @jwt_required()
 def list_xml_files():
     try:
@@ -111,3 +112,6 @@ def get_xml_file_details(file_id: int):
     except Exception as e:
         print(f"Detay getirme hatası: {e}")
         return jsonify({"success": False, "message": f"Detay getirme hatası: {e}"}), 500
+
+
+

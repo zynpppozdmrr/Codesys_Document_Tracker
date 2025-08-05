@@ -171,3 +171,19 @@ def delete_xml_file(file_id: int) -> bool:
     Belirtilen ID'ye sahip XML dosyasını diskten ve veritabanından siler.
     """
     return XMLFile.delete_by_id_with_diffs(file_id)
+
+
+def get_file_path_by_id(file_id: int) -> Optional[str]:
+    """
+    Verilen file_id'ye karşılık gelen dosyanın tam yolunu döndürür.
+    """
+    xmlfile = XMLFile.query.get(file_id)
+    if not xmlfile:
+        return None
+    
+    # DB'de kayıtlı dosya yolu (örneğin: CodesysXML_Export/abc.xml)
+    relative_path = xmlfile.file_path
+    base_dir = _export_base_dir()  # zaten mevcut fonksiyon
+    full_path = os.path.join(base_dir, os.path.basename(relative_path))
+    
+    return os.path.normpath(full_path)

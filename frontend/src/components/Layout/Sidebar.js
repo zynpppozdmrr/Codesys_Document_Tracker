@@ -1,9 +1,8 @@
-// src/components/Layout/Sidebar.js
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
-function Sidebar({ userRole }) { // userRole prop'unu alıyoruz
+function Sidebar({ userRole }) {
   const { pathname } = useLocation();
   const isActive = (p) => pathname.startsWith(p);
 
@@ -12,32 +11,36 @@ function Sidebar({ userRole }) { // userRole prop'unu alıyoruz
       <ul className="sidebar-nav">
         <li>
           <Link to="/dashboard" className={`nav-item ${isActive('/dashboard') ? 'active' : ''}`}>
-            Dashboard
+            Tanıtım Sayfası
           </Link>
         </li>
         <li>
           <Link to="/xml-files" className={`nav-item ${isActive('/xml-files') ? 'active' : ''}`}>
-            Proje(XML) Dosyaları
+            Proje / Dosya Yönetimi
           </Link>
         </li>
         <li>
           <Link to="/compare-diffs" className={`nav-item ${isActive('/compare-diffs') ? 'active' : ''}`}>
-            Projeleri Karşılaştır
+            Karşılaştırma Yap
           </Link>
         </li>
-        {/* YENİ MENÜ */}
         <li>
           <Link to="/diff-reports" className={`nav-item ${isActive('/diff-reports') ? 'active' : ''}`}>
-            Karşılaştırma Raporları
+            Karşılaştırma Raporları 
           </Link>
         </li>
-
         <li>
           <Link to="/notes-relations" className={`nav-item ${isActive('/notes-relations') ? 'active' : ''}`}>
             Notlar & İlişkiler
           </Link>
         </li>
-        {userRole === 'admin' && ( // Sadece admin ise göster
+        {/* Filtreleme sayfasını buraya ekliyoruz */}
+        <li>
+          <Link to="/filtering" className={`nav-item ${isActive('/filtering') ? 'active' : ''}`}>
+            Tablo Oluşturma / Filtreleme
+          </Link>
+        </li>
+        {userRole === 'admin' && (
           <li>
             <Link to="/users" className={`nav-item ${isActive('/users') ? 'active' : ''}`}>
               Kullanıcı Yönetimi

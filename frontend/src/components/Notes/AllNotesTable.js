@@ -29,7 +29,7 @@ const AllNotesTable = () => {
         setError('Notlar alınamadı.');
       }
     } catch (err) {
-      setError('Sistem hatası: Notlar getirilemedi.');
+      setError('Oturum süreniz dolmuştur lütfen giriş yapın.');
     }
   }, [getAuthHeaders]);
 
@@ -197,7 +197,7 @@ const AllNotesTable = () => {
             <th>İlişkiler</th>
             <th>Kullanıcı</th>
             <th>Tarih</th>
-            <th>Eylemler</th>
+            <th>Aksiyonlar</th>
           </tr>
         </thead>
         <tbody>

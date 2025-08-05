@@ -77,7 +77,7 @@ function CompareDiffs() {
         setError('XML dosyaları çekilirken hata.');
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'XML dosyaları çekilirken hata oluştu.');
+      setError(err.response?.data?.message || 'Oturum süreniz dolmuştur lütfen giriş yapın.');
     } finally {
       setLoading(false);
     }
@@ -134,10 +134,10 @@ function CompareDiffs() {
 
   return (
     <div className="compare-diffs-container">
-      <h2>Farkları Karşılaştır</h2>
+      <h2>Karşılaştırma Yap</h2>
       <div className="selection-area">
         <div className="form-group">
-          <label>İlk Dosya:</label>
+          <label>Eski Versiyon:</label>
           <select value={selectedFile1} onChange={(e) => setSelectedFile1(e.target.value)} disabled={comparing}>
             <option value="">Dosya Seçin</option>
             {xmlFiles.map((file) => (
@@ -146,7 +146,7 @@ function CompareDiffs() {
           </select>
         </div>
         <div className="form-group">
-          <label>İkinci Dosya:</label>
+          <label>Yeni Versiyon:</label>
           <select value={selectedFile2} onChange={(e) => setSelectedFile2(e.target.value)} disabled={comparing}>
             <option value="">Dosya Seçin</option>
             {xmlFiles.map((file) => (
@@ -155,7 +155,7 @@ function CompareDiffs() {
           </select>
         </div>
         <button onClick={handleCompare} disabled={comparing}>
-          {comparing ? 'Karşılaştırılıyor...' : 'Farkları Karşılaştır'}
+          {comparing ? 'Karşılaştırılıyor...' : 'Karşılaştır'}
         </button>
       </div>
 

@@ -69,6 +69,7 @@ __pypackages__/
 docs/
 backend/CodesysXML_Export/
 backend/DiffReports/
+ExcelExports/
 
 # VS Code workspace settings
 .vscode/

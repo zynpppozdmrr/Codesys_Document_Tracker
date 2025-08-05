@@ -1,5 +1,5 @@
-// src/components/XmlFiles/XmlFiles.js
-import React, { useEffect, useState, useCallback, useRef } from 'react';
+
+import { useEffect, useState, useCallback, useRef } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import './XmlFiles.css';
@@ -112,7 +112,7 @@ function XmlFiles() {
 
   return (
     <div className="xmlfiles-container">
-      <h2>XML Dosyaları Yönetimi</h2>
+      <h2>Proje / Dosya Yönetimi</h2>
 
       <div
         ref={dropRef}
@@ -130,7 +130,7 @@ function XmlFiles() {
 
       </div>
 
-      {error && <div className="error-message" style={{ marginTop: 12 }}>{error}</div>}
+      {error && <div className="error-message" style={{ marginTop: 12 }}>Oturum süreniz dolmuştur lütfen giriş yapın.</div>}
 
       <table className="xmlfiles-table" style={{ marginTop: 16 }}>
         <thead>

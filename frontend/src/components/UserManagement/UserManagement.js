@@ -37,7 +37,7 @@ function UserManagement() {
       }
     } catch (err) {
       console.error('Kullanıcıları getirme hatası:', err);
-      setError("Kullanıcıları getirirken bir hata oluştu.");
+      setError("Oturum süreniz dolmuştur lütfen giriş yapın.");
     } finally {
       setLoading(false);
     }

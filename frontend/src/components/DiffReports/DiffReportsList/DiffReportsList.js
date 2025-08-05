@@ -74,10 +74,10 @@ function DiffReportsList() {
   return (
     <div className="diffreports-container">
       <h2>Karşılaştırma Raporları</h2>
+          
 
-  
 
-      {error && <div className="error-message">{error}</div>}
+      {error && <div className="error-message">Oturum süreniz dolmuştur lütfen giriş yapın.</div>}
 
       <table className="diffreports-table">
         <thead>

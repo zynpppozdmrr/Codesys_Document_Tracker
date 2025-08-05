@@ -1,13 +1,13 @@
 /* src/components/Layout/Layout.css */
 .layout-container {
-  display: flex; /* Sidebar ve ana içeriği yan yana yerleştirmek için */
+  display: flex;
   min-height: 100vh;
   background-color: #f4f7f6;
 }
 
 .main-content-wrapper {
-  margin-left: 220px; /* Sidebar'ın genişliği kadar boşluk bırak */
-  flex-grow: 1; /* Geri kalan alanı kapla */
+  margin-left: 220px;
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
@@ -20,7 +20,7 @@
   background-color: #282c34;
   color: white;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-height: 60px; /* Başlık çubuğunun minimum yüksekliği */
+  min-height: 60px;
 }
 
 .app-header h1 {
@@ -43,7 +43,16 @@
   background-color: #c82333;
 }
 
+.login-green {
+  background-color: #10b981; /* Yeşil */
+  color: white;
+}
+
+.login-green:hover {
+  background-color: #0e9f6e;
+}
+
 .app-main-content {
   padding: 20px;
-  flex-grow: 1; /* İçeriğin kalan alanı doldurmasını sağlar */
+  flex-grow: 1;
 }
