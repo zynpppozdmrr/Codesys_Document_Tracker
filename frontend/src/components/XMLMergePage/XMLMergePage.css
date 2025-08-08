@@ -1,0 +1,114 @@
+.xml-merge-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.xml-merge-container h2 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 10px;
+}
+
+.xml-merge-container .description {
+  text-align: center;
+  color: #666;
+  margin-bottom: 30px;
+}
+
+.controls-area {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group label {
+  font-weight: bold;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.form-group select,
+.form-group textarea {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 1em;
+  font-family: inherit;
+  resize: vertical; /* Sadece dikeyde boyutlandırmaya izin ver */
+}
+
+.form-group textarea {
+  font-family: 'Courier New', Courier, monospace;
+  white-space: pre-wrap;
+  background-color: #f8f9fa;
+}
+
+.action-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 25px;
+}
+
+.action-buttons button {
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+}
+
+.action-buttons button:first-child {
+  background-color: #10b981;
+  color: white;
+}
+
+.action-buttons button:first-child:hover:not(:disabled) {
+  background-color: #0e9f6e;
+}
+
+.action-buttons button:last-child {
+  background-color: #3498db;
+  color: white;
+}
+
+.action-buttons button:last-child:hover:not(:disabled) {
+  background-color: #2980b9;
+}
+
+.action-buttons button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.merged-content-preview {
+  margin-top: 40px;
+  border-top: 1px solid #ddd;
+  padding-top: 20px;
+}
+
+.merged-content-preview h3 {
+  color: #2c3e50;
+  margin-bottom: 15px;
+}
+
+.merged-content-preview pre {
+  background-color: #f4f7f6;
+  border: 1px solid #eee;
+  padding: 15px;
+  border-radius: 5px;
+  white-space: pre-wrap; /* Satırları otomatik sar */
+  word-wrap: break-word; /* Uzun kelimeleri böler */
+  font-family: 'Courier New', Courier, monospace;
+}

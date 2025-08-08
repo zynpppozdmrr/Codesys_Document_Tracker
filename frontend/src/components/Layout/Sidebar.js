@@ -19,6 +19,11 @@ function Sidebar({ userRole }) {
           </Link>
         </li>
         <li>
+          <Link to="/xml-merge" className={`nav-item ${isActive('/xml-merge') ? 'active' : ''}`}>
+            XML Birleştirme
+          </Link>
+        </li>
+        <li>
           <Link to="/compare-diffs" className={`nav-item ${isActive('/compare-diffs') ? 'active' : ''}`}>
             Karşılaştırma Yap
           </Link>

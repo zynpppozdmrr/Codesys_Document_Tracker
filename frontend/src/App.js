@@ -14,6 +14,7 @@ import UserManagement from './components/UserManagement/UserManagement';
 import XmlFileDetails from './components/XmlFiles/XmlFileDetails';
 import FilteringPage from './components/Filtering/FilteringPage';
 import CompareExcel from './components/CompareExcel/CompareExcel';
+import XMLMergePage from './components/XMLMergePage/XMLMergePage';
 
 
 
@@ -92,12 +93,14 @@ function App() {
                 <Route path="/" element={<Navigate to="/dashboard" />} />
                 <Route path="/filtering" element={<PrivateRoute><FilteringPage /></PrivateRoute>} />
                 <Route path="/compare-excel" element={<PrivateRoute><CompareExcel /></PrivateRoute>} />
+                <Route path="/xml-merge" element={<PrivateRoute><XMLMergePage /></PrivateRoute>} />
                 
               </Routes>
             </Layout>
           }
         />
       </Routes>
+      
     </Router>
   );
 }
