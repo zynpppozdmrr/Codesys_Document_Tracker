@@ -26,6 +26,11 @@
 .app-header h1 {
   margin: 0;
   font-size: 1.5em;
+  /* Butonun uzamasını engellemek için başlığın maksimum genişliğini kısıtlarız */
+  max-width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }
 
 .logout-button {
@@ -37,6 +42,10 @@
   cursor: pointer;
   font-size: 0.9em;
   transition: background-color 0.3s ease;
+  /* Butonun genişliğini kontrol altına alarak uzamasını engelleriz */
+  min-width: 100px;
+  max-width: 120px;
+  text-align: center;
 }
 
 .logout-button:hover {

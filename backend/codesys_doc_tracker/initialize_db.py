@@ -5,7 +5,7 @@ from codesys_doc_tracker.models.diff_model import Diff
 from codesys_doc_tracker.models.xmlfile_model import XMLFile
 from codesys_doc_tracker.models.note_model import Note
 from codesys_doc_tracker.models.relation_model import Relation
-
+from codesys_doc_tracker.models.excel_model import ExcelFile
 def createDB():
     app = createApp()
     with app.app_context():

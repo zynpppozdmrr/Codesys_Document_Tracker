@@ -11,7 +11,7 @@ from services.xmlfile_service import DEFAULT_EXPORT_DIR
 BASE_DIR = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 # Excel dışa aktarma klasörünün tam yolunu oluştur ve oluştur
-EXPORT_DIR = os.path.join(BASE_DIR, "ExcelExports")
+EXPORT_DIR = os.path.join(BASE_DIR, "backend/ExcelExports")
 os.makedirs(EXPORT_DIR, exist_ok=True)
 
 def extract_filtered_signals(file_id: int, keywords: list) -> tuple:

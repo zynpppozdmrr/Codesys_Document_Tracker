@@ -13,6 +13,7 @@ from api.xmlfiles import apiXMLFiles
 from api.notes import apiNotes
 from api.relations import apiRelations
 from api.filters import apiFilters
+from api.excelDiff import apiExcelDiff
 
 
 # Diğer blueprintler ileride buraya eklenecek
@@ -34,6 +35,8 @@ app.register_blueprint(apiXMLFiles)
 app.register_blueprint(apiNotes)
 app.register_blueprint(apiRelations)
 app.register_blueprint(apiFilters)
+app.register_blueprint(apiExcelDiff)
+
 
 # Ana test endpoint'i
 @app.route("/")

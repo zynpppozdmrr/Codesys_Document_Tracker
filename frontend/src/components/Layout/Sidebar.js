@@ -1,4 +1,3 @@
-import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import './Sidebar.css';
 
@@ -24,6 +23,13 @@ function Sidebar({ userRole }) {
             Karşılaştırma Yap
           </Link>
         </li>
+       
+         <li>
+           <Link to="/compare-excel" className={`nav-item ${isActive('/compare-excel') ? 'active' : ''}`}>
+           Excel Karşılaştırma
+           </Link>
+         </li>
+
         <li>
           <Link to="/diff-reports" className={`nav-item ${isActive('/diff-reports') ? 'active' : ''}`}>
             Karşılaştırma Raporları 
