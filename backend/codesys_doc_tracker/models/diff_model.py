@@ -1,7 +1,8 @@
+# codesys_doc_tracker/models/diff_model.py
 from datetime import datetime
 from codesys_doc_tracker import db
 import os
-from codesys_doc_tracker.models.note_model import Note 
+from codesys_doc_tracker.models.note_model import Note
 
 class Diff(db.Model):
     __tablename__ = 'diffs'
@@ -44,37 +45,54 @@ class Diff(db.Model):
         if not diff:
             return False, "Kayıt bulunamadı."
 
-        # 1. Diff'e bağlı notlar var mı?
-        notes = Note.query.filter_by(diff_id=diff_id).all()
-        if notes:
+        # 1. Diff'e bağlı notlar var mı? Varsa silme, 409 sebebiyle mesaj dön.
+        has_notes = db.session.query(Note.id).filter_by(diff_id=diff_id).first() is not None
+        if has_notes:
             return False, "Bu Diff raporuna bağlı notlar ve ilişkiler mevcut, silinemez."
 
+        # 2. Diff raporu dosyasını sil (eğer varsa)
         try:
-            # 2. Diff raporu dosyasını sil (eğer varsa)
-            if os.path.exists(diff.diffReport_path):
+            if diff.diffReport_path and os.path.exists(diff.diffReport_path):
                 os.remove(diff.diffReport_path)
         except Exception as e:
+            # Dosya silinemese bile DB kaydını silmeyi deneyebiliriz
             print("Diff rapor dosyası silinemedi:", e)
 
+        # 3. Diff kaydını veritabanından sil
         try:
-            # 3. Diff kaydını veritabanından sil
             db.session.delete(diff)
             db.session.commit()
             return True, None
-
         except Exception as e:
             db.session.rollback()
             return False, f"Veritabanından silinirken hata oluştu: {e}"
 
     @classmethod
     def resync_reports(cls):
+        """
+        Diskte olmayan diff kayıtlarını DB'den temizler.
+        NOT: Diff'e bağlı not varsa SİLMEZ, atlar (skip).
+        Sonuç: {"removed": X, "skipped": Y}
+        """
         removed = 0
+        skipped = 0
+
         for d in cls.query.all():
-            if not os.path.exists(d.diffReport_path):
-                # Dosya diskten silinmişse, veritabanındaki Diff ve ilişkili notlarını sil
-                # Note.query.filter_by(diff_id=d.id).delete(synchronize_session=False) # Bu satır da eklenebilir eğer resync sırasında notlar silinsin istenirse.
-                db.session.delete(d)
-                removed += 1
-        if removed:
+            if os.path.exists(d.diffReport_path):
+                continue  # dosya duruyor, dokunma
+
+            # Bağlı not var mı?
+            has_notes = db.session.query(Note.id).filter_by(diff_id=d.id).first() is not None
+            if has_notes:
+                # NOT NULL ihlali yaşamamak için silme, atla
+                skipped += 1
+                continue
+
+            # Güvenle sil
+            db.session.delete(d)
+            removed += 1
+
+        if removed or skipped:
             db.session.commit()
-        return removed
+
+        return {"removed": removed, "skipped": skipped}

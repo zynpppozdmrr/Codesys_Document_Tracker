@@ -1,129 +1,235 @@
-.notes-table-container {
-  padding: 1rem;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0, 0, 0, 0.05);
-}
-
-.notes-table-container table {
+/* Kapsayıcı */
+.all-notes-table {
   width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
+  max-width: 1200px;
+  margin: 16px auto;
+  padding: 12px;
 }
 
-.notes-table-container th,
-.notes-table-container td {
-  padding: 0.75rem;
-  border: 1px solid #ddd;
+/* Admin filtre alanı */
+.admin-filter-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.admin-filter-row input[type="text"] {
+  flex: 1;
+  min-width: 220px;
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #d0d5dd;
+  border-radius: 8px;
+  outline: none;
+}
+
+.admin-filter-row input[type="text"]:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2);
+}
+
+/* Bilgi / Hata bannerları */
+.info-banner,
+.error-banner {
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-bottom: 12px;
+  font-size: 14px;
+}
+
+.info-banner {
+  background: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #bfdbfe;
+}
+
+.error-banner {
+  background: #fef2f2;
+  color: #b91c1c;
+  border: 1px solid #fecaca;
+}
+
+/* Tablo */
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+thead th {
+  background: #f8fafc;
+  color: #0f172a;
   text-align: left;
-  vertical-align: top; /* Align content to the top */
-}
-
-.notes-table-container th {
-  background-color: #f5f5f5;
   font-weight: 600;
+  font-size: 14px;
+  padding: 12px;
+  border-bottom: 1px solid #e2e8f0;
 }
 
-.notes-table-container .error {
-  color: red;
-  font-weight: bold;
+tbody td {
+  padding: 12px;
+  font-size: 14px;
+  color: #0f172a;
+  border-bottom: 1px solid #f1f5f9;
+  vertical-align: top;
 }
 
-/* Buton stilleri */
-.edit-button, .delete-button, .save-button, .cancel-button, .add-relation-toggle-button { /* add-relation-toggle-button eklendi */
-  padding: 5px 10px;
-  margin-right: 5px;
-  border: none;
-  border-radius: 4px;
+tbody tr:nth-child(even) td {
+  background: #fcfcfd;
+}
+
+tbody tr:hover td {
+  background: #f8fafc;
+}
+
+/* İçerik ve listeler */
+.note-content {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.relation-list {
+  margin: 0;
+  padding-left: 16px;
+}
+
+.relation-list li {
+  margin: 2px 0;
+}
+
+.muted {
+  color: #94a3b8;
+}
+
+/* Aksiyon alanı */
+.actions-cell {
+  white-space: nowrap;
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* Butonlar - temel */
+.actions-cell button,
+.admin-filter-row button,
+.inline-editor-actions button {
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid transparent;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 0.85rem;
-  white-space: nowrap; /* Prevent buttons from wrapping */
+  font-size: 13px;
+  line-height: 32px;
+  transition: transform 0.02s ease-in, box-shadow 0.2s ease-in;
+}
+
+.actions-cell button:active,
+.admin-filter-row button:active,
+.inline-editor-actions button:active {
+  transform: translateY(1px);
+}
+
+/* Buton renkleri */
+.view-button {
+  background: #fffbeb;
+  color: #92400e;
+  border-color: #fde68a;
+}
+
+.view-button:hover {
+  box-shadow: 0 2px 6px rgba(146, 64, 14, 0.15);
 }
 
 .edit-button {
-  background-color: #2196f3; /* Mavi */
-  color: white;
+  background: #eff6ff;
+  color: #1d4ed8;
+  border-color: #bfdbfe;
 }
 
-.delete-button {
-  background-color: #f44336; /* Kırmızı */
-  color: white;
-}
-
-.save-button {
-  background-color: #4CAF50; /* Yeşil */
-  color: white;
+.edit-button:hover {
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.15);
 }
 
 .cancel-button {
-  background-color: #ff9800; /* Turuncu */
-  color: white;
+  background: #f8fafc;
+  color: #334155;
+  border-color: #e2e8f0;
 }
 
-/* Yeni ilişki ekleme ve silme butonları için stiller */
-.add-relation-form {
-    display: flex;
-    flex-wrap: wrap; /* Küçük ekranlarda alta geçmesini sağlar */
-    gap: 5px;
-    margin-top: 10px;
+.cancel-button:hover {
+  box-shadow: 0 2px 6px rgba(51, 65, 85, 0.12);
 }
 
-.add-relation-form input {
-    flex: 1;
-    min-width: 100px; /* Inputların çok küçülmemesini sağlar */
-    padding: 5px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
+.delete-button {
+  background: #fef2f2;
+  color: #b91c1c;
+  border-color: #fecaca;
 }
 
-.add-relation-form button {
-    background-color: #28a745;
-    color: white;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 4px;
-    cursor: pointer;
+.delete-button:hover {
+  box-shadow: 0 2px 6px rgba(185, 28, 28, 0.15);
 }
 
-.add-relation-form .cancel-button { /* İlişki ekleme formundaki iptal butonu */
-    background-color: #6c757d; /* Gri */
+/* Inline editor */
+.inline-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
-
-.relation-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #f0f8ff;
-    border: 1px solid #e0f0ff;
-    border-radius: 4px;
-    padding: 5px;
-    margin-bottom: 5px;
+.inline-editor textarea {
+  width: 100%;
+  min-height: 84px;
+  padding: 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+  resize: vertical;
+  font-size: 14px;
+  color: #0f172a;
+  background: #ffffff;
 }
 
-.delete-relation-button {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    border-radius: 50%;
-    width: 20px;
-    height: 20px;
-    font-size: 0.7rem;
-    line-height: 1;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 5px; /* İlişki değerinden ayırmak için */
-    flex-shrink: 0; /* Küçülmesini engelle */
+.inline-editor textarea:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2);
 }
 
-.add-relation-toggle-button {
-    background-color: #17a2b8; /* Turkuaz */
-    color: white;
-    margin-top: 10px;
-}
-.add-relation-toggle-button:hover {
-    background-color: #138496;
+.inline-editor-actions {
+  display: flex;
+  gap: 8px;
 }
 
+/* Responsive */
+@media (max-width: 768px) {
+  .admin-filter-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .actions-cell {
+    flex-wrap: wrap;
+  }
+
+  thead th, tbody td {
+    padding: 10px;
+  }
+}
+/* İlişki formundaki input'lar */
+.inline-editor input[type="text"] {
+  height: 36px;
+  padding: 0 10px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  outline: none;
+}
+
+.inline-editor input[type="text"]:focus {
+  border-color: #94a3b8;
+  box-shadow: 0 0 0 3px rgba(148, 163, 184, 0.2);
+}

@@ -3,6 +3,24 @@ import React, { useEffect, useState, useCallback } from 'react';
 import axios from 'axios';
 import './DiffReportsList.css';
 
+// ---- Hata Mesajı Yardımcısı ----
+const prettyApiError = (err) => {
+  const status = err?.response?.status;
+  const raw = err?.response?.data?.message || err?.message || '';
+
+  const looksLikeFk =
+    /foreign key|constraint|ilişki|dependent|integrity/i.test(String(raw));
+
+  if (status === 401) return 'Oturum süreniz dolmuştur, lütfen giriş yapın.';
+  if (status === 403) return 'Bu işlem için yetkiniz yok.';
+  if (status === 404) return 'Kayıt bulunamadı.';
+  if (status === 409 || looksLikeFk)
+    return 'Bu kayıt ilişkili not/ilişkiler içerdiği için silinemez.';
+
+  if (raw && typeof raw === 'string') return raw;
+  return 'Bir hata oluştu.';
+};
+
 function DiffReportsList() {
   const [rows, setRows] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -26,7 +44,7 @@ function DiffReportsList() {
         setError(res.data.message || 'Raporlar listelenirken hata.');
       }
     } catch (e) {
-      setError(e.response?.data?.message || e.message);
+      setError(prettyApiError(e));
     } finally {
       setLoading(false);
     }
@@ -42,14 +60,13 @@ function DiffReportsList() {
       await axios.delete(`http://localhost:5000/api/diffs/${id}`, getAuth());
       await fetchList();
     } catch (e) {
-      setError(e.response?.data?.message || e.message);
+      setError(prettyApiError(e));
     } finally {
       setBusy(false);
     }
   };
 
   const handlePreview = async (fileName) => {
-    // Görüntülemeden önce senkronize et
     setBusy(true);
     setError('');
     try {
@@ -60,7 +77,7 @@ function DiffReportsList() {
       );
       setPreview({ open: true, fileName, content: res.data });
     } catch (e) {
-      setError(e.response?.data?.message || e.message);
+      setError(prettyApiError(e));
       setPreview({ open: false, fileName: '', content: '' });
     } finally {
       setBusy(false);
@@ -74,10 +91,8 @@ function DiffReportsList() {
   return (
     <div className="diffreports-container">
       <h2>Karşılaştırma Raporları</h2>
-          
 
-
-      {error && <div className="error-message">Oturum süreniz dolmuştur lütfen giriş yapın.</div>}
+      {error && <div className="error-message">{error}</div>}
 
       <table className="diffreports-table">
         <thead>
