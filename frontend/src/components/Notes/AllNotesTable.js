@@ -47,7 +47,7 @@ const AllNotesTable = () => {
         setError('Notlar alınamadı.');
       }
     } catch (err) {
-      setError('Oturum süreniz dolmuş olabilir. Lütfen tekrar giriş yapın.');
+      setError('Oturum süreniz dolmuştur lütfen giriş yapın.');
     } finally {
       setLoading(false);
     }

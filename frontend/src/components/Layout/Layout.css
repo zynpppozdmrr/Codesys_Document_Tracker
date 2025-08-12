@@ -1,8 +1,10 @@
 /* src/components/Layout/Layout.css */
+
+/* Ana yerleşim */
 .layout-container {
   display: flex;
   min-height: 100vh;
-  background-color: #f4f7f6;
+  background-color: #f4f7f6; /* ✅ tekrar açık arka plan */
 }
 
 .main-content-wrapper {
@@ -12,56 +14,131 @@
   flex-direction: column;
 }
 
+/* Header */
 .app-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 20px;
-  background-color: #282c34;
-  color: white;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  min-height: 60px;
+  padding: 14px 20px;
+  background: linear-gradient(180deg, #1f2937 0%, #111827 100%); /* koyu header kalsın */
+  color: #fff;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  min-height: 64px;
 }
 
 .app-header h1 {
   margin: 0;
-  font-size: 1.5em;
-  /* Butonun uzamasını engellemek için başlığın maksimum genişliğini kısıtlarız */
-  max-width: 70%;
+  font-size: 1.2rem;
+  font-weight: 600;
+  letter-spacing: .2px;
+  opacity: .95;
+  max-width: 60%;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
 }
 
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Kullanıcı rozet */
+.user-chip {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px 6px 6px;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #2563eb 0%, #0ea5e9 100%);
+  color: #fff;
+  box-shadow: 0 8px 24px rgba(37, 99, 235, 0.28);
+  transition: transform .15s ease, box-shadow .2s ease;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.user-chip:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 28px rgba(14, 165, 233, 0.32);
+}
+
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 9999px;
+  display: grid;
+  place-items: center;
+  font-weight: 700;
+  background: radial-gradient(circle at 30% 30%, #ffffff 0%, #e2e8f0 45%, #cbd5e1 100%);
+  color: #0f172a;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,.06);
+}
+
+.user-meta {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.user-name {
+  font-weight: 700;
+  font-size: .92rem;
+}
+
+.user-role {
+  align-self: flex-start;
+  margin-top: 2px;
+  font-size: .7rem;
+  text-transform: uppercase;
+  letter-spacing: .4px;
+  padding: 2px 6px;
+  border-radius: 9999px;
+  background: rgba(255,255,255,.22);
+  color: #f8fafc;
+}
+
+/* Logout / Giriş Yap butonu */
 .logout-button {
-  background-color: #dc3545;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
   color: white;
   border: none;
-  padding: 8px 15px;
-  border-radius: 5px;
+  padding: 10px 14px;
+  border-radius: 12px;
   cursor: pointer;
-  font-size: 0.9em;
-  transition: background-color 0.3s ease;
-  /* Butonun genişliğini kontrol altına alarak uzamasını engelleriz */
-  min-width: 100px;
-  max-width: 120px;
-  text-align: center;
+  font-size: .92rem;
+  font-weight: 600;
+  transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
+  box-shadow: 0 10px 20px rgba(220, 38, 38, 0.18);
+  border: 1px solid rgba(255,255,255,0.1);
 }
 
 .logout-button:hover {
-  background-color: #c82333;
+  transform: translateY(-1px);
+  box-shadow: 0 14px 28px rgba(220, 38, 38, 0.28);
 }
 
+.logout-button:active {
+  transform: translateY(0);
+}
+
+/* Oturum bitmişse "Giriş Yap" görünümü */
 .login-green {
-  background-color: #10b981; /* Yeşil */
-  color: white;
+  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  box-shadow: 0 10px 20px rgba(16, 185, 129, 0.2);
 }
 
 .login-green:hover {
-  background-color: #0e9f6e;
+  box-shadow: 0 14px 28px rgba(16, 185, 129, 0.28);
 }
 
+/* İçerik alanı */
 .app-main-content {
   padding: 20px;
   flex-grow: 1;
+  background: #ffffff; /* ✅ içerik alanı da açık */
 }

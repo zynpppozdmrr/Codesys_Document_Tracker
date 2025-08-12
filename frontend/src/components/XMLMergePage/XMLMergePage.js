@@ -4,7 +4,18 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import './XMLMergePage.css';
 
-const API_URL = "http://127.0.0.1:5000/api/xml/merge";
+const API_URL = 'http://127.0.0.1:5000/api/xml/merge';
+
+// Hata mesajı yardımcı
+const getApiErrorMessage = (err, fallback = 'Bir hata oluştu.') => {
+  const status = err?.response?.status;
+  const raw = err?.response?.data?.message || err?.message || fallback;
+
+  if (status === 401) return 'Oturum süreniz dolmuştur, lütfen giriş yapın.';
+  if (status === 403) return 'Bu işlem için yetkiniz yok.';
+  if (status === 404) return 'Kayıt bulunamadı.';
+  return typeof raw === 'string' ? raw : fallback;
+};
 
 function XMLMergePage() {
   const [xmlFiles, setXmlFiles] = useState([]);
@@ -14,15 +25,17 @@ function XMLMergePage() {
   const [mergedFileName, setMergedFileName] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+  const [successMsg, setSuccessMsg] = useState(''); // ✅ yeni
 
   const getAuthHeaders = useCallback(() => {
     const token = localStorage.getItem('jwt_token');
-    return { headers: { Authorization: `Bearer ${token}` } };
+    return { headers: { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' } };
   }, []);
 
   const fetchXmlFiles = useCallback(async () => {
     setLoading(true);
     setError('');
+    setSuccessMsg('');
     try {
       const authHeaders = getAuthHeaders();
       const response = await axios.get('http://127.0.0.1:5000/api/xmlfiles', authHeaders);
@@ -32,11 +45,14 @@ function XMLMergePage() {
           setSelectedFileId(response.data.files[0].id);
         }
       } else {
-        setError(response.data.message || 'Dosyalar listelenirken bir hata oluştu.');
+        const msg = response.data.message || 'Dosyalar listelenirken bir hata oluştu.';
+        setError(msg);
+        toast.error(msg);
       }
     } catch (err) {
-      setError(err.response?.data?.message || 'API çağrısı sırasında hata oluştu.');
-      toast.error('API çağrısı sırasında hata oluştu.');
+      const msg = getApiErrorMessage(err, 'API çağrısı sırasında hata oluştu.');
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }
@@ -54,7 +70,9 @@ function XMLMergePage() {
 
     setLoading(true);
     setError('');
+    setSuccessMsg('');          // ✅ önceki başarı mesajını temizle
     setMergedContent('');
+    setMergedFileName('');
 
     try {
       const response = await axios.post(
@@ -66,15 +84,18 @@ function XMLMergePage() {
       if (response.data.success) {
         setMergedContent(response.data.content);
         setMergedFileName(response.data.file_name);
-        toast.success(response.data.message);
+        const msg = response.data.message || 'XML birleştirme başarılı. Dosya birleştirilmiştir.';
+        setSuccessMsg(msg);      // ✅ ekranda yeşil mesaj
+        toast.success(msg);      // ✅ toast bildirim
       } else {
-        setError(response.data.message);
-        toast.error(response.data.message);
+        const msg = response.data.message || 'Birleştirme sırasında bir hata oluştu.';
+        setError(msg);
+        toast.error(msg);
       }
     } catch (err) {
-      const errorMessage = err.response?.data?.message || 'Birleştirme sırasında bir hata oluştu.';
-      setError(errorMessage);
-      toast.error(errorMessage);
+      const msg = getApiErrorMessage(err, 'Birleştirme sırasında bir hata oluştu.');
+      setError(msg);
+      toast.error(msg);
     } finally {
       setLoading(false);
     }
@@ -103,10 +124,11 @@ function XMLMergePage() {
       a.click();
       document.body.removeChild(a);
       window.URL.revokeObjectURL(url);
-      
-      toast.success("Dosya başarıyla indirildi.");
+
+      toast.success('Dosya başarıyla indirildi.');
     } catch (err) {
-      toast.error("Dosya indirme sırasında bir hata oluştu.");
+      const msg = getApiErrorMessage(err, 'Dosya indirme sırasında bir hata oluştu.');
+      toast.error(msg);
     }
   };
 
@@ -120,6 +142,7 @@ function XMLMergePage() {
       <p className="description">
         Mevcut bir XML dosyasına yeni bir kod bloğu ekleyip birleştirilmiş dosyayı indirebilirsiniz.
       </p>
+
       <div className="controls-area">
         <div className="form-group">
           <label htmlFor="file-select">Hedef Dosya:</label>
@@ -130,11 +153,14 @@ function XMLMergePage() {
             disabled={loading}
           >
             <option value="">Dosya Seçin</option>
-            {xmlFiles.map(file => (
-              <option key={file.id} value={file.id}>{file.file_name}</option>
+            {xmlFiles.map((file) => (
+              <option key={file.id} value={file.id}>
+                {file.file_name}
+              </option>
             ))}
           </select>
         </div>
+
         <div className="form-group">
           <label htmlFor="code-block">Eklenecek Kod Bloğu (XML):</label>
           <textarea
@@ -157,8 +183,11 @@ function XMLMergePage() {
         </button>
       </div>
 
-      {error && <p className="error-message">{error}</p>}
+      {/* ✅ başarılı işlem mesajı */}
+      {successMsg && <p className="success-message" style={{ color: '#16a34a', marginTop: 10 }}>{successMsg}</p>}
 
+      {/* hata mesajı */}
+      {error && <p className="error-message">{error}</p>}
     </div>
   );
 }
