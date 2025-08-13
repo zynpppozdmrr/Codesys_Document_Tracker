@@ -92,7 +92,7 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
-## 🛠 Teknolojiler
+## Teknolojiler
 
 | Katman | Teknoloji / Kütüphane | Amaç |
 |--------|----------------------|------|
