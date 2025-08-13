@@ -1,11 +1,11 @@
-# 📄 Dokümantasyon ve Versiyon Takip Sistemi
+# Dokümantasyon ve Versiyon Takip Sistemi
 
 **Bozankaya Teknoloji A.Ş.** mühendislik süreçlerinde kullanılan dosya ve belgelerin versiyonlarını takip etmek, farklarını analiz etmek, notlar ve ilişkiler ekleyerek anlamlandırmak, filtrelenmiş veri çıktıları oluşturmak amacıyla geliştirilmiştir.  
 Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatikleşir** ve mühendislik ekiplerinin iş akışı **hızlanır**.
 
 ---
 
-## 🎯 Amaç
+## Amaç
 - Versiyonlanmış dosyaların satır veya hücre bazında farklarını tespit etmek  
 - Fark raporlarını not ve ilişkiler ile zenginleştirmek  
 - XML/Excel tabanlı proje verilerini filtreleyip tablo çıktısı almak  
@@ -13,46 +13,46 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
-## 🔖 Bilgilendirme / Proje Kodları
+## Bilgilendirme / Proje Kodları
 Şirketin kullandığı proje kısa adları ve kodlarının anlamlarını açıklar.  
 > Bu bölüm, dosya adlandırma ve arama süreçlerinde kolaylık sağlar.
 
 ---
 
-## 📁 Proje / Dosya Yönetimi
+## Proje / Dosya Yönetimi
 - **Dosya Yükleme:** Versiyonlanmış projelerinizi sisteme yükleyin  
 - **Detay Görüntüleme:** Yüklenme tarihi, dosya ID’si, karşılaştırma geçmişi, eklenmiş notlar  
 - **Geçmiş Takibi:** Tüm versiyonlar arası ilişkiyi tek ekranda izleyin
 
 ---
 
-## 🧩 Kod Bloğu Ekleme & XML Birleştirme
+##  Kod Bloğu Ekleme & XML Birleştirme
 - Seçili projeye kod bloğu ekleyin ve birleştirme işlemini başlatın  
 - İki farklı XML dosyasını tek bir dosyada birleştirin  
 - Sonuç dosyasını indirip Codesys ortamına **Import** ederek kullanın
 
 ---
 
-## 🔍 Versiyon Karşılaştırma (Diff)
+##  Versiyon Karşılaştırma (Diff)
 - İki XML dosyasını satır bazında karşılaştırır  
 - **Silinen satırlar** kırmızı, **eklenen satırlar** yeşil renkle gösterilir  
 - Karşılaştırma sonuçları raporlanır ve not eklenebilir
 
 ---
 
-## 📊 Excel Karşılaştırma
+## Excel Karşılaştırma
 - Dosya seç veya sürükle-bırak yöntemiyle yükleme  
 - İki Excel tablosu arasındaki farklılıkların listelenmesi  
 
 ---
 
-## 🗂 Karşılaştırma Raporları
+## Karşılaştırma Raporları
 - Tüm geçmiş karşılaştırma kayıtları listelenir  
 - Kullanıcı adı, tarih, rapor içeriği ve dosya bilgileri görüntülenir
 
 ---
 
-## 📝 Notlar & İlişkiler
+## Notlar & İlişkiler
 - Notlar görüntülenebilir, ilişkiler eklenip düzenlenebilir  
 - Notun görünürlük yetkisi belirlenebilir  
 - Admin tüm notları görüntüleyip filtreleyebilir  
@@ -60,19 +60,19 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
-## 📑 Tablo Oluşturma / Filtreleme
+## Tablo Oluşturma / Filtreleme
 - Proje dosyasındaki sinyalleri (ID, isim, offset, min/max, resolution vb.) görüntüleyip Excel olarak indirin  
 - Belirli sinyal isimlerini filtreleyerek yalnızca ilgili verileri içeren tablolar oluşturun
 
 ---
 
-## 👤 Kullanıcı Yönetimi (Admin)
+## Kullanıcı Yönetimi (Admin)
 - Kullanıcı yetkilerini düzenleyin  
 - Yeni kullanıcı ekleyin veya mevcut kullanıcıları güncelleyin  
 
 ---
 
-## 📌 Örnek Kullanım Akışı
+## Örnek Kullanım Akışı
 1. **Versiyon 1** dosyasını yükleyin  
 2. **Güncellenmiş Versiyon 2** dosyasını yükleyin  
 3. İki dosyayı karşılaştırın  
@@ -85,7 +85,7 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
-## 🔒 Güvenlik & Takip
+## Güvenlik & Takip
 - Tüm işlemler giriş yapan kullanıcı ile ilişkilendirilerek loglanır  
 - Yetkili olmayan kullanıcılar verilere erişemez  
 - Oturum süresi bitince yetkili alanlar kapanır ve **Giriş Yap** ekranına yönlendirilir  
@@ -115,7 +115,7 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
-## 📸 Ekran Görüntüleri
+## Ekran Görüntüleri
 
 ### 1. Giriş ve Tanıtım
 <img src="assets/screenshots/1_login.png" alt="Giriş Ekranı" width="800">
@@ -160,6 +160,6 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 
 
-## 🗺️ ER Diyagramı
+## ER Diyagramı
 
 [<img src="assets/screenshots/codesys_db_ER.png" alt="Veritabanı ER Diyagramı" width="800">](assets/screenshots/codesys_db_ER.png)
