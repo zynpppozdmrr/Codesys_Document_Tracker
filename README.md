@@ -1,7 +1,7 @@
 # Dokümantasyon ve Versiyon Takip Sistemi
 
 **Bozankaya Teknoloji A.Ş.** mühendislik süreçlerinde kullanılan dosya ve belgelerin versiyonlarını takip etmek, farklarını analiz etmek, notlar ve ilişkiler ekleyerek anlamlandırmak, filtrelenmiş veri çıktıları oluşturmak amacıyla geliştirilmiştir.  
-Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatikleşir** ve mühendislik ekiplerinin iş akışı **hızlanır**.
+Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri otomatikleşir ve mühendislik ekiplerinin iş akışı hızlanır.
 
 ---
 
@@ -29,13 +29,13 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 ##  Kod Bloğu Ekleme & XML Birleştirme
 - Seçili projeye kod bloğu ekleyin ve birleştirme işlemini başlatın  
 - İki farklı XML dosyasını tek bir dosyada birleştirin  
-- Sonuç dosyasını indirip Codesys ortamına **Import** ederek kullanın
+- Sonuç dosyasını indirip Codesys ortamına Import ederek kullanın
 
 ---
 
 ##  Versiyon Karşılaştırma (Diff)
 - İki XML dosyasını satır bazında karşılaştırır  
-- **Silinen satırlar** kırmızı, **eklenen satırlar** yeşil renkle gösterilir  
+- Silinen satırlar kırmızı, eklenen satırlar yeşil renkle gösterilir  
 - Karşılaştırma sonuçları raporlanır ve not eklenebilir
 
 ---
@@ -88,7 +88,7 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 ## Güvenlik & Takip
 - Tüm işlemler giriş yapan kullanıcı ile ilişkilendirilerek loglanır  
 - Yetkili olmayan kullanıcılar verilere erişemez  
-- Oturum süresi bitince yetkili alanlar kapanır ve **Giriş Yap** ekranına yönlendirilir  
+- Oturum süresi bitince yetkili alanlar kapanır ve Giriş Yap ekranına yönlendirilir  
 
 ---
 
