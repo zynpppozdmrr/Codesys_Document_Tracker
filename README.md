@@ -126,6 +126,7 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 ### 2. Bilgilendirme ve Dosya Yönetimi
 <img src="assets/screenshots/3_bilgilendirme_proje_kodları.png" alt="Bilgilendirme - Proje Kodları" width="800">
 <img src="assets/screenshots/4_proje_dosya_yönetimi.png" alt="Proje Dosya Yönetimi" width="800">
+<img src="assets/screenshots/4_1_dosya_detay.png" alt="Proje Dosya Yönetimi" width="800">
 
 ---
 
