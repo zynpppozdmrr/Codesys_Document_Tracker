@@ -1,0 +1,17 @@
+ //MESSAGE------
+ {region " User Area : ECU_Haberlesme- ID:400"}
+ 
+-//-------SIGNAL -&gt; S_ER_Com_VCU Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+-GVL.IOVD.S_ER_Com_VCU.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_VCU.e AND NOT GVL.IOVD.S_ER_Com_VCU.na;
+-GVL.IOVD.S_ER_Com_VCU.x						:= GVL.IIRV.S_Com_Distrb;
+-GVL.IOVD.S_ER_Com_VCU.e						:= FALSE;
+-GVL.IOVD.S_ER_Com_VCU.na					:= FALSE;
+-//-------SIGNAL -&gt; S_ER_Com_TCU Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+-GVL.IOVD.S_ER_Com_TCU.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_TCU.e AND NOT GVL.IOVD.S_ER_Com_TCU.na;
+-GVL.IOVD.S_ER_Com_TCU.x						:= GVL.IIPT.S_Com_Distrb OR GVL.IIPTP.S_Com_Distrb;
+-GVL.IOVD.S_ER_Com_TCU.e						:= FALSE;
+-GVL.IOVD.S_ER_Com_TCU.na					:= FALSE;
++Bazı kısımları sildim ve bu yazıyı ekliyorum
+ //-------SIGNAL -&gt; S_ER_Com_ESS Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+ GVL.IOVD.S_ER_Com_ESS.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_ESS.e AND NOT GVL.IOVD.S_ER_Com_ESS.na;
+ GVL.IOVD.S_ER_Com_ESS.x						:= GVL.IIME.S_Com_Distrb;

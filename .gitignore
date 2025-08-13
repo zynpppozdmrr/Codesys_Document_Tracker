@@ -67,9 +67,9 @@ coverage.xml
 *.zip
 __pypackages__/
 
-
-backend/DiffReports/
-
+#backend/CodesysXML_Export/
+#backend/DiffReports/
+#ExcelExports/
 
 # VS Code workspace settings
 .vscode/
