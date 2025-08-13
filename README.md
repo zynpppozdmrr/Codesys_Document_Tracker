@@ -115,3 +115,44 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ---
 
+## 📸 Ekran Görüntüleri
+
+### 1. Giriş ve Tanıtım
+<img src="assets/screenshots/1_login.png" alt="Giriş Ekranı" width="800">
+<img src="assets/screenshots/2_tanıtım_sayfası.png" alt="Tanıtım Sayfası" width="800">
+
+---
+
+### 2. Bilgilendirme ve Dosya Yönetimi
+<img src="assets/screenshots/3_bilgilendirme_proje_kodları.png" alt="Bilgilendirme - Proje Kodları" width="800">
+<img src="assets/screenshots/4_proje_dosya_yönetimi.png" alt="Proje Dosya Yönetimi" width="800">
+
+---
+
+### 3. Kod Bloğu Ekleme
+<img src="assets/screenshots/5_projeye_kod_bloğu_ekleme.png" alt="Projeye Kod Bloğu Ekleme" width="800">
+<img src="assets/screenshots/7_projeye_kod_bloğu_ekleme_başarılı.png" alt="Kod Bloğu Ekleme Başarılı" width="800">
+
+---
+
+### 4. Versiyon ve Excel Karşılaştırma
+<img src="assets/screenshots/8_versiyonları_karşılaştırma.png" alt="Versiyon Karşılaştırma" width="800">
+<img src="assets/screenshots/9_excel_karşılaştırma.png" alt="Excel Karşılaştırma" width="800">
+
+---
+
+### 5. Karşılaştırma Raporları ve Notlar
+<img src="assets/screenshots/10_karşılaştırma_raporları.png" alt="Karşılaştırma Raporları" width="800">
+<img src="assets/screenshots/11_notlar_ilişkiler.png" alt="Notlar ve İlişkiler" width="800">
+
+---
+
+### 6. Tablo Oluşturma ve Filtreleme
+<img src="assets/screenshots/12_tablo_oluşturma_filtreleme.png" alt="Tablo Oluşturma - Filtreleme" width="800">
+<img src="assets/screenshots/13_tablo_oluşturma_filtreleme_excel.png" alt="Tablo Oluşturma - Excel" width="800">
+<img src="assets/screenshots/14_tablo_oluşturma_filtreleme_filtre.png" alt="Tablo Oluşturma - Filtre" width="800">
+
+---
+
+### 7. Kullanıcı Yönetimi
+<img src="assets/screenshots/15_kullanıcı_yönetimi.png" alt="Kullanıcı Yönetimi" width="800">
