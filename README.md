@@ -157,3 +157,9 @@ Bu sistem sayesinde manuel ve zaman alıcı belge kontrol süreçleri **otomatik
 
 ### 7. Kullanıcı Yönetimi
 <img src="assets/screenshots/15_kullanıcı_yönetimi.png" alt="Kullanıcı Yönetimi" width="800">
+
+
+
+## 🗺️ ER Diyagramı
+
+[<img src="assets/screenshots/codesys_db_ER.png" alt="Veritabanı ER Diyagramı" width="800">](assets/screenshots/codesys_db_ER.png)
