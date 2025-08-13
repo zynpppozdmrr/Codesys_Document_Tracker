@@ -1,0 +1,3200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-08-05T16:59:58.2029252" />
+  <contentHeader name="SWPR1010_A0_1_29.project" modificationDateTime="2025-08-05T16:59:07.8689109">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="CompiledLibraryCompatibilityVersion" type="string">CODESYS V3.5 SP16 Patch 6</property>
+          <property name="Project" type="string">SWPR1010_A0_1_29</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="P_IOVD_A" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="N_Lf">
+              <type>
+                <USINT />
+              </type>
+              <initialValue>
+                <simpleValue value="0" />
+              </initialValue>
+            </variable>
+            <variable name="_FB_LfMon_0">
+              <type>
+                <derived name="_FB_LfMon" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_400">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_401">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_402">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_450">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_460">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_462">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_463">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_464">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_465">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_466">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_467">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_480">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_481">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_482">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_483">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_484">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_485">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_4C2">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_Unpack_99">
+              <type>
+                <derived name="_FB_CanTx_Message_Unpack" />
+              </type>
+            </variable>
+            <variable name="_FB_CanTx_Message_500">
+              <type>
+                <derived name="_FB_CanTx_Message" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_DWORD_TO_BYTE_0">
+              <type>
+                <derived name="_FB_UNPACK_DWORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_DWORD_TO_BYTE_1">
+              <type>
+                <derived name="_FB_UNPACK_DWORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_0">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_1">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_2">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_3">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_4">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_5">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_6">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_7">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_8">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_9">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_10">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_11">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_12">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_13">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_14">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_15">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_16">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_17">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_18">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_19">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_20">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_21">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_22">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_23">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_24">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_25">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_26">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_27">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_28">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_29">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_WORD_TO_BYTE_30">
+              <type>
+                <derived name="_FB_UNPACK_WORD_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_BYTE_TO_8BITS_0">
+              <type>
+                <derived name="_FB_UNPACK_BYTE_TO_8BITS" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_BYTE_TO_8BITS_1">
+              <type>
+                <derived name="_FB_UNPACK_BYTE_TO_8BITS" />
+              </type>
+            </variable>
+            <variable name="_FB_UNPACK_BYTE_TO_8BITS_2">
+              <type>
+                <derived name="_FB_UNPACK_BYTE_TO_8BITS" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_0">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_1">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_2">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_3">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_4">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_5">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_6">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="_FB_PACK_8BITS_TO_BYTE_7">
+              <type>
+                <derived name="_FB_PACK_8BITS_TO_BYTE" />
+              </type>
+            </variable>
+            <variable name="T_TCU_Mjr">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="T_TCU_Mnr">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+            <variable name="T_TCU_Flt">
+              <type>
+                <BOOL />
+              </type>
+              <initialValue>
+                <simpleValue value="FALSE" />
+              </initialValue>
+            </variable>
+          </localVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">(*
+**********************************************************************
+Bozankaya A.Ş.
+**********************************************************************
+Name					: P_IOVD_A
+POU Type				: Program
+Created by              : COMMUNICATION INTERFACE GENERATOR V1.1.034(denizcikispc), BZK.
+Creation Date 			: 2023-07-11T10:31:49
+Modifications			: see version description below
+
+
+Program Description:This program which is created by automatically by communication interface generator 
+ handles the TX (OUTPUT) can messages according to CAN_500_LIB 
+*********************************************************************
+
+Version 1	
+*********************************************************************
+Version Description:
+- initial version
+*********************************************************************
+*)
+
+//-------SIGNAL -> S_ESS_Mn_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ESS_Mn_Ct.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ESS_Mn_Ct.e AND NOT GVL.IOVD.S_ESS_Mn_Ct.na;
+GVL.IOVD.S_ESS_Mn_Ct.x					:= GVL.IIME.S_Mn_Ct.x;
+GVL.IOVD.S_ESS_Mn_Ct.e					:= GVL.IIME.S_Mn_Ct.e;
+GVL.IOVD.S_ESS_Mn_Ct.na					:= GVL.IIME.S_Mn_Ct.na;
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : ECU_Haberlesme- ID:400"}
+
+//-------SIGNAL -&gt; S_ER_Com_VCU Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_VCU.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_VCU.e AND NOT GVL.IOVD.S_ER_Com_VCU.na;
+GVL.IOVD.S_ER_Com_VCU.x						:= GVL.IIRV.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_VCU.e						:= FALSE;
+GVL.IOVD.S_ER_Com_VCU.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_TCU Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_TCU.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_TCU.e AND NOT GVL.IOVD.S_ER_Com_TCU.na;
+GVL.IOVD.S_ER_Com_TCU.x						:= GVL.IIPT.S_Com_Distrb OR GVL.IIPTP.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_TCU.e						:= FALSE;
+GVL.IOVD.S_ER_Com_TCU.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_ESS Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_ESS.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_ESS.e AND NOT GVL.IOVD.S_ER_Com_ESS.na;
+GVL.IOVD.S_ER_Com_ESS.x						:= GVL.IIME.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_ESS.e						:= FALSE;
+GVL.IOVD.S_ER_Com_ESS.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_HVAC Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_HVAC.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_HVAC.e AND NOT GVL.IOVD.S_ER_Com_HVAC.na;
+GVL.IOVD.S_ER_Com_HVAC.x					:= GVL.IICH.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_HVAC.e					:= FALSE;
+GVL.IOVD.S_ER_Com_HVAC.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_EBS Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_EBS.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_EBS.e AND NOT GVL.IOVD.S_ER_Com_EBS.na;
+GVL.IOVD.S_ER_Com_EBS.x						:= GVL.IIBA.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_EBS.e						:= FALSE;
+GVL.IOVD.S_ER_Com_EBS.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_PCAN Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_PCAN.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_PCAN.e AND NOT GVL.IOVD.S_ER_Com_PCAN.na;
+GVL.IOVD.S_ER_Com_PCAN.x					:= GVL.VD.S_PCAN_Flt;
+GVL.IOVD.S_ER_Com_PCAN.e					:= FALSE;
+GVL.IOVD.S_ER_Com_PCAN.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_Pnt Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_Pnt.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_Pnt.e AND NOT GVL.IOVD.S_ER_Com_Pnt.na;
+GVL.IOVD.S_ER_Com_Pnt.x						:= GVL.IIMP.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_Pnt.e						:= FALSE;
+GVL.IOVD.S_ER_Com_Pnt.na					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_Acc_Pdl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_Acc_Pdl.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_Acc_Pdl.e AND NOT GVL.IOVD.S_ER_Com_Acc_Pdl.na;
+GVL.IOVD.S_ER_Com_Acc_Pdl.x					:= GVL.IIPA.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_Acc_Pdl.e					:= FALSE;
+GVL.IOVD.S_ER_Com_Acc_Pdl.na				:= FALSE;
+//-------SIGNAL -&gt; S_ER_Com_Str_Ang_Snsr Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Com_Str_Ang_Snsr.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Com_Str_Ang_Snsr.e AND NOT GVL.IOVD.S_ER_Com_Str_Ang_Snsr.na;
+GVL.IOVD.S_ER_Com_Str_Ang_Snsr.x			:= GVL.IIRS.S_Com_Distrb;
+GVL.IOVD.S_ER_Com_Str_Ang_Snsr.e			:= FALSE;
+GVL.IOVD.S_ER_Com_Str_Ang_Snsr.na 			:= FALSE;
+//-------SIGNAL -&gt; S_PDU_Cvr_Op Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_PDU_Cvr_Op.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_PDU_Cvr_Op.e AND NOT GVL.IOVD.S_PDU_Cvr_Op.na;
+GVL.IOVD.S_PDU_Cvr_Op.x						:=  NOT GVL.IIRE.S_PDU_Cvr_Cl.pin_value;
+GVL.IOVD.S_PDU_Cvr_Op.e						:= FALSE;
+GVL.IOVD.S_PDU_Cvr_Op.na					:= FALSE;			   
+
+//-------SIGNAL -&gt; S_ER_HVAC_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_HVAC_Red.v					:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_HVAC_Red.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Iso_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Iso_Amb.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Iso_Amb.x						:= GVL.PI.S_Err_Insu_Flt_Amb;
+//-------SIGNAL -&gt; S_ER_Iso_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Iso_Red.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Iso_Red.x						:= GVL.PI.S_Err_Insu_Flt_Red;
+//-------SIGNAL -&gt; S_ER_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Amb.v							:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Amb.x							:= GVL.VD.S_Err_Amb;
+//-------SIGNAL -&gt; S_ER_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Red.v							:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Red.x							:= GVL.VD.S_Err_Red;
+//-------SIGNAL -&gt; S_Rdy_Dep Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Rdy_Dep.v						:= GVL.SY.S_ECU_Rdy;
+//-------SIGNAL -&gt; S_Pwr_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Pwr_Red.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_Pwr_Red.x						:= GVL.ME.S_Err_Bat_Pckt_Onl OR GVL.ME.S_Err_Dischrg_Curr_Rdc;
+//-------SIGNAL -&gt; S_ER_BCU_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_BCU_Amb.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_BCU_Amb.x						:= NOT GVL.IIBA.S_ABS_Full_Op.x OR GVL.IIBA.S_EBS_ABS_Amb_Wrn.x;
+//-------SIGNAL -&gt; S_ER_BCU_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_BCU_Red.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_BCU_Red.x						:= GVL.IIBA.S_EBS_Red_Wrn.x;
+//-------SIGNAL -&gt; S_ER_Temp_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Temp_Red.v					:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_ER_Temp_Red.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Temp_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Temp_Amb.v					:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_ER_Temp_Amb.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_HV_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_HV_Amb.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_HV_Amb.x						:= GVL.ME.S_Err_HV_Amb;
+// PR1006_SRS_001181_TIMTRO 
+//-------SIGNAL -&gt; S_ER_HV_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_HV_Red.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_HV_Red.x						:= GVL.ME.S_Err_HV_Red;
+//-------SIGNAL -&gt; S_ER_Pnt_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Pnt_Amb.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Pnt_Amb.x						:= GVL.MP.S_Err_Pnt_Amb;
+//-------SIGNAL -&gt; S_ER_Pnt_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Pnt_Red.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Pnt_Red.x						:= GVL.MP.S_Err_Pnt_Red;
+//-------SIGNAL -&gt; S_Mot_Temp_Hi Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mot_Temp_Hi.v					:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_Mot_Temp_Hi.x					:= FALSE;
+//-------SIGNAL -&gt; S_Mot_Temp_Too_Hi Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mot_Temp_Too_Hi.v				:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_Mot_Temp_Too_Hi.x				:= FALSE;
+//-------SIGNAL -&gt; S_ER_BCCU Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_BCCU.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_BCCU.x						:= FALSE;
+//-------SIGNAL -&gt; S_Ln_Vo_Lo Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Ln_Vo_Lo.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_Ln_Vo_Lo.x						:= GVL.MP.S_Err_Cat_Ln_Volt_Lo;
+//-------SIGNAL -&gt; S_Ln_Vo_Too_Lo Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Ln_Vo_Hi.v						:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_Ln_Vo_Hi.x						:= GVL.MP.S_Err_Cat_Ln_Volt_Hi;
+//-------SIGNAL -&gt; S_ER_Mot_Cnv_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Mot_Cnv_Amb.v					:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Mot_Cnv_Amb.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Mot_Cnv_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Mot_Cnv_Red.v					:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Mot_Cnv_Red.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Icy_Road_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Icy_Road_Amb.v				:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_ER_Icy_Road_Amb.x				:= FALSE;
+//-------SIGNAL -&gt; S_ER_Str_Pmp_Temp_Hi Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Str_Pmp_Temp_Hi.v				:= GVL.SY.S_ECU_Rdy;
+// GVL.IOVD.S_ER_Str_Pmp_Temp_Hi.x			:= FALSE;
+//-------SIGNAL -&gt; S_ER_Aux_AC_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Aux_AC_Amb.v					:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Aux_AC_Amb.x					:= FALSE;
+//-------SIGNAL -&gt; S_ER_Aux_AC_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Aux_AC_Red.v					:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Aux_AC_Red.x					:= FALSE;
+//-------SIGNAL -&gt; Vehicle_mode_bitmask Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Vh_Mode.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Vh_Mode.e AND NOT GVL.IOVD.Z_Vh_Mode.na AND NOT GVL.IOVD.Z_Vh_Mode.RangeExcd;
+
+_FB_PACK_8BITS_TO_BYTE_1 (	S_BIT_0 	:= GVL.IIPT.S_Bat_Mod_Stat.x,
+						 	S_BIT_1		:= GVL.IIPT.S_Trol_Mod_Actv.x,
+						 	S_BIT_2 	:= GVL.MC.S_Inlt_Conn,
+						 	S_BIT_3 	:= 0,
+						 	S_BIT_4 	:= GVL.IIPT.X_I_DCDC_Out.x &lt;&gt; 0,
+						 	S_BIT_5 	:= 0, //Force/Test mode
+						 	S_BIT_6 	:= GVL.MR.S_Em_Stop,
+						 	S_BIT_7 	:= 0,
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Vh_Mode.x);
+
+GVL.IOVD.Z_Vh_Mode.e						:= FALSE;
+GVL.IOVD.Z_Vh_Mode.na						:= FALSE;
+GVL.IOVD.Z_Vh_Mode.RangeExcd				:=  (255 &lt; GVL.IOVD.Z_Vh_Mode.x) OR (0 &gt; GVL.IOVD.Z_Vh_Mode.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : DDS- ID:401"}
+//-------SIGNAL -&gt; X_DDS_No_1 Max: 65535 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_DDS_No_1.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_DDS_No_1.e AND NOT GVL.IOVD.X_DDS_No_1.na AND NOT GVL.IOVD.X_DDS_No_1.RangeExcd;
+GVL.IOVD.X_DDS_No_1.e					:= FALSE;
+GVL.IOVD.X_DDS_No_1.na					:= FALSE;
+GVL.IOVD.X_DDS_No_1.RangeExcd			:=  (65535 &lt; GVL.IOVD.X_DDS_No_1.x )OR (0 &gt; GVL.IOVD.X_DDS_No_1.x);
+//-------SIGNAL -&gt; X_DDS_No_2 Max: 65535 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_DDS_No_2.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_DDS_No_2.e AND NOT GVL.IOVD.X_DDS_No_2.na AND NOT GVL.IOVD.X_DDS_No_2.RangeExcd;
+GVL.IOVD.X_DDS_No_2.e					:= FALSE;
+GVL.IOVD.X_DDS_No_2.na					:= FALSE;
+GVL.IOVD.X_DDS_No_2.RangeExcd			:=  (65535 &lt; GVL.IOVD.X_DDS_No_2.x )OR (0 &gt; GVL.IOVD.X_DDS_No_2.x);
+//-------SIGNAL -&gt; X_DDS_No_3 Max: 65535 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_DDS_No_3.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_DDS_No_3.e AND NOT GVL.IOVD.X_DDS_No_3.na AND NOT GVL.IOVD.X_DDS_No_3.RangeExcd;
+GVL.IOVD.X_DDS_No_3.e					:= FALSE;
+GVL.IOVD.X_DDS_No_3.na					:= FALSE;
+GVL.IOVD.X_DDS_No_3.RangeExcd			:=  (65535 &lt; GVL.IOVD.X_DDS_No_3.x )OR (0 &gt; GVL.IOVD.X_DDS_No_3.x);
+//-------SIGNAL -&gt; X_DDS_No_4 Max: 65535 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_DDS_No_4.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_DDS_No_4.e AND NOT GVL.IOVD.X_DDS_No_4.na AND NOT GVL.IOVD.X_DDS_No_4.RangeExcd;
+GVL.IOVD.X_DDS_No_4.e					:= FALSE;
+GVL.IOVD.X_DDS_No_4.na					:= FALSE;
+GVL.IOVD.X_DDS_No_4.RangeExcd			:=  (65535 &lt; GVL.IOVD.X_DDS_No_4.x )OR (0 &gt; GVL.IOVD.X_DDS_No_4.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : DDS_2- ID:402"}
+//-------SIGNAL -&gt; X_DDS_No_5 Max: 65535 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_DDS_No_5.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_DDS_No_5.e AND NOT GVL.IOVD.X_DDS_No_5.na AND NOT GVL.IOVD.X_DDS_No_5.RangeExcd;
+GVL.IOVD.X_DDS_No_5.e					:= FALSE;
+GVL.IOVD.X_DDS_No_5.na					:= FALSE;
+GVL.IOVD.X_DDS_No_5.RangeExcd			:=  (65535 &lt; GVL.IOVD.X_DDS_No_5.x )OR (0 &gt; GVL.IOVD.X_DDS_No_5.x);
+//-------SIGNAL -&gt; X_Tot_Pg_No Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Tot_Pg_No.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Tot_Pg_No.e AND NOT GVL.IOVD.X_Tot_Pg_No.na AND NOT GVL.IOVD.X_Tot_Pg_No.RangeExcd;
+GVL.IOVD.X_Tot_Pg_No.e					:= FALSE;
+GVL.IOVD.X_Tot_Pg_No.na					:= FALSE;
+GVL.IOVD.X_Tot_Pg_No.RangeExcd			:=  (255 &lt; GVL.IOVD.X_Tot_Pg_No.x )OR (0 &gt; GVL.IOVD.X_Tot_Pg_No.x);
+//-------SIGNAL -&gt; X_Cur_Pg_No Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Cur_Pg_No.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Cur_Pg_No.e AND NOT GVL.IOVD.X_Cur_Pg_No.na AND NOT GVL.IOVD.X_Cur_Pg_No.RangeExcd;
+GVL.IOVD.X_Cur_Pg_No.e					:= FALSE;
+GVL.IOVD.X_Cur_Pg_No.na					:= FALSE;
+GVL.IOVD.X_Cur_Pg_No.RangeExcd			:=  (255 &lt; GVL.IOVD.X_Cur_Pg_No.x )OR (0 &gt; GVL.IOVD.X_Cur_Pg_No.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : HV_Durum- ID:450"}
+
+//-------SIGNAL -&gt; C_Ign_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+
+//-------SIGNAL -&gt; C_Ign_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Ign_Hv_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Ign_Hv_On.e AND NOT GVL.IOVD.C_Ign_Hv_On.na;
+GVL.IOVD.C_Ign_Hv_On.x						:= GVL.ME.C_Ign_HV_On;
+GVL.IOVD.C_Ign_Hv_On.e						:= FALSE;
+GVL.IOVD.C_Ign_Hv_On.na						:= FALSE;
+//-------SIGNAL -&gt; C_Pnt_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Pnt_Hv_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Pnt_Hv_On.e AND NOT GVL.IOVD.C_Pnt_Hv_On.na;
+GVL.IOVD.C_Pnt_Hv_On.x						:= FALSE;
+GVL.IOVD.C_Pnt_Hv_On.e						:= FALSE;
+GVL.IOVD.C_Pnt_Hv_On.na						:= FALSE;
+//-------SIGNAL -&gt; C_Bat_Lo_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Bat_Lo_Hv_On.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Bat_Lo_Hv_On.e AND NOT GVL.IOVD.C_Bat_Lo_Hv_On.na;
+GVL.IOVD.C_Bat_Lo_Hv_On.x					:= GVL.ME.C_Lo_24V_HV_On OR NOT GVL.SY.S_B2_On;
+GVL.IOVD.C_Bat_Lo_Hv_On.e					:= FALSE;
+GVL.IOVD.C_Bat_Lo_Hv_On.na					:= FALSE;
+//-------SIGNAL -&gt; C_Tm_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Tm_Hv_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Tm_Hv_On.e AND NOT GVL.IOVD.C_Tm_Hv_On.na;
+GVL.IOVD.C_Tm_Hv_On.x						:= GVL.ME.C_Tm_HV_On;
+GVL.IOVD.C_Tm_Hv_On.e						:= FALSE;
+GVL.IOVD.C_Tm_Hv_On.na						:= FALSE;
+//-------SIGNAL -&gt; C_Diag_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Diag_Hv_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Diag_Hv_On.e AND NOT GVL.IOVD.C_Diag_Hv_On.na;
+GVL.IOVD.C_Diag_Hv_On.x						:= GVL.ME.C_Diag_HV_On;
+GVL.IOVD.C_Diag_Hv_On.e						:= FALSE;
+GVL.IOVD.C_Diag_Hv_On.na					:= FALSE;
+//-------SIGNAL -&gt; C_Ign_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Ign_Hv_Off.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Ign_Hv_Off.e AND NOT GVL.IOVD.C_Ign_Hv_Off.na;
+GVL.IOVD.C_Ign_Hv_Off.x						:= NOT GVL.ME.C_Ign_HV_On;
+GVL.IOVD.C_Ign_Hv_Off.e						:= FALSE;
+GVL.IOVD.C_Ign_Hv_Off.na					:= FALSE;
+//-------SIGNAL -&gt; C_Pnt_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Pnt_Hv_Off.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Pnt_Hv_Off.e AND NOT GVL.IOVD.C_Pnt_Hv_Off.na;
+GVL.IOVD.C_Pnt_Hv_Off.x						:= FALSE;
+GVL.IOVD.C_Pnt_Hv_Off.e						:= FALSE;
+GVL.IOVD.C_Pnt_Hv_Off.na					:= FALSE;
+//-------SIGNAL -&gt; C_Bat_Lo_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Bat_Lo_Hv_Off.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Bat_Lo_Hv_Off.e AND NOT GVL.IOVD.C_Bat_Lo_Hv_Off.na;
+GVL.IOVD.C_Bat_Lo_Hv_Off.x					:= NOT GVL.ME.C_Lo_24V_HV_On;
+GVL.IOVD.C_Bat_Lo_Hv_Off.e					:= FALSE;
+GVL.IOVD.C_Bat_Lo_Hv_Off.na					:= FALSE;
+//-------SIGNAL -&gt; C_Tm_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Tm_Hv_Off.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Tm_Hv_Off.e AND NOT GVL.IOVD.C_Tm_Hv_Off.na;
+GVL.IOVD.C_Tm_Hv_Off.x						:= NOT GVL.ME.C_Tm_HV_On;
+GVL.IOVD.C_Tm_Hv_Off.e						:= FALSE;
+GVL.IOVD.C_Tm_Hv_Off.na						:= FALSE;
+//-------SIGNAL -&gt; C_Diag_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Diag_Hv_Off.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Diag_Hv_Off.e AND NOT GVL.IOVD.C_Diag_Hv_Off.na;
+GVL.IOVD.C_Diag_Hv_Off.x					:= NOT GVL.ME.C_Diag_HV_On;
+GVL.IOVD.C_Diag_Hv_Off.e					:= FALSE;
+GVL.IOVD.C_Diag_Hv_Off.na					:= FALSE;
+//-------SIGNAL -&gt; C_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Hv_On.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Hv_On.e AND NOT GVL.IOVD.C_Hv_On.na;
+GVL.IOVD.C_Hv_On.x							:= GVL.ME.C_HV_On;
+GVL.IOVD.C_Hv_On.e							:= FALSE;
+GVL.IOVD.C_Hv_On.na							:= FALSE;
+//-------SIGNAL -&gt; C_Hv_Off Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Hv_Off.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Hv_Off.e AND NOT GVL.IOVD.C_Hv_Off.na;
+GVL.IOVD.C_Hv_Off.x							:= NOT GVL.ME.C_HV_On;
+GVL.IOVD.C_Hv_Off.e							:= FALSE;
+GVL.IOVD.C_Hv_Off.na						:= FALSE;
+//-------SIGNAL -&gt; S_Hv_On_Prc Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hv_On_Prc.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hv_On_Prc.e AND NOT GVL.IOVD.S_Hv_On_Prc.na;
+GVL.IOVD.S_Hv_On_Prc.x						:= GVL.ME.X_Stat_No &gt; 10 AND GVL.ME.X_Stat_No &lt; 50;
+GVL.IOVD.S_Hv_On_Prc.e						:= FALSE;
+GVL.IOVD.S_Hv_On_Prc.na						:= FALSE;
+//-------SIGNAL -&gt; S_Hv_Off_Prc Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hv_Off_Prc.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hv_Off_Prc.e AND NOT GVL.IOVD.S_Hv_Off_Prc.na;
+GVL.IOVD.S_Hv_Off_Prc.x						:= GVL.ME.X_Stat_No &gt; 50 AND GVL.ME.X_Stat_No &lt; 75;
+GVL.IOVD.S_Hv_Off_Prc.e						:= FALSE;
+GVL.IOVD.S_Hv_Off_Prc.na					:= FALSE;
+//-------SIGNAL -&gt; S_Em_Stop Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Em_Stop.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Em_Stop.e AND NOT GVL.IOVD.S_Em_Stop.na;
+GVL.IOVD.S_Em_Stop.x						:= GVL.MR.S_Em_Stop;
+GVL.IOVD.S_Em_Stop.e						:= FALSE;
+GVL.IOVD.S_Em_Stop.na						:= FALSE;
+//-------SIGNAL -&gt; S_Hv_On_En Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hv_On_En.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hv_Off_Prc.e AND NOT GVL.IOVD.S_Hv_Off_Prc.na;
+GVL.IOVD.S_Hv_On_En.x						:= GVL.ME.S_HV_On_Sfty_Cond_Ok AND (GVL.ME.C_Ign_HV_On OR GVL.ME.S_Trol_Mod_HV_Req);
+GVL.IOVD.S_Hv_On_En.e						:= FALSE;
+GVL.IOVD.S_Hv_On_En.na						:= FALSE;
+//-------SIGNAL -&gt; S_Hv_Off_En Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hv_Off_En.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hv_Off_Prc.e AND NOT GVL.IOVD.S_Hv_Off_Prc.na;
+GVL.IOVD.S_Hv_Off_En.x						:= GVL.ME.S_HV_Off_Sfty_Cond_Ok;
+GVL.IOVD.S_Hv_Off_En.e						:= FALSE;
+GVL.IOVD.S_Hv_Off_En.na						:= FALSE;
+//-------SIGNAL -&gt; C_Mn_Ct_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Mn_Ct_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Mn_Ct_On.e AND NOT GVL.IOVD.C_Mn_Ct_On.na;
+GVL.IOVD.C_Mn_Ct_On.x						:= GVL.IOME.C_Mn_Ct.x;
+GVL.IOVD.C_Mn_Ct_On.e						:= GVL.IOME.C_Mn_Ct.e;
+GVL.IOVD.C_Mn_Ct_On.na						:= GVL.IOME.C_Mn_Ct.na;
+//-------SIGNAL -&gt; S_Mn_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mn_Ct.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Mn_Ct.e AND NOT GVL.IOVD.S_Mn_Ct.na;
+GVL.IOVD.S_Mn_Ct.x							:= GVL.IIME.S_Mn_Ct.x;
+GVL.IOVD.S_Mn_Ct.e							:= GVL.IIME.S_Mn_Ct.e;
+GVL.IOVD.S_Mn_Ct.na							:= GVL.IIME.S_Mn_Ct.na;
+//-------SIGNAL -&gt; C_Prechrg_Ct_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Prechrg_Ct_On.v					:= FALSE;
+GVL.IOVD.C_Prechrg_Ct_On.x					:= FALSE;
+GVL.IOVD.C_Prechrg_Ct_On.e					:= FALSE;
+GVL.IOVD.C_Prechrg_Ct_On.na					:= FALSE;
+//-------SIGNAL -&gt; S_Prechrg_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Prechrg_Ct.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Prechrg_Ct.e AND NOT GVL.IOVD.S_Prechrg_Ct.na;
+GVL.IOVD.S_Prechrg_Ct.x						:= GVL.IIPT.S_Prechrg_Ct_Act.x;
+GVL.IOVD.S_Prechrg_Ct.e						:= GVL.IIPT.S_Prechrg_Ct_Act.e;
+GVL.IOVD.S_Prechrg_Ct.na					:= GVL.IIPT.S_Prechrg_Ct_Act.na;
+//-------SIGNAL -&gt; S_ER_HV Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_HV.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_HV.e AND NOT GVL.IOVD.S_ER_HV.na;
+GVL.IOVD.S_ER_HV.x							:= GVL.ME.S_Err_HV_Amb OR GVL.ME.S_Err_HV_Red;
+GVL.IOVD.S_ER_HV.e							:= FALSE;
+GVL.IOVD.S_ER_HV.na							:= FALSE;
+//-------SIGNAL -&gt; S_ER_Mn_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Mn_Ct.v						:= FALSE;	// KULLANILMIYOR
+GVL.IOVD.S_ER_Mn_Ct.x						:= FALSE;	// KULLANILMIYOR
+GVL.IOVD.S_ER_Mn_Ct.e						:= FALSE;	// KULLANILMIYOR
+GVL.IOVD.S_ER_Mn_Ct.na						:= FALSE;	// KULLANILMIYOR
+//-------SIGNAL -&gt; S_ER_Prechrg_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Prechrg_Ct.v					:= FALSE;
+GVL.IOVD.S_ER_Prechrg_Ct.x					:= FALSE;
+GVL.IOVD.S_ER_Prechrg_Ct.e					:= FALSE;
+GVL.IOVD.S_ER_Prechrg_Ct.na					:= FALSE;
+//-------SIGNAL -&gt; S_Hv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hv_On.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hv_On.e AND NOT GVL.IOVD.S_Hv_On.na;
+GVL.IOVD.S_Hv_On.x							:= GVL.ME.S_HV_On;
+GVL.IOVD.S_Hv_On.e							:= FALSE;
+GVL.IOVD.S_Hv_On.na							:= FALSE;	  
+//-------SIGNAL -&gt; S_HV_HVAC_En Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_HV_HVAC_En.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_HV_HVAC_En.e AND NOT GVL.IOVD.S_HV_HVAC_En.na;
+GVL.IOVD.S_HV_HVAC_En.x						:= GVL.ME.C_HVAC_En;
+GVL.IOVD.S_HV_HVAC_En.e						:= FALSE;
+GVL.IOVD.S_HV_HVAC_En.na					:= FALSE;
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Trolleybus_Durum- ID:460"}
+
+//-------SIGNAL -&gt; S_Mn_Ct_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mn_Ct_Req.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Mn_Ct_Req.e AND NOT GVL.IOVD.S_Mn_Ct_Req.na;
+GVL.IOVD.S_Mn_Ct_Req.x						:= GVL.IOPT.C_Ign_On.x;
+GVL.IOVD.S_Mn_Ct_Req.e						:= GVL.IOPT.C_Ign_On.e; 
+GVL.IOVD.S_Mn_Ct_Req.na						:= GVL.IOPT.C_Ign_On.na;
+//-------SIGNAL -&gt; S_Sys_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Sys_On.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Sys_On.e AND NOT GVL.IOVD.S_Sys_On.na;
+GVL.IOVD.S_Sys_On.x							:= GVL.IIPT.S_Bat_Mod_Stat.x OR GVL.IIPT.S_Trol_Mod_Actv.x;
+GVL.IOVD.S_Sys_On.e							:= FALSE;
+GVL.IOVD.S_Sys_On.na						:= FALSE;
+//-------SIGNAL -&gt; S_Mot_Cnv_On_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mot_Cnv_On_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Mot_Cnv_On_Req.e AND NOT GVL.IOVD.S_Mot_Cnv_On_Req.na;
+GVL.IOVD.S_Mot_Cnv_On_Req.x					:= GVL.IOPT.S_Drv_En.x;
+GVL.IOVD.S_Mot_Cnv_On_Req.e					:= GVL.IOPT.S_Drv_En.e;
+GVL.IOVD.S_Mot_Cnv_On_Req.na				:= GVL.IOPT.S_Drv_En.na;
+//-------SIGNAL -&gt; S_Mot_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mot_Cnv_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Mot_Cnv_On.e AND NOT GVL.IOVD.S_Mot_Cnv_On.na;
+GVL.IOVD.S_Mot_Cnv_On.x						:= GVL.IIPT.S_Drv_Rdy.x;
+GVL.IOVD.S_Mot_Cnv_On.e						:= GVL.IIPT.S_Drv_Rdy.e;
+GVL.IOVD.S_Mot_Cnv_On.na					:= GVL.IIPT.S_Drv_Rdy.na;
+//-------SIGNAL -&gt; S_24V_Bat_Cnv_On_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_24V_Bat_Cnv_On_Req.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_24V_Bat_Cnv_On_Req.e AND NOT GVL.IOVD.S_24V_Bat_Cnv_On_Req.na;
+GVL.IOVD.S_24V_Bat_Cnv_On_Req.x				:= GVL.IOPT.C_Aux_DC_24V_On.x;
+GVL.IOVD.S_24V_Bat_Cnv_On_Req.e				:= GVL.IOPT.C_Aux_DC_24V_On.e;
+GVL.IOVD.S_24V_Bat_Cnv_On_Req.na			:= GVL.IOPT.C_Aux_DC_24V_On.na;
+//-------SIGNAL -&gt; S_24V_Sp_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_24V_Sp_On.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_24V_Sp_On.e AND NOT GVL.IOVD.S_24V_Sp_On.na;
+GVL.IOVD.S_24V_Sp_On.x						:= GVL.IIPT.S_Aux_DC_24V_On.x;
+GVL.IOVD.S_24V_Sp_On.e						:= GVL.IIPT.S_Aux_DC_24V_On.e;
+GVL.IOVD.S_24V_Sp_On.na						:= GVL.IIPT.S_Aux_DC_24V_On.na;
+//-------SIGNAL -&gt; S_Pnt_Chrg_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Pnt_Chrg_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Pnt_Chrg_Req.e AND NOT GVL.IOVD.S_Pnt_Chrg_Req.na;
+GVL.IOVD.S_Pnt_Chrg_Req.x					:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.x;
+GVL.IOVD.S_Pnt_Chrg_Req.e					:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.e;
+GVL.IOVD.S_Pnt_Chrg_Req.na					:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.na;
+//-------SIGNAL -&gt; S_Pnt_Chrg_Fdbk Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Pnt_Chrg_Fdbk.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Pnt_Chrg_Fdbk.e AND NOT GVL.IOVD.S_Pnt_Chrg_Fdbk.na;
+GVL.IOVD.S_Pnt_Chrg_Fdbk.x					:= GVL.IIPT.S_Bat_Cnv_Stat.x;
+GVL.IOVD.S_Pnt_Chrg_Fdbk.e					:= GVL.IIPT.S_Bat_Cnv_Stat.e;
+GVL.IOVD.S_Pnt_Chrg_Fdbk.na					:= GVL.IIPT.S_Bat_Cnv_Stat.na;
+//-------SIGNAL -&gt; Z_Drv_Dir_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Drv_Dir_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Drv_Dir_Req.e AND NOT GVL.IOVD.Z_Drv_Dir_Req.na;
+GVL.IOVD.Z_Drv_Dir_Req.x					:= SEL(GVL.IIRV.X_Sel_Gb.x = -1, SEL(GVL.IIRV.X_Sel_Gb.x = 1, 0 , 1) , 2);
+//-------SIGNAL -&gt; Z_Drv_Dir Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Drv_Dir.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Drv_Dir.e AND NOT GVL.IOVD.Z_Drv_Dir.na;
+GVL.IOVD.Z_Drv_Dir.x						:= SEL(GVL.IIRV.X_Act_Gb.x = -1, SEL(GVL.IIRV.X_Sel_Gb.x = 1, 0 , 1) , 2);
+//-------SIGNAL -&gt; S_Elec_Mode_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Elec_Mode_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Elec_Mode_Req.e AND NOT GVL.IOVD.S_Elec_Mode_Req.na;
+GVL.IOVD.S_Elec_Mode_Req.x					:= GVL.IOPT.C_Trol_Mod_Req.x;
+GVL.IOVD.S_Elec_Mode_Req.e					:= GVL.IOPT.C_Trol_Mod_Req.e;
+GVL.IOVD.S_Elec_Mode_Req.na					:= GVL.IOPT.C_Trol_Mod_Req.na;
+//-------SIGNAL -&gt; S_Elec_Mode_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Elec_Mode_Actv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Elec_Mode_Actv.e AND NOT GVL.IOVD.S_Elec_Mode_Actv.na;
+GVL.IOVD.S_Elec_Mode_Actv.x					:= GVL.IIPT.S_Trol_Mod_Actv.x;
+GVL.IOVD.S_Elec_Mode_Actv.e					:= GVL.IIPT.S_Trol_Mod_Actv.e;
+GVL.IOVD.S_Elec_Mode_Actv.na				:= GVL.IIPT.S_Trol_Mod_Actv.na;
+//-------SIGNAL -&gt; S_Bat_Mode_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Bat_Mode_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Bat_Mode_Req.e AND NOT GVL.IOVD.S_Bat_Mode_Req.na;
+GVL.IOVD.S_Bat_Mode_Req.x					:= GVL.IOPT.C_Tr_Bat_Mod_Req.x;
+GVL.IOVD.S_Bat_Mode_Req.e					:= GVL.IOPT.C_Tr_Bat_Mod_Req.e;
+GVL.IOVD.S_Bat_Mode_Req.na					:= GVL.IOPT.C_Tr_Bat_Mod_Req.na;
+//-------SIGNAL -&gt; S_Bat_Mode_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Bat_Mode_Actv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Bat_Mode_Actv.e AND NOT GVL.IOVD.S_Bat_Mode_Actv.na;
+GVL.IOVD.S_Bat_Mode_Actv.x					:= GVL.IIPT.S_Bat_Mod_Stat.x;
+GVL.IOVD.S_Bat_Mode_Actv.e					:= GVL.IIPT.S_Bat_Mod_Stat.e;
+GVL.IOVD.S_Bat_Mode_Actv.na					:= GVL.IIPT.S_Bat_Mod_Stat.na;
+//-------SIGNAL -&gt; S_Elec_Ret_En Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Elec_Ret_En.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Elec_Ret_En.e AND NOT GVL.IOVD.S_Elec_Ret_En.na;
+GVL.IOVD.S_Elec_Ret_En.x					:= GVL.IOPT.S_Elec_Ret_En.x;
+GVL.IOVD.S_Elec_Ret_En.e					:= GVL.IOPT.S_Elec_Ret_En.e;
+GVL.IOVD.S_Elec_Ret_En.na					:= GVL.IOPT.S_Elec_Ret_En.na;
+//-------SIGNAL -&gt; S_Elec_Brk_En Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Elec_Brk_En.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Elec_Brk_En.e AND NOT GVL.IOVD.S_Elec_Brk_En.na;
+GVL.IOVD.S_Elec_Brk_En.x					:= GVL.IOPT.S_Elec_Brk_En.x;
+GVL.IOVD.S_Elec_Brk_En.e					:= GVL.IOPT.S_Elec_Brk_En.e;
+GVL.IOVD.S_Elec_Brk_En.na					:= GVL.IOPT.S_Elec_Brk_En.na;
+//-------SIGNAL -&gt; S_Tintl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Tintl.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Tintl.e AND NOT GVL.IOVD.S_Tintl.na;
+GVL.IOVD.S_Tintl.x							:= GVL.PT.S_Tintl;
+GVL.IOVD.S_Tintl.e							:= GVL.IOPT.S_Tintl.e;
+GVL.IOVD.S_Tintl.na							:= GVL.IOPT.S_Tintl.na;
+//-------SIGNAL -&gt; S_Em_Deact Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Em_Deact.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Em_Deact.e AND NOT GVL.IOVD.S_Em_Deact.na;
+GVL.IOVD.S_Em_Deact.x						:= GVL.IOPT.C_Em_Deact.x;
+GVL.IOVD.S_Em_Deact.e						:= GVL.IOPT.C_Em_Deact.e;
+GVL.IOVD.S_Em_Deact.na						:= GVL.IOPT.C_Em_Deact.na;
+//-------SIGNAL -&gt; S_Rs_Cosu_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Rs_Cosu_Req.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Rs_Cosu_Req.e AND NOT GVL.IOVD.S_Rs_Cosu_Req.na;
+//GVL.IOVD.S_Rs_Cosu_Req.x					:= ;
+//-------SIGNAL -&gt; S_TCU_Hlt_Brk_Req Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_TCU_Hlt_Brk_Req.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_TCU_Hlt_Brk_Req.e AND NOT GVL.IOVD.S_TCU_Hlt_Brk_Req.na;
+GVL.IOVD.S_TCU_Hlt_Brk_Req.x				:= GVL.IIPT.C_Hlt_Brk.x;
+GVL.IOVD.S_TCU_Hlt_Brk_Req.e				:= GVL.IIPT.C_Hlt_Brk.e;
+GVL.IOVD.S_TCU_Hlt_Brk_Req.na				:= GVL.IIPT.C_Hlt_Brk.na;
+//-------SIGNAL -&gt; S_Insu_Test_Mod_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Insu_Test_Mod_Actv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Insu_Test_Mod_Actv.e AND NOT GVL.IOVD.S_Insu_Test_Mod_Actv.na;
+GVL.IOVD.S_Insu_Test_Mod_Actv.x				:= GVL.IIPT.S_Insu_Tst_Stat.x;
+GVL.IOVD.S_Insu_Test_Mod_Actv.e				:= GVL.IIPT.S_Insu_Tst_Stat.e;
+GVL.IOVD.S_Insu_Test_Mod_Actv.na			:= GVL.IIPT.S_Insu_Tst_Stat.na;
+//-------SIGNAL -&gt; S_Engy_Flw_Trol Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Engy_Flw_Trol.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Engy_Flw_Trol.e AND NOT GVL.IOVD.S_Engy_Flw_Trol.na;
+GVL.IOVD.S_Engy_Flw_Trol.x					:= GVL.IIPT.X_I_DCDC_Out.x &gt; 0;
+GVL.IOVD.S_Engy_Flw_Trol.e					:= GVL.IIPT.X_I_DCDC_Out.e;
+GVL.IOVD.S_Engy_Flw_Trol.na					:= GVL.IIPT.X_I_DCDC_Out.na;
+//-------SIGNAL -&gt; S_ER_Elec_Brk_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Engy_Flw_Bat.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Engy_Flw_Bat.e AND NOT GVL.IOVD.S_Engy_Flw_Bat.na;
+GVL.IOVD.S_Engy_Flw_Bat.x					:= GVL.IIME.X_I_Act_Bat.x &gt; 0;
+GVL.IOVD.S_Engy_Flw_Bat.e					:= GVL.IIME.X_I_Act_Bat.e;
+GVL.IOVD.S_Engy_Flw_Bat.na					:= GVL.IIME.X_I_Act_Bat.na;
+//-------SIGNAL -&gt; S_Trol_Volt_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Trol_Volt_Actv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Trol_Volt_Actv.e AND NOT GVL.IOVD.S_Trol_Volt_Actv.na;
+GVL.IOVD.S_Trol_Volt_Actv.x					:= GVL.IIPT.X_U_DCDC_In.x &gt; GVL.IIME.X_U_Act_Bat.x;
+GVL.IOVD.S_Trol_Volt_Actv.e					:= GVL.IIPT.X_U_DCDC_In.e;
+GVL.IOVD.S_Trol_Volt_Actv.na				:= GVL.IIPT.X_U_DCDC_In.na;
+//-------SIGNAL -&gt; C_Mot_Fan_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Mot_Fan_Ct.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Mot_Fan_Ct.e AND NOT GVL.IOVD.C_Mot_Fan_Ct.na;
+GVL.IOVD.C_Mot_Fan_Ct.x						:= GVL.IORE.C_Mot_Fan_Ct;
+GVL.IOVD.C_Mot_Fan_Ct.e						:= GVL.IIPT.X_U_DCDC_In.e;
+GVL.IOVD.C_Mot_Fan_Ct.na					:= GVL.IIPT.X_U_DCDC_In.na;
+//-------SIGNAL -&gt; S_Mot_Fan_Thrm_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Mot_Fan_Thrm_Ct.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Mot_Fan_Thrm_Ct.e AND NOT GVL.IOVD.S_Mot_Fan_Thrm_Ct.na;
+GVL.IOVD.S_Mot_Fan_Thrm_Ct.x				:= NOT GVL.IIRE.S_Mot_Fan_Deactv.pin_value;
+GVL.IOVD.S_Mot_Fan_Thrm_Ct.e				:= FALSE;
+GVL.IOVD.S_Mot_Fan_Thrm_Ct.na				:= FALSE;
+//-------SIGNAL -&gt; S_ER_Elec_Brk_Amb Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Elec_Brk_Amb.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Elec_Brk_Amb.e AND NOT GVL.IOVD.S_ER_Elec_Brk_Amb.na;
+GVL.IOVD.S_ER_Elec_Brk_Amb.x				:= FALSE;
+GVL.IOVD.S_ER_Elec_Brk_Amb.e				:= FALSE;
+GVL.IOVD.S_ER_Elec_Brk_Amb.na				:= FALSE;	  
+//-------SIGNAL -&gt; S_ER_Elec_Brk_Red Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Elec_Brk_Red.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ER_Elec_Brk_Red.e AND NOT GVL.IOVD.S_ER_Elec_Brk_Red.na;
+GVL.IOVD.S_ER_Elec_Brk_Red.x				:= FALSE;
+GVL.IOVD.S_ER_Elec_Brk_Red.e				:= FALSE;
+GVL.IOVD.S_ER_Elec_Brk_Red.na				:= FALSE;
+// PR1006_SRS_001243_TIMTRO
+//-------SIGNAL -&gt; Z_Mc_Stat Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Mc_Stat.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Mc_Stat.e AND NOT GVL.IOVD.Z_Mc_Stat.na AND NOT GVL.IOVD.Z_Mc_Stat.RangeExcd;
+GVL.IOVD.Z_Mc_Stat.e					:= FALSE;
+GVL.IOVD.Z_Mc_Stat.na					:= FALSE;
+GVL.IOVD.Z_Mc_Stat.RangeExcd			:=  (255 &lt; GVL.IOVD.Z_Mc_Stat.x) OR (0 &gt; GVL.IOVD.Z_Mc_Stat.x);	 
+_FB_PACK_8BITS_TO_BYTE_2 (	S_BIT_0 	:= 0,								// Power on
+						 	S_BIT_1 	:= 0,								// Test in progress
+						 	S_BIT_2 	:= GVL.IIPT.S_Mot_Cnv_Rdy.x,		// Motor converter ready to use
+						 	S_BIT_3 	:= GVL.IIPT.S_Op_Rdy.x,				// Ready for operation
+						 	S_BIT_4 	:= GVL.EDG.S_ER_TCU_Red,			// Major fault
+						 	S_BIT_5 	:= GVL.EDG.S_ER_TCU_Amb,			// Minor fault
+						 	S_BIT_6 	:= GVL.EDG.S_ER_Mot_Fan,			// Motor fan fault
+						 	S_BIT_7 	:= 0,								// Spare
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Mc_Stat.x); 		 
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Surus_Limit- ID:462"}
+
+//-------SIGNAL -&gt; X_Spd_Max_Fwd Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Spd_Max_Fwd.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_Max_Fwd.e AND NOT GVL.IOVD.X_Spd_Max_Fwd.na AND NOT GVL.IOVD.X_Spd_Max_Fwd.RangeExcd;
+GVL.IOVD.X_Spd_Max_Fwd.e				:= GVL.IOPT.X_Spd_Max_Fwd.e;
+GVL.IOVD.X_Spd_Max_Fwd.na				:= GVL.IOPT.X_Spd_Max_Fwd.na;
+GVL.IOVD.X_Spd_Max_Fwd.RangeExcd		:=  (100 &lt; GVL.IOVD.X_Spd_Max_Fwd.x) OR (0 &gt; GVL.IOVD.X_Spd_Max_Fwd.x);
+//-------SIGNAL -&gt; X_Spd_Max_Bwd Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Spd_Max_Bwd.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_Max_Bwd.e AND NOT GVL.IOVD.X_Spd_Max_Bwd.na AND NOT GVL.IOVD.X_Spd_Max_Bwd.RangeExcd;
+GVL.IOVD.X_Spd_Max_Bwd.e				:= GVL.IOPT.X_Spd_Max_Bwd.e;
+GVL.IOVD.X_Spd_Max_Bwd.na				:= GVL.IOPT.X_Spd_Max_Bwd.na;
+GVL.IOVD.X_Spd_Max_Bwd.RangeExcd		:=  (100 &lt; GVL.IOVD.X_Spd_Max_Bwd.x) OR (0 &gt; GVL.IOVD.X_Spd_Max_Bwd.x);
+//-------SIGNAL -&gt; X_Ang_Str Max: 125 Min: -125 Def: 0 Resolution: 1 Offset: -125
+GVL.IOVD.X_Ang_Str.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Ang_Str.e AND NOT GVL.IOVD.X_Ang_Str.na AND NOT GVL.IOVD.X_Ang_Str.RangeExcd;
+GVL.IOVD.X_Ang_Str.x					:= GVL.IIRS.X_Ang_Str_Wh.x;
+GVL.IOVD.X_Ang_Str.e					:= GVL.IIRS.X_Ang_Str_Wh.e;
+GVL.IOVD.X_Ang_Str.na					:= GVL.IIRS.X_Ang_Str_Wh.na;
+GVL.IOVD.X_Ang_Str.RangeExcd			:=  (125 &lt; GVL.IOVD.X_Ang_Str.x) OR (-125 &gt; GVL.IOVD.X_Ang_Str.x);
+//-------SIGNAL -&gt; X_Pct_Brk_Pdl Max: 100 Min: 0 Def: 0 Resolution: 0.4 Offset: 0
+GVL.IOVD.X_Pct_Brk_Pdl.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Pct_Brk_Pdl.e AND NOT GVL.IOVD.X_Pct_Brk_Pdl.na AND NOT GVL.IOVD.X_Pct_Brk_Pdl.RangeExcd;
+GVL.IOVD.X_Pct_Brk_Pdl.x				:= GVL.IIBA.X_Pct_Brk_Pdl.x;
+GVL.IOVD.X_Pct_Brk_Pdl.e				:= GVL.IIBA.X_Pct_Brk_Pdl.e;
+GVL.IOVD.X_Pct_Brk_Pdl.na				:= GVL.IIBA.X_Pct_Brk_Pdl.na;
+GVL.IOVD.X_Pct_Brk_Pdl.RangeExcd		:=  (100 &lt; GVL.IOVD.X_Pct_Brk_Pdl.x) OR (0 &gt; GVL.IOVD.X_Pct_Brk_Pdl.x);
+//-------SIGNAL -&gt; X_Pct_Acc_Pdl Max: 100 Min: 0 Def: 0 Resolution: 0.4 Offset: 0
+GVL.IOVD.X_Pct_Acc_Pdl.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Pct_Acc_Pdl.e AND NOT GVL.IOVD.X_Pct_Acc_Pdl.na AND NOT GVL.IOVD.X_Pct_Acc_Pdl.RangeExcd;
+GVL.IOVD.X_Pct_Acc_Pdl.x				:= GVL.IIPA.X_Pos_Acc_Pdl.x;
+GVL.IOVD.X_Pct_Acc_Pdl.e				:= GVL.IIPA.X_Pos_Acc_Pdl.e;
+GVL.IOVD.X_Pct_Acc_Pdl.na				:= GVL.IIPA.X_Pos_Acc_Pdl.na;
+GVL.IOVD.X_Pct_Acc_Pdl.RangeExcd		:=  (100 &lt; GVL.IOVD.X_Pct_Acc_Pdl.x) OR (0 &gt; GVL.IOVD.X_Pct_Acc_Pdl.x);
+//-------SIGNAL -&gt; S_Hlt_Brk_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Hlt_Brk_Actv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Hlt_Brk_Actv.e AND NOT GVL.IOVD.S_Hlt_Brk_Actv.na;
+GVL.IOVD.S_Hlt_Brk_Actv.x				:= GVL.IIBA.S_Hlt_Brk_Mode.x = 1;
+GVL.IOVD.S_Hlt_Brk_Actv.e				:= GVL.IIBA.S_Hlt_Brk_Mode.e;
+GVL.IOVD.S_Hlt_Brk_Actv.na				:= GVL.IIBA.S_Hlt_Brk_Mode.na;	 
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Analog- ID:463"}
+
+//-------SIGNAL -&gt; X_T_Mot Max: 200 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Mot.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Mot.e AND NOT GVL.IOVD.X_T_Mot.na AND NOT GVL.IOVD.X_T_Mot.RangeExcd;
+GVL.IOVD.X_T_Mot.x						:= GVL.IIPT.X_T_Mot_1.x;
+GVL.IOVD.X_T_Mot.e						:= GVL.IIPT.X_T_Mot_1.e;
+GVL.IOVD.X_T_Mot.na						:= GVL.IIPT.X_T_Mot_1.na;
+GVL.IOVD.X_T_Mot.RangeExcd				:= (200 &lt; GVL.IOVD.X_T_Mot.x) OR (-40 &gt; GVL.IOVD.X_T_Mot.x);
+//-------SIGNAL -&gt; X_T_Mot_Cnv Max: 200 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Mot_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Mot_Cnv.e AND NOT GVL.IOVD.X_T_Mot_Cnv.na AND NOT GVL.IOVD.X_T_Mot_Cnv.RangeExcd;
+GVL.IOVD.X_T_Mot_Cnv.x					:= GVL.IIPT.X_T_Mot_Cnv.x;
+GVL.IOVD.X_T_Mot_Cnv.e					:= GVL.IIPT.X_T_Mot_Cnv.e;
+GVL.IOVD.X_T_Mot_Cnv.na					:= GVL.IIPT.X_T_Mot_Cnv.na;
+GVL.IOVD.X_T_Mot_Cnv.RangeExcd			:= (200 &lt; GVL.IOVD.X_T_Mot_Cnv.x) OR (-40 &gt; GVL.IOVD.X_T_Mot_Cnv.x);
+//-------SIGNAL -&gt; X_T_TCU_Box Max: 200 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_TCU_Box.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_TCU_Box.e AND NOT GVL.IOVD.X_T_TCU_Box.na AND NOT GVL.IOVD.X_T_TCU_Box.RangeExcd;
+GVL.IOVD.X_T_TCU_Box.x					:= 0;
+GVL.IOVD.X_T_TCU_Box.e					:= FALSE;
+GVL.IOVD.X_T_TCU_Box.na					:= FALSE;
+GVL.IOVD.X_T_TCU_Box.RangeExcd			:= (200 &lt; GVL.IOVD.X_T_TCU_Box.x) OR (-40 &gt; GVL.IOVD.X_T_TCU_Box.x);
+//-------SIGNAL -&gt; X_P_ESS Max: 3000 Min: -3000 Def: 0 Resolution: 0.1 Offset: -3276.6
+GVL.IOVD.X_P_ESS.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_ESS.e AND NOT GVL.IOVD.X_P_ESS.na AND NOT GVL.IOVD.X_P_ESS.RangeExcd;
+GVL.IOVD.X_P_ESS.x						:= GVL.IIPT.X_P_ESS_Bat.x;
+GVL.IOVD.X_P_ESS.e						:= GVL.IIPT.X_P_ESS_Bat.e;
+GVL.IOVD.X_P_ESS.na						:= GVL.IIPT.X_P_ESS_Bat.na;
+GVL.IOVD.X_P_ESS.RangeExcd				:= (3000 &lt; GVL.IOVD.X_P_ESS.x) OR (-3000 &gt; GVL.IOVD.X_P_ESS.x);
+//-------SIGNAL -&gt; X_I_Out_ESS Max: 30000 Min: -30000 Def: 0 Resolution: 1 Offset: -32766
+GVL.IOVD.X_I_Out_ESS.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_ESS.e AND NOT GVL.IOVD.X_I_Out_ESS.na AND NOT GVL.IOVD.X_I_Out_ESS.RangeExcd;
+GVL.IOVD.X_I_Out_ESS.x					:= GVL.IIPT.X_I_ESS_Bat.x;
+GVL.IOVD.X_I_Out_ESS.e					:= GVL.IIPT.X_I_ESS_Bat.e;
+GVL.IOVD.X_I_Out_ESS.na					:= GVL.IIPT.X_I_ESS_Bat.na;
+GVL.IOVD.X_I_Out_ESS.RangeExcd			:= (30000 &lt; GVL.IOVD.X_I_Out_ESS.x) OR (-30000 &gt; GVL.IOVD.X_I_Out_ESS.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Cikis_Akim_Guc- ID:464"}
+
+//-------SIGNAL -&gt; X_I_Out_Mot_Cnv Max: 1600 Min: -1600 Def: 0 Resolution: 0.05 Offset: -1600
+GVL.IOVD.X_I_Out_Mot_Cnv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_Mot_Cnv.e AND NOT GVL.IOVD.X_I_Out_Mot_Cnv.na AND NOT GVL.IOVD.X_I_Out_Mot_Cnv.RangeExcd;
+GVL.IOVD.X_I_Out_Mot_Cnv.x				:= GVL.IIPT.X_I_In_Mot_Cnv.x;
+GVL.IOVD.X_I_Out_Mot_Cnv.e				:= GVL.IIPT.X_I_In_Mot_Cnv.e;
+GVL.IOVD.X_I_Out_Mot_Cnv.na				:= GVL.IIPT.X_I_In_Mot_Cnv.na;
+GVL.IOVD.X_I_Out_Mot_Cnv.RangeExcd		:=  (1600 &lt; GVL.IOVD.X_I_Out_Mot_Cnv.x) OR (-1600 &gt; GVL.IOVD.X_I_Out_Mot_Cnv.x);
+//-------SIGNAL -&gt; X_I_Brk_Rsr Max: 1600 Min: -1600 Def: 0 Resolution: 0.05 Offset: -1600
+GVL.IOVD.X_I_Brk_Rsr.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Brk_Rsr.e AND NOT GVL.IOVD.X_I_Brk_Rsr.na AND NOT GVL.IOVD.X_I_Brk_Rsr.RangeExcd;
+GVL.IOVD.X_I_Brk_Rsr.x					:= GVL.IIPT.X_I_Brk_Rsr.x;
+GVL.IOVD.X_I_Brk_Rsr.e					:= GVL.IIPT.X_I_Brk_Rsr.e;
+GVL.IOVD.X_I_Brk_Rsr.na					:= GVL.IIPT.X_I_Brk_Rsr.na;
+GVL.IOVD.X_I_Brk_Rsr.RangeExcd			:=  (1600 &lt; GVL.IOVD.X_I_Brk_Rsr.x) OR (-1600 &gt; GVL.IOVD.X_I_Brk_Rsr.x);
+//-------SIGNAL -&gt; X_P_Mot_Cnv Max: 3000 Min: -3000 Def: 0 Resolution: 0.1 Offset: -3276.6
+GVL.IOVD.X_P_Mot_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Mot_Cnv.e AND NOT GVL.IOVD.X_P_Mot_Cnv.na AND NOT GVL.IOVD.X_P_Mot_Cnv.RangeExcd;
+GVL.IOVD.X_P_Mot_Cnv.x					:= GVL.IIPT.X_P_Out_Mot_Cnv.x;
+GVL.IOVD.X_P_Mot_Cnv.e					:= GVL.IIPT.X_P_Out_Mot_Cnv.e;
+GVL.IOVD.X_P_Mot_Cnv.na					:= GVL.IIPT.X_P_Out_Mot_Cnv.na;
+GVL.IOVD.X_P_Mot_Cnv.RangeExcd			:=  (800 &lt; GVL.IOVD.X_P_Mot_Cnv.x) OR (-750 &gt; GVL.IOVD.X_P_Mot_Cnv.x);
+//-------SIGNAL -&gt; X_P_Brk_Rsr Max: 2000 Min: 0 Def: 0 Resolution: 0.1 Offset: 0
+GVL.IOVD.X_P_Brk_Rsr.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Brk_Rsr.e AND NOT GVL.IOVD.X_P_Brk_Rsr.na AND NOT GVL.IOVD.X_P_Brk_Rsr.RangeExcd;
+GVL.IOVD.X_P_Brk_Rsr.x					:= GVL.IIPT.X_P_Brk_Rsr.x;
+GVL.IOVD.X_P_Brk_Rsr.e					:= GVL.IIPT.X_P_Brk_Rsr.e;
+GVL.IOVD.X_P_Brk_Rsr.na					:= GVL.IIPT.X_P_Brk_Rsr.na;
+GVL.IOVD.X_P_Brk_Rsr.RangeExcd			:=  (800 &lt; GVL.IOVD.X_P_Brk_Rsr.x) OR (-750 &gt; GVL.IOVD.X_P_Brk_Rsr.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Tork_Hiz- ID:465"}
+
+//-------SIGNAL -&gt; X_M_Act Max: 30000 Min: -30000 Def: 0 Resolution: 1 Offset: -32766
+GVL.IOVD.X_M_Act.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_M_Act.e AND NOT GVL.IOVD.X_M_Act.na AND NOT GVL.IOVD.X_M_Act.RangeExcd;
+GVL.IOVD.X_M_Act.x						:= GVL.IIPT.X_Trq_Tr_Mot1.x;
+GVL.IOVD.X_M_Act.e						:= GVL.IIPT.X_Trq_Tr_Mot1.e;
+GVL.IOVD.X_M_Act.na						:= GVL.IIPT.X_Trq_Tr_Mot1.na;
+GVL.IOVD.X_M_Act.RangeExcd				:= (30000 &lt; GVL.IOVD.X_M_Act.x) OR (-32766 &gt; GVL.IOVD.X_M_Act.x);
+//-------SIGNAL -&gt; X_Spd_Act Max: 30000 Min: -30000 Def: 0 Resolution: 1 Offset: -32766
+GVL.IOVD.X_Spd_Act.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_Act.e AND NOT GVL.IOVD.X_Spd_Act.na AND NOT GVL.IOVD.X_Spd_Act.RangeExcd;
+GVL.IOVD.X_Spd_Act.x					:= GVL.IIPT.X_Spd_Tr_Mot1.x;
+GVL.IOVD.X_Spd_Act.e					:= GVL.IIPT.X_Spd_Tr_Mot1.e;
+GVL.IOVD.X_Spd_Act.na					:= GVL.IIPT.X_Spd_Tr_Mot1.na;
+GVL.IOVD.X_Spd_Act.RangeExcd			:= (30000 &lt; GVL.IOVD.X_Spd_Act.x) OR (-32766 &gt; GVL.IOVD.X_Spd_Act.x);
+//-------SIGNAL -&gt; X_Spd_Act_kmh Max: 200 Min: 0 Def: 0 Resolution: 0.01 Offset: 0
+GVL.IOVD.X_Spd_Act_kmh.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_Act_kmh.e AND NOT GVL.IOVD.X_Spd_Act_kmh.na AND NOT GVL.IOVD.X_Spd_Act_kmh.RangeExcd;
+GVL.IOVD.X_Spd_Act_kmh.x				:= GVL.MR.X_Spd_Vh;
+GVL.IOVD.X_Spd_Act_kmh.e				:= GVL.MR.S_ER_Imp_Spd_Vh;
+GVL.IOVD.X_Spd_Act_kmh.na				:= FALSE;
+GVL.IOVD.X_Spd_Act_kmh.RangeExcd		:= (20000 &lt; GVL.IOVD.X_Spd_Act_kmh.x) OR (0 &gt; GVL.IOVD.X_Spd_Act_kmh.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Calisma_Suresi- ID:466"}
+
+//-------SIGNAL -&gt; N_Tm_Trol_Md Max: 4.21108e+09 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.N_Tm_Trol_Md.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.N_Tm_Trol_Md.e AND NOT GVL.IOVD.N_Tm_Trol_Md.na AND NOT GVL.IOVD.N_Tm_Trol_Md.RangeExcd;
+GVL.IOVD.N_Tm_Trol_Md.x					:= 0; //hesaplama yapılacak
+GVL.IOVD.N_Tm_Trol_Md.e					:= FALSE;
+GVL.IOVD.N_Tm_Trol_Md.na				:= FALSE;
+GVL.IOVD.N_Tm_Trol_Md.RangeExcd			:= (4211081215 &lt; GVL.IOVD.N_Tm_Trol_Md.x) OR (0 &gt; GVL.IOVD.N_Tm_Trol_Md.x);
+//-------SIGNAL -&gt; N_Tm_Bat_Md Max: 4.21108e+09 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.N_Tm_Bat_Md.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.N_Tm_Bat_Md.e AND NOT GVL.IOVD.N_Tm_Bat_Md.na AND NOT GVL.IOVD.N_Tm_Bat_Md.RangeExcd;
+GVL.IOVD.N_Tm_Bat_Md.x					:= 0; //hesaplama yapılacak
+GVL.IOVD.N_Tm_Bat_Md.e					:= FALSE;
+GVL.IOVD.N_Tm_Bat_Md.na					:= FALSE;
+GVL.IOVD.N_Tm_Bat_Md.RangeExcd			:= (4211081215 &lt; GVL.IOVD.N_Tm_Bat_Md.x) OR (0 &gt; GVL.IOVD.N_Tm_Bat_Md.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : TCU_Analog_2- ID:467"}
+
+//-------SIGNAL -&gt; X_U_Inv_HV Max: 1606 Min: 0 Def: 0 Resolution: 0.025 Offset: 0
+GVL.IOVD.X_U_Inv_HV.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_U_Inv_HV.e AND NOT GVL.IOVD.X_U_Inv_HV.na AND NOT GVL.IOVD.X_U_Inv_HV.RangeExcd;
+GVL.IOVD.X_U_Inv_HV.x					:= GVL.IIPT.X_U_Inv.x;
+GVL.IOVD.X_U_Inv_HV.e					:= GVL.IIPT.X_U_Inv.e;
+GVL.IOVD.X_U_Inv_HV.na					:= GVL.IIPT.X_U_Inv.na;
+GVL.IOVD.X_U_Inv_HV.RangeExcd			:= (1606 &lt; GVL.IOVD.X_U_Inv_HV.x) OR (0 &gt; GVL.IOVD.X_U_Inv_HV.x);
+//-------SIGNAL -&gt; X_U_Cat_Ln Max: 1606 Min: 0 Def: 0 Resolution: 0.025 Offset: 0
+GVL.IOVD.X_U_Cat_Ln.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_U_Cat_Ln.e AND NOT GVL.IOVD.X_U_Cat_Ln.na AND NOT GVL.IOVD.X_U_Cat_Ln.RangeExcd;
+GVL.IOVD.X_U_Cat_Ln.x					:= GVL.IIPT.X_U_DCDC_In.x;
+GVL.IOVD.X_U_Cat_Ln.e					:= GVL.IIPT.X_U_DCDC_In.e;
+GVL.IOVD.X_U_Cat_Ln.na					:= GVL.IIPT.X_U_DCDC_In.na;
+GVL.IOVD.X_U_Cat_Ln.RangeExcd			:= (1606 &lt; GVL.IOVD.X_U_Cat_Ln.x) OR (0 &gt; GVL.IOVD.X_U_Cat_Ln.x);
+	
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Yardimci_Konvertor_Durum- ID:480"}
+
+//-------SIGNAL -&gt; S_Aux_AC_Cnv_Rdy Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_AC_Cnv_Rdy.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_AC_Cnv_Rdy.e AND NOT GVL.IOVD.S_Aux_AC_Cnv_Rdy.na;
+GVL.IOVD.S_Aux_AC_Cnv_Rdy.x				:= GVL.IIPT.S_Aux_AC_Rdy.x;
+GVL.IOVD.S_Aux_AC_Cnv_Rdy.e				:= GVL.IIPT.S_Aux_AC_Rdy.e;
+GVL.IOVD.S_Aux_AC_Cnv_Rdy.na			:= GVL.IIPT.S_Aux_AC_Rdy.na;
+//-------SIGNAL -&gt; C_Aux_AC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_AC_Cnv_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_AC_Cnv_On.e AND NOT GVL.IOVD.C_Aux_AC_Cnv_On.na;
+GVL.IOVD.C_Aux_AC_Cnv_On.x				:= GVL.IOPT.C_Aux_AC_On.x;
+GVL.IOVD.C_Aux_AC_Cnv_On.e				:= GVL.IOPT.C_Aux_AC_On.e;
+GVL.IOVD.C_Aux_AC_Cnv_On.na				:= GVL.IOPT.C_Aux_AC_On.na;
+//-------SIGNAL -&gt; S_Aux_AC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_AC_Cnv_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_AC_Cnv_On.e AND NOT GVL.IOVD.S_Aux_AC_Cnv_On.na;
+GVL.IOVD.S_Aux_AC_Cnv_On.x				:= GVL.IIPT.S_Aux_AC_On.x;
+GVL.IOVD.S_Aux_AC_Cnv_On.e				:= GVL.IIPT.S_Aux_AC_On.e;
+GVL.IOVD.S_Aux_AC_Cnv_On.na				:= GVL.IIPT.S_Aux_AC_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_24V_Cnv_Rdy Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.e AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.na;
+GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.x			:= GVL.IIPT.S_Aux_DC_24V_Rdy.x;
+GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.e			:= GVL.IIPT.S_Aux_DC_24V_Rdy.e;
+GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.na		:= GVL.IIPT.S_Aux_DC_24V_Rdy.na;
+//-------SIGNAL -&gt; C_Aux_DC_24V_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_DC_24V_Cnv_On.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_DC_24V_Cnv_On.e AND NOT GVL.IOVD.C_Aux_DC_24V_Cnv_On.na;
+GVL.IOVD.C_Aux_DC_24V_Cnv_On.x			:= GVL.IOPT.C_Aux_DC_24V_On.x;
+GVL.IOVD.C_Aux_DC_24V_Cnv_On.e			:= GVL.IOPT.C_Aux_DC_24V_On.e;
+GVL.IOVD.C_Aux_DC_24V_Cnv_On.na			:= GVL.IOPT.C_Aux_DC_24V_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_24V_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_24V_Cnv_On.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_On.e AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_On.na;
+GVL.IOVD.S_Aux_DC_24V_Cnv_On.x			:= GVL.IIPT.S_Aux_DC_24V_On.x;
+GVL.IOVD.S_Aux_DC_24V_Cnv_On.e			:= GVL.IIPT.S_Aux_DC_24V_On.e;
+GVL.IOVD.S_Aux_DC_24V_Cnv_On.na			:= GVL.IIPT.S_Aux_DC_24V_On.na;
+//-------SIGNAL -&gt; C_Aux_DC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_DC_Cnv_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_DC_Cnv_On.e AND NOT GVL.IOVD.C_Aux_DC_Cnv_On.na;
+GVL.IOVD.C_Aux_DC_Cnv_On.x				:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.x OR GVL.IOPT.C_Aux_DC_HV_Ct_2_On.x OR GVL.IOPT.C_Aux_DC_HV_Ct_3_On.x;
+GVL.IOVD.C_Aux_DC_Cnv_On.e				:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.e OR GVL.IOPT.C_Aux_DC_HV_Ct_2_On.e OR GVL.IOPT.C_Aux_DC_HV_Ct_3_On.e;
+GVL.IOVD.C_Aux_DC_Cnv_On.na				:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.na AND GVL.IOPT.C_Aux_DC_HV_Ct_2_On.na AND GVL.IOPT.C_Aux_DC_HV_Ct_3_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_Cnv_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_Cnv_On.e AND NOT GVL.IOVD.S_Aux_DC_Cnv_On.na;
+GVL.IOVD.S_Aux_DC_Cnv_On.x				:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.x OR GVL.IIPT.S_Aux_DC_HV_Ct_2_On.x OR GVL.IIPT.S_Defr_Ct_Stat.x;
+GVL.IOVD.S_Aux_DC_Cnv_On.e				:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.e OR GVL.IIPT.S_Aux_DC_HV_Ct_2_On.e OR GVL.IIPT.S_Defr_Ct_Stat.e;
+GVL.IOVD.S_Aux_DC_Cnv_On.na				:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.na AND GVL.IIPT.S_Aux_DC_HV_Ct_2_On.na AND GVL.IIPT.S_Defr_Ct_Stat.na;
+//-------SIGNAL -&gt; C_Bat_Chrg_DC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.e AND NOT GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.na;
+GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.x			:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.x;
+GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.e			:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.e;
+GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.na		:= GVL.IOPT.C_Bat_Chrg_Cnv_Req.na;
+//-------SIGNAL -&gt; S_Bat_Chrg_DC_Cnv_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.e AND NOT GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.na;
+GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.x			:= GVL.IIPT.S_Bat_Cnv_Stat.x;
+GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.e			:= GVL.IIPT.S_Bat_Cnv_Stat.e;
+GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.na		:= GVL.IIPT.S_Bat_Cnv_Stat.na;
+//-------SIGNAL -&gt; C_Aux_DC_Ct_1_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_DC_Ct_1_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_DC_Ct_1_On.e AND NOT GVL.IOVD.C_Aux_DC_Ct_1_On.na;
+GVL.IOVD.C_Aux_DC_Ct_1_On.x				:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.x;
+GVL.IOVD.C_Aux_DC_Ct_1_On.e				:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.e;
+GVL.IOVD.C_Aux_DC_Ct_1_On.na			:= GVL.IOPT.C_Aux_DC_HV_Ct_1_On.na;
+//-------SIGNAL -&gt; C_Aux_DC_Ct_2_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_DC_Ct_2_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_DC_Ct_2_On.e AND NOT GVL.IOVD.C_Aux_DC_Ct_2_On.na;
+GVL.IOVD.C_Aux_DC_Ct_2_On.x				:= GVL.IOPT.C_Aux_DC_HV_Ct_2_On.x;
+GVL.IOVD.C_Aux_DC_Ct_2_On.e				:= GVL.IOPT.C_Aux_DC_HV_Ct_2_On.e;
+GVL.IOVD.C_Aux_DC_Ct_2_On.na			:= GVL.IOPT.C_Aux_DC_HV_Ct_2_On.na;
+//-------SIGNAL -&gt; C_Aux_DC_Ct_3_On Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_Aux_DC_Ct_3_On.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_Aux_DC_Ct_3_On.e AND NOT GVL.IOVD.C_Aux_DC_Ct_3_On.na;
+GVL.IOVD.C_Aux_DC_Ct_3_On.x				:= GVL.IOPT.C_Aux_DC_HV_Ct_3_On.x;
+GVL.IOVD.C_Aux_DC_Ct_3_On.e				:= GVL.IOPT.C_Aux_DC_HV_Ct_3_On.e;
+GVL.IOVD.C_Aux_DC_Ct_3_On.na			:= GVL.IOPT.C_Aux_DC_HV_Ct_3_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_Ct_1_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_Ct_1_Actv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_Ct_1_Actv.e AND NOT GVL.IOVD.S_Aux_DC_Ct_1_Actv.na;
+GVL.IOVD.S_Aux_DC_Ct_1_Actv.x			:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.x;	
+GVL.IOVD.S_Aux_DC_Ct_1_Actv.e			:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.e;
+GVL.IOVD.S_Aux_DC_Ct_1_Actv.na			:= GVL.IIPT.S_Aux_DC_HV_Ct_1_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_Ct_2_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_Ct_2_Actv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_Ct_2_Actv.e AND NOT GVL.IOVD.S_Aux_DC_Ct_2_Actv.na;
+GVL.IOVD.S_Aux_DC_Ct_2_Actv.x			:= GVL.IIPT.S_Aux_DC_HV_Ct_2_On.x;	
+GVL.IOVD.S_Aux_DC_Ct_2_Actv.e			:= GVL.IIPT.S_Aux_DC_HV_Ct_2_On.e;
+GVL.IOVD.S_Aux_DC_Ct_2_Actv.na			:= GVL.IIPT.S_Aux_DC_HV_Ct_2_On.na;
+//-------SIGNAL -&gt; S_Aux_DC_Ct_3_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aux_DC_Ct_3_Actv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aux_DC_Ct_3_Actv.e AND NOT GVL.IOVD.S_Aux_DC_Ct_3_Actv.na;
+GVL.IOVD.S_Aux_DC_Ct_3_Actv.x			:= GVL.IIPT.S_Bat_Cnv_Stat.x;	
+GVL.IOVD.S_Aux_DC_Ct_3_Actv.e			:= GVL.IIPT.S_Bat_Cnv_Stat.e;
+GVL.IOVD.S_Aux_DC_Ct_3_Actv.na			:= GVL.IIPT.S_Bat_Cnv_Stat.na;
+//-------SIGNAL -&gt; Z_Bccu_Stat Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Bccu_Stat.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Bccu_Stat.e AND NOT GVL.IOVD.Z_Bccu_Stat.na AND NOT GVL.IOVD.Z_Bccu_Stat.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_0 (	S_BIT_0		:= GVL.IIPT.S_Aux_DC_24V_Rdy.x,
+						 	S_BIT_1		:= 0,
+						 	S_BIT_2		:= GVL.IIPT.S_Aux_DC_24V_On.x,
+						 	S_BIT_3		:= 0, //BCCU FAULT
+						 	S_BIT_4		:= 0,
+						 	S_BIT_5		:= 0,
+						 	S_BIT_6		:= 0,
+						 	S_BIT_7 	:= 0,
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Bccu_Stat.x);		  
+GVL.IOVD.Z_Bccu_Stat.e					:= GVL.IIPT.S_Aux_DC_24V_Rdy.e;
+GVL.IOVD.Z_Bccu_Stat.na					:= GVL.IIPT.S_Aux_DC_24V_Rdy.na;
+GVL.IOVD.Z_Bccu_Stat.RangeExcd			:= (255 &lt; GVL.IOVD.Z_Bccu_Stat.x) OR (0 &gt; GVL.IOVD.Z_Bccu_Stat.x);
+	 
+//-------SIGNAL -&gt; Z_Tcu_Stat Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Tcu_Stat.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Tcu_Stat.e AND NOT GVL.IOVD.Z_Tcu_Stat.na AND NOT GVL.IOVD.Z_Tcu_Stat.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_3 (	S_BIT_0 	:= GVL.IIPT.S_TCU_Pwr_On.x,							// Power on
+						 	S_BIT_1		:= GVL.IIPT.S_TCU_Tst_Act.x,						// Test in progress
+						 	S_BIT_2 	:= GVL.IIPT.S_TCU_Rdy.x,							// Ready to use
+						 	S_BIT_3 	:= GVL.IIPT.S_Op_Rdy.x,								// Operation ready
+						 	S_BIT_4 	:= GVL.EDG.S_ER_TCU_Amb OR GVL.EDG.S_ER_TCU_Red,	// Fault
+						 	S_BIT_5 	:= 0,												// Spare
+						 	S_BIT_6 	:= 0,												// Spare
+						 	S_BIT_7 	:= 0,												// Spare
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Tcu_Stat.x);		  
+GVL.IOVD.Z_Tcu_Stat.e					:= FALSE;
+GVL.IOVD.Z_Tcu_Stat.na					:= FALSE;
+GVL.IOVD.Z_Tcu_Stat.RangeExcd			:= (255 &lt; GVL.IOVD.Z_Tcu_Stat.x) OR (0 &gt; GVL.IOVD.Z_Tcu_Stat.x);
+
+//-------SIGNAL -&gt; Z_Apu_Stat Max: 255 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Apu_Stat.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Apu_Stat.e AND NOT GVL.IOVD.Z_Apu_Stat.na AND NOT GVL.IOVD.Z_Apu_Stat.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_4 (	S_BIT_0 	:= 0,							//Auxilary DC active
+						 	S_BIT_1 	:= 0,							//Auxilary DC fault
+						 	S_BIT_2 	:= GVL.IIPT.S_Aux_AC_On.x,		//Auxilary AC active
+						 	S_BIT_3 	:= 0,							//Auxilary AC fault
+						 	S_BIT_4 	:= 0,							//Spare
+						 	S_BIT_5 	:= 0,							//Spare
+						 	S_BIT_6 	:= 0,							//Spare
+						 	S_BIT_7 	:= 0,							//Spare
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Apu_Stat.x);		  
+GVL.IOVD.Z_Apu_Stat.e					:= FALSE;
+GVL.IOVD.Z_Apu_Stat.na					:= FALSE;
+GVL.IOVD.Z_Apu_Stat.RangeExcd			:= (255 &lt; GVL.IOVD.Z_Apu_Stat.x) OR (0 &gt; GVL.IOVD.Z_Apu_Stat.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Yardimci_Konvertor_Akim- ID:481"}
+
+//-------SIGNAL -&gt; X_I_Out_Aux_DC_Cnv Max: 3000 Min: 0 Def: 0 Resolution: 0.1 Offset: 0
+GVL.IOVD.X_I_Out_Aux_DC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_Aux_DC_Cnv.e AND NOT GVL.IOVD.X_I_Out_Aux_DC_Cnv.na AND NOT GVL.IOVD.X_I_Out_Aux_DC_Cnv.RangeExcd;
+GVL.IOVD.X_I_Out_Aux_DC_Cnv.x					:= 0;
+GVL.IOVD.X_I_Out_Aux_DC_Cnv.e					:= FALSE;
+GVL.IOVD.X_I_Out_Aux_DC_Cnv.na					:= TRUE;
+GVL.IOVD.X_I_Out_Aux_DC_Cnv.RangeExcd			:= (3000 &lt; GVL.IOVD.X_I_Out_Aux_DC_Cnv.x) OR (0 &gt; GVL.IOVD.X_I_Out_Aux_DC_Cnv.x);
+//-------SIGNAL -&gt; X_I_Out_Aux_AC_Cnv Max: 3000 Min: 0 Def: 0 Resolution: 0.1 Offset: 0
+GVL.IOVD.X_I_Out_Aux_AC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_Aux_AC_Cnv.e AND NOT GVL.IOVD.X_I_Out_Aux_AC_Cnv.na AND NOT GVL.IOVD.X_I_Out_Aux_AC_Cnv.RangeExcd;
+GVL.IOVD.X_I_Out_Aux_AC_Cnv.x					:= GVL.IIPT.X_I_Out_Aux_AC.x;
+GVL.IOVD.X_I_Out_Aux_AC_Cnv.e					:= GVL.IIPT.X_I_Out_Aux_AC.e;
+GVL.IOVD.X_I_Out_Aux_AC_Cnv.na					:= GVL.IIPT.X_I_Out_Aux_AC.na;
+GVL.IOVD.X_I_Out_Aux_AC_Cnv.RangeExcd			:=  (3000 &lt; GVL.IOVD.X_I_Out_Aux_AC_Cnv.x) OR (0 &gt; GVL.IOVD.X_I_Out_Aux_AC_Cnv.x);
+//-------SIGNAL -&gt; X_I_Out_Aux_DC_24V_Cnv Max: 800 Min: -750 Def: 0 Resolution: 0.025 Offset: -750
+GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.e AND NOT GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.na AND NOT GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.RangeExcd;
+GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.x				:= GVL.IIPT.X_I_Out_Aux_DC_24V.x;
+GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.e				:= GVL.IIPT.X_I_Out_Aux_DC_24V.e;
+GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.na				:= GVL.IIPT.X_I_Out_Aux_DC_24V.na;
+GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.RangeExcd		:=  (800 &lt; GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.x) OR (-750 &gt; GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.x);
+//-------SIGNAL -&gt; X_I_In_Aux_DC_24V_Cnv Max: 3000 Min: 0 Def: 0 Resolution: 0.1 Offset: 0
+GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.e AND NOT GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.na AND NOT GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.RangeExcd;
+GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.x				:= GVL.IIPT.X_I_In_Aux_DC_24V.x;
+GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.e				:= GVL.IIPT.X_I_In_Aux_DC_24V.e;
+GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.na				:= GVL.IIPT.X_I_In_Aux_DC_24V.na;
+GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.RangeExcd		:=  (3000 &lt; GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.x) OR (0 &gt; GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Yardimci_Konvertor_Guc- ID:482"}
+
+//-------SIGNAL -&gt; X_U_Out_24V_Bat Max: 32 Min: 0 Def: 0 Resolution: 0.01 Offset: 0
+GVL.IOVD.X_U_Out_24V_Bat.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_U_Out_24V_Bat.e AND NOT GVL.IOVD.X_U_Out_24V_Bat.na AND NOT GVL.IOVD.X_U_Out_24V_Bat.RangeExcd;
+GVL.IOVD.X_U_Out_24V_Bat.x						:= GVL.IIPT.X_U_Out_Aux_DC_24V.x;
+GVL.IOVD.X_U_Out_24V_Bat.e						:= GVL.IIPT.X_U_Out_Aux_DC_24V.e;
+GVL.IOVD.X_U_Out_24V_Bat.na						:= GVL.IIPT.X_U_Out_Aux_DC_24V.na;
+GVL.IOVD.X_U_Out_24V_Bat.RangeExcd				:=  (32 &lt; GVL.IOVD.X_U_Out_24V_Bat.x) OR (0 &gt; GVL.IOVD.X_U_Out_24V_Bat.x);
+//-------SIGNAL -&gt; X_P_Out_Aux_DC_Cnv Max: 800 Min: -750 Def: 0 Resolution: 0.025 Offset: -750
+GVL.IOVD.X_P_Out_Aux_DC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Out_Aux_DC_Cnv.e AND NOT GVL.IOVD.X_P_Out_Aux_DC_Cnv.na AND NOT GVL.IOVD.X_P_Out_Aux_DC_Cnv.RangeExcd;
+GVL.IOVD.X_P_Out_Aux_DC_Cnv.x					:= GVL.IIPT.X_P_In_Aux_DC_HV.x;
+GVL.IOVD.X_P_Out_Aux_DC_Cnv.e					:= GVL.IIPT.X_P_In_Aux_DC_HV.e;
+GVL.IOVD.X_P_Out_Aux_DC_Cnv.na					:= GVL.IIPT.X_P_In_Aux_DC_HV.na;
+GVL.IOVD.X_P_Out_Aux_DC_Cnv.RangeExcd			:=  (800 &lt; GVL.IOVD.X_P_Out_Aux_DC_Cnv.x) OR (-750 &gt; GVL.IOVD.X_P_Out_Aux_DC_Cnv.x);
+//-------SIGNAL -&gt; X_P_Out_Aux_AC_Cnv Max: 800 Min: -750 Def: 0 Resolution: 0.025 Offset: -750
+GVL.IOVD.X_P_Out_Aux_AC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Out_Aux_AC_Cnv.e AND NOT GVL.IOVD.X_P_Out_Aux_AC_Cnv.na AND NOT GVL.IOVD.X_P_Out_Aux_AC_Cnv.RangeExcd;
+GVL.IOVD.X_P_Out_Aux_AC_Cnv.x					:= GVL.IIPT.X_P_Out_Aux_AC.x;
+GVL.IOVD.X_P_Out_Aux_AC_Cnv.e					:= GVL.IIPT.X_P_Out_Aux_AC.e;
+GVL.IOVD.X_P_Out_Aux_AC_Cnv.na					:= GVL.IIPT.X_P_Out_Aux_AC.na;
+GVL.IOVD.X_P_Out_Aux_AC_Cnv.RangeExcd			:=  (800 &lt; GVL.IOVD.X_P_Out_Aux_AC_Cnv.x) OR (-750 &gt; GVL.IOVD.X_P_Out_Aux_AC_Cnv.x);
+//-------SIGNAL -&gt; X_P_Out_Aux_DC_24V_Cnv Max: 800 Min: -750 Def: 0 Resolution: 0.025 Offset: -750
+GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.e AND NOT GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.na AND NOT GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.RangeExcd;
+GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.x				:= GVL.IIPT.X_P_In_Aux_DC_24V.x;
+GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.e				:= GVL.IIPT.X_P_In_Aux_DC_24V.e;
+GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.na				:= GVL.IIPT.X_P_In_Aux_DC_24V.na;
+GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.RangeExcd		:=  (800 &lt; GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.x) OR (-750 &gt; GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Batarya_Sarj_Konvertor_Analog- ID:483"}
+//-------SIGNAL -&gt; X_P_Bat_Chrg_DC_Cnv Max: 3276.6 Min: -3276.6 Def: 0 Resolution: 0.1 Offset: -3276.6
+GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.e AND NOT GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.na AND NOT GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.RangeExcd;
+GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.x					:= GVL.IIPT.X_P_Out_DCDC.x;
+GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.e					:= GVL.IIPT.X_P_Out_DCDC.e;
+GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.na					:= GVL.IIPT.X_P_Out_DCDC.na;
+GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.RangeExcd			:= (3276 &lt; GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.x) OR (-3276 &gt; GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.x);
+//-------SIGNAL -&gt; X_I_Out_Aux_Bat_Chrg_DC_Cnv Max: 1612.75 Min: -1600 Def: 0 Resolution: 0.05 Offset: -1600
+GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.e AND NOT GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.na AND NOT GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.RangeExcd;
+GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.x			:= GVL.IIPT.X_I_DCDC_Out.x;
+GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.e			:= GVL.IIPT.X_I_DCDC_Out.e;
+GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.na			:= GVL.IIPT.X_I_DCDC_Out.na;
+GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.RangeExcd	:= (1612.75 &lt; GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.x) OR (-1600 &gt; GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Yardimci_Konvertor_Sicaklik- ID:484"}
+
+//-------SIGNAL -&gt; X_T_Aux_AC_Cnv Max: 210 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Aux_AC_Cnv.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Aux_AC_Cnv.e AND NOT GVL.IOVD.X_T_Aux_AC_Cnv.na AND NOT GVL.IOVD.X_T_Aux_AC_Cnv.RangeExcd;
+GVL.IOVD.X_T_Aux_AC_Cnv.x						:= GVL.IIPT.X_T_Aux_AC_Inv.x;
+GVL.IOVD.X_T_Aux_AC_Cnv.e						:= GVL.IIPT.X_T_Aux_AC_Inv.e;
+GVL.IOVD.X_T_Aux_AC_Cnv.na						:= GVL.IIPT.X_T_Aux_AC_Inv.na;
+GVL.IOVD.X_T_Aux_AC_Cnv.RangeExcd				:= (210 &lt; GVL.IOVD.X_T_Aux_AC_Cnv.x) OR (-40 &gt; GVL.IOVD.X_T_Aux_AC_Cnv.x);
+//-------SIGNAL -&gt; X_T_Aux_DC_24V_Cnv Max: 210 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Aux_DC_24V_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Aux_DC_24V_Cnv.e AND NOT GVL.IOVD.X_T_Aux_DC_24V_Cnv.na AND NOT GVL.IOVD.X_T_Aux_DC_24V_Cnv.RangeExcd;
+GVL.IOVD.X_T_Aux_DC_24V_Cnv.x					:= GVL.IIPT.X_T_Aux_DC_24V_Cnv.x;
+GVL.IOVD.X_T_Aux_DC_24V_Cnv.e					:= GVL.IIPT.X_T_Aux_DC_24V_Cnv.e;
+GVL.IOVD.X_T_Aux_DC_24V_Cnv.na					:= GVL.IIPT.X_T_Aux_DC_24V_Cnv.na;
+GVL.IOVD.X_T_Aux_DC_24V_Cnv.RangeExcd			:= (210 &lt; GVL.IOVD.X_T_Aux_DC_24V_Cnv.x) OR (-40 &gt; GVL.IOVD.X_T_Aux_DC_24V_Cnv.x);
+//-------SIGNAL -&gt; X_T_Aux_DC_Cnv Max: 210 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Aux_DC_Cnv.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Aux_DC_Cnv.e AND NOT GVL.IOVD.X_T_Aux_DC_Cnv.na AND NOT GVL.IOVD.X_T_Aux_DC_Cnv.RangeExcd;
+GVL.IOVD.X_T_Aux_DC_Cnv.x						:= GVL.IIPT.X_T_DCDC_Cnv.x;
+GVL.IOVD.X_T_Aux_DC_Cnv.e						:= GVL.IIPT.X_T_DCDC_Cnv.e;
+GVL.IOVD.X_T_Aux_DC_Cnv.na						:= GVL.IIPT.X_T_DCDC_Cnv.na;
+GVL.IOVD.X_T_Aux_DC_Cnv.RangeExcd				:= (210 &lt; GVL.IOVD.X_T_Aux_DC_Cnv.x) OR (-40 &gt; GVL.IOVD.X_T_Aux_DC_Cnv.x);
+//-------SIGNAL -&gt; X_T_Bat_Chrg_DC_Cnv Max: 210 Min: -40 Def: 0 Resolution: 1 Offset: -40
+GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.e AND NOT GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.na AND NOT GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.RangeExcd;
+GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.x					:= GVL.IIPT.X_T_DCDC_Cnv.x;
+GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.e					:= GVL.IIPT.X_T_DCDC_Cnv.e;
+GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.na					:= GVL.IIPT.X_T_DCDC_Cnv.na;
+GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.RangeExcd			:= (210 &lt; GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.x) OR (-40 &gt; GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Isolation_Status- ID:485"}
+//-------SIGNAL -&gt; Z_Insu_Dev Max: 4 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Insu_Dev.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Insu_Dev.e AND NOT GVL.IOVD.Z_Insu_Dev.na AND NOT GVL.IOVD.Z_Insu_Dev.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_5 (	S_BIT_0 	:= GVL.PI.S_Insu_Dev_Disconn,							// Insulation device disconnected
+						 	S_BIT_1 	:= GVL.PI.S_Insu_Dev_Cal_Actv,							// Insulation device calibration process
+						 	S_BIT_2 	:= GVL.PI.S_Insu_Dev_Conn,								// Insulation device connected
+						 	S_BIT_3 	:= GVL.PI.S_Insu_Dev_Meas_Actv,							// Insulation measuring in progress
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Insu_Dev.x);		  
+GVL.IOVD.Z_Insu_Dev.e					:= FALSE;
+GVL.IOVD.Z_Insu_Dev.na					:= FALSE;
+GVL.IOVD.Z_Insu_Dev.RangeExcd			:= (4 &lt; GVL.IOVD.Z_Insu_Dev.x) OR (0 &gt; GVL.IOVD.Z_Insu_Dev.x);
+//-------SIGNAL -&gt; S_ER_Insu_Dev_Not_Conn Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_ER_Insu_Dev_Not_Conn.v		:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_ER_Insu_Dev_Not_Conn.x		:= GVL.PI.S_Err_Insu_Dev_Not_Conn;
+//-------SIGNAL -&gt; Z_Man_Insu_Tst Max: 63 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Man_Insu_Tst.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Man_Insu_Tst.e AND NOT GVL.IOVD.Z_Man_Insu_Tst.na AND NOT GVL.IOVD.Z_Man_Insu_Tst.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_6 (	S_BIT_0 	:= NOT GVL.IIPT.S_Man_Insu_Tst_Actv.x,		// Manual insulation test deactive
+						 	S_BIT_1 	:= GVL.PI.S_Man_Insu_Tst_Req,				// Manual insulation test activation request has been made
+						 	S_BIT_2 	:= GVL.PI.S_Man_Insu_Tst_Actv,				// Manual insulation test is in progress
+						 	S_BIT_3 	:= 0,										// Manual insulation test has been completed
+							S_BIT_4		:= 0, 										// Manual insulation test successful
+							S_BIT_5		:= 0, 										// Manual insulation test failed
+							S_BIT_6		:= 0, 										// Spare
+							S_BIT_7		:= 0, 										// Spare
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Insu_Dev.x);		    
+GVL.IOVD.Z_Man_Insu_Tst.e						:= FALSE;
+GVL.IOVD.Z_Man_Insu_Tst.na						:= FALSE;
+GVL.IOVD.Z_Man_Insu_Tst.RangeExcd				:= (64 &lt; GVL.IOVD.Z_Man_Insu_Tst.x) OR (0 &gt; GVL.IOVD.Z_Man_Insu_Tst.x);
+//-------SIGNAL -&gt; Z_Semi_Aut_Insu_Tst Max: 63 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Semi_Aut_Insu_Tst.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Semi_Aut_Insu_Tst.e AND NOT GVL.IOVD.Z_Semi_Aut_Insu_Tst.na AND NOT GVL.IOVD.Z_Semi_Aut_Insu_Tst.RangeExcd;
+_FB_PACK_8BITS_TO_BYTE_7 (	S_BIT_0 	:= NOT GVL.PI.S_Aut_Insu_Tst_Actv,			// Semi-automatic insulation test deactive
+						 	S_BIT_1 	:= GVL.PI.S_Aut_Insu_Tst_Req,				// Semi-automatic insulation test activation request has been made
+						 	S_BIT_2 	:= GVL.PI.S_Aut_Insu_Tst_Actv,				// Semi-automatic insulation test is in progress
+						 	S_BIT_3 	:= GVL.PI.S_Aut_Insu_Tst_Cmpl,				// Semi-automatic insulation test has been completed
+							S_BIT_4		:= GVL.PI.S_Aut_Insu_Tst_Succ,				// Semi-automatic insulation test successful
+							S_BIT_5		:= GVL.PI.S_Aut_Insu_Tst_Flt,				// Semi-automatic insulation test failed
+							S_BIT_6		:= 0, 										// Spare
+							S_BIT_7		:= 0, 										// Spare
+						 	X_BYTE_0 	=&gt; GVL.IOVD.Z_Semi_Aut_Insu_Tst.x);		  
+GVL.IOVD.Z_Semi_Aut_Insu_Tst.e					:= FALSE;
+GVL.IOVD.Z_Semi_Aut_Insu_Tst.na					:= FALSE;
+GVL.IOVD.Z_Semi_Aut_Insu_Tst.RangeExcd			:= (64 &lt; GVL.IOVD.Z_Semi_Aut_Insu_Tst.x) OR (0 &gt; GVL.IOVD.Z_Semi_Aut_Insu_Tst.x);
+//-------SIGNAL -&gt; S_Insu_Tst_Ok Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Insu_Tst_Ok.v				:= GVL.SY.S_ECU_Rdy;
+GVL.IOVD.S_Insu_Tst_Ok.x				:= GVL.IIPT.S_Insu_Tst_Stat.x;
+//-------SIGNAL -&gt; S_Man_Insu_Meas_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Man_Insu_Meas_Actv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Man_Insu_Meas_Actv.e AND NOT GVL.IOVD.S_Man_Insu_Meas_Actv.na;
+GVL.IOVD.S_Man_Insu_Meas_Actv.x			:= GVL.PI.S_Man_Insu_Tst_Actv;
+GVL.IOVD.S_Man_Insu_Meas_Actv.e			:= FALSE;
+GVL.IOVD.S_Man_Insu_Meas_Actv.na		:= FALSE;
+//-------SIGNAL -&gt; S_Aut_Insu_Meas_Actv Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Aut_Insu_Meas_Actv.v			:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Aut_Insu_Meas_Actv.e AND NOT GVL.IOVD.S_Aut_Insu_Meas_Actv.na;
+GVL.IOVD.S_Aut_Insu_Meas_Actv.x			:= GVL.PI.S_Aut_Insu_Tst_Actv;
+GVL.IOVD.S_Aut_Insu_Meas_Actv.e			:= FALSE;
+GVL.IOVD.S_Aut_Insu_Meas_Actv.na		:= FALSE;
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Arac_Genel_Istatistik- ID:4C2"}
+
+//-------SIGNAL -&gt; X_Spd_TCU Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Spd_TCU.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_TCU.e AND NOT GVL.IOVD.X_Spd_TCU.na AND NOT GVL.IOVD.X_Spd_TCU.RangeExcd;
+GVL.IOVD.X_Spd_TCU.x							:= GVL.IIPTP.X_Spd_Wh.x;
+GVL.IOVD.X_Spd_TCU.e							:= GVL.IIPTP.X_Spd_Wh.e;
+GVL.IOVD.X_Spd_TCU.na							:= GVL.IIPTP.X_Spd_Wh.na;
+GVL.IOVD.X_Spd_TCU.RangeExcd					:= (100 &lt; GVL.IOVD.X_Spd_TCU.x) OR (0 &gt; GVL.IOVD.X_Spd_TCU.x);
+//-------SIGNAL -&gt; X_Spd_EBS Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Spd_EBS.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Spd_EBS.e AND NOT GVL.IOVD.X_Spd_EBS.na AND NOT GVL.IOVD.X_Spd_EBS.RangeExcd;
+GVL.IOVD.X_Spd_EBS.x							:= GVL.IIBA.X_Spd_Frnt_Axle.x;
+GVL.IOVD.X_Spd_EBS.e							:= GVL.IIBA.X_Spd_Frnt_Axle.e;
+GVL.IOVD.X_Spd_EBS.na							:= GVL.IIBA.X_Spd_Frnt_Axle.na;
+GVL.IOVD.X_Spd_EBS.RangeExcd					:= (100 &lt; GVL.IOVD.X_Spd_EBS.x) OR (0 &gt; GVL.IOVD.X_Spd_EBS.x);
+//-------SIGNAL -&gt; X_SOC Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_SOC.v								:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_SOC.e AND NOT GVL.IOVD.X_SOC.na AND NOT GVL.IOVD.X_SOC.RangeExcd;
+GVL.IOVD.X_SOC.x								:= GVL.IIME.X_SOC.x;
+GVL.IOVD.X_SOC.e								:= GVL.IIME.X_SOC.e;
+GVL.IOVD.X_SOC.na								:= GVL.IIME.X_SOC.na;
+GVL.IOVD.X_SOC.RangeExcd						:= (100 &lt; GVL.IOVD.X_SOC.x) OR (0 &gt; GVL.IOVD.X_SOC.x);
+//-------SIGNAL -&gt; X_SOH Max: 100 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_SOH.v								:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_SOH.e AND NOT GVL.IOVD.X_SOH.na AND NOT GVL.IOVD.X_SOH.RangeExcd;
+GVL.IOVD.X_SOH.x								:= GVL.IIME.X_SOH.x;
+GVL.IOVD.X_SOH.e								:= GVL.IIME.X_SOH.e;
+GVL.IOVD.X_SOH.na								:= GVL.IIME.X_SOH.na;
+GVL.IOVD.X_SOH.RangeExcd						:= (100 &lt; GVL.IOVD.X_SOH.x) OR (0 &gt; GVL.IOVD.X_SOH.x);
+//-------SIGNAL -&gt; X_Accl Max: 32 Min: -32 Def: 0 Resolution: 0.001 Offset: -32
+GVL.IOVD.X_Accl.v								:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Accl.e AND NOT GVL.IOVD.X_Accl.na AND NOT GVL.IOVD.X_Accl.RangeExcd;
+GVL.IOVD.X_Accl.x								:= GVL.PV.X_Accl;
+GVL.IOVD.X_Accl.e								:= FALSE;
+GVL.IOVD.X_Accl.na								:= FALSE;
+GVL.IOVD.X_Accl.RangeExcd						:= (32 &lt; GVL.IOVD.X_Accl.x) OR (-32 &gt; GVL.IOVD.X_Accl.x);
+//-------SIGNAL -&gt; X_Cosu_Avg Max: 40 Min: 0 Def: 0 Resolution: 0.001 Offset: 0
+GVL.IOVD.X_Cosu_Avg.v							:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Cosu_Avg.e AND NOT GVL.IOVD.X_Cosu_Avg.na AND NOT GVL.IOVD.X_Cosu_Avg.RangeExcd;
+GVL.IOVD.X_Cosu_Avg.x							:= GVL.PV.X_Avg_Cosu_Trp;
+GVL.IOVD.X_Cosu_Avg.e							:= FALSE;
+GVL.IOVD.X_Cosu_Avg.na							:= FALSE;
+GVL.IOVD.X_Cosu_Avg.RangeExcd					:= (40 &lt; GVL.IOVD.X_Cosu_Avg.x) OR (0 &gt; GVL.IOVD.X_Cosu_Avg.x);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+//MESSAGE------
+{region " User Area : Temel_Durum- ID:99"}
+
+//-------SIGNAL -&gt; N_ECU_Lf Max: 250 Min: 0 Def: 0 Resolution: 1 Offset: 0
+IF N_Lf &gt; 250 THEN
+	N_Lf := 0;
+ELSE
+	N_Lf 			:= N_Lf + 1;	 
+END_IF
+
+_FB_LfMon_0		(X_Lf := N_Lf, P_Lf_Timeout := T#1S);
+
+GVL.IOVD.N_ECU_Lf.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.N_ECU_Lf.e AND NOT GVL.IOVD.N_ECU_Lf.na AND NOT GVL.IOVD.N_ECU_Lf.RangeExcd;
+GVL.IOVD.N_ECU_Lf.x						:= N_Lf;
+GVL.IOVD.N_ECU_Lf.e						:= FALSE;
+GVL.IOVD.N_ECU_Lf.na					:= FALSE;
+GVL.IOVD.N_ECU_Lf.RangeExcd				:=  (250 &lt; GVL.IOVD.N_ECU_Lf.x) OR (0 &gt; GVL.IOVD.N_ECU_Lf.x);
+// PR1006_SRS_001391_TIMTRO
+//-------SIGNAL -&gt; S_Sw_Up_Avl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Sw_Up_Avl.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Sw_Up_Avl.e AND NOT GVL.IOVD.S_Sw_Up_Avl.na;
+GVL.IOVD.S_Sw_Up_Avl.x					:= GVL.SY.S_Sw_Up_Avl;
+GVL.IOVD.S_Sw_Up_Avl.e					:= FALSE;
+GVL.IOVD.S_Sw_Up_Avl.na					:= FALSE;
+//-------SIGNAL -&gt; S_EH_Rd_Avl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_EH_Rd_Avl.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_EH_Rd_Avl.e AND NOT GVL.IOVD.S_EH_Rd_Avl.na;
+GVL.IOVD.S_EH_Rd_Avl.x					:= GVL.ED.S_Sfty_Cond;
+GVL.IOVD.S_EH_Rd_Avl.e					:= FALSE;
+GVL.IOVD.S_EH_Rd_Avl.na					:= FALSE;
+//-------SIGNAL -&gt; S_Tst_Avl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Tst_Avl.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Tst_Avl.e AND NOT GVL.IOVD.S_Tst_Avl.na;
+GVL.IOVD.S_Tst_Avl.x					:= GVL.PS.S_Stdstl; 
+GVL.IOVD.S_Tst_Avl.e					:= FALSE;
+GVL.IOVD.S_Tst_Avl.na					:= FALSE;
+//-------SIGNAL -&gt; S_Para_Up_Avl Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Para_Up_Avl.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Para_Up_Avl.e AND NOT GVL.IOVD.S_Para_Up_Avl.na;
+GVL.IOVD.S_Para_Up_Avl.x				:= FALSE;
+GVL.IOVD.S_Para_Up_Avl.e				:= FALSE;
+GVL.IOVD.S_Para_Up_Avl.na				:= FALSE;
+//-------SIGNAL -&gt; C_ECU_Rst Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.C_ECU_Rst.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.C_ECU_Rst.e AND NOT GVL.IOVD.C_ECU_Rst.na;
+GVL.IOVD.C_ECU_Rst.e					:= FALSE;
+GVL.IOVD.C_ECU_Rst.na					:= FALSE;
+//-------SIGNAL -&gt; S_Brk_Tst_Mode Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.S_Brk_Tst_Mode.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_Brk_Tst_Mode.e AND NOT GVL.IOVD.S_Brk_Tst_Mode.na;
+GVL.IOVD.S_Brk_Tst_Mode.x				:= GVL.EG.P_S_Brk_Tst_Mode; 
+GVL.IOVD.S_Brk_Tst_Mode.e				:= FALSE;
+GVL.IOVD.S_Brk_Tst_Mode.na				:= FALSE; 	
+//-------SIGNAL -&gt; Z_Vh_Typ Max: 250 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.Z_Vh_Typ.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.Z_Vh_Typ.e AND NOT GVL.IOVD.Z_Vh_Typ.na;
+GVL.IOVD.Z_Vh_Typ.x						:= 1; //10: Trolleybus v3 12m
+GVL.IOVD.Z_Vh_Typ.e						:= FALSE;
+GVL.IOVD.Z_Vh_Typ.na					:= FALSE;
+GVL.IOVD.Z_Vh_Typ.RangeExcd				:= (250 &lt; GVL.IOVD.Z_Vh_Typ.x ) OR (0 &gt; GVL.IOVD.Z_Vh_Typ.x);
+// PR1006_SRS_001386_TIMTRO
+//-------SIGNAL -&gt; X_Prj_No Max: 250 Min: 0 Def: 0 Resolution: 1 Offset: 0
+GVL.IOVD.X_Prj_No.v						:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Prj_No.e AND NOT GVL.IOVD.X_Prj_No.na AND NOT GVL.IOVD.X_Prj_No.RangeExcd;
+GVL.IOVD.X_Prj_No.x						:= GVL.IC.X_Prj_No;
+GVL.IOVD.X_Prj_No.e						:= FALSE;
+GVL.IOVD.X_Prj_No.na					:= FALSE;
+GVL.IOVD.X_Prj_No.RangeExcd				:= (65000 &lt; GVL.IOVD.X_Prj_No.x ) OR (0 &gt; GVL.IOVD.X_Prj_No.x);
+{endregion}
+	 
+{region " User Area : Olay Durum- ID:500"}
+// SIGNAL -&gt; X_Tot_TypA_Evnt Max: 65535 Min: 0 Def: 0 Resolution : 1 Offset: 0
+GVL.IOVD.X_Tot_TypA_Evnt.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Tot_TypA_Evnt.e AND NOT GVL.IOVD.X_Tot_TypA_Evnt.na;
+GVL.IOVD.X_Tot_TypA_Evnt.e				:= FALSE;
+GVL.IOVD.X_Tot_TypA_Evnt.na				:= FALSE;
+GVL.IOVD.X_Tot_TypA_Evnt.RangeExcd		:= (0 &gt; GVL.IOVD.X_Tot_TypA_Evnt.x) OR (GVL.IOVD.X_Tot_TypA_Evnt.x &gt; 65535);
+// SIGNAL -&gt; X_Tot_TypB_Evnt Max: 65535 Min: 0 Def: 0 Resolution : 1 Offset: 0
+GVL.IOVD.X_Tot_TypB_Evnt.v				:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.X_Tot_TypB_Evnt.e AND NOT GVL.IOVD.X_Tot_TypB_Evnt.na;
+GVL.IOVD.X_Tot_TypB_Evnt.e				:= FALSE;
+GVL.IOVD.X_Tot_TypB_Evnt.na				:= FALSE;
+GVL.IOVD.X_Tot_TypB_Evnt.RangeExcd		:= (0 &gt; GVL.IOVD.X_Tot_TypB_Evnt.x) OR (GVL.IOVD.X_Tot_TypB_Evnt.x &gt; 65535);
+{endregion}
+
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :ECU_Haberlesme- ID:400"}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_VCU LENGTH-&gt;2 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_400.S_Bit_0		:= (GVL.IOVD.S_ER_Com_VCU.x OR GVL.IOVD.S_ER_Com_VCU.na) AND NOT GVL.IOVD.S_ER_Com_VCU.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_1		:= NOT GVL.IOVD.S_ER_Com_VCU.v OR GVL.IOVD.S_ER_Com_VCU.na OR GVL.IOVD.S_ER_Com_VCU.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_TCU LENGTH-&gt;2 STARTBIT :2"}
+_FB_CanTx_Message_Unpack_400.S_Bit_2		:= (GVL.IOVD.S_ER_Com_TCU.x OR GVL.IOVD.S_ER_Com_TCU.na) AND NOT GVL.IOVD.S_ER_Com_TCU.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_3		:= NOT GVL.IOVD.S_ER_Com_TCU.v OR GVL.IOVD.S_ER_Com_TCU.na OR GVL.IOVD.S_ER_Com_TCU.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_ESS LENGTH-&gt;2 STARTBIT :4"}
+_FB_CanTx_Message_Unpack_400.S_Bit_4		:= (GVL.IOVD.S_ER_Com_ESS.x OR GVL.IOVD.S_ER_Com_ESS.na) AND NOT GVL.IOVD.S_ER_Com_ESS.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_5		:= NOT GVL.IOVD.S_ER_Com_ESS.v OR GVL.IOVD.S_ER_Com_ESS.na OR GVL.IOVD.S_ER_Com_ESS.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_HVAC LENGTH-&gt;2 STARTBIT :6"}
+_FB_CanTx_Message_Unpack_400.S_Bit_6		:= (GVL.IOVD.S_ER_Com_HVAC.x OR GVL.IOVD.S_ER_Com_HVAC.na) AND NOT GVL.IOVD.S_ER_Com_HVAC.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_7		:= NOT GVL.IOVD.S_ER_Com_HVAC.v OR GVL.IOVD.S_ER_Com_HVAC.na OR GVL.IOVD.S_ER_Com_HVAC.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_EBS LENGTH-&gt;2 STARTBIT :12"}
+_FB_CanTx_Message_Unpack_400.S_Bit_12		:= (GVL.IOVD.S_ER_Com_EBS.x OR GVL.IOVD.S_ER_Com_EBS.na) AND NOT GVL.IOVD.S_ER_Com_EBS.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_13		:= NOT GVL.IOVD.S_ER_Com_EBS.v OR GVL.IOVD.S_ER_Com_EBS.na OR GVL.IOVD.S_ER_Com_EBS.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_PCAN LENGTH-&gt;2 STARTBIT :14"}
+_FB_CanTx_Message_Unpack_400.S_Bit_14		:= (GVL.IOVD.S_ER_Com_PCAN.x OR GVL.IOVD.S_ER_Com_PCAN.na) AND NOT GVL.IOVD.S_ER_Com_PCAN.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_15		:= NOT GVL.IOVD.S_ER_Com_PCAN.v OR GVL.IOVD.S_ER_Com_PCAN.na OR GVL.IOVD.S_ER_Com_PCAN.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_Pnt LENGTH-&gt;2 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_400.S_Bit_16		:= (GVL.IOVD.S_ER_Com_Pnt.x OR GVL.IOVD.S_ER_Com_Pnt.na) AND NOT GVL.IOVD.S_ER_Com_Pnt.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_17		:= NOT GVL.IOVD.S_ER_Com_Pnt.v OR GVL.IOVD.S_ER_Com_Pnt.na OR GVL.IOVD.S_ER_Com_Pnt.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_Acc_Pdl LENGTH-&gt;2 STARTBIT :18"}
+_FB_CanTx_Message_Unpack_400.S_Bit_18		:= (GVL.IOVD.S_ER_Com_Acc_Pdl.x OR GVL.IOVD.S_ER_Com_Acc_Pdl.na) AND NOT GVL.IOVD.S_ER_Com_Acc_Pdl.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_19		:= NOT GVL.IOVD.S_ER_Com_Acc_Pdl.v OR GVL.IOVD.S_ER_Com_Acc_Pdl.na OR GVL.IOVD.S_ER_Com_Acc_Pdl.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Com_Str_Ang_Snsr LENGTH-&gt;2 STARTBIT :20"}
+_FB_CanTx_Message_Unpack_400.S_Bit_20		:= (GVL.IOVD.S_ER_Com_Str_Ang_Snsr.x OR GVL.IOVD.S_ER_Com_Str_Ang_Snsr.na) AND NOT GVL.IOVD.S_ER_Com_Str_Ang_Snsr.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_21		:= NOT GVL.IOVD.S_ER_Com_Str_Ang_Snsr.v OR GVL.IOVD.S_ER_Com_Str_Ang_Snsr.na OR GVL.IOVD.S_ER_Com_Str_Ang_Snsr.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_PDU_Cvr_Op LENGTH-&gt;2 STARTBIT :22"}
+_FB_CanTx_Message_Unpack_400.S_Bit_22		:= (GVL.IOVD.S_PDU_Cvr_Op.x OR GVL.IOVD.S_PDU_Cvr_Op.na) AND NOT GVL.IOVD.S_PDU_Cvr_Op.e; 
+_FB_CanTx_Message_Unpack_400.S_Bit_23		:= NOT GVL.IOVD.S_PDU_Cvr_Op.v OR GVL.IOVD.S_PDU_Cvr_Op.na OR GVL.IOVD.S_PDU_Cvr_Op.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_HVAC_Amb LENGTH-&gt;1 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_400.S_Bit_24		:= GVL.IOVD.S_ER_HVAC_Amb.x AND GVL.IOVD.S_ER_HVAC_Amb.v;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_HVAC_Red LENGTH-&gt;1 STARTBIT :25"}
+_FB_CanTx_Message_Unpack_400.S_Bit_25		:= GVL.IOVD.S_ER_HVAC_Red.x AND GVL.IOVD.S_ER_HVAC_Red.v;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Iso_Amb LENGTH-&gt;1 STARTBIT :26"}
+_FB_CanTx_Message_Unpack_400.S_Bit_26		:= GVL.IOVD.S_ER_Iso_Amb.x AND GVL.IOVD.S_ER_Iso_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Iso_Red LENGTH-&gt;1 STARTBIT :27"}
+_FB_CanTx_Message_Unpack_400.S_Bit_27		:= GVL.IOVD.S_ER_Iso_Red.x AND GVL.IOVD.S_ER_Iso_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Amb LENGTH-&gt;1 STARTBIT :28"}
+_FB_CanTx_Message_Unpack_400.S_Bit_28		:= GVL.IOVD.S_ER_Amb.x AND GVL.IOVD.S_ER_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Red LENGTH-&gt;1 STARTBIT :29"}
+_FB_CanTx_Message_Unpack_400.S_Bit_29		:= GVL.IOVD.S_ER_Red.x AND GVL.IOVD.S_ER_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Rdy_Dep LENGTH-&gt;1 STARTBIT :30"}
+_FB_CanTx_Message_Unpack_400.S_Bit_30		:= GVL.IOVD.S_Rdy_Dep.x AND GVL.IOVD.S_Rdy_Dep.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Pwr_Red LENGTH-&gt;1 STARTBIT :31"}
+_FB_CanTx_Message_Unpack_400.S_Bit_31		:= GVL.IOVD.S_Pwr_Red.x AND GVL.IOVD.S_Pwr_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_BCU_Amb LENGTH-&gt;1 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_400.S_Bit_32		:= GVL.IOVD.S_ER_BCU_Amb.x AND GVL.IOVD.S_ER_BCU_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_BCU_Red LENGTH-&gt;1 STARTBIT :33"}
+_FB_CanTx_Message_Unpack_400.S_Bit_33		:= GVL.IOVD.S_ER_BCU_Red.x AND GVL.IOVD.S_ER_BCU_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Temp_Red LENGTH-&gt;1 STARTBIT :34"}
+_FB_CanTx_Message_Unpack_400.S_Bit_34		:= GVL.IOVD.S_ER_Temp_Red.x AND GVL.IOVD.S_ER_Temp_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Temp_Amb LENGTH-&gt;1 STARTBIT :35"}
+_FB_CanTx_Message_Unpack_400.S_Bit_35		:= GVL.IOVD.S_ER_Temp_Amb.x AND GVL.IOVD.S_ER_Temp_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_HV_Amb LENGTH-&gt;1 STARTBIT :36"}
+_FB_CanTx_Message_Unpack_400.S_Bit_36		:= GVL.IOVD.S_ER_HV_Amb.x AND GVL.IOVD.S_ER_HV_Amb.v ;
+{endregion}
+
+// PR1006_SRS_001181_TIMTRO 
+{region " SIGNAL AREA : NAME-&gt;S_ER_HV_Red LENGTH-&gt;1 STARTBIT :37"}
+_FB_CanTx_Message_Unpack_400.S_Bit_37		:= GVL.IOVD.S_ER_HV_Red.x AND GVL.IOVD.S_ER_HV_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Pnt_Amb LENGTH-&gt;1 STARTBIT :38"}
+_FB_CanTx_Message_Unpack_400.S_Bit_38		:= GVL.IOVD.S_ER_Pnt_Amb.x AND GVL.IOVD.S_ER_Pnt_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Pnt_Red LENGTH-&gt;1 STARTBIT :39"}
+_FB_CanTx_Message_Unpack_400.S_Bit_39		:= GVL.IOVD.S_ER_Pnt_Red.x AND GVL.IOVD.S_ER_Pnt_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mot_Temp_Hi LENGTH-&gt;1 STARTBIT :45"}
+_FB_CanTx_Message_Unpack_400.S_Bit_45		:= GVL.IOVD.S_Mot_Temp_Hi.x AND GVL.IOVD.S_Mot_Temp_Hi.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mot_Temp_Too_Hi LENGTH-&gt;1 STARTBIT :46"}
+_FB_CanTx_Message_Unpack_400.S_Bit_46		:= GVL.IOVD.S_Mot_Temp_Too_Hi.x AND GVL.IOVD.S_Mot_Temp_Too_Hi.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_BCCU LENGTH-&gt;1 STARTBIT :47"}
+_FB_CanTx_Message_Unpack_400.S_Bit_47		:= GVL.IOVD.S_ER_BCCU.x AND GVL.IOVD.S_ER_BCCU.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Ln_Vo_Lo LENGTH-&gt;1 STARTBIT :48"}
+_FB_CanTx_Message_Unpack_400.S_Bit_48		:= GVL.IOVD.S_Ln_Vo_Lo.x AND GVL.IOVD.S_Ln_Vo_Lo.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Ln_Vo_Too_Lo LENGTH-&gt;1 STARTBIT :49"}
+_FB_CanTx_Message_Unpack_400.S_Bit_49		:= GVL.IOVD.S_Ln_Vo_Hi.x AND GVL.IOVD.S_Ln_Vo_Hi.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Mot_Cnv_Amb LENGTH-&gt;1 STARTBIT :50"}
+_FB_CanTx_Message_Unpack_400.S_Bit_50		:= GVL.IOVD.S_ER_Mot_Cnv_Amb.x AND GVL.IOVD.S_ER_Mot_Cnv_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Mot_Cnv_Red LENGTH-&gt;1 STARTBIT :51"}
+_FB_CanTx_Message_Unpack_400.S_Bit_51		:= GVL.IOVD.S_ER_Mot_Cnv_Red.x AND GVL.IOVD.S_ER_Mot_Cnv_Red.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Icy_Road_Amb LENGTH-&gt;1 STARTBIT :52"}
+_FB_CanTx_Message_Unpack_400.S_Bit_52		:= GVL.IOVD.S_ER_Icy_Road_Amb.x AND GVL.IOVD.S_ER_Icy_Road_Amb.v ;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Str_Pmp_Temp_Hi LENGTH-&gt;1 STARTBIT :53"}
+_FB_CanTx_Message_Unpack_400.S_Bit_53		:= GVL.IOVD.S_ER_Str_Pmp_Temp_Hi.x AND GVL.IOVD.S_ER_Str_Pmp_Temp_Hi.v ;
+{endregion}
+		  
+{region " SIGNAL AREA : NAME-&gt;S_ER_Aux_AC_Amb LENGTH-&gt;1 STARTBIT :53"}
+_FB_CanTx_Message_Unpack_400.S_Bit_54		:= GVL.IOVD.S_ER_Aux_AC_Amb.x AND GVL.IOVD.S_ER_Aux_AC_Amb.v ;
+{endregion}		
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Aux_AC_Red LENGTH-&gt;1 STARTBIT :53"}
+_FB_CanTx_Message_Unpack_400.S_Bit_55		:= GVL.IOVD.S_ER_Aux_AC_Red.x AND GVL.IOVD.S_ER_Aux_AC_Red.v ;
+{endregion}		   
+
+{region " SIGNAL AREA : NAME-&gt;Vehicle_mode_bitmask LENGTH-&gt;8 STARTBIT :56"}
+_FB_CanTx_Message_Unpack_400.X_Byte_7		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Vh_Mode.v AND NOT GVL.IOVD.Z_Vh_Mode.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Vh_Mode.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Vh_Mode.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#E),
+(*NOT AVAILABLE is active*)								16#F),
+(*Transmission is VALID*)								GVL.IOVD.Z_Vh_Mode.x);
+
+{endregion}
+
+_FB_CanTx_Message_Unpack_400.S_Bit_8	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_9	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_10	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_11	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_40	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_41	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_42	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_43	:= TRUE;
+_FB_CanTx_Message_Unpack_400.S_Bit_44	:= TRUE;
+
+_FB_CanTx_Message_Unpack_400 (	C_Enable		:= GVL.IOVD.C_En_ECU_Haberlesme_0X400,
+     							Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     							X_MsgID			:= 16#400,
+     							Tm_CycleTime	:= TIME#250MS,
+     							N_Msg_Dlc		:= 8,
+     							S_Extended		:= 0,
+     							S_Sent_Ok  		 =&gt; GVL.IOVD.S_SentOk_ECU_Haberlesme_0X400);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :DDS- ID:401"}
+
+{region " SIGNAL AREA : NAME-&gt;X_DDS_No_1 LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_0 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_DDS_No_1.v AND NOT GVL.IOVD.X_DDS_No_1.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_DDS_No_1.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_DDS_No_1.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_DDS_No_1.x)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_401.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_401.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_DDS_No_2 LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_1 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_DDS_No_2.v AND NOT GVL.IOVD.X_DDS_No_2.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_DDS_No_2.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_DDS_No_2.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_DDS_No_2.x)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_401.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_401.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_DDS_No_3 LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_2 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_DDS_No_3.v AND NOT GVL.IOVD.X_DDS_No_3.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_DDS_No_3.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_DDS_No_3.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_DDS_No_3.x)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_401.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_401.X_Byte_5);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_DDS_No_4 LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_3 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_DDS_No_4.v AND NOT GVL.IOVD.X_DDS_No_4.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_DDS_No_4.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_DDS_No_4.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_DDS_No_4.x)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_401.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_401.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_401 (		C_Enable		:= GVL.IOVD.C_En_DDS_0X401,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#401,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:=8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_DDS_0X401);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :DDS_2- ID:402"}
+
+{region " SIGNAL AREA : NAME-&gt;X_DDS_No_5 LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_4 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_DDS_No_5.v AND NOT GVL.IOVD.X_DDS_No_5.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_DDS_No_5.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_DDS_No_5.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_DDS_No_5.x)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_402.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_402.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Tot_Pg_No LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_402.X_Byte_2							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Tot_Pg_No.v AND NOT GVL.IOVD.X_Tot_Pg_No.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Tot_Pg_No.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Tot_Pg_No.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Tot_Pg_No.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Cur_Pg_No LENGTH-&gt;8 STARTBIT :24"}
+_FB_CanTx_Message_402.X_Byte_3							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Cur_Pg_No.v AND NOT GVL.IOVD.X_Cur_Pg_No.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Cur_Pg_No.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Cur_Pg_No.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Cur_Pg_No.x))));
+{endregion}
+
+_FB_CanTx_Message_402.X_Byte_4		:=16#FF;
+_FB_CanTx_Message_402.X_Byte_5		:=16#FF;
+_FB_CanTx_Message_402.X_Byte_6		:=16#FF;
+_FB_CanTx_Message_402.X_Byte_7		:=16#FF;
+	 
+_FB_CanTx_Message_402 (		C_Enable		:= GVL.IOVD.C_En_DDS_2_0X402,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#402,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:=8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_DDS_2_0X402);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :HV_Durum- ID:450"}
+
+{region " SIGNAL AREA : NAME-&gt;C_Ign_Hv_On LENGTH-&gt;2 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_450.S_Bit_0		:= (GVL.IOVD.C_Ign_Hv_On.x OR GVL.IOVD.C_Ign_Hv_On.na) AND NOT GVL.IOVD.C_Ign_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_1		:= NOT GVL.IOVD.C_Ign_Hv_On.v OR GVL.IOVD.C_Ign_Hv_On.na OR GVL.IOVD.C_Ign_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Pnt_Hv_On LENGTH-&gt;2 STARTBIT :6"}
+_FB_CanTx_Message_Unpack_450.S_Bit_6		:= (GVL.IOVD.C_Pnt_Hv_On.x OR GVL.IOVD.C_Pnt_Hv_On.na) AND NOT GVL.IOVD.C_Pnt_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_7		:= NOT GVL.IOVD.C_Pnt_Hv_On.v OR GVL.IOVD.C_Pnt_Hv_On.na OR GVL.IOVD.C_Pnt_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Bat_Lo_Hv_On LENGTH-&gt;2 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_450.S_Bit_8		:= (GVL.IOVD.C_Bat_Lo_Hv_On.x OR GVL.IOVD.C_Bat_Lo_Hv_On.na) AND NOT GVL.IOVD.C_Bat_Lo_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_9		:= NOT GVL.IOVD.C_Bat_Lo_Hv_On.v OR GVL.IOVD.C_Bat_Lo_Hv_On.na OR GVL.IOVD.C_Bat_Lo_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Tm_Hv_On LENGTH-&gt;2 STARTBIT :10"}
+_FB_CanTx_Message_Unpack_450.S_Bit_10		:= (GVL.IOVD.C_Tm_Hv_On.x OR GVL.IOVD.C_Tm_Hv_On.na) AND NOT GVL.IOVD.C_Tm_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_11		:= NOT GVL.IOVD.C_Tm_Hv_On.v OR GVL.IOVD.C_Tm_Hv_On.na OR GVL.IOVD.C_Tm_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Diag_Hv_On LENGTH-&gt;2 STARTBIT :12"}
+_FB_CanTx_Message_Unpack_450.S_Bit_12		:= (GVL.IOVD.C_Diag_Hv_On.x OR GVL.IOVD.C_Diag_Hv_On.na) AND NOT GVL.IOVD.C_Diag_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_13		:= NOT GVL.IOVD.C_Diag_Hv_On.v OR GVL.IOVD.C_Diag_Hv_On.na OR GVL.IOVD.C_Diag_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Ign_Hv_Off LENGTH-&gt;2 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_450.S_Bit_16		:= (GVL.IOVD.C_Ign_Hv_Off.x OR GVL.IOVD.C_Ign_Hv_Off.na) AND NOT GVL.IOVD.C_Ign_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_17		:= NOT GVL.IOVD.C_Ign_Hv_Off.v OR GVL.IOVD.C_Ign_Hv_Off.na OR GVL.IOVD.C_Ign_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Pnt_Hv_Off LENGTH-&gt;2 STARTBIT :22"}
+_FB_CanTx_Message_Unpack_450.S_Bit_22		:= (GVL.IOVD.C_Pnt_Hv_Off.x OR GVL.IOVD.C_Pnt_Hv_Off.na) AND NOT GVL.IOVD.C_Pnt_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_23		:= NOT GVL.IOVD.C_Pnt_Hv_Off.v OR GVL.IOVD.C_Pnt_Hv_Off.na OR GVL.IOVD.C_Pnt_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Bat_Lo_Hv_Off LENGTH-&gt;2 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_450.S_Bit_24		:= (GVL.IOVD.C_Bat_Lo_Hv_Off.x OR GVL.IOVD.C_Bat_Lo_Hv_Off.na) AND NOT GVL.IOVD.C_Bat_Lo_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_25		:= NOT GVL.IOVD.C_Bat_Lo_Hv_Off.v OR GVL.IOVD.C_Bat_Lo_Hv_Off.na OR GVL.IOVD.C_Bat_Lo_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Tm_Hv_Off LENGTH-&gt;2 STARTBIT :26"}
+_FB_CanTx_Message_Unpack_450.S_Bit_26		:= (GVL.IOVD.C_Tm_Hv_Off.x OR GVL.IOVD.C_Tm_Hv_Off.na) AND NOT GVL.IOVD.C_Tm_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_27		:= NOT GVL.IOVD.C_Tm_Hv_Off.v OR GVL.IOVD.C_Tm_Hv_Off.na OR GVL.IOVD.C_Tm_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Diag_Hv_Off LENGTH-&gt;2 STARTBIT :28"}
+_FB_CanTx_Message_Unpack_450.S_Bit_28		:= (GVL.IOVD.C_Diag_Hv_Off.x OR GVL.IOVD.C_Diag_Hv_Off.na) AND NOT GVL.IOVD.C_Diag_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_29		:= NOT GVL.IOVD.C_Diag_Hv_Off.v OR GVL.IOVD.C_Diag_Hv_Off.na OR GVL.IOVD.C_Diag_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Hv_On LENGTH-&gt;2 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_450.S_Bit_32		:= (GVL.IOVD.C_Hv_On.x OR GVL.IOVD.C_Hv_On.na) AND NOT GVL.IOVD.C_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_33		:= NOT GVL.IOVD.C_Hv_On.v OR GVL.IOVD.C_Hv_On.na OR GVL.IOVD.C_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Hv_Off LENGTH-&gt;2 STARTBIT :34"}
+_FB_CanTx_Message_Unpack_450.S_Bit_34		:= (GVL.IOVD.C_Hv_Off.x OR GVL.IOVD.C_Hv_Off.na) AND NOT GVL.IOVD.C_Hv_Off.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_35		:= NOT GVL.IOVD.C_Hv_Off.v OR GVL.IOVD.C_Hv_Off.na OR GVL.IOVD.C_Hv_Off.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hv_On_Prc LENGTH-&gt;2 STARTBIT :36"}
+_FB_CanTx_Message_Unpack_450.S_Bit_36		:= (GVL.IOVD.S_Hv_On_Prc.x OR GVL.IOVD.S_Hv_On_Prc.na) AND NOT GVL.IOVD.S_Hv_On_Prc.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_37		:= NOT GVL.IOVD.S_Hv_On_Prc.v OR GVL.IOVD.S_Hv_On_Prc.na OR GVL.IOVD.S_Hv_On_Prc.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hv_Off_Prc LENGTH-&gt;2 STARTBIT :38"}
+_FB_CanTx_Message_Unpack_450.S_Bit_38		:= (GVL.IOVD.S_Hv_Off_Prc.x OR GVL.IOVD.S_Hv_Off_Prc.na) AND NOT GVL.IOVD.S_Hv_Off_Prc.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_39		:= NOT GVL.IOVD.S_Hv_Off_Prc.v OR GVL.IOVD.S_Hv_Off_Prc.na OR GVL.IOVD.S_Hv_Off_Prc.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Em_Stop LENGTH-&gt;2 STARTBIT :40"}
+_FB_CanTx_Message_Unpack_450.S_Bit_40		:= (GVL.IOVD.S_Em_Stop.x OR GVL.IOVD.S_Em_Stop.na) AND NOT GVL.IOVD.S_Em_Stop.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_41		:= NOT GVL.IOVD.S_Em_Stop.v OR GVL.IOVD.S_Em_Stop.na OR GVL.IOVD.S_Em_Stop.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hv_On_En LENGTH-&gt;2 STARTBIT :42"}
+_FB_CanTx_Message_Unpack_450.S_Bit_42		:= (GVL.IOVD.S_Hv_On_En.x OR GVL.IOVD.S_Hv_On_En.na) AND NOT GVL.IOVD.S_Hv_On_En.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_43		:= NOT GVL.IOVD.S_Hv_On_En.v OR GVL.IOVD.S_Hv_On_En.na OR GVL.IOVD.S_Hv_On_En.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hv_Off_En LENGTH-&gt;2 STARTBIT :44"}
+_FB_CanTx_Message_Unpack_450.S_Bit_44		:= (GVL.IOVD.S_Hv_Off_En.x OR GVL.IOVD.S_Hv_Off_En.na) AND NOT GVL.IOVD.S_Hv_Off_En.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_45		:= NOT GVL.IOVD.S_Hv_Off_En.v OR GVL.IOVD.S_Hv_Off_En.na OR GVL.IOVD.S_Hv_Off_En.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Mn_Ct_On LENGTH-&gt;2 STARTBIT :46"}
+_FB_CanTx_Message_Unpack_450.S_Bit_46		:= (GVL.IOVD.C_Mn_Ct_On.x OR GVL.IOVD.C_Mn_Ct_On.na) AND NOT GVL.IOVD.C_Mn_Ct_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_47		:= NOT GVL.IOVD.C_Mn_Ct_On.v OR GVL.IOVD.C_Mn_Ct_On.na OR GVL.IOVD.C_Mn_Ct_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mn_Ct LENGTH-&gt;2 STARTBIT :48"}
+_FB_CanTx_Message_Unpack_450.S_Bit_48		:= (GVL.IOVD.S_Mn_Ct.x OR GVL.IOVD.S_Mn_Ct.na) AND NOT GVL.IOVD.S_Mn_Ct.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_49		:= NOT GVL.IOVD.S_Mn_Ct.v OR GVL.IOVD.S_Mn_Ct.na OR GVL.IOVD.S_Mn_Ct.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Prechrg_Ct_On LENGTH-&gt;2 STARTBIT :50"}
+_FB_CanTx_Message_Unpack_450.S_Bit_50		:= (GVL.IOVD.C_Prechrg_Ct_On.x OR GVL.IOVD.C_Prechrg_Ct_On.na) AND NOT GVL.IOVD.C_Prechrg_Ct_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_51		:= NOT GVL.IOVD.C_Prechrg_Ct_On.v OR GVL.IOVD.C_Prechrg_Ct_On.na OR GVL.IOVD.C_Prechrg_Ct_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Prechrg_Ct LENGTH-&gt;2 STARTBIT :52"}
+_FB_CanTx_Message_Unpack_450.S_Bit_52		:= (GVL.IOVD.S_Prechrg_Ct.x OR GVL.IOVD.S_Prechrg_Ct.na) AND NOT GVL.IOVD.S_Prechrg_Ct.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_53		:= NOT GVL.IOVD.S_Prechrg_Ct.v OR GVL.IOVD.S_Prechrg_Ct.na OR GVL.IOVD.S_Prechrg_Ct.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_HV LENGTH-&gt;2 STARTBIT :54"}
+_FB_CanTx_Message_Unpack_450.S_Bit_54		:= (GVL.IOVD.S_ER_HV.x OR GVL.IOVD.S_ER_HV.na) AND NOT GVL.IOVD.S_ER_HV.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_55		:= NOT GVL.IOVD.S_ER_HV.v OR GVL.IOVD.S_ER_HV.na OR GVL.IOVD.S_ER_HV.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Mn_Ct LENGTH-&gt;2 STARTBIT :56"}
+_FB_CanTx_Message_Unpack_450.S_Bit_56		:= (GVL.IOVD.S_ER_Mn_Ct.x OR GVL.IOVD.S_ER_Mn_Ct.na) AND NOT GVL.IOVD.S_ER_Mn_Ct.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_57		:= NOT GVL.IOVD.S_ER_Mn_Ct.v OR GVL.IOVD.S_ER_Mn_Ct.na OR GVL.IOVD.S_ER_Mn_Ct.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Prechrg_Ct LENGTH-&gt;2 STARTBIT :58"}
+_FB_CanTx_Message_Unpack_450.S_Bit_58		:= (GVL.IOVD.S_ER_Prechrg_Ct.x OR GVL.IOVD.S_ER_Prechrg_Ct.na) AND NOT GVL.IOVD.S_ER_Prechrg_Ct.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_59		:= NOT GVL.IOVD.S_ER_Prechrg_Ct.v OR GVL.IOVD.S_ER_Prechrg_Ct.na OR GVL.IOVD.S_ER_Prechrg_Ct.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hv_On LENGTH-&gt;2 STARTBIT :60"}
+_FB_CanTx_Message_Unpack_450.S_Bit_60		:= (GVL.IOVD.S_Hv_On.x OR GVL.IOVD.S_Hv_On.na) AND NOT GVL.IOVD.S_Hv_On.e; 
+_FB_CanTx_Message_Unpack_450.S_Bit_61		:= NOT GVL.IOVD.S_Hv_On.v OR GVL.IOVD.S_Hv_On.na OR GVL.IOVD.S_Hv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_HV_HVAC_En LENGTH-&gt;2 STARTBIT :62"}
+_FB_CanTx_Message_Unpack_450.S_Bit_62		:= (GVL.IOVD.S_HV_HVAC_En.x OR GVL.IOVD.S_HV_HVAC_En.na) AND NOT GVL.IOVD.S_HV_HVAC_En.e;
+_FB_CanTx_Message_Unpack_450.S_Bit_63		:= NOT GVL.IOVD.S_HV_HVAC_En.v OR GVL.IOVD.S_HV_HVAC_En.na OR GVL.IOVD.S_HV_HVAC_En.e;
+{endregion}
+
+_FB_CanTx_Message_Unpack_450.S_Bit_2	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_3	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_4	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_5	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_14	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_15	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_18	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_19	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_20	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_21	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_30	:= TRUE;
+_FB_CanTx_Message_Unpack_450.S_Bit_31	:= TRUE;
+
+_FB_CanTx_Message_Unpack_450 (		C_Enable		:= GVL.IOVD.C_En_HV_Durum_0X450,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#450,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_HV_Durum_0X450);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Trolley_Durum- ID:460"}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mn_Ct_Req LENGTH-&gt;2 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_460.S_Bit_0		:= (GVL.IOVD.S_Mn_Ct_Req.x OR GVL.IOVD.S_Mn_Ct_Req.na) AND NOT GVL.IOVD.S_Mn_Ct_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_1		:= NOT GVL.IOVD.S_Mn_Ct_Req.v OR GVL.IOVD.S_Mn_Ct_Req.na OR GVL.IOVD.S_Mn_Ct_Req.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Sys_On LENGTH-&gt;2 STARTBIT :2"}
+_FB_CanTx_Message_Unpack_460.S_Bit_2		:= (GVL.IOVD.S_Sys_On.x OR GVL.IOVD.S_Sys_On.na) AND NOT GVL.IOVD.S_Sys_On.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_3		:= NOT GVL.IOVD.S_Sys_On.v OR GVL.IOVD.S_Sys_On.na OR GVL.IOVD.S_Sys_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mot_Cnv_On_Req LENGTH-&gt;2 STARTBIT :4"}
+_FB_CanTx_Message_Unpack_460.S_Bit_4		:= (GVL.IOVD.S_Mot_Cnv_On_Req.x OR GVL.IOVD.S_Mot_Cnv_On_Req.na) AND NOT GVL.IOVD.S_Mot_Cnv_On_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_5		:= NOT GVL.IOVD.S_Mot_Cnv_On_Req.v OR GVL.IOVD.S_Mot_Cnv_On_Req.na OR GVL.IOVD.S_Mot_Cnv_On_Req.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Mot_Cnv_On LENGTH-&gt;2 STARTBIT :6"}
+_FB_CanTx_Message_Unpack_460.S_Bit_6		:= (GVL.IOVD.S_Mot_Cnv_On.x OR GVL.IOVD.S_Mot_Cnv_On.na) AND NOT GVL.IOVD.S_Mot_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_7		:= NOT GVL.IOVD.S_Mot_Cnv_On.v OR GVL.IOVD.S_Mot_Cnv_On.na OR GVL.IOVD.S_Mot_Cnv_On.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_24V_Bat_Cnv_On_Req LENGTH-&gt;2 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_460.S_Bit_8		:= (GVL.IOVD.S_24V_Bat_Cnv_On_Req.x OR GVL.IOVD.S_24V_Bat_Cnv_On_Req.na) AND NOT GVL.IOVD.S_24V_Bat_Cnv_On_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_9		:= NOT GVL.IOVD.S_24V_Bat_Cnv_On_Req.v OR GVL.IOVD.S_24V_Bat_Cnv_On_Req.na OR GVL.IOVD.S_24V_Bat_Cnv_On_Req.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_24V_Sp_On LENGTH-&gt;2 STARTBIT :10"}
+_FB_CanTx_Message_Unpack_460.S_Bit_10		:= (GVL.IOVD.S_24V_Sp_On.x OR GVL.IOVD.S_24V_Sp_On.na) AND NOT GVL.IOVD.S_24V_Sp_On.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_11		:= NOT GVL.IOVD.S_24V_Sp_On.v OR GVL.IOVD.S_24V_Sp_On.na OR GVL.IOVD.S_24V_Sp_On.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Pnt_Chrg_Req LENGTH-&gt;2 STARTBIT :12"}
+_FB_CanTx_Message_Unpack_460.S_Bit_12		:= (GVL.IOVD.S_Pnt_Chrg_Req.x OR GVL.IOVD.S_Pnt_Chrg_Req.na) AND NOT GVL.IOVD.S_Pnt_Chrg_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_13		:= NOT GVL.IOVD.S_Pnt_Chrg_Req.v OR GVL.IOVD.S_Pnt_Chrg_Req.na OR GVL.IOVD.S_Pnt_Chrg_Req.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Pnt_Chrg_Fdbk LENGTH-&gt;2 STARTBIT :14"}
+_FB_CanTx_Message_Unpack_460.S_Bit_14		:= (GVL.IOVD.S_Pnt_Chrg_Fdbk.x OR GVL.IOVD.S_Pnt_Chrg_Fdbk.na) AND NOT GVL.IOVD.S_Pnt_Chrg_Fdbk.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_15		:= NOT GVL.IOVD.S_Pnt_Chrg_Fdbk.v OR GVL.IOVD.S_Pnt_Chrg_Fdbk.na OR GVL.IOVD.S_Pnt_Chrg_Fdbk.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Drv_Dir_Req LENGTH-&gt;2 STARTBIT :16"}
+_FB_UNPACK_BYTE_TO_8BITS_0 (	S_Bit_0		=&gt; _FB_CanTx_Message_Unpack_460.S_Bit_16,
+								S_Bit_1		=&gt; _FB_CanTx_Message_Unpack_460.S_Bit_17 ,
+								X_BYTE_0	:=
+(*SELECT 1 : Is force active?*)					SEL((GVL.IOVD.Z_Drv_Dir_Req.v AND NOT GVL.IOVD.Z_Drv_Dir_Req.RangeExcd),
+(*DEFAULT VALUE assignment*)					0,
+(*FORCE is active*)								GVL.IOVD.Z_Drv_Dir_Req.x));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Drv_Dir LENGTH-&gt;2 STARTBIT :18"}
+_FB_UNPACK_BYTE_TO_8BITS_1 (	S_Bit_0		=&gt; _FB_CanTx_Message_Unpack_460.S_Bit_18,
+								S_Bit_1		=&gt; _FB_CanTx_Message_Unpack_460.S_Bit_19 ,
+								X_BYTE_0	:=
+(*SELECT 1 : Is force active?*)					SEL((GVL.IOVD.Z_Drv_Dir.v AND NOT GVL.IOVD.Z_Drv_Dir.RangeExcd),
+(*DEFAULT VALUE assignment*)					0,
+(*FORCE is active*)								GVL.IOVD.Z_Drv_Dir.x));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Elec_Mode_Req LENGTH-&gt;2 STARTBIT :20"}
+_FB_CanTx_Message_Unpack_460.S_Bit_20		:= (GVL.IOVD.S_Elec_Mode_Req.x OR GVL.IOVD.S_Elec_Mode_Req.na) AND NOT GVL.IOVD.S_Elec_Mode_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_21		:= NOT GVL.IOVD.S_Elec_Mode_Req.v OR GVL.IOVD.S_Elec_Mode_Req.na OR GVL.IOVD.S_Elec_Mode_Req.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Elec_Mode_Actv LENGTH-&gt;2 STARTBIT :22"}
+_FB_CanTx_Message_Unpack_460.S_Bit_22		:= (GVL.IOVD.S_Elec_Mode_Actv.x OR GVL.IOVD.S_Elec_Mode_Actv.na) AND NOT GVL.IOVD.S_Elec_Mode_Actv.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_23		:= NOT GVL.IOVD.S_Elec_Mode_Actv.v OR GVL.IOVD.S_Elec_Mode_Actv.na OR GVL.IOVD.S_Elec_Mode_Actv.e; 
+{endregion}
+		  
+{region " SIGNAL AREA : NAME-&gt;S_Bat_Mode_Req LENGTH-&gt;2 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_460.S_Bit_24		:= (GVL.IOVD.S_Bat_Mode_Req.x OR GVL.IOVD.S_Bat_Mode_Req.na) AND NOT GVL.IOVD.S_Bat_Mode_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_25		:= NOT GVL.IOVD.S_Bat_Mode_Req.v OR GVL.IOVD.S_Bat_Mode_Req.na OR GVL.IOVD.S_Bat_Mode_Req.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Bat_Mode_Actv LENGTH-&gt;2 STARTBIT :26"}
+_FB_CanTx_Message_Unpack_460.S_Bit_26		:= (GVL.IOVD.S_Bat_Mode_Actv.x OR GVL.IOVD.S_Bat_Mode_Actv.na) AND NOT GVL.IOVD.S_Bat_Mode_Actv.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_27		:= NOT GVL.IOVD.S_Bat_Mode_Actv.v OR GVL.IOVD.S_Bat_Mode_Actv.na OR GVL.IOVD.S_Bat_Mode_Actv.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Elec_Ret_En LENGTH-&gt;2 STARTBIT :28"}
+_FB_CanTx_Message_Unpack_460.S_Bit_28		:= (GVL.IOVD.S_Elec_Ret_En.x OR GVL.IOVD.S_Elec_Ret_En.na) AND NOT GVL.IOVD.S_Elec_Ret_En.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_29		:= NOT GVL.IOVD.S_Elec_Ret_En.v OR GVL.IOVD.S_Elec_Ret_En.na OR GVL.IOVD.S_Elec_Ret_En.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Elec_Brk_En LENGTH-&gt;2 STARTBIT :30"}
+_FB_CanTx_Message_Unpack_460.S_Bit_30		:= (GVL.IOVD.S_Elec_Brk_En.x OR GVL.IOVD.S_Elec_Brk_En.na) AND NOT GVL.IOVD.S_Elec_Brk_En.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_31		:= NOT GVL.IOVD.S_Elec_Brk_En.v OR GVL.IOVD.S_Elec_Brk_En.na OR GVL.IOVD.S_Elec_Brk_En.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Tintl LENGTH-&gt;2 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_460.S_Bit_32		:= (GVL.IOVD.S_Tintl.x OR GVL.IOVD.S_Tintl.na) AND NOT GVL.IOVD.S_Tintl.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_33		:= NOT GVL.IOVD.S_Tintl.v OR GVL.IOVD.S_Tintl.na OR GVL.IOVD.S_Tintl.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Em_Deact LENGTH-&gt;2 STARTBIT :34"}
+_FB_CanTx_Message_Unpack_460.S_Bit_34		:= (GVL.IOVD.S_Em_Deact.x OR GVL.IOVD.S_Em_Deact.na) AND NOT GVL.IOVD.S_Em_Deact.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_35		:= NOT GVL.IOVD.S_Em_Deact.v OR GVL.IOVD.S_Em_Deact.na OR GVL.IOVD.S_Em_Deact.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Rs_Cosu_Req LENGTH-&gt;2 STARTBIT :36"}
+_FB_CanTx_Message_Unpack_460.S_Bit_36		:= (GVL.IOVD.S_Rs_Cosu_Req.x OR GVL.IOVD.S_Rs_Cosu_Req.na) AND NOT GVL.IOVD.S_Rs_Cosu_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_37		:= NOT GVL.IOVD.S_Rs_Cosu_Req.v OR GVL.IOVD.S_Rs_Cosu_Req.na OR GVL.IOVD.S_Rs_Cosu_Req.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_TCU_Hlt_Brk_Req LENGTH-&gt;2 STARTBIT :38"}
+_FB_CanTx_Message_Unpack_460.S_Bit_38		:= (GVL.IOVD.S_TCU_Hlt_Brk_Req.x OR GVL.IOVD.S_TCU_Hlt_Brk_Req.na) AND NOT GVL.IOVD.S_TCU_Hlt_Brk_Req.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_39		:= NOT GVL.IOVD.S_TCU_Hlt_Brk_Req.v OR GVL.IOVD.S_TCU_Hlt_Brk_Req.na OR GVL.IOVD.S_TCU_Hlt_Brk_Req.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Insu_Test_Mod_Actv LENGTH-&gt;2 STARTBIT :40"}
+_FB_CanTx_Message_Unpack_460.S_Bit_40		:= (GVL.IOVD.S_Insu_Test_Mod_Actv.x OR GVL.IOVD.S_Insu_Test_Mod_Actv.na) AND NOT GVL.IOVD.S_Insu_Test_Mod_Actv.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_41		:= NOT GVL.IOVD.S_Insu_Test_Mod_Actv.v OR GVL.IOVD.S_Insu_Test_Mod_Actv.na OR GVL.IOVD.S_Insu_Test_Mod_Actv.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Engy_Flw_Trol LENGTH-&gt;2 STARTBIT :42"}
+_FB_CanTx_Message_Unpack_460.S_Bit_42		:= (GVL.IOVD.S_Engy_Flw_Trol.x OR GVL.IOVD.S_Engy_Flw_Trol.na) AND NOT GVL.IOVD.S_Engy_Flw_Trol.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_43		:= NOT GVL.IOVD.S_Engy_Flw_Trol.v OR GVL.IOVD.S_Engy_Flw_Trol.na OR GVL.IOVD.S_Engy_Flw_Trol.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Engy_Flw_Bat LENGTH-&gt;2 STARTBIT :44"}
+_FB_CanTx_Message_Unpack_460.S_Bit_44		:= (GVL.IOVD.S_Engy_Flw_Bat.x OR GVL.IOVD.S_Engy_Flw_Bat.na) AND NOT GVL.IOVD.S_Engy_Flw_Bat.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_45		:= NOT GVL.IOVD.S_Engy_Flw_Bat.v OR GVL.IOVD.S_Engy_Flw_Bat.na OR GVL.IOVD.S_Engy_Flw_Bat.e; 
+
+{endregion}
+		  
+{region " SIGNAL AREA : NAME-&gt;S_Trol_Volt_Actv LENGTH-&gt;2 STARTBIT :46"}
+_FB_CanTx_Message_Unpack_460.S_Bit_46		:= (GVL.IOVD.S_Trol_Volt_Actv.x OR GVL.IOVD.S_Trol_Volt_Actv.na) AND NOT GVL.IOVD.S_Trol_Volt_Actv.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_47		:= NOT GVL.IOVD.S_Trol_Volt_Actv.v OR GVL.IOVD.S_Trol_Volt_Actv.na OR GVL.IOVD.S_Trol_Volt_Actv.e; 
+
+{endregion}			   
+		  
+{region " SIGNAL AREA : NAME-&gt;C_Mot_Fan_Ct LENGTH-&gt;2 STARTBIT :48"}
+_FB_CanTx_Message_Unpack_460.S_Bit_48		:= (GVL.IOVD.C_Mot_Fan_Ct.x OR GVL.IOVD.C_Mot_Fan_Ct.na) AND NOT GVL.IOVD.C_Mot_Fan_Ct.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_49		:= NOT GVL.IOVD.C_Mot_Fan_Ct.v OR GVL.IOVD.C_Mot_Fan_Ct.na OR GVL.IOVD.C_Mot_Fan_Ct.e; 
+
+{endregion}	
+		  
+{region " SIGNAL AREA : NAME-&gt;S_Mot_Fan_Thrm_Ct LENGTH-&gt;2 STARTBIT :50"}
+_FB_CanTx_Message_Unpack_460.S_Bit_50		:= (GVL.IOVD.S_Mot_Fan_Thrm_Ct.x OR GVL.IOVD.S_Mot_Fan_Thrm_Ct.na) AND NOT GVL.IOVD.S_Mot_Fan_Thrm_Ct.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_51		:= NOT GVL.IOVD.S_Mot_Fan_Thrm_Ct.v OR GVL.IOVD.S_Mot_Fan_Thrm_Ct.na OR GVL.IOVD.S_Mot_Fan_Thrm_Ct.e; 
+
+{endregion}		
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Elec_Brk_Amb LENGTH-&gt;2 STARTBIT :52"}
+_FB_CanTx_Message_Unpack_460.S_Bit_52		:= (GVL.IOVD.S_ER_Elec_Brk_Amb.x OR GVL.IOVD.S_ER_Elec_Brk_Amb.na) AND NOT GVL.IOVD.S_ER_Elec_Brk_Amb.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_53		:= NOT GVL.IOVD.S_ER_Elec_Brk_Amb.v OR GVL.IOVD.S_ER_Elec_Brk_Amb.na OR GVL.IOVD.S_ER_Elec_Brk_Amb.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Elec_Brk_Red LENGTH-&gt;2 STARTBIT :54"}
+_FB_CanTx_Message_Unpack_460.S_Bit_54		:= (GVL.IOVD.S_ER_Elec_Brk_Red.x OR GVL.IOVD.S_ER_Elec_Brk_Red.na) AND NOT GVL.IOVD.S_ER_Elec_Brk_Red.e; 
+_FB_CanTx_Message_Unpack_460.S_Bit_55		:= NOT GVL.IOVD.S_ER_Elec_Brk_Red.v OR GVL.IOVD.S_ER_Elec_Brk_Red.na OR GVL.IOVD.S_ER_Elec_Brk_Red.e; 
+{endregion}	  
+ 
+_FB_CanTx_Message_Unpack_460.X_Byte_7		:=	SEL((GVL.IOVD.Z_Mc_Stat.v AND NOT GVL.IOVD.Z_Mc_Stat.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)				SEL(GVL.IOVD.Z_Mc_Stat.na,
+(*SELECT 3 : Is ERROR active ?*)				SEL(GVL.IOVD.Z_Mc_Stat.e,
+(*DEFAULT VALUE assignment*)					0,
+(*ERROR is active*)								16#FE),
+(*NOT AVAILABLE is active*)						16#FF),
+(*Transmission is VALID*)						USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.Z_Mc_Stat.x))));
+	 
+_FB_CanTx_Message_Unpack_460 (	C_Enable		:= GVL.IOVD.C_En_TCU_Trolleybus_Durum_0X460,
+     							Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     							X_MsgID			:= 16#460,
+     							Tm_CycleTime	:= TIME#250MS,
+     							N_Msg_Dlc		:= 8,
+     							S_Extended		:= 0,
+     							S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_TCU_Trolleybus_Durum_0X460);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Surus_Limit- ID:462"}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_Max_Fwd LENGTH-&gt;8 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_462.X_Byte_0		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_Max_Fwd.v AND NOT GVL.IOVD.X_Spd_Max_Fwd.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_Max_Fwd.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_Max_Fwd.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Spd_Max_Fwd.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_Max_Bwd LENGTH-&gt;8 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_462.X_Byte_1		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_Max_Bwd.v AND NOT GVL.IOVD.X_Spd_Max_Bwd.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_Max_Bwd.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_Max_Bwd.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Spd_Max_Bwd.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Ang_Str LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_462.X_Byte_2		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Ang_Str.v AND NOT GVL.IOVD.X_Ang_Str.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Ang_Str.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Ang_Str.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((125))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Ang_Str.x + 125))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Pct_Brk_Pdl LENGTH-&gt;8 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_462.X_Byte_4		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Pct_Brk_Pdl.v AND NOT GVL.IOVD.X_Pct_Brk_Pdl.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Pct_Brk_Pdl.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Pct_Brk_Pdl.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Pct_Brk_Pdl.x)/0.4)));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Pct_Acc_Pdl LENGTH-&gt;8 STARTBIT :40"}
+_FB_CanTx_Message_Unpack_462.X_Byte_5		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Pct_Acc_Pdl.v AND NOT GVL.IOVD.X_Pct_Acc_Pdl.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Pct_Acc_Pdl.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Pct_Acc_Pdl.e,
+(*DEFAULT VALUE assignment*)							 0 ,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Pct_Acc_Pdl.x)/0.4)));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Hlt_Brk_Actv LENGTH-&gt;2 STARTBIT :48"}
+_FB_CanTx_Message_Unpack_462.S_Bit_48		:=	 (GVL.IOVD.S_Hlt_Brk_Actv.x OR GVL.IOVD.S_Hlt_Brk_Actv.na) AND NOT GVL.IOVD.S_Hlt_Brk_Actv.e; 
+_FB_CanTx_Message_Unpack_462.S_Bit_49		:=	 NOT GVL.IOVD.S_Hlt_Brk_Actv.v OR GVL.IOVD.S_Hlt_Brk_Actv.na OR GVL.IOVD.S_Hlt_Brk_Actv.e; 
+{endregion}
+
+_FB_CanTx_Message_Unpack_462.X_Byte_3		:= 16#FF;
+_FB_CanTx_Message_Unpack_462.S_Bit_50		:= FALSE;
+_FB_CanTx_Message_Unpack_462.S_Bit_51		:= FALSE;
+_FB_CanTx_Message_Unpack_462.S_Bit_52		:= FALSE;
+_FB_CanTx_Message_Unpack_462.S_Bit_53		:= FALSE;
+_FB_CanTx_Message_Unpack_462.S_Bit_54		:= FALSE;
+_FB_CanTx_Message_Unpack_462.S_Bit_55		:= FALSE;
+_FB_CanTx_Message_Unpack_462.X_Byte_7		:= 16#FF;
+	 
+_FB_CanTx_Message_Unpack_462 (	C_Enable		:= GVL.IOVD.C_En_TCU_Surus_Limit_0X462,
+     							Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     							X_MsgID			:= 16#462,
+     							Tm_CycleTime	:= TIME#250MS,
+     							N_Msg_Dlc		:= 8,
+     							S_Extended		:= 0,
+     							S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_TCU_Surus_Limit_0X462);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Analog- ID:463"}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Mot LENGTH-&gt;8 STARTBIT :0"}
+_FB_CanTx_Message_463.X_Byte_0		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Mot.v AND NOT GVL.IOVD.X_T_Mot.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Mot.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Mot.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Mot.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Mot_Cnv LENGTH-&gt;8 STARTBIT :8"}
+_FB_CanTx_Message_463.X_Byte_1		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Mot_Cnv.v AND NOT GVL.IOVD.X_T_Mot_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Mot_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Mot_Cnv.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Mot_Cnv.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_TCU_Box LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_463.X_Byte_2		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_TCU_Box.v AND NOT GVL.IOVD.X_T_TCU_Box.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_TCU_Box.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_TCU_Box.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_TCU_Box.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_ESS LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_5 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_ESS.v AND NOT GVL.IOVD.X_P_ESS.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_ESS.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_ESS.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((3276.6)/0.1)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_ESS.x + 3276.6)/0.1))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_463.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_463.X_Byte_5);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_ESS LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_6 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_ESS.v AND NOT GVL.IOVD.X_I_Out_ESS.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_ESS.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_ESS.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((32766))),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_ESS.x + 32766)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_463.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_463.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_463.X_Byte_3 		:= 16#FF;
+
+_FB_CanTx_Message_463 (		C_Enable		:= GVL.IOVD.C_En_TCU_Analog_0X463,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#463,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:= 8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_TCU_Analog_0X463);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Cikis_Akim_Guc- ID:464"}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_Mot_Cnv LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_7(
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_Mot_Cnv.v AND NOT GVL.IOVD.X_I_Out_Mot_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_Mot_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_Mot_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((1600)/0.05)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_Mot_Cnv.x + 1600)/0.05))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_464.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_464.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Brk_Rsr LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_8(
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Brk_Rsr.v AND NOT GVL.IOVD.X_I_Brk_Rsr.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Brk_Rsr.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Brk_Rsr.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((1600)/0.05)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Brk_Rsr.x + 1600)/0.05))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_464.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_464.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Mot_Cnv LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_9(
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Mot_Cnv.v AND NOT GVL.IOVD.X_P_Mot_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Mot_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Mot_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Mot_Cnv.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_464.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_464.X_Byte_5);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Brk_Rsr LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_10(
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Brk_Rsr.v AND NOT GVL.IOVD.X_P_Brk_Rsr.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Brk_Rsr.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Brk_Rsr.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Brk_Rsr.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_464.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_464.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_464 (		C_Enable		:= GVL.IOVD.C_En_TCU_Cikis_Akim_Guc_0X464,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#464,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:= 8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_TCU_Cikis_Akim_Guc_0X464);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Tork_Hiz- ID:465"}
+
+{region " SIGNAL AREA : NAME-&gt;X_M_Act LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_11 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_M_Act.v AND NOT GVL.IOVD.X_M_Act.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_M_Act.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_M_Act.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((32766))),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_M_Act.x + 32766)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_465.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_465.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_Act LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_12 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_Act.v AND NOT GVL.IOVD.X_Spd_Act.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_Act.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_Act.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((32766))),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Spd_Act.x + 32766)))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_465.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_465.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_Act_kmh LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_13 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_Act_kmh.v AND NOT GVL.IOVD.X_Spd_Act_kmh.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_Act_kmh.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_Act_kmh.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Spd_Act_kmh.x)/0.01))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_465.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_465.X_Byte_5);
+
+{endregion}
+
+_FB_CanTx_Message_465.X_Byte_6	:= 16#FF;
+_FB_CanTx_Message_465.X_Byte_7	:= 16#FF;
+	 
+_FB_CanTx_Message_465 (		C_Enable		:= GVL.IOVD.C_En_TCU_Tork_Hiz_0X465,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#465,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:= 8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok  	 	=&gt; GVL.IOVD.S_SentOk_TCU_Tork_Hiz_0X465);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Calisma_Suresi- ID:466"}
+
+{region " SIGNAL AREA : NAME-&gt;N_Tm_Trol_Md LENGTH-&gt;32 STARTBIT :0"}
+_FB_UNPACK_DWORD_TO_BYTE_0 (
+		X_DWORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.N_Tm_Trol_Md.v AND NOT GVL.IOVD.N_Tm_Trol_Md.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.N_Tm_Trol_Md.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.N_Tm_Trol_Md.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFEFEFE),
+(*NOT AVAILABLE is active*)								16#FFFFFFFF),
+(*Transmission is VALID*)								UDINT_TO_DWORD(GVL.IOVD.N_Tm_Trol_Md.x )),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_466.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_466.X_Byte_1,
+		X_BYTE_2										=&gt; _FB_CanTx_Message_466.X_Byte_2,
+		X_BYTE_3										=&gt; _FB_CanTx_Message_466.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;N_Tm_Bat_Md LENGTH-&gt;32 STARTBIT :32"}
+_FB_UNPACK_DWORD_TO_BYTE_1 (
+		X_DWORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.N_Tm_Bat_Md.v AND NOT GVL.IOVD.N_Tm_Bat_Md.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.N_Tm_Bat_Md.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.N_Tm_Bat_Md.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFEFEFE),
+(*NOT AVAILABLE is active*)								16#FFFFFFFF),
+(*Transmission is VALID*)								UDINT_TO_DWORD(GVL.IOVD.N_Tm_Bat_Md.x )),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_466.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_466.X_Byte_5,
+		X_BYTE_2										=&gt; _FB_CanTx_Message_466.X_Byte_6,
+		X_BYTE_3										=&gt; _FB_CanTx_Message_466.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_466 (		C_Enable		:= GVL.IOVD.C_En_TCU_Calisma_Suresi_0X466,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#466,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:= 8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_TCU_Calisma_Suresi_0X466);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :TCU_Analog_2- ID:467"}
+
+{region " SIGNAL AREA : NAME-&gt;X_U_Inv_HV LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_14 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_U_Inv_HV.v AND NOT GVL.IOVD.X_U_Inv_HV.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_U_Inv_HV.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_U_Inv_HV.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_U_Inv_HV.x)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_467.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_467.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_U_Cat_Ln LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_15 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_U_Cat_Ln.v AND NOT GVL.IOVD.X_U_Cat_Ln.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_U_Cat_Ln.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_U_Cat_Ln.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_U_Cat_Ln.x)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_467.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_467.X_Byte_3);
+{endregion}
+
+_FB_CanTx_Message_467.X_Byte_4:=16#FF;
+_FB_CanTx_Message_467.X_Byte_5:=16#FF;
+_FB_CanTx_Message_467.X_Byte_6:=16#FF;
+_FB_CanTx_Message_467.X_Byte_7:=16#FF;
+_FB_CanTx_Message_467(
+     C_Enable:= GVL.IOVD.C_En_TCU_Analog_2_0X467,
+     Obj_CAN:= ADR(GVL.IC.Obj_CAN0),
+     X_MsgID:= 16#467,
+     Tm_CycleTime:= TIME#250ms,
+     N_Msg_Dlc:=8,
+     S_Extended:= 0,
+     S_Sent_Ok   =&gt; GVL.IOVD.S_SentOk_TCU_Analog_2_0X467);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Yardimci_Konvertor_Durum- ID:480"}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_AC_Cnv_Rdy LENGTH-&gt;2 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_480.S_Bit_0		:= (GVL.IOVD.S_Aux_AC_Cnv_Rdy.x OR GVL.IOVD.S_Aux_AC_Cnv_Rdy.na) AND NOT GVL.IOVD.S_Aux_AC_Cnv_Rdy.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_1		:= NOT GVL.IOVD.S_Aux_AC_Cnv_Rdy.v OR GVL.IOVD.S_Aux_AC_Cnv_Rdy.na OR GVL.IOVD.S_Aux_AC_Cnv_Rdy.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_AC_Cnv_On LENGTH-&gt;2 STARTBIT :2"}
+_FB_CanTx_Message_Unpack_480.S_Bit_2		:= (GVL.IOVD.C_Aux_AC_Cnv_On.x OR GVL.IOVD.C_Aux_AC_Cnv_On.na) AND NOT GVL.IOVD.C_Aux_AC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_3		:= NOT GVL.IOVD.C_Aux_AC_Cnv_On.v OR GVL.IOVD.C_Aux_AC_Cnv_On.na OR GVL.IOVD.C_Aux_AC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_AC_Cnv_On LENGTH-&gt;2 STARTBIT :4"}
+_FB_CanTx_Message_Unpack_480.S_Bit_4		:= (GVL.IOVD.S_Aux_AC_Cnv_On.x OR GVL.IOVD.S_Aux_AC_Cnv_On.na) AND NOT GVL.IOVD.S_Aux_AC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_5		:= NOT GVL.IOVD.S_Aux_AC_Cnv_On.v OR GVL.IOVD.S_Aux_AC_Cnv_On.na OR GVL.IOVD.S_Aux_AC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_24V_Cnv_Rdy LENGTH-&gt;2 STARTBIT :6"}
+_FB_CanTx_Message_Unpack_480.S_Bit_6		:= (GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.x OR GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.na) AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_7		:= NOT GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.v OR GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.na OR GVL.IOVD.S_Aux_DC_24V_Cnv_Rdy.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_DC_24V_Cnv_On LENGTH-&gt;2 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_480.S_Bit_8		:= (GVL.IOVD.C_Aux_DC_24V_Cnv_On.x OR GVL.IOVD.C_Aux_DC_24V_Cnv_On.na) AND NOT GVL.IOVD.C_Aux_DC_24V_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_9		:=  NOT GVL.IOVD.C_Aux_DC_24V_Cnv_On.v OR GVL.IOVD.C_Aux_DC_24V_Cnv_On.na OR GVL.IOVD.C_Aux_DC_24V_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_24V_Cnv_On LENGTH-&gt;2 STARTBIT :10"}
+_FB_CanTx_Message_Unpack_480.S_Bit_10		:= (GVL.IOVD.S_Aux_DC_24V_Cnv_On.x OR GVL.IOVD.S_Aux_DC_24V_Cnv_On.na) AND NOT GVL.IOVD.S_Aux_DC_24V_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_11		:= NOT GVL.IOVD.S_Aux_DC_24V_Cnv_On.v OR GVL.IOVD.S_Aux_DC_24V_Cnv_On.na OR GVL.IOVD.S_Aux_DC_24V_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_DC_Cnv_On LENGTH-&gt;2 STARTBIT :12"}
+_FB_CanTx_Message_Unpack_480.S_Bit_12		:= (GVL.IOVD.C_Aux_DC_Cnv_On.x OR GVL.IOVD.C_Aux_DC_Cnv_On.na) AND NOT GVL.IOVD.C_Aux_DC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_13		:= NOT GVL.IOVD.C_Aux_DC_Cnv_On.v OR GVL.IOVD.C_Aux_DC_Cnv_On.na OR GVL.IOVD.C_Aux_DC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_Cnv_On LENGTH-&gt;2 STARTBIT :14"}
+_FB_CanTx_Message_Unpack_480.S_Bit_14		:= (GVL.IOVD.S_Aux_DC_Cnv_On.x OR GVL.IOVD.S_Aux_DC_Cnv_On.na) AND NOT GVL.IOVD.S_Aux_DC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_15		:= NOT GVL.IOVD.S_Aux_DC_Cnv_On.v OR GVL.IOVD.S_Aux_DC_Cnv_On.na OR GVL.IOVD.S_Aux_DC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Bat_Chrg_DC_Cnv_On LENGTH-&gt;2 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_480.S_Bit_16		:= (GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.x OR GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.na) AND NOT GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_17		:= NOT GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.v OR GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.na OR GVL.IOVD.C_Bat_Chrg_DC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Bat_Chrg_DC_Cnv_On LENGTH-&gt;2 STARTBIT :18"}
+_FB_CanTx_Message_Unpack_480.S_Bit_18		:= (GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.x OR GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.na) AND NOT GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_19		:= NOT GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.v OR GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.na OR GVL.IOVD.S_Bat_Chrg_DC_Cnv_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_DC_Ct_1_On LENGTH-&gt;2 STARTBIT :20"}
+_FB_CanTx_Message_Unpack_480.S_Bit_20		:= (GVL.IOVD.C_Aux_DC_Ct_1_On.x OR GVL.IOVD.C_Aux_DC_Ct_1_On.na) AND NOT GVL.IOVD.C_Aux_DC_Ct_1_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_21		:= NOT GVL.IOVD.C_Aux_DC_Ct_1_On.v OR GVL.IOVD.C_Aux_DC_Ct_1_On.na OR GVL.IOVD.C_Aux_DC_Ct_1_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_DC_Ct_2_On LENGTH-&gt;2 STARTBIT :22"}
+_FB_CanTx_Message_Unpack_480.S_Bit_22		:= (GVL.IOVD.C_Aux_DC_Ct_2_On.x OR GVL.IOVD.C_Aux_DC_Ct_2_On.na) AND NOT GVL.IOVD.C_Aux_DC_Ct_2_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_23		:= NOT GVL.IOVD.C_Aux_DC_Ct_2_On.v OR GVL.IOVD.C_Aux_DC_Ct_2_On.na OR GVL.IOVD.C_Aux_DC_Ct_2_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_Aux_DC_Ct_3_On LENGTH-&gt;2 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_480.S_Bit_24		:= (GVL.IOVD.C_Aux_DC_Ct_3_On.x OR GVL.IOVD.C_Aux_DC_Ct_3_On.na) AND NOT GVL.IOVD.C_Aux_DC_Ct_3_On.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_25		:= NOT GVL.IOVD.C_Aux_DC_Ct_3_On.v OR GVL.IOVD.C_Aux_DC_Ct_3_On.na OR GVL.IOVD.C_Aux_DC_Ct_3_On.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_Ct_1_Actv LENGTH-&gt;2 STARTBIT :26"}
+_FB_CanTx_Message_Unpack_480.S_Bit_26		:= (GVL.IOVD.S_Aux_DC_Ct_1_Actv.x OR GVL.IOVD.S_Aux_DC_Ct_1_Actv.na) AND NOT GVL.IOVD.S_Aux_DC_Ct_1_Actv.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_27		:= NOT GVL.IOVD.S_Aux_DC_Ct_1_Actv.v OR GVL.IOVD.S_Aux_DC_Ct_1_Actv.na OR GVL.IOVD.S_Aux_DC_Ct_1_Actv.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_Ct_2_Actv LENGTH-&gt;2 STARTBIT :28"}
+_FB_CanTx_Message_Unpack_480.S_Bit_28		:= (GVL.IOVD.S_Aux_DC_Ct_2_Actv.x OR GVL.IOVD.S_Aux_DC_Ct_2_Actv.na) AND NOT GVL.IOVD.S_Aux_DC_Ct_2_Actv.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_29		:=	NOT GVL.IOVD.S_Aux_DC_Ct_2_Actv.v OR GVL.IOVD.S_Aux_DC_Ct_2_Actv.na OR GVL.IOVD.S_Aux_DC_Ct_2_Actv.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aux_DC_Ct_3_Actv LENGTH-&gt;2 STARTBIT :30"}
+_FB_CanTx_Message_Unpack_480.S_Bit_30		:= (GVL.IOVD.S_Aux_DC_Ct_3_Actv.x OR GVL.IOVD.S_Aux_DC_Ct_3_Actv.na) AND NOT GVL.IOVD.S_Aux_DC_Ct_3_Actv.e; 
+_FB_CanTx_Message_Unpack_480.S_Bit_31		:= NOT GVL.IOVD.S_Aux_DC_Ct_3_Actv.v OR GVL.IOVD.S_Aux_DC_Ct_3_Actv.na OR GVL.IOVD.S_Aux_DC_Ct_3_Actv.e; 
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Bccu_Stat LENGTH-&gt;8 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_480.X_Byte_4					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Bccu_Stat.v AND NOT GVL.IOVD.Z_Bccu_Stat.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Bccu_Stat.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Bccu_Stat.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								GVL.IOVD.Z_Bccu_Stat.x);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Tcu_Stat LENGTH-&gt;8 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_480.X_Byte_5					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Tcu_Stat.v AND NOT GVL.IOVD.Z_Tcu_Stat.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Tcu_Stat.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Tcu_Stat.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								GVL.IOVD.Z_Tcu_Stat.x);
+{endregion}	
+
+{region " SIGNAL AREA : NAME-&gt;Z_Apu_Stat LENGTH-&gt;8 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_480.X_Byte_6					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Apu_Stat.v AND NOT GVL.IOVD.Z_Apu_Stat.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Apu_Stat.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Apu_Stat.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								GVL.IOVD.Z_Apu_Stat.x);
+{endregion}			   
+
+_FB_CanTx_Message_Unpack_480.X_Byte_7	:= 16#FF;
+
+_FB_CanTx_Message_Unpack_480 (		C_Enable		:= GVL.IOVD.C_En_Yardimci_Konvertor_Durum_0X480,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#480,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Yardimci_Konvertor_Durum_0X480);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Yardimci_Konvertor_Akim- ID:481"}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_Aux_DC_Cnv LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_16 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_Aux_DC_Cnv.v AND NOT GVL.IOVD.X_I_Out_Aux_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_Aux_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_Aux_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_Aux_DC_Cnv.x)/0.1))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_Aux_AC_Cnv LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_17 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_Aux_AC_Cnv.v AND NOT GVL.IOVD.X_I_Out_Aux_AC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_Aux_AC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_Aux_AC_Cnv.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_Aux_AC_Cnv.x)/0.1))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_Aux_DC_24V_Cnv LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_18 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.v AND NOT GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_Aux_DC_24V_Cnv.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_5);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_In_Aux_DC_24V_Cnv LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_19 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.v AND NOT GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_In_Aux_DC_24V_Cnv.x)/0.1))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_481.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_Unpack_481(
+     C_Enable:= GVL.IOVD.C_En_Yardimci_Konvertor_Akim_0X481,
+     Obj_CAN:= ADR(GVL.IC.Obj_CAN0),
+     X_MsgID:= 16#481,
+     Tm_CycleTime:= TIME#250ms,
+     N_Msg_Dlc:=8,
+     S_Extended:= 0,
+     S_Sent_Ok   =&gt; GVL.IOVD.S_SentOk_Yardimci_Konvertor_Akim_0X481);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Yardimci_Konvertor_Guc- ID:482"}
+
+{region " SIGNAL AREA : NAME-&gt;X_U_Out_24V_Bat LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_20 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_U_Out_24V_Bat.v AND NOT GVL.IOVD.X_U_Out_24V_Bat.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_U_Out_24V_Bat.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_U_Out_24V_Bat.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_U_Out_24V_Bat.x)/0.01))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Out_Aux_DC_Cnv LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_21 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Out_Aux_DC_Cnv.v AND NOT GVL.IOVD.X_P_Out_Aux_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Out_Aux_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Out_Aux_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Out_Aux_DC_Cnv.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_3);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Out_Aux_AC_Cnv LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_22 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Out_Aux_AC_Cnv.v AND NOT GVL.IOVD.X_P_Out_Aux_AC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Out_Aux_AC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Out_Aux_AC_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Out_Aux_AC_Cnv.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_4,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_5);
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Out_Aux_DC_24V_Cnv LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_23 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.v AND NOT GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((750)/0.025)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Out_Aux_DC_24V_Cnv.x + 750)/0.025))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_482.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_Unpack_482 (		C_Enable		:= GVL.IOVD.C_En_Yardimci_Konvertor_Guc_0X482,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#482,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Yardimci_Konvertor_Guc_0X482);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Batarya_Sarj_Konvertor- ID:483"}
+
+{region " SIGNAL AREA : NAME-&gt;X_P_Bat_Chrg_DC_Cnv LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_26 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.v AND NOT GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_P_Bat_Chrg_DC_Cnv.x + 3276.6)/0.1))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_483.X_Byte_0,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_483.X_Byte_1);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_I_Out_Aux_Bat_Chrg_DC_Cnv LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_27 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.v AND NOT GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((1600)/0.05)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_I_Out_Aux_Bat_Chrg_DC_Cnv.x + 1600)/0.05))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_Unpack_483.X_Byte_2,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_Unpack_483.X_Byte_3);
+{endregion}
+
+_FB_CanTx_Message_Unpack_483.X_Byte_4		:= 16#FF;
+_FB_CanTx_Message_Unpack_483.X_Byte_5		:= 16#FF;
+_FB_CanTx_Message_Unpack_483.X_Byte_6		:= 16#FF;
+_FB_CanTx_Message_Unpack_483.X_Byte_7		:= 16#FF; 
+
+_FB_CanTx_Message_Unpack_483 (		C_Enable		:= GVL.IOVD.C_En_Batarya_Sarj_Konvertor_Analog_0X483,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#483,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Batarya_Konvertor_Analog_0X483);
+{endregion}
+
+{region " MESSAGE AREA :Yardimci_Konvertor_Sicaklik- ID:484"}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Aux_AC_Cnv LENGTH-&gt;8 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_484.X_Byte_0					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Aux_AC_Cnv.v AND NOT GVL.IOVD.X_T_Aux_AC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Aux_AC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Aux_AC_Cnv.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Aux_AC_Cnv.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Aux_DC_24V_Cnv LENGTH-&gt;8 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_484.X_Byte_1					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Aux_DC_24V_Cnv.v AND NOT GVL.IOVD.X_T_Aux_DC_24V_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Aux_DC_24V_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Aux_DC_24V_Cnv.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Aux_DC_24V_Cnv.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Aux_DC_Cnv LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_484.X_Byte_2					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Aux_DC_Cnv.v AND NOT GVL.IOVD.X_T_Aux_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Aux_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Aux_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Aux_DC_Cnv.x + 40))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_T_Bat_Chrg_DC_Cnv LENGTH-&gt;8 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_484.X_Byte_3					:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.v AND NOT GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.e,
+(*DEFAULT VALUE assignment*)							USINT_TO_BYTE(REAL_TO_USINT((40))),
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_T_Bat_Chrg_DC_Cnv.x + 40))));
+{endregion}
+
+_FB_CanTx_Message_Unpack_484.X_Byte_4	:= 16#FF;
+_FB_CanTx_Message_Unpack_484.X_Byte_5	:= 16#FF;
+_FB_CanTx_Message_Unpack_484.X_Byte_6	:= 16#FF;
+_FB_CanTx_Message_Unpack_484.X_Byte_7	:= 16#FF;
+	 
+_FB_CanTx_Message_Unpack_484 (		C_Enable		:= GVL.IOVD.C_En_Yardimci_Konvertor_Sicaklik_0X484,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#484,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Yardimci_Konvertor_Sicaklik_0X484);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+
+{region " MESSAGE AREA :Isolation_Status - ID:485"}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Insu_Dev LENGTH-&gt;4 STARTBIT :0"}
+_FB_UNPACK_BYTE_TO_8BITS_2(
+		S_Bit_0=&gt; _FB_CanTx_Message_Unpack_485.S_Bit_0,
+		S_Bit_1=&gt; _FB_CanTx_Message_Unpack_485.S_Bit_1,
+		S_Bit_2=&gt; _FB_CanTx_Message_Unpack_485.S_Bit_2,
+		S_Bit_3=&gt; _FB_CanTx_Message_Unpack_485.S_Bit_3,
+		X_BYTE_0:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Insu_Dev.v AND NOT GVL.IOVD.Z_Insu_Dev.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Insu_Dev.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Insu_Dev.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#E),
+(*NOT AVAILABLE is active*)								16#F),
+(*Transmission is VALID*)								GVL.IOVD.Z_Insu_Dev.x));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_ER_Insu_Dev_Not_Conn LENGTH-&gt;1 STARTBIT :4"}
+_FB_CanTx_Message_Unpack_485.S_Bit_4		:= GVL.IOVD.S_ER_Insu_Dev_Not_Conn.x AND GVL.IOVD.S_ER_Insu_Dev_Not_Conn.v;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Man_Insu_Tst LENGTH-&gt;8 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_485.X_Byte_1:=					SEL((GVL.IOVD.Z_Man_Insu_Tst.v AND NOT GVL.IOVD.Z_Man_Insu_Tst.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Man_Insu_Tst.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Man_Insu_Tst.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.Z_Man_Insu_Tst.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;Z_Semi_Aut_Insu_Tst LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_485.X_Byte_2:=					SEL((GVL.IOVD.Z_Semi_Aut_Insu_Tst.v AND NOT GVL.IOVD.Z_Semi_Aut_Insu_Tst.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Semi_Aut_Insu_Tst.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Semi_Aut_Insu_Tst.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.Z_Semi_Aut_Insu_Tst.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Insu_Tst_Ok LENGTH-&gt;1 STARTBIT :24"}
+_FB_CanTx_Message_Unpack_485.S_Bit_24		:= GVL.IOVD.S_Insu_Tst_Ok.x AND GVL.IOVD.S_Insu_Tst_Ok.v;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Man_Insu_Meas_Actv LENGTH-&gt;1 STARTBIT :25"}
+_FB_CanTx_Message_Unpack_485.S_Bit_25		:= GVL.IOVD.S_Man_Insu_Meas_Actv.x AND GVL.IOVD.S_Man_Insu_Meas_Actv.v;
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Aut_Insu_Meas_Actv LENGTH-&gt;1 STARTBIT :26"}
+_FB_CanTx_Message_Unpack_485.S_Bit_27		:= GVL.IOVD.S_Aut_Insu_Meas_Actv.x AND GVL.IOVD.S_Aut_Insu_Meas_Actv.v;
+{endregion}
+
+_FB_CanTx_Message_Unpack_485.S_Bit_5		:= TRUE;
+_FB_CanTx_Message_Unpack_485.S_Bit_6		:= TRUE;
+_FB_CanTx_Message_Unpack_485.S_Bit_7		:= TRUE;
+_FB_CanTx_Message_Unpack_485.S_Bit_29		:= TRUE;
+_FB_CanTx_Message_Unpack_485.S_Bit_30		:= TRUE;
+_FB_CanTx_Message_Unpack_485.S_Bit_31		:= TRUE;
+_FB_CanTx_Message_Unpack_485.X_Byte_4		:= 16#FF;
+_FB_CanTx_Message_Unpack_485.X_Byte_5		:= 16#FF;
+_FB_CanTx_Message_Unpack_485.X_Byte_6		:= 16#FF;
+_FB_CanTx_Message_Unpack_485.X_Byte_7		:= 16#FF;
+
+_FB_CanTx_Message_Unpack_485 (		C_Enable		:= GVL.IOVD.C_En_Isolation_Status_0X485,
+     								Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     								X_MsgID			:= 16#485,
+     								Tm_CycleTime	:= TIME#250MS,
+     								N_Msg_Dlc		:= 8,
+     								S_Extended		:= 0,
+     								S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Isolation_Status_0X485);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Arac_Genel_Istatistik- ID:4C2"}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_TCU LENGTH-&gt;8 STARTBIT :0"}
+_FB_CanTx_Message_4C2.X_Byte_0							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_TCU.v AND NOT GVL.IOVD.X_Spd_TCU.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_TCU.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_TCU.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Spd_TCU.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Spd_EBS LENGTH-&gt;8 STARTBIT :8"}
+_FB_CanTx_Message_4C2.X_Byte_1							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Spd_EBS.v AND NOT GVL.IOVD.X_Spd_EBS.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Spd_EBS.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Spd_EBS.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_Spd_EBS.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_SOC LENGTH-&gt;8 STARTBIT :16"}
+_FB_CanTx_Message_4C2.X_Byte_2							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_SOC.v AND NOT GVL.IOVD.X_SOC.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_SOC.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_SOC.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_SOC.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_SOH LENGTH-&gt;8 STARTBIT :24"}
+_FB_CanTx_Message_4C2.X_Byte_3							:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_SOH.v AND NOT GVL.IOVD.X_SOH.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_SOH.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_SOH.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(REAL_TO_USINT((GVL.IOVD.X_SOH.x))));
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Accl LENGTH-&gt;16 STARTBIT :32"}
+_FB_UNPACK_WORD_TO_BYTE_24 (	X_WORD_0	:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Accl.v AND NOT GVL.IOVD.X_Accl.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Accl.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Accl.e,
+(*DEFAULT VALUE assignment*)							UINT_TO_WORD(REAL_TO_UINT((32)/0.001)),
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Accl.x + 32)/0.001))),
+								X_BYTE_0	=&gt; _FB_CanTx_Message_4C2.X_Byte_4,
+								X_BYTE_1	=&gt; _FB_CanTx_Message_4C2.X_Byte_5);
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;X_Cosu_Avg LENGTH-&gt;16 STARTBIT :48"}
+_FB_UNPACK_WORD_TO_BYTE_25 (
+		X_WORD_0										:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Cosu_Avg.v AND NOT GVL.IOVD.X_Cosu_Avg.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Cosu_Avg.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Cosu_Avg.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Cosu_Avg.x)/0.001))),
+		X_BYTE_0										=&gt; _FB_CanTx_Message_4C2.X_Byte_6,
+		X_BYTE_1										=&gt; _FB_CanTx_Message_4C2.X_Byte_7);
+{endregion}
+
+_FB_CanTx_Message_4C2 (		C_Enable		:= GVL.IOVD.C_En_Arac_Genel_Istatistik_0X4C2,
+     						Obj_CAN			:= ADR(GVL.IC.Obj_CAN0),
+     						X_MsgID			:= 16#4C2,
+     						Tm_CycleTime	:= TIME#250MS,
+     						N_Msg_Dlc		:= 8,
+     						S_Extended		:= 0,
+     						S_Sent_Ok   	=&gt; GVL.IOVD.S_SentOk_Arac_Genel_Istatistik_0X4C2);
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------
+{region " MESSAGE AREA :Temel_Durum- ID:99"}
+
+{region " SIGNAL AREA : NAME-&gt;N_ECU_Lf LENGTH-&gt;8 STARTBIT :0"}
+_FB_CanTx_Message_Unpack_99.X_Byte_0		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.N_ECU_Lf.v AND NOT GVL.IOVD.N_ECU_Lf.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.N_ECU_Lf.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.N_ECU_Lf.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#FE),
+(*NOT AVAILABLE is active*)								16#FF),
+(*Transmission is VALID*)								USINT_TO_BYTE(GVL.IOVD.N_ECU_Lf.x ));
+
+{endregion}
+
+// PR1006_SRS_001391_TIMTRO
+{region " SIGNAL AREA : NAME-&gt;S_Sw_Up_Avl LENGTH-&gt;2 STARTBIT :8"}
+_FB_CanTx_Message_Unpack_99.S_Bit_8		:=	 (GVL.IOVD.S_Sw_Up_Avl.x OR GVL.IOVD.S_Sw_Up_Avl.na) AND NOT GVL.IOVD.S_Sw_Up_Avl.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_9		:=	 NOT GVL.IOVD.S_Sw_Up_Avl.v OR GVL.IOVD.S_Sw_Up_Avl.na OR GVL.IOVD.S_Sw_Up_Avl.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_EH_Rd_Avl LENGTH-&gt;2 STARTBIT :10"}
+_FB_CanTx_Message_Unpack_99.S_Bit_10		:=	 (GVL.IOVD.S_EH_Rd_Avl.x OR GVL.IOVD.S_EH_Rd_Avl.na) AND NOT GVL.IOVD.S_EH_Rd_Avl.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_11		:=	 NOT GVL.IOVD.S_EH_Rd_Avl.v OR GVL.IOVD.S_EH_Rd_Avl.na OR GVL.IOVD.S_EH_Rd_Avl.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Tst_Avl LENGTH-&gt;2 STARTBIT :12"}
+_FB_CanTx_Message_Unpack_99.S_Bit_12		:=	 (GVL.IOVD.S_Tst_Avl.x OR GVL.IOVD.S_Tst_Avl.na) AND NOT GVL.IOVD.S_Tst_Avl.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_13		:=	 NOT GVL.IOVD.S_Tst_Avl.v OR GVL.IOVD.S_Tst_Avl.na OR GVL.IOVD.S_Tst_Avl.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;S_Para_Up_Avl LENGTH-&gt;2 STARTBIT :14"}
+_FB_CanTx_Message_Unpack_99.S_Bit_14		:=	 (GVL.IOVD.S_Para_Up_Avl.x OR GVL.IOVD.S_Para_Up_Avl.na) AND NOT GVL.IOVD.S_Para_Up_Avl.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_15		:=	 NOT GVL.IOVD.S_Para_Up_Avl.v OR GVL.IOVD.S_Para_Up_Avl.na OR GVL.IOVD.S_Para_Up_Avl.e; 
+
+{endregion}
+
+{region " SIGNAL AREA : NAME-&gt;C_ECU_Rst LENGTH-&gt;2 STARTBIT :16"}
+_FB_CanTx_Message_Unpack_99.S_Bit_16		:=	 (GVL.IOVD.C_ECU_Rst.x OR GVL.IOVD.C_ECU_Rst.na) AND NOT GVL.IOVD.C_ECU_Rst.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_17		:=	 NOT GVL.IOVD.C_ECU_Rst.v OR GVL.IOVD.C_ECU_Rst.na OR GVL.IOVD.C_ECU_Rst.e; 
+
+{endregion}
+{region " SIGNAL AREA : NAME-&gt;S_Brk_Tst_Mode LENGTH-&gt;2 STARTBIT :18"}
+_FB_CanTx_Message_Unpack_99.S_Bit_18		:=	 (GVL.IOVD.S_Brk_Tst_Mode.x OR GVL.IOVD.S_Brk_Tst_Mode.na) AND NOT GVL.IOVD.S_Brk_Tst_Mode.e; 
+_FB_CanTx_Message_Unpack_99.S_Bit_19		:=	 NOT GVL.IOVD.S_Brk_Tst_Mode.v OR GVL.IOVD.S_Brk_Tst_Mode.na OR GVL.IOVD.S_Brk_Tst_Mode.e; 
+
+{endregion}
+		  
+{region " SIGNAL AREA : NAME-&gt;Z_Vh_Typ LENGTH-&gt;8 STARTBIT :32"}
+_FB_CanTx_Message_Unpack_99.X_Byte_4		:=
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.Z_Vh_Typ.v AND NOT GVL.IOVD.Z_Vh_Typ.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.Z_Vh_Typ.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.Z_Vh_Typ.e,
+(*DEFAULT VALUE assignment*)							0,
+(*ERROR is active*)										16#E),
+(*NOT AVAILABLE is active*)								16#F),
+(*Transmission is VALID*)								GVL.IOVD.Z_Vh_Typ.x);
+{endregion}
+
+// PR1006_SRS_001386_TIMTRO
+{region " SIGNAL AREA : NAME-&gt;X_Prj_No LENGTH-&gt;16 STARTBIT-&gt;48}
+_FB_UNPACK_WORD_TO_BYTE_30	(	X_Word_0				:=  
+(*SELECT 1: Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Prj_No.v AND NOT GVL.IOVD.X_Prj_No.RangeExcd),
+(*SELECT 2: Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Prj_No.na,
+(*SELECT 3: Is ERROR active ?*)							SEL(GVL.IOVD.X_Prj_No.e,
+(*DEFAULT VALUE assignment*)							1000,
+(*ERROR is active*)										16#FEFF),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT(GVL.IOVD.X_Prj_No.x))),
+														X_Byte_0=&gt; _FB_CanTx_Message_Unpack_99.X_Byte_6,
+														X_Byte_1=&gt; _FB_CanTx_Message_Unpack_99.X_Byte_7);
+{endregion}
+  
+_FB_CanTx_Message_Unpack_99.S_Bit_22:=TRUE;
+_FB_CanTx_Message_Unpack_99.S_Bit_23:=TRUE;
+_FB_CanTx_Message_Unpack_99.X_Byte_3:=16#FF;
+_FB_CanTx_Message_Unpack_99.X_Byte_5:=16#FF;
+_FB_CanTx_Message_Unpack_99(
+     C_Enable:= GVL.IOVD.C_En_Temel_Durum_0X99,
+     Obj_CAN:= ADR(GVL.IC.Obj_CAN0),
+     X_MsgID:= 16#99,
+     Tm_CycleTime:= TIME#250ms,
+     N_Msg_Dlc:=8,
+     S_Extended:= 0,
+     S_Sent_Ok   =&gt; GVL.IOVD.S_SentOk_Temel_Durum_0X99);
+{endregion}
+	 
+	 
+{region " MESSAGE AREA :Olay_Durum- ID:500"}
+
+// PR1006_SRS_001881_TIMTRO
+{region " SIGNAL AREA : NAME-&gt;X_Tot_TypA_Evnt LENGTH-&gt;16 STARTBIT :0"}
+_FB_UNPACK_WORD_TO_BYTE_28(
+		X_WORD_0:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Tot_TypA_Evnt.v AND NOT GVL.IOVD.X_Tot_TypA_Evnt.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Tot_TypA_Evnt.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Tot_TypA_Evnt.e,
+(*DEFAULT VALUE assignment*)							 0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Tot_TypA_Evnt.x)))),
+		X_BYTE_0=&gt; _FB_CanTx_Message_500.X_Byte_0,
+		X_BYTE_1=&gt; _FB_CanTx_Message_500.X_Byte_1);
+{endregion}
+
+// PR1006_SRS_001881_TIMTRO
+{region " SIGNAL AREA : NAME-&gt;X_Tot_TypB_Evnt LENGTH-&gt;16 STARTBIT :16"}
+_FB_UNPACK_WORD_TO_BYTE_29(
+		X_WORD_0:= 
+(*SELECT 1 : Is data valid and range is not exceed?*)	SEL((GVL.IOVD.X_Tot_TypB_Evnt.v AND NOT GVL.IOVD.X_Tot_TypB_Evnt.RangeExcd),
+(*SELECT 2 : Is NOT AVAILABLE ?*)						SEL(GVL.IOVD.X_Tot_TypB_Evnt.na,
+(*SELECT 3 : Is ERROR active ?*)						SEL(GVL.IOVD.X_Tot_TypB_Evnt.e,
+(*DEFAULT VALUE assignment*)							 0,
+(*ERROR is active*)										16#FEFE),
+(*NOT AVAILABLE is active*)								16#FFFF),
+(*Transmission is VALID*)								UINT_TO_WORD(REAL_TO_UINT((GVL.IOVD.X_Tot_TypB_Evnt.x)))),
+		X_BYTE_0=&gt; _FB_CanTx_Message_500.X_Byte_2,
+		X_BYTE_1=&gt; _FB_CanTx_Message_500.X_Byte_3);
+{endregion}
+		  
+_FB_CanTx_Message_500.X_Byte_4 := 16#FF;
+_FB_CanTx_Message_500.X_Byte_5 := 16#FF;
+_FB_CanTx_Message_500.X_Byte_6 := 16#FF;
+_FB_CanTx_Message_500.X_Byte_7 := 16#FF;
+
+_FB_CanTx_Message_500(	C_Enable := GVL.IOVD.C_En_Olay_Durum_0X500,
+		 				Obj_CAN := ADR(GVL.IC.Obj_CAN0),
+						X_MsgID := 16#500,
+						Tm_CycleTime := T#250MS,
+						N_Msg_Dlc := 8,
+						S_Extended := FALSE,
+						S_Sent_Ok =&gt; GVL.IOVD.S_SentOk_Olay_Durum_0X500);
+
+{endregion}
+//-----------------------------------------------------------------------------------------------------------------------------</xhtml>
+          </ST>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>83bf2b21-f3f1-4e3d-832f-943d00126548</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Folder Name="FD_POUS">
+          <Object Name="P_IOVD_A" ObjectId="83bf2b21-f3f1-4e3d-832f-943d00126548" />
+        </Folder>
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>
