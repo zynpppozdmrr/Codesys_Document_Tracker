@@ -1,70 +1,147 @@
 /* src/components/Auth/Auth.css */
+/* ---- Marka Paleti ----
+   Bordo  : #8B1E2B
+   Siyah  : #111827
+   Gri    : #6B7280
+*/
+
+:root {
+  --brand-primary: #8B1E2B;      /* Bordo */
+  --brand-dark:    #111827;      /* Siyah (slate-900) */
+  --brand-muted:   #6B7280;      /* Gri (slate-500) */
+  --brand-hover:   #761923;      /* Bordo koyu */
+}
+
 .login-container {
-  max-width: 400px;
-  margin: 50px auto; /* Ortalamak için */
-  padding: 30px;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  margin: 50px auto;
+  padding: 32px 28px 28px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.07);
   background-color: #fff;
 }
 
-.login-container h2 {
-  text-align: center;
-  color: #333;
-  margin-bottom: 25px;
+/* LOGO alanı */
+.login-brand {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150px;
+  margin-bottom: 6px;
+}
+.login-logo {
+  max-width: 380px;
+  height: 136px;
+  width: auto;
+  object-fit: contain;
+  display: block;
+  image-rendering: -webkit-optimize-contrast;
 }
 
-.login-form .form-group {
-  margin-bottom: 20px;
-  text-align: left;
+/* Estetik başlık + vurgu çizgisi (bordo / siyah) */
+.login-title {
+  text-align: center;
+  color: var(--brand-dark);
+  margin: 4px auto 6px;
+  line-height: 1.25;
+  font-size: 28px;
+  font-weight: 800;
+  letter-spacing: .2px;
+  max-width: 92%;
+  position: relative;
 }
+.login-title .accent {
+  color: var(--brand-primary);
+}
+.login-title::after {
+  content: "";
+  display: block;
+  width: min(260px, 80%);
+  height: 3px;
+  margin: 12px auto 12px;
+  background: linear-gradient(90deg, var(--brand-primary), var(--brand-dark));
+  border-radius: 9999px;
+  opacity: .9;
+}
+
+/* Alt başlık */
+.login-subtitle {
+  text-align: center;
+  color: var(--brand-muted);
+  margin: 0 0 18px;
+  font-size: 14.5px;
+}
+
+/* Form */
+.login-form .form-group { margin-bottom: 18px; text-align: left; }
 
 .login-form label {
   display: block;
   margin-bottom: 8px;
-  font-weight: bold;
-  color: #555;
+  font-weight: 600;
+  color: var(--brand-dark);
 }
 
 .login-form input[type="text"],
 .login-form input[type="password"] {
   width: 100%;
   padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box; /* Padding'in genişliğe dahil olmasını sağlar */
+  border: 1px solid #cfd3d7;
+  border-radius: 8px;
+  box-sizing: border-box;
   font-size: 16px;
+  outline: none;
+  transition: box-shadow .15s ease, border-color .15s ease;
+}
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: var(--brand-primary);
+  box-shadow: 0 0 0 3px rgba(139, 30, 43, 0.15); /* bordo glow */
 }
 
+/* Buton (Bordo) */
 .login-form button {
   width: 100%;
   padding: 12px;
-  background-color: #007bff;
-  color: white;
+  background-color: var(--brand-primary);
+  color: #fff;
   border: none;
-  border-radius: 4px;
+  border-radius: 8px;
   cursor: pointer;
-  font-size: 18px;
-  font-weight: bold;
-  transition: background-color 0.3s ease;
+  font-size: 17px;
+  font-weight: 700;
+  transition: background-color .25s ease, transform .05s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 14px rgba(139, 30, 43, 0.16);
 }
-
 .login-form button:hover:not(:disabled) {
-  background-color: #0056b3;
+  background-color: var(--brand-hover);
 }
-
+.login-form button:active:not(:disabled) {
+  transform: translateY(1px);
+}
 .login-form button:disabled {
-  background-color: #cccccc;
+  background-color: #cfd3d7;
+  box-shadow: none;
   cursor: not-allowed;
 }
 
+/* Hata mesajı */
 .error-message {
-  color: #dc3545;
-  background-color: #f8d7da;
-  border: 1px solid #f5c6cb;
+  color: #991b1b;
+  background-color: #fee2e2;
+  border: 1px solid #fecaca;
   padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 15px;
+  border-radius: 8px;
+  margin-bottom: 14px;
   text-align: center;
+}
+
+/* Küçük ekranlar */
+@media (max-width: 480px) {
+  .login-container { margin: 24px 12px; padding: 22px 16px; }
+  .login-brand { min-height: 120px; }
+  .login-logo { height: 108px; max-width: 320px; }
+  .login-title { font-size: 24px; }
+  .login-title::after { width: 70%; }
 }

@@ -1,50 +1,80 @@
-.dashboard-container {
-  padding: 2rem;
+.dashboard {
+  padding: 24px;
   max-width: 1100px;
-  margin: auto;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  color: #1e293b;
+  margin: 0 auto;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.06);
+  color: #1f2937; /* slate-800 */
+  line-height: 1.7;
+  font-size: 15.5px;
 }
 
-.dashboard-title {
-  font-size: 1.8rem;
-  font-weight: bold;
+/* Sadece başlıklar bold */
+.page-title strong,
+.section-title strong,
+.subsection-title strong {
+  font-weight: 700;
+}
+
+/* Genel metinler normal */
+.dashboard p,
+.dashboard li,
+.dashboard ol,
+.dashboard ul,
+.dashboard footer {
+  font-weight: 400;
+  color: #334155; /* slate-700 */
+}
+
+.page-title {
+  margin: 4px 0 14px;
+  font-size: 22px;
   text-align: center;
-  color: #0f172a;
-  margin-bottom: 1.5rem;
 }
 
-.dashboard-section {
-  margin-bottom: 2rem;
-  background-color: #f8fafc;
-  padding: 1.5rem;
-  border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+.section {
+  margin-top: 18px;
+  padding-top: 8px;
+  border-top: 1px solid #e5e7eb;
 }
 
-.dashboard-section h2 {
-  color: #1e293b;
-  margin-bottom: 1rem;
+.section-title {
+  margin: 8px 0 10px;
 }
 
-.dashboard-section ul,
-.dashboard-section ol {
-  padding-left: 1.5rem;
-  line-height: 1.8;
+.subsection {
+  margin: 10px 0;
 }
 
-.dashboard-section li {
-  margin-bottom: 0.7rem;
+.subsection-title {
+  margin: 6px 0 6px;
 }
 
+ul, ol {
+  margin: 6px 0 8px 18px;
+}
+
+li {
+  margin-bottom: 6px;
+}
+
+/* Footer */
 .dashboard-footer {
+  margin-top: 24px;
+  padding: 12px 0 6px;
   text-align: center;
-  font-size: 0.85rem;
-  margin-top: 3rem;
-  color: #64748b;
-  padding: 1rem;
-  border-top: 1px solid #e2e8f0;
-  background-color: #f1f5f9;
-  border-radius: 10px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
+  border-top: 1px solid #e5e7eb;
+  color: #64748b; /* slate-500 */
+  font-size: 0.9rem;
+}
+
+/* Küçük ekranlar */
+@media (max-width: 640px) {
+  .dashboard {
+    padding: 16px;
+  }
+  .page-title {
+    font-size: 20px;
+  }
 }

@@ -1,79 +1,126 @@
 import React from 'react';
 import './Dashboard.css';
 
-const Dashboard = () => {
+export default function Dashboard() {
   return (
-    <div className="dashboard-container">
-      <h1 className="dashboard-title"><br />Dokümantasyon ve Versiyon Takip Sistemi'ne Hoş Geldiniz</h1>
+    <div className="dashboard">
+      <h1 className="page-title">
+        <strong>Dokümantasyon ve Versiyon Takip Sistemi’ne Hoş Geldiniz</strong>
+      </h1>
 
-      <section className="dashboard-section">
-        <p>
-          Bu sistem, Bozankaya Teknoloji A.Ş. bünyesinde geliştirilen projelerde versiyonlanmış dosyaların farklarını takip etmek,
-          belgeleri yönetmek, not ve ilişkilerle açıklamak ve filtrelenmiş veri çıktıları üretmek amacıyla geliştirilmiştir.
-          <br />Amacımız, manuel ve zaman alıcı belge kontrol süreçlerini otomatize ederek mühendislik süreçlerini hızlandırmaktır.
-        </p>
-      </section>
+      <p>
+        Bu sistem, Bozankaya Teknoloji A.Ş. projelerinde versiyonlanmış dosyaların farklarını takip etmek, belgeleri
+        yönetmek, not ve ilişkilerle açıklamak ve filtrelenmiş veri çıktıları üretmek amacıyla geliştirilmiştir.
+        Amacımız, manuel ve zaman alıcı belge kontrol süreçlerini otomatize ederek mühendislik süreçlerini hızlandırmaktır.
+      </p>
 
-      <section className="dashboard-section">
-        <h2>🧩 Sistem Özellikleri</h2>
-        <p>Aşağıda sistemin temel modüllerine kısa bir genel bakış sunulmuştur:</p>
-        <ul>
-          <li><strong>🔍 Proje / Dosya Yönetimi</strong><br />
-            • Versiyonlanmış projelerinizi buradan yükleyebilirsiniz.<br />
-            • Dosya detay sayfasında: yüklenme tarihi, ID, karşılaştırmalar, notlar gibi tüm geçmişi izleyebilirsiniz.
-          </li>
-          <li><strong>🆚 Karşılaştırma Yap</strong><br />
-            • İki farklı XML dosyasını karşılaştırarak satır bazlı farkları gösterir.<br />
-            • Silinen satırlar kırmızı, eklenen satırlar yeşil olarak vurgulanır.<br />
-            • Karşılaştırma sonucu bir “rapor” olarak kaydedilir.<br />
-            • Her karşılaştırma raporu için açıklayıcı notlar ekleyebilirsiniz.
-          </li>
-          <li><strong>📊 Karşılaştırma Raporları</strong><br />
-            • Daha önce yapılmış tüm karşılaştırmalar burada listelenir.<br />
-            • Kullanıcı adı, karşılaştırma zamanı, karşılaştırma raporu içeriği ve hangi dosyalar olduğu gibi bilgiler yer alır.
-          </li>
-          <li><strong>📝 Notlar & İlişkiler</strong><br />
-            • Tüm notlar burada görüntülenir.<br />
-            • Değişiklik yapılan dosya üzerine yazılan not düzenlenebilir ve notlara ihtiyaç varsa “ilişkili sistemler, bağımlılıklar” gibi ilişkiler tanımlanabilir.<br />
-            • Not → Rapor → Dosya zinciriyle izlenebilir bir yapı kurulur.
-          </li>
-          <li><strong>🔎 Tablo Oluşturma / Filtreleme</strong><br />
-            • Belirli bir proje dosyasındaki sinyallerin detaylarını (ID, sinyal adı, offset, min/max, resolution vb.) görüntüleyebilir ve Excel olarak indirebilirsiniz.<br />
-            • Belirli sinyal isimlerini filtreleyerek yalnızca ilgili değerleri içeren tablo oluşturabilirsiniz.
-          </li>
-          <li><strong>👥 Kullanıcı Yönetimi (Yalnızca Admin için)</strong><br />
-            • Kullanıcıların yetkilerini düzenleyin.<br />
-            • Yeni kullanıcılar ekleyin, mevcut kullanıcıları güncelleyin.
-          </li>
-        </ul>
-      </section>
+      <div className="section">
+       
 
-      <section className="dashboard-section">
-        <h2>📂 Kullanım Senaryosu (Örnek Akış)</h2>
+        <div className="subsection">
+          <p className="subsection-title"><strong>Bilgilendirme / Proje Kodları</strong></p>
+          <p>Bu sayfa, şirketin kullandığı proje kısa adları ve kodlarının ne ifade ettiğini açıklar.</p>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Proje / Dosya Yönetimi</strong></p>
+          <ul>
+            <li>Versiyonlanmış projelerinizi buradan yükleyebilirsiniz.</li>
+            <li>Dosya detay sayfasında: yüklenme tarihi, ID, karşılaştırmalar, notlar gibi tüm geçmişi izleyebilirsiniz.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Projeye Kod Bloğu Ekleme & XML Birleştirme</strong></p>
+          <ul>
+            <li>Kullanıcı, kod bloğu eklemek istediği projeyi seçer ve birleştirme işlemini başlatır.</li>
+            <li>Var olan proje ile kod bloğunu birleştirip sonucu indirebilir.</li>
+            <li>İki farklı XML dosyasını tek bir dosyada birleştirip indirebilirsiniz.</li>
+            <li>İndirilen XML dosyası, Codesys’te “İçe Aktar (Import)” edilerek kullanılabilir.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Versiyonları Karşılaştırma</strong></p>
+          <ul>
+            <li>İki XML dosyası satır bazında karşılaştırılır.</li>
+            <li>Silinen satırlar kırmızı, eklenen satırlar yeşil olarak vurgulanır.</li>
+            <li>Karşılaştırma sonucu bir rapor olarak kaydedilir.</li>
+            <li>Her rapora açıklayıcı notlar eklenebilir.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Excel Karşılaştırma</strong></p>
+          <ul>
+            <li>Excel dosyalarını dosya seç veya sürükle-bırak ile yükleyin.</li>
+            <li>İki Excel tablosu arasındaki farklılıklar listelenir.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Karşılaştırma Raporları</strong></p>
+          <ul>
+            <li>Daha önce yapılmış tüm karşılaştırmalar burada listelenir.</li>
+            <li>Kullanıcı adı, zaman, rapor içeriği ve ilgili dosyalar gibi bilgiler görüntülenir.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Notlar & İlişkiler</strong></p>
+          <ul>
+            <li>Tüm notlar burada görüntülenir; notlara ilişkiler eklenip düzenlenebilir.</li>
+            <li>Notu yazan kişi, notun kimlere görünür olacağını seçebilir.</li>
+            <li>Admin, tüm notları görebilir/düzenleyebilir ve kullanıcı adına göre filtreleme yapabilir.</li>
+            <li>Not → Rapor → Dosya zinciriyle izlenebilir bir yapı kurulur.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Tablo Oluşturma / Filtreleme</strong></p>
+          <ul>
+            <li>Bir proje dosyasındaki sinyallerin (ID, sinyal adı, offset, min/max, resolution vb.) detaylarını görüntüleyip Excel olarak indirebilirsiniz.</li>
+            <li>Belirli sinyal isimlerini filtreleyerek yalnızca ilgili değerleri içeren tablo oluşturabilirsiniz.</li>
+          </ul>
+        </div>
+
+        <div className="subsection">
+          <p className="subsection-title"><strong>Kullanıcı Yönetimi (Yalnızca Admin)</strong></p>
+          <ul>
+            <li>Kullanıcı yetkilerini düzenleyin.</li>
+            <li>Yeni kullanıcı ekleyin, mevcut kullanıcıları güncelleyin.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div className="section">
+        <p className="section-title"><strong>Kullanım Senaryosu (Örnek Akış)</strong></p>
         <ol>
-          <li>Mühendis versiyon 1 dosyasını yükler.</li>
-          <li>Güncellenmiş versiyon 2 dosyasını yükler.</li>
-          <li>İki dosya karşılaştırılır, farklar analiz edilir.</li>
-          <li>Rapor üzerine açıklayıcı not eklenir: "Bu değişiklik XYZ gereksinimi nedeniyle yapılmıştır."</li>
-          <li>Not üzerine ilişki tanımlanır: "Bu değişiklik, test dokümanı ABC ile bağlantılıdır."</li>
-          <li>Filtreleme ekranından kod dosyası seçilir ve koddaki mesajların detayları excel formatında mühendise sunulur.</li>
-          <li>Ek olarak görmek istenilen belirli sinyal ismini filtreleyerek detaylarını tablo olarak görüntüleyebilir. </li>
+          <li>Versiyon 1 dosyasını yükleyin.</li>
+          <li>Güncellenmiş Versiyon 2 dosyasını yükleyin.</li>
+          <li>İki dosyayı karşılaştırın, farkları analiz edin.</li>
+          <li>Rapor üzerine açıklayıcı bir not ekleyin.</li>
+          <li>Not üzerine ilgili doküman ya da sistemle ilişki tanımlayın.</li>
+          <li>Filtreleme ekranından kod dosyasını seçin; mesajların detaylarını Excel olarak indirin.</li>
+          <li>Gerekirse belirli bir sinyal adını filtreleyip tablo olarak görüntüleyin.</li>
+          <li>İki farklı Excel dosyasını yükleyip farklılıklarını karşılaştırın.</li>
+          <li>Projenize kod bloğu ekleyip birleştirilmiş XML’i indirerek Codesys’e içe aktarın.</li>
         </ol>
-      </section>
+      </div>
 
-      <section className="dashboard-section">
-        <h2>🛡️ Güvenlik ve Takip</h2>
+      <div className="section">
+        <p className="section-title"><strong>Güvenlik ve Takip</strong></p>
         <ul>
-          <li>Tüm işlemler giriş yapan kullanıcı adıyla loglanır.</li>
-          <li>Veriler sadece yetkili kişiler tarafından erişilebilir durumdadır.</li>
+          <li>Tüm işlemler, giriş yapan kullanıcı ile ilişkilendirilir (loglanır).</li>
+          <li>Verilere yalnızca yetkili kullanıcılar erişebilir.</li>
+          <li>Oturum süresi bittiğinde yetkili alanlar gizlenir ve “Giriş Yap” yönlendirmesi yapılır.</li>
         </ul>
-      </section>
+      </div>
 
+      {/* ⬇️ Footer */}
       <footer className="dashboard-footer">
-        <p>🚀 Created by <strong>Zeynep Özdemir</strong> @2025 | All rights reserved.</p>
+        🚀 Created by Zeynep Özdemir @2025 | All rights reserved.
       </footer>
     </div>
   );
-};
-
-export default Dashboard;
+}

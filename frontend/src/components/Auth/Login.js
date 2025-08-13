@@ -13,9 +13,11 @@ function Login({ onLoginSuccess }) {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
+  // public klasöründen güvenli yol
+  const logoSrc = `${process.env.PUBLIC_URL || ''}/bozankaya-logo.png`;
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     setError('');
     setLoading(true);
 
@@ -24,34 +26,29 @@ function Login({ onLoginSuccess }) {
       formData.append('username', username);
       formData.append('password', password);
 
-      const response = await axios.post(
+      const res = await axios.post(
         'http://localhost:5000/api/auth/login',
         formData.toString(),
         { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }
       );
 
-      if (response.data?.success) {
-        // token & rol kaydet
-        if (response.data.token) localStorage.setItem('jwt_token', response.data.token);
-        if (response.data.role) localStorage.setItem('user_role', response.data.role);
-
-        // ✅ alert yerine toast
+      if (res.data?.success) {
+        if (res.data.token) localStorage.setItem('jwt_token', res.data.token);
+        if (res.data.role) localStorage.setItem('user_role', res.data.role);
         toast.success('Giriş başarılı!');
-        if (typeof onLoginSuccess === 'function') onLoginSuccess();
+        onLoginSuccess?.();
         navigate('/dashboard');
       } else {
-        const msg = response.data?.message || 'Giriş başarısız oldu.';
+        const msg = res.data?.message || 'Giriş başarısız oldu.';
         setError(msg);
         toast.error(msg);
       }
     } catch (err) {
       const status = err?.response?.status;
       const apiMsg = err?.response?.data?.message;
-
       let msg = apiMsg || 'Giriş sırasında bir hata oluştu.';
       if (status === 401) msg = 'Kullanıcı adı veya şifre hatalı.';
       if (status === 403) msg = 'Bu işlem için yetkiniz yok.';
-
       setError(msg);
       toast.error(msg);
       console.error('Giriş Hatası:', err);
@@ -62,7 +59,22 @@ function Login({ onLoginSuccess }) {
 
   return (
     <div className="login-container">
-      <h2>Giriş Yap</h2>
+      {/* LOGO */}
+      <div className="login-brand">
+        <img
+          src={logoSrc}
+          alt="Bozankaya Teknoloji"
+          className="login-logo"
+          onError={(e) => { e.currentTarget.style.display = 'none'; }}
+        />
+      </div>
+
+      {/* Estetik başlık */}
+      <h2 className="login-title">
+        Dokümantasyon ve <span className="accent">Versiyon Takip Sistemi</span>
+      </h2>
+      <p className="login-subtitle">Lütfen hesabınızla giriş yapın</p>
+
       <form onSubmit={handleSubmit} className="login-form">
         {error && <p className="error-message">{error}</p>}
 

@@ -176,7 +176,7 @@ function XMLMergePage() {
 
       <div className="action-buttons">
         <button onClick={handleMerge} disabled={loading || !selectedFileId || !codeBlock}>
-          {loading ? 'Birleştiriliyor...' : 'XML Birleştir'}
+          {loading ? 'Birleştiriliyor...' : 'Birleştir'}
         </button>
         <button onClick={handleDownload} disabled={!mergedContent}>
           Birleştirilmiş Dosyayı İndir
