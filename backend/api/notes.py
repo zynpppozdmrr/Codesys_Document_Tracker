@@ -9,6 +9,7 @@ from codesys_doc_tracker.models.user_model import User
 from codesys_doc_tracker.models.diff_model import Diff
 from codesys_doc_tracker.models.note_model import Note
 from codesys_doc_tracker.models.note_visibility_model import NoteVisibility
+from codesys_doc_tracker.models.notification_model import Notification
 
 apiNotes = Blueprint("apiNotes", __name__, url_prefix="/api/notes")
 CORS(apiNotes)  # bu blueprint altındaki tüm rotalara CORS uygula
@@ -68,6 +69,7 @@ def add_note():
     unique_ids = {uid for uid in visible_user_ids if isinstance(uid, int) and uid != user.id}
     for uid in unique_ids:
         db.session.add(NoteVisibility(note_id=note.id, user_id=uid))
+    Notification.bulk_create_for_note(note, list(unique_ids), actor_id=user.id)
     db.session.commit()
 
     return jsonify({"success": True, "data": note.to_dict()}), 200

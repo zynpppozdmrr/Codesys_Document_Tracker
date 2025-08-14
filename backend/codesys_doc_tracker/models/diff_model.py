@@ -1,4 +1,3 @@
-# codesys_doc_tracker/models/diff_model.py
 from datetime import datetime
 from codesys_doc_tracker import db
 import os

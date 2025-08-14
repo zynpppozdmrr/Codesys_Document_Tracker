@@ -66,8 +66,6 @@ class User(db.Model):
 
     @classmethod
     def delete_user(cls, user_id):
-        """ NOT: Şu an silme işlemi users.py içinde yapılırken
-            görünürlük kayıtları da temizleniyor. Bu method minimum görev yapar. """
         user = cls.query.get(user_id)
         if not user:
             return False

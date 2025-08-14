@@ -7,6 +7,9 @@ from codesys_doc_tracker.models.note_model import Note
 from codesys_doc_tracker.models.relation_model import Relation
 from codesys_doc_tracker.models.excel_model import ExcelFile
 from codesys_doc_tracker.models.note_visibility_model import NoteVisibility
+from codesys_doc_tracker.models.glossary_model import Glossary
+from codesys_doc_tracker.models.notification_model import Notification
+
 def createDB():
     app = createApp()
     with app.app_context():

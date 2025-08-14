@@ -1,0 +1,14 @@
+                   <connectionPointOut>
+                     <expression />
+                   </connectionPointOut>
+-                  <expression>S_Bwd_Lft_Chrg_Btn</expression>
++                  <expression />
+                 </inVariable>
+                 <connector localId="2" name="">
+                   <position x="-1" y="-5" />
+                   <connectionPointIn>
+-                    <connection refLocalId="3" formalParameter="S_Bwd_Lft_Chrg_Btn" />
++                    <connection refLocalId="3" formalParameter="" />
+                   </connectionPointIn>
+                 </connector>
+                 <connector localId="4" name="">

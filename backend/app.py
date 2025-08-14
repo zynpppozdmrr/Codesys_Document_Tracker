@@ -15,9 +15,9 @@ from api.relations import apiRelations
 from api.filters import apiFilters
 from api.excelDiff import apiExcelDiff
 from api.xmlMerge import apiXMLMerge
+from api.glossary import apiGlossary
+from api.notifications import apiNotifications
 
-
-# Diğer blueprintler ileride buraya eklenecek
 
 
 # APP AND DB CREATION ---------------------------------------------------------
@@ -38,6 +38,8 @@ app.register_blueprint(apiRelations)
 app.register_blueprint(apiFilters)
 app.register_blueprint(apiExcelDiff)
 app.register_blueprint(apiXMLMerge)
+app.register_blueprint(apiGlossary)
+app.register_blueprint(apiNotifications)
 
 
 # Ana test endpoint'i

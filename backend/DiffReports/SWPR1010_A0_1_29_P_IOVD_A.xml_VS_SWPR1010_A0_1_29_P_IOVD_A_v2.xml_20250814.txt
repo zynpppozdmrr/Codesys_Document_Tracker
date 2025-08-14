@@ -1,0 +1,12 @@
+ - initial version
+ *********************************************************************
+ *)
++
++//-------SIGNAL -> S_ESS_Mn_Ct Max: 1 Min: 0 Def: 0 Resolution: 1 Offset: 0
++GVL.IOVD.S_ESS_Mn_Ct.v					:= GVL.SY.S_ECU_Rdy AND NOT GVL.IOVD.S_ESS_Mn_Ct.e AND NOT GVL.IOVD.S_ESS_Mn_Ct.na;
++GVL.IOVD.S_ESS_Mn_Ct.x					:= GVL.IIME.S_Mn_Ct.x;
++GVL.IOVD.S_ESS_Mn_Ct.e					:= GVL.IIME.S_Mn_Ct.e;
++GVL.IOVD.S_ESS_Mn_Ct.na					:= GVL.IIME.S_Mn_Ct.na;
+ //-----------------------------------------------------------------------------------------------------------------------------
+ //MESSAGE------
+ {region " User Area : ECU_Haberlesme- ID:400"}

@@ -1,0 +1,487 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0200">
+  <fileHeader companyName="" productName="CODESYS" productVersion="CODESYS V3.5 SP16 Patch 6" creationDateTime="2025-08-14T16:13:59.8284618" />
+  <contentHeader name="SWPR1010_A1_0_FBD.project" modificationDateTime="1601-01-01T02:00:00">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="1" y="1" />
+      </fbd>
+      <ld>
+        <scaling x="1" y="1" />
+      </ld>
+      <sfc>
+        <scaling x="1" y="1" />
+      </sfc>
+    </coordinateInfo>
+    <addData>
+      <data name="http://www.3s-software.com/plcopenxml/projectinformation" handleUnknown="implementation">
+        <ProjectInformation>
+          <property name="CompiledLibraryCompatibilityVersion" type="string">CODESYS V3.5 SP16 Patch 6</property>
+          <property name="Project" type="string">SWPR1010_A1_0_FBD</property>
+        </ProjectInformation>
+      </data>
+    </addData>
+  </contentHeader>
+  <types>
+    <dataTypes />
+    <pous>
+      <pou name="_FB_MC_Chk_Chrg_Btn" pouType="functionBlock">
+        <interface>
+          <inputVars>
+            <variable name="S_Bwd_Lft_Chrg_Btn">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="S_Stop_Lft_Chrg">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </inputVars>
+          <outputVars>
+            <variable name="S_Chrg_Btn">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+          </outputVars>
+          <localVars>
+            <variable name="S_AC_Chrg_On_Btn">
+              <type>
+                <BOOL />
+              </type>
+            </variable>
+            <variable name="R_TRIG_0">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+            </variable>
+            <variable name="TON_0">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="RS_0">
+              <type>
+                <derived name="RS" />
+              </type>
+            </variable>
+            <variable name="TON_1">
+              <type>
+                <derived name="TON" />
+              </type>
+            </variable>
+            <variable name="R_TRIG_1">
+              <type>
+                <derived name="R_TRIG" />
+              </type>
+            </variable>
+          </localVars>
+          <documentation>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml">
+	Created by		: Serdar Temeltasi,
+ 	Date created	: 06.03.2025
+	
+	Description		: Checks whether charge button is pressed
+	
+</xhtml>
+          </documentation>
+        </interface>
+        <body>
+          <ST>
+            <xhtml xmlns="http://www.w3.org/1999/xhtml" />
+          </ST>
+          <addData>
+            <data name="http://www.3s-software.com/plcopenxml/cfc" handleUnknown="implementation">
+              <CFC>
+                <inVariable localId="0">
+                  <position x="8" y="10" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression>T#3s</expression>
+                </inVariable>
+                <inVariable localId="3">
+                  <position x="2" y="9" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression />
+                </inVariable>
+                <connector localId="2" name="">
+                  <position x="-1" y="-5" />
+                  <connectionPointIn>
+                    <connection refLocalId="3" formalParameter="" />
+                  </connectionPointIn>
+                </connector>
+                <connector localId="4" name="">
+                  <position x="-1" y="-5" />
+                  <connectionPointIn>
+                    <connection refLocalId="0" formalParameter="T#3s" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="1" executionOrderId="1" typeName="TON" instanceName="TON_0">
+                  <position x="14" y="7" />
+                  <inputVariables>
+                    <variable formalParameter="IN">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="2" />
+                      </connectionPointIn>
+                    </variable>
+                    <variable formalParameter="PT">
+                      <connectionPointIn>
+                        <relPosition x="0" y="1" />
+                        <connection refLocalId="4" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Q">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                    <variable formalParameter="ET">
+                      <connectionPointOut>
+                        <relPosition x="0" y="1" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">functionblock</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="6" name="">
+                  <position x="-1" y="-5" />
+                  <connectionPointIn>
+                    <connection refLocalId="1" formalParameter="Q" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="5" executionOrderId="2" typeName="R_TRIG" instanceName="R_TRIG_0">
+                  <position x="22" y="7" />
+                  <inputVariables>
+                    <variable formalParameter="CLK">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="6" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Q">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">functionblock</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <comment localId="7" height="0" width="0">
+                  <position x="2" y="4" />
+                  <content>
+                    <xhtml xmlns="http://www.w3.org/1999/xhtml">PR1006_SRS_001079_TIMTRO</xhtml>
+                  </content>
+                </comment>
+                <connector localId="11" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="5" formalParameter="Q" />
+                  </connectionPointIn>
+                </connector>
+                <inVariable localId="21">
+                  <position x="2" y="15" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression>S_AC_Chrg_On_Btn</expression>
+                </inVariable>
+                <connector localId="20" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="21" formalParameter="S_AC_Chrg_On_Btn" />
+                  </connectionPointIn>
+                </connector>
+                <inVariable localId="23">
+                  <position x="2" y="16" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression>S_Bwd_Lft_Chrg_Btn</expression>
+                </inVariable>
+                <connector localId="22" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="23" formalParameter="S_Bwd_Lft_Chrg_Btn" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="19" executionOrderId="7" typeName="AND">
+                  <position x="14" y="13" />
+                  <inputVariables>
+                    <variable formalParameter="In1">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="20" />
+                      </connectionPointIn>
+                    </variable>
+                    <variable formalParameter="In2">
+                      <connectionPointIn>
+                        <relPosition x="0" y="1" />
+                        <connection refLocalId="22" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Out1">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">operator</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="18" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="19" formalParameter="" />
+                  </connectionPointIn>
+                </connector>
+                <inVariable localId="25">
+                  <position x="14" y="18" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression>T#3s</expression>
+                </inVariable>
+                <connector localId="24" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="25" formalParameter="T#3s" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="17" executionOrderId="9" typeName="TON" instanceName="TON_1">
+                  <position x="22" y="13" />
+                  <inputVariables>
+                    <variable formalParameter="IN">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="18" />
+                      </connectionPointIn>
+                    </variable>
+                    <variable formalParameter="PT">
+                      <connectionPointIn>
+                        <relPosition x="0" y="1" />
+                        <connection refLocalId="24" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Q">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                    <variable formalParameter="ET">
+                      <connectionPointOut>
+                        <relPosition x="0" y="1" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">functionblock</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="16" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="17" formalParameter="Q" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="15" executionOrderId="8" typeName="R_TRIG" instanceName="R_TRIG_1">
+                  <position x="30" y="13" />
+                  <inputVariables>
+                    <variable formalParameter="CLK">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="16" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Q">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">functionblock</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="14" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="15" formalParameter="Q" />
+                  </connectionPointIn>
+                </connector>
+                <inVariable localId="27">
+                  <position x="30" y="18" />
+                  <connectionPointOut>
+                    <expression />
+                  </connectionPointOut>
+                  <expression>S_Stop_Lft_Chrg</expression>
+                </inVariable>
+                <connector localId="26" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="27" formalParameter="S_Stop_Lft_Chrg" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="13" executionOrderId="5" typeName="OR">
+                  <position x="41" y="13" />
+                  <inputVariables>
+                    <variable formalParameter="In1">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="14" />
+                      </connectionPointIn>
+                    </variable>
+                    <variable formalParameter="In2">
+                      <connectionPointIn>
+                        <relPosition x="0" y="1" />
+                        <connection refLocalId="26" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Out1">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">operator</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="12" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="13" formalParameter="" />
+                  </connectionPointIn>
+                </connector>
+                <block localId="10" executionOrderId="6" typeName="RS" instanceName="RS_0">
+                  <position x="48" y="7" />
+                  <inputVariables>
+                    <variable formalParameter="SET">
+                      <connectionPointIn>
+                        <relPosition x="0" y="0" />
+                        <connection refLocalId="11" />
+                      </connectionPointIn>
+                    </variable>
+                    <variable formalParameter="RESET1">
+                      <connectionPointIn>
+                        <relPosition x="0" y="1" />
+                        <connection refLocalId="12" />
+                      </connectionPointIn>
+                    </variable>
+                  </inputVariables>
+                  <inOutVariables />
+                  <outputVariables>
+                    <variable formalParameter="Q1">
+                      <connectionPointOut>
+                        <relPosition x="0" y="0" />
+                        <expression />
+                      </connectionPointOut>
+                    </variable>
+                  </outputVariables>
+                  <addData>
+                    <data name="http://www.3s-software.com/plcopenxml/cfccalltype" handleUnknown="implementation">
+                      <CallType xmlns="">functionblock</CallType>
+                    </data>
+                  </addData>
+                </block>
+                <connector localId="9" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="10" formalParameter="Q1" />
+                  </connectionPointIn>
+                </connector>
+                <outVariable localId="8" executionOrderId="3">
+                  <position x="59" y="9" />
+                  <connectionPointIn>
+                    <relPosition x="0" y="0" />
+                    <connection refLocalId="9" />
+                  </connectionPointIn>
+                  <expression>S_AC_Chrg_On_Btn</expression>
+                </outVariable>
+                <connector localId="29" name="">
+                  <position x="0" y="0" />
+                  <connectionPointIn>
+                    <connection refLocalId="10" formalParameter="Q1" />
+                  </connectionPointIn>
+                </connector>
+                <outVariable localId="28" executionOrderId="4">
+                  <position x="59" y="8" />
+                  <connectionPointIn>
+                    <relPosition x="0" y="0" />
+                    <connection refLocalId="29" />
+                  </connectionPointIn>
+                  <expression>S_Chrg_Btn</expression>
+                </outVariable>
+              </CFC>
+            </data>
+          </addData>
+        </body>
+        <addData>
+          <data name="http://www.3s-software.com/plcopenxml/objectid" handleUnknown="discard">
+            <ObjectId>6c56e3a8-0b55-4abd-80da-1da8ed71b0a7</ObjectId>
+          </data>
+        </addData>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations />
+  </instances>
+  <addData>
+    <data name="http://www.3s-software.com/plcopenxml/projectstructure" handleUnknown="discard">
+      <ProjectStructure>
+        <Folder Name="FD_Library_Application">
+          <Object Name="_FB_MC_Chk_Chrg_Btn" ObjectId="6c56e3a8-0b55-4abd-80da-1da8ed71b0a7" />
+        </Folder>
+      </ProjectStructure>
+    </data>
+  </addData>
+</project>
